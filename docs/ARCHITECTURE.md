@@ -4,7 +4,7 @@
 
 | Layer | Choice | Notes |
 |---|---|---|
-| Web app | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 | Mobile-first, installable PWA. `proxy.ts` replaces `middleware.ts` in Next 16. |
+| Web app | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 | Mobile-first, installable PWA. `proxy.ts` replaces `middleware.ts` in Next 16. Cache Components is off: app pages are per-user and rendered on request. |
 | Auth | Supabase Auth | Email magic link, Google, Microsoft, LinkedIn (OIDC, sign-in only). |
 | Database | Supabase Postgres with row-level security | Every user-owned table has `user_id` and RLS `user_id = auth.uid()`. |
 | File storage | Supabase Storage (private buckets) | CV versions, uploaded exports, screenshots. |
