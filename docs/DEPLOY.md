@@ -27,9 +27,11 @@ pbm-app ──> Supabase (managed Postgres + Auth), OpenRouter (Claude models)
    browser terminal: `docker login ghcr.io -u <github-username>` with a token that has only
    `read:packages`.
 3. **Edge project:** update project `edge` with `deploy/edge.compose.yml` (adds the `web` network
-   and the c7xai.in site). The `hanumat` service is unchanged. Do this in hPanel → Docker Manager
-   by pasting the file: Hostinger's API rejects this file (403), most likely because of the shell
-   commands in the `hanumat` service.
+   and the c7xai.in site). The `hanumat` service is unchanged. Hostinger's API rejects this file
+   sent inline (403, most likely because of the shell commands in the `hanumat` service), so pass
+   it as a commit-pinned raw GitHub URL (needs the repo public) or paste it in hPanel → Docker
+   Manager. Done on 2026-10-11 from commit `bd10d4b`. Any recreate of the `hanumat` container
+   re-downloads about 3 GB of site archives: hanumat.life returned 502 for about 7 minutes.
 4. **App project:** create project `pbm` from `deploy/app.compose.yml` and set its environment
    variables in Docker Manager (never commit them):
    `APP_URL=https://c7xai.in`, `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`,
