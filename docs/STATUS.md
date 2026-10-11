@@ -11,14 +11,17 @@
 - Engage: paste a post → 3 comment options, checked
 - Wins bank: browse and delete
 - AI usage recorded per user (`ai_usage`)
-- Checks: lint, typecheck, 29 unit tests, production build
+- Checks: lint, typecheck, 33 unit tests, production build
 
 ## Needed to run end to end
 
-- Supabase project (apply `supabase/migrations/`, set auth redirect URL to `<APP_URL>/auth/callback`)
-- Deployment plan for the Hostinger VPS and c7xai.in: see `docs/DEPLOY.md`
-- Anthropic API key
-- Hosting for the Next.js app
+See `docs/DEPLOY.md`. Done: Supabase project in Mumbai with the schema applied and checked
+(security advisor clean apart from the intentional service-role-only `ai_usage`); VPS firewall.
+Open:
+- Supabase auth URL configuration (Site URL and redirect URL)
+- One-time `docker login ghcr.io` on the VPS, and the `edge` update pasted in hPanel
+- `pbm` project on the VPS, with `ANTHROPIC_API_KEY` added in Docker Manager
+- Custom SMTP for sign-in emails before inviting beta users
 
 ## Next milestones
 

@@ -17,19 +17,24 @@ pbm-app ──> Supabase (managed Postgres + Auth), Claude API
 
 ## One-time setup
 
-1. **Supabase:** create a project (region: Mumbai / ap-south-1), apply `supabase/migrations/`, then in
-   Authentication → URL configuration set Site URL `https://c7xai.in` and add redirect URL
-   `https://c7xai.in/auth/callback`. Enable the Google, Azure (Microsoft) and LinkedIn (OIDC)
-   providers when ready.
+1. **Supabase (done):** project `personalbrandmanager` (ref `xvjlpqkfhtyzbceyvpkc`, ap-south-1,
+   free plan), URL `https://xvjlpqkfhtyzbceyvpkc.supabase.co`. All of `supabase/migrations/` is
+   applied. Still to do in the dashboard: Authentication → URL configuration, set Site URL
+   `https://c7xai.in` and add redirect URL `https://c7xai.in/auth/callback`. Enable the Google,
+   Azure (Microsoft) and LinkedIn (OIDC) providers when ready. Supabase's built-in email sender
+   only delivers to members of the Supabase team, so set up custom SMTP before inviting beta users.
 2. **Image access on the VPS:** either make the GHCR package public, or run once in the hPanel
    browser terminal: `docker login ghcr.io -u <github-username>` with a token that has only
    `read:packages`.
 3. **Edge project:** update project `edge` with `deploy/edge.compose.yml` (adds the `web` network
-   and the c7xai.in site). The `hanumat` service is unchanged.
+   and the c7xai.in site). The `hanumat` service is unchanged. Do this in hPanel → Docker Manager
+   by pasting the file: Hostinger's API rejects this file (403), most likely because of the shell
+   commands in the `hanumat` service.
 4. **App project:** create project `pbm` from `deploy/app.compose.yml` and set its environment
    variables in Docker Manager (never commit them):
    `APP_URL=https://c7xai.in`, `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`,
-   `ANTHROPIC_API_KEY`, `CRON_SECRET`.
+   `ANTHROPIC_API_KEY`, `CRON_SECRET`. Empty values count as unset, so the app starts without
+   the optional ones (AI features need `ANTHROPIC_API_KEY`).
 
 ## Releasing
 
