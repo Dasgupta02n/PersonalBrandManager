@@ -8,7 +8,7 @@ export function friendlyAiError(error: unknown): string {
   if (error instanceof AiOutputError) {
     return "The AI response came back incomplete. Please try again.";
   }
-  if (error instanceof Error && error.message.includes("ANTHROPIC_API_KEY")) {
+  if (error instanceof Error && error.message.includes("OPENROUTER_API_KEY")) {
     return "AI isn't configured yet (missing API key).";
   }
   console.error("AI step failed:", error);

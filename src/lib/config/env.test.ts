@@ -11,9 +11,9 @@ const required = {
 
 describe("parseServerEnv", () => {
   it("treats empty optional values as unset", () => {
-    const env = parseServerEnv({ ...required, SUPABASE_SECRET_KEY: "", ANTHROPIC_API_KEY: "", CRON_SECRET: "" });
+    const env = parseServerEnv({ ...required, SUPABASE_SECRET_KEY: "", OPENROUTER_API_KEY: "", CRON_SECRET: "" });
     expect(env.SUPABASE_SECRET_KEY).toBeUndefined();
-    expect(env.ANTHROPIC_API_KEY).toBeUndefined();
+    expect(env.OPENROUTER_API_KEY).toBeUndefined();
     expect(env.CRON_SECRET).toBeUndefined();
   });
 

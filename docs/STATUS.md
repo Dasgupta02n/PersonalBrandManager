@@ -10,8 +10,8 @@
   clichés) with one automatic fix → edit, copy, open LinkedIn, mark as posted
 - Engage: paste a post → 3 comment options, checked
 - Wins bank: browse and delete
-- AI usage recorded per user (`ai_usage`)
-- Checks: lint, typecheck, 33 unit tests, production build
+- AI usage recorded per user (`ai_usage`): model, host, tokens and cost of every call
+- Checks: lint, typecheck, 41 unit tests, production build
 
 ## Needed to run end to end
 
@@ -19,8 +19,8 @@ See `docs/DEPLOY.md`. Done: Supabase project in Mumbai with the schema applied a
 (security advisor clean apart from the intentional service-role-only `ai_usage`); VPS firewall.
 Open:
 - Supabase auth URL configuration (Site URL and redirect URL)
-- One-time `docker login ghcr.io` on the VPS, and the `edge` update pasted in hPanel
-- `pbm` project on the VPS, with `ANTHROPIC_API_KEY` added in Docker Manager
+- Image access on the VPS (public GHCR package, or a one-time `docker login ghcr.io`) and the `edge` update
+- `pbm` project on the VPS, with `OPENROUTER_API_KEY` added in Docker Manager
 - Custom SMTP for sign-in emails before inviting beta users
 
 ## Next milestones

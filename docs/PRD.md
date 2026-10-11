@@ -159,5 +159,5 @@ Target values are set before the beta cohort starts.
 - Product name and brand.
 - Legal entity and billing provider (Stripe vs Paddle; Razorpay for India).
 - Pricing tiers.
-- Default AI models per task (all tasks default to Claude Opus 5.5; cheaper models can be set
-  per task to reduce cost).
+- Default AI models per task (all functions use Claude Opus 5.5 via OpenRouter; cheaper models
+  can be set per function to reduce cost).

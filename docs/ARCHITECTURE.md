@@ -8,7 +8,7 @@
 | Auth | Supabase Auth | Email magic link, Google, Microsoft, LinkedIn (OIDC, sign-in only). |
 | Database | Supabase Postgres with row-level security | Every user-owned table has `user_id` and RLS `user_id = auth.uid()`. |
 | File storage | Supabase Storage (private buckets) | CV versions, uploaded exports, screenshots. |
-| AI | Claude API via `@anthropic-ai/sdk` | Task-based model config, structured outputs, server-side refusal fallback. |
+| AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. |
 | Scheduling | `/api/cron/tick` every 15 minutes (Supabase `pg_cron` + `pg_net`, or any external cron) | Finds users whose local prompt time falls in the window; enqueues work. |
 | Messaging | WhatsApp Business Platform (Meta Cloud API), email (inbound + outbound), web push | Channel adapters behind one interface. |
 | Payments | Stripe or Paddle; Razorpay for India | Not in the first slice. |
@@ -22,7 +22,7 @@ src/
   lib/
     config/            Environment parsing, app constants
     supabase/          Server and browser clients, proxy session refresh
-    ai/                Claude client, task/model config, prompts, AI tasks
+    ai/                AI client (OpenRouter), model per function, prompts, AI tasks
     guardrails/        Deterministic checks (confidentiality, clichés, job-search signals)
     schedule/          Time-zone prompt windows, streaks
     domain/            Shared types
@@ -48,25 +48,43 @@ docs/                  PRD, architecture, decisions
 | `reach_snapshots` | Reach numbers read from screenshots (or API later) |
 | `scorecards` | Weekly scorecard snapshots |
 | `watch_list` | People the user wants to engage with |
-| `ai_usage` | Tokens per task per user, for cost tracking (service role only) |
+| `ai_usage` | Model, host, tokens and cost of every AI call, per user (service role only) |
 
 ## AI tasks
 
-All calls go through `src/lib/ai/client.ts`. Each task has a model setting; every task defaults to
-`claude-opus-5-5` and can be overridden per task with `AI_MODEL_<TASK>` (for example
-`AI_MODEL_EXTRACT_WINS=claude-haiku-5-5`) to trade quality for cost.
+All calls go through `src/lib/ai/client.ts`, which uses the Anthropic SDK pointed at OpenRouter's
+Anthropic-compatible API (`https://openrouter.ai/api`, key in `OPENROUTER_API_KEY`).
 
-| Task | Input | Output (structured) |
-|---|---|---|
-| `extract_wins` | Journal text, pillars | Wins: summary, impact, metric, skills, pillar, confidentiality flags, follow-up question |
-| `post_ideas` | Recent wins, pillars, voice, optional news | 2–3 ideas: angle, hook, source win ids |
-| `draft_post` | Idea, source wins, voice, confidentiality rules | Hook, body, closing question, hashtags |
-| `check_draft` | Draft, allowed facts, confidentiality rules | Pass/fail per check, problems, revised text |
-| `draft_comments` | Post text, voice, pillars | 2–3 comment options |
+Every function, live or planned, has its model and effort set in `src/lib/ai/models.ts`. Each is
+pinned to one model: OpenRouter never swaps in another model and no model fallbacks are sent.
+Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for example
+`AI_MODEL_EXTRACT_WINS=anthropic/claude-haiku-5.5`).
 
-Request defaults: structured outputs via `betaZodOutputFormat`, adaptive thinking (model default),
-explicit `effort`, server-side refusal fallback (`fallbacks: "default"`), and `refusal` stop reason
-handling. Every call records token usage in `ai_usage`.
+| Function | Status | Model | Effort | Output (structured) |
+|---|---|---|---|---|
+| `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, skills, pillar, confidentiality flag; follow-up question |
+| `post_ideas` | live | Claude Opus 5.5 | medium | 2–3 ideas: angle, hook, source win ids |
+| `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, hashtags |
+| `check_draft` | live | Claude Opus 5.5 | high | Pass/fail per check, problems, revised text |
+| `draft_comments` | live | Claude Opus 5.5 | medium | 2–3 comment options |
+| `draft_reply` | planned | Claude Opus 5.5 | medium | Reply options for comments on the user's posts |
+| `read_post_screenshot` | planned | Claude Opus 5.5 | low | Post text and author from a screenshot |
+| `import_profile` | planned | Claude Opus 5.5 | medium | Positions, skills, past posts from a LinkedIn PDF or export |
+| `import_cv` | planned | Claude Opus 5.5 | medium | Facts from an uploaded CV |
+| `voice_profile` | planned | Claude Opus 5.5 | high | Writing-style summary and traits |
+| `profile_suggestions` | planned | Claude Opus 5.5 | high | Proposed headline, About, experience, skills, featured |
+| `cv_update` | planned | Claude Opus 5.5 | high | New CV content and change summary |
+| `read_reach_screenshot` | planned | Claude Opus 5.5 | low | Reach numbers from an analytics screenshot |
+| `weekly_summary` | planned | Claude Opus 5.5 | medium | Sunday summary for the scorecard |
+
+Voice-note transcription (daily capture) needs a speech-to-text model; it is chosen when that
+feature is built.
+
+Request defaults: structured outputs (`output_config.format` from the Zod schema), explicit
+`effort`, a cached system prompt, and `provider: { zdr: true, require_parameters: true }` so
+OpenRouter only uses hosts with zero data retention that support structured outputs (today:
+Google Vertex). The stop reason is checked before parsing (`refusal`, `max_tokens`). Every call
+records the serving model, host, tokens and cost in `ai_usage`.
 
 ## Guardrails pipeline
 

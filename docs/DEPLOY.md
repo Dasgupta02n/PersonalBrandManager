@@ -6,7 +6,7 @@
 Internet ──HTTPS──> edge-caddy (project "edge", ports 80/443)
                       ├── hanumat.life ──> hanumat (nginx, unchanged)
                       └── c7xai.in     ──> pbm-app:3000 (project "pbm", network "web")
-pbm-app ──> Supabase (managed Postgres + Auth), Claude API
+pbm-app ──> Supabase (managed Postgres + Auth), OpenRouter (Claude models)
 ```
 
 - VPS: Hostinger KVM 1 (id 1835400), Ubuntu 24.04 with Docker, Mumbai.
@@ -33,8 +33,9 @@ pbm-app ──> Supabase (managed Postgres + Auth), Claude API
 4. **App project:** create project `pbm` from `deploy/app.compose.yml` and set its environment
    variables in Docker Manager (never commit them):
    `APP_URL=https://c7xai.in`, `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`,
-   `ANTHROPIC_API_KEY`, `CRON_SECRET`. Empty values count as unset, so the app starts without
-   the optional ones (AI features need `ANTHROPIC_API_KEY`).
+   `OPENROUTER_API_KEY`, `CRON_SECRET`. Empty values count as unset, so the app starts without
+   the optional ones (AI features need `OPENROUTER_API_KEY`). Give the OpenRouter key a credit
+   limit in OpenRouter's key settings.
 
 ## Releasing
 

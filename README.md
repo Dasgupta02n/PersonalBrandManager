@@ -11,7 +11,7 @@ never posts, comments or edits LinkedIn on its own.
 ## Local setup
 
 ```bash
-cp .env.example .env.local   # fill in Supabase and Anthropic keys
+cp .env.example .env.local   # fill in Supabase and OpenRouter keys
 npm install
 npm run dev
 ```
