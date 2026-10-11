@@ -1,23 +1,31 @@
 import "server-only";
-import type { UserContext, Win } from "@/lib/domain/types";
+import type { PostFormat, UserContext, Win, WinKind } from "@/lib/domain/types";
 import { checkText, type GuardrailIssue } from "@/lib/guardrails/check";
 import { runStructured, type UsageRecorder } from "./client";
 import {
   CHECK_DRAFT_SYSTEM,
-  DRAFT_COMMENTS_SYSTEM,
+  COMMENT_STARTERS_SYSTEM,
   DRAFT_POST_SYSTEM,
   EXTRACT_WINS_SYSTEM,
+  HOW_IT_READS_SYSTEM,
   POST_IDEAS_SYSTEM,
+  REVISE_INSTRUCTIONS,
+  REVISE_POST_SYSTEM,
   formatUserContext,
   formatWins,
+  type RevisionMode,
 } from "./prompts";
 import {
-  CommentOptionsSchema,
+  CommentStartersSchema,
   DraftCheckSchema,
   ExtractedWinsSchema,
+  HowItReadsSchema,
   PostDraftSchema,
   PostIdeasSchema,
+  RevisionSchema,
 } from "./schemas";
+
+export type { RevisionMode } from "./prompts";
 
 export interface NewWin {
   summary: string;
@@ -26,6 +34,7 @@ export interface NewWin {
   skills: string[];
   pillarId: string | null;
   confidential: boolean;
+  kind: WinKind;
 }
 
 /** Splits a daily note into structured wins and an optional follow-up question. */
@@ -57,26 +66,32 @@ ${input.text}
       skills: w.skills.map((s) => s.trim()).filter(Boolean).slice(0, 4),
       pillarId: w.pillar ? (pillarByName.get(w.pillar.toLowerCase()) ?? null) : null,
       confidential: w.confidential,
+      kind: w.kind,
     }));
 
   return { wins, followUpQuestion: result.follow_up_question?.trim() || null };
 }
 
 export interface PostIdea {
+  format: PostFormat;
   angle: string;
   hook: string;
   sourceWinIds: string[];
 }
 
-/** Suggests post ideas grounded in the given wins. Ideas citing unknown wins are dropped. */
+/** Suggests post ideas grounded in the given wins, best first. Ideas citing unknown wins are dropped. */
 export async function generatePostIdeas(input: {
   wins: Win[];
   ctx: UserContext;
   count?: number;
+  avoidAngles?: string[];
   onUsage?: UsageRecorder;
 }): Promise<PostIdea[]> {
   if (!input.wins.length) return [];
   const count = input.count ?? 3;
+  const avoid = input.avoidAngles?.length
+    ? `\n\nThe user has already seen these angles; suggest different ones:\n${input.avoidAngles.map((a) => `- ${a}`).join("\n")}`
+    : "";
   const result = await runStructured({
     task: "post_ideas",
     system: POST_IDEAS_SYSTEM,
@@ -86,18 +101,33 @@ export async function generatePostIdeas(input: {
 
 ${formatWins(input.wins)}
 
-Suggest ${count} post ideas.`,
+Suggest ${count} post ideas, each in a different format where possible.${avoid}`,
   });
 
   const known = new Set(input.wins.map((w) => w.id));
   return result.ideas
     .map((idea) => ({
+      format: idea.format,
       angle: idea.angle.trim(),
       hook: idea.hook.trim(),
       sourceWinIds: idea.source_win_ids.filter((id) => known.has(id)),
     }))
     .filter((idea) => idea.sourceWinIds.length > 0)
     .slice(0, count);
+}
+
+export type Reader = "peer" | "leadership" | "client_or_recruiter";
+
+/** A prediction of how people who know the author would read the post. */
+export interface HowItReads {
+  verdict: "confident" | "boastful" | "too_modest" | "generic";
+  soundsLikeYou: boolean | null;
+  readers: { reader: Reader; readsAs: string; concern: string | null }[];
+  lines: {
+    quote: string;
+    issue: "boastful" | "humblebrag" | "sounds_ai" | "unclear" | "takes_sole_credit";
+    suggestion: string;
+  }[];
 }
 
 export interface GuardrailReport {
@@ -107,20 +137,46 @@ export interface GuardrailReport {
   unsupportedClaims: string[];
   confidentialityProblems: string[];
   jobSearchSignal: boolean;
+  noGoTopics: string[];
+  hierarchyRisk: string | null;
   revised: boolean;
+  howItReads: HowItReads | null;
+  /** True after the user edits the text by hand, until the AI checks run again. */
+  aiStale?: boolean;
+}
+
+/** Reports saved before a field existed are read with safe defaults. */
+export function normalizeReport(raw: Partial<GuardrailReport> | null | undefined): GuardrailReport | null {
+  if (!raw) return null;
+  return {
+    passed: raw.passed ?? false,
+    issues: raw.issues ?? [],
+    grounded: raw.grounded ?? true,
+    unsupportedClaims: raw.unsupportedClaims ?? [],
+    confidentialityProblems: raw.confidentialityProblems ?? [],
+    jobSearchSignal: raw.jobSearchSignal ?? false,
+    noGoTopics: raw.noGoTopics ?? [],
+    hierarchyRisk: raw.hierarchyRisk ?? null,
+    revised: raw.revised ?? false,
+    howItReads: raw.howItReads ?? null,
+    aiStale: raw.aiStale ?? false,
+  };
 }
 
 /**
- * Runs deterministic checks and the AI check. If anything fails, applies the AI's revision
- * once and re-runs the deterministic checks on the revised text.
+ * Runs deterministic checks and the AI check. If anything fails, the AI's fix is applied once
+ * (or, with `applyFix: false`, returned as a suggestion so the user's own edits are never
+ * overwritten) and the deterministic checks re-run on the result.
  */
 export async function reviewDraft(input: {
   body: string;
   kind: "post" | "comment" | "reply";
   facts: Win[];
   ctx: UserContext;
+  applyFix?: boolean;
   onUsage?: UsageRecorder;
-}): Promise<{ body: string; report: GuardrailReport }> {
+}): Promise<{ body: string; suggestedBody: string | null; report: Omit<GuardrailReport, "howItReads"> }> {
+  const applyFix = input.applyFix ?? true;
   const first = checkText(input.body, { kind: input.kind, rules: input.ctx.rules });
   const automaticProblems = first.issues.filter((i) => i.severity === "error").map((i) => `- ${i.message}`);
 
@@ -143,23 +199,63 @@ ${input.body}
 </draft>`,
   });
 
-  const aiFailed = !check.grounded || !check.confidentiality_ok || check.job_search_signal;
-  const needsRevision = aiFailed || !first.passed;
-  const revisedBody = needsRevision && check.revised_body?.trim() ? check.revised_body.trim() : null;
-  const finalBody = revisedBody ?? input.body;
-  const final = revisedBody ? checkText(finalBody, { kind: input.kind, rules: input.ctx.rules }) : first;
+  const noGo = check.no_go_topic_hits.map((t) => t.trim()).filter(Boolean);
+  const aiFailed = !check.grounded || !check.confidentiality_ok || check.job_search_signal || noGo.length > 0;
+  const needsFix = aiFailed || !first.passed || Boolean(check.hierarchy_risk);
+  const fix = needsFix && check.revised_body?.trim() ? check.revised_body.trim() : null;
+  const applied = applyFix ? fix : null;
+  const finalBody = applied ?? input.body;
+  const final = applied ? checkText(finalBody, { kind: input.kind, rules: input.ctx.rules }) : first;
 
   return {
     body: finalBody,
+    suggestedBody: applyFix ? null : fix,
     report: {
-      passed: final.passed && (!aiFailed || revisedBody !== null),
+      passed: final.passed && (!aiFailed || applied !== null),
       issues: final.issues,
       grounded: check.grounded,
       unsupportedClaims: check.unsupported_claims,
       confidentialityProblems: check.confidentiality_problems,
       jobSearchSignal: check.job_search_signal,
-      revised: revisedBody !== null,
+      noGoTopics: noGo,
+      hierarchyRisk: check.hierarchy_risk?.trim() || null,
+      revised: applied !== null,
     },
+  };
+}
+
+/** Predicts how a peer, the user's leadership and a client or recruiter would read the post. */
+export async function readAsAudience(input: { body: string; ctx: UserContext; onUsage?: UsageRecorder }): Promise<HowItReads> {
+  const result = await runStructured({
+    task: "how_it_reads",
+    system: HOW_IT_READS_SYSTEM,
+    schema: HowItReadsSchema,
+    onUsage: input.onUsage,
+    prompt: `${formatUserContext(input.ctx)}
+
+Post:
+<draft>
+${input.body}
+</draft>`,
+  });
+
+  // Keep only quotes that really appear in the post, once each.
+  const lines: HowItReads["lines"] = [];
+  for (const line of result.lines) {
+    const quote = line.quote.trim();
+    if (!quote || !input.body.includes(quote) || lines.some((l) => l.quote === quote)) continue;
+    lines.push({ quote, issue: line.issue, suggestion: line.suggestion.trim() });
+  }
+
+  return {
+    verdict: result.verdict,
+    soundsLikeYou: input.ctx.voice.samplePosts.length ? result.sounds_like_user : null,
+    readers: result.readers.slice(0, 3).map((r) => ({
+      reader: r.reader,
+      readsAs: r.reads_as.trim(),
+      concern: r.concern?.trim() || null,
+    })),
+    lines: lines.slice(0, 4),
   };
 }
 
@@ -168,10 +264,17 @@ function normalizeHashtags(tags: string[]): string[] {
     .map((t) => t.trim().replace(/\s+/g, ""))
     .filter(Boolean)
     .map((t) => (t.startsWith("#") ? t : `#${t}`));
-  return [...new Set(cleaned)].slice(0, 5);
+  return [...new Set(cleaned)].slice(0, 3);
 }
 
-/** Writes a full post for an idea, then reviews it. */
+/** Checks a post and predicts how it reads: the full "nothing you'll regret posting" pass. */
+async function reviewPost(input: { body: string; facts: Win[]; ctx: UserContext; onUsage?: UsageRecorder }) {
+  const reviewed = await reviewDraft({ ...input, kind: "post" });
+  const howItReads = await readAsAudience({ body: reviewed.body, ctx: input.ctx, onUsage: input.onUsage });
+  return { body: reviewed.body, report: { ...reviewed.report, howItReads } satisfies GuardrailReport };
+}
+
+/** Writes a full post for an idea, then checks it and predicts how it reads. */
 export async function draftPost(input: {
   idea: PostIdea;
   wins: Win[];
@@ -188,18 +291,12 @@ export async function draftPost(input: {
 
 ${formatWins(sourceWins)}
 
+Format: ${input.idea.format}
 Write a post with this angle: ${input.idea.angle}
 Suggested first line: ${input.idea.hook}`,
   });
 
-  const reviewed = await reviewDraft({
-    body: draft.body.trim(),
-    kind: "post",
-    facts: sourceWins,
-    ctx: input.ctx,
-    onUsage: input.onUsage,
-  });
-
+  const reviewed = await reviewPost({ body: draft.body.trim(), facts: sourceWins, ctx: input.ctx, onUsage: input.onUsage });
   return {
     hook: draft.hook.trim(),
     body: reviewed.body,
@@ -208,16 +305,50 @@ Suggested first line: ${input.idea.hook}`,
   };
 }
 
-/** Drafts comment options for a post the user shared. Each option is checked deterministically. */
-export async function draftComments(input: {
+/** One-tap revision (shorter, humbler, stronger opening), then the full review again. */
+export async function revisePost(input: {
+  body: string;
+  mode: RevisionMode;
+  facts: Win[];
+  ctx: UserContext;
+  onUsage?: UsageRecorder;
+}): Promise<{ body: string; report: GuardrailReport }> {
+  const revision = await runStructured({
+    task: "revise_draft",
+    system: REVISE_POST_SYSTEM,
+    schema: RevisionSchema,
+    onUsage: input.onUsage,
+    prompt: `${formatUserContext(input.ctx)}
+
+${formatWins(input.facts)}
+
+Instruction: ${REVISE_INSTRUCTIONS[input.mode]}
+
+Post:
+<draft>
+${input.body}
+</draft>`,
+  });
+  return reviewPost({ body: revision.body.trim() || input.body, facts: input.facts, ctx: input.ctx, onUsage: input.onUsage });
+}
+
+/** Re-checks the user's own edits without rewriting them; any fix comes back as a suggestion. */
+export async function recheckPost(input: { body: string; facts: Win[]; ctx: UserContext; onUsage?: UsageRecorder }) {
+  const reviewed = await reviewDraft({ ...input, kind: "post", applyFix: false });
+  const howItReads = await readAsAudience({ body: input.body, ctx: input.ctx, onUsage: input.onUsage });
+  return { suggestedBody: reviewed.suggestedBody, report: { ...reviewed.report, howItReads } satisfies GuardrailReport };
+}
+
+/** Comment openings for a post the user shared. The user finishes each one in their own words. */
+export async function commentStarters(input: {
   postText: string;
   ctx: UserContext;
   onUsage?: UsageRecorder;
-}): Promise<{ approach: string; text: string; issues: GuardrailIssue[] }[]> {
+}): Promise<{ approach: string; starter: string; add: string; issues: GuardrailIssue[] }[]> {
   const result = await runStructured({
-    task: "draft_comments",
-    system: DRAFT_COMMENTS_SYSTEM,
-    schema: CommentOptionsSchema,
+    task: "comment_starters",
+    system: COMMENT_STARTERS_SYSTEM,
+    schema: CommentStartersSchema,
     onUsage: input.onUsage,
     prompt: `${formatUserContext(input.ctx)}
 
@@ -228,7 +359,8 @@ ${input.postText.slice(0, 6000)}
 
   return result.options.slice(0, 3).map((option) => ({
     approach: option.approach.trim(),
-    text: option.text.trim(),
-    issues: checkText(option.text, { kind: "comment", rules: input.ctx.rules }).issues,
+    starter: option.starter.trim(),
+    add: option.add.trim(),
+    issues: checkText(option.starter, { kind: "comment", rules: input.ctx.rules }).issues,
   }));
 }

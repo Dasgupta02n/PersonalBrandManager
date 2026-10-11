@@ -20,27 +20,44 @@ export const JOB_SEARCH_PHRASES = [
   "hire me",
 ] as const;
 
-/** Overused LinkedIn clichés that make a post sound generic or AI-written. */
+/** Overused LinkedIn clichés that make a post sound generic. */
 export const CLICHE_PHRASES = [
   "thrilled to announce",
   "excited to announce",
   "thrilled to share",
-  "i'm humbled",
-  "i am humbled",
-  "humbled and honored",
   "game-changer",
   "game changer",
-  "in today's fast-paced world",
-  "in today’s fast-paced world",
-  "fast-paced world",
-  "ever-evolving landscape",
   "think outside the box",
   "move the needle",
   "low-hanging fruit",
   "paradigm shift",
-  "let that sink in",
+  "synergies",
+] as const;
+
+/** Humility used as cover for a brag. Research shows it lowers both liking and credibility. */
+export const HUMBLEBRAG_PHRASES = [
+  "humbled to announce",
+  "humbled to share",
+  "i'm humbled",
+  "i am humbled",
+  "humbled and honored",
+  "humbled and honoured",
+  "blessed to announce",
+  "can't believe i was chosen",
+  "who would have thought",
+  "so exhausted after my keynote",
+] as const;
+
+/** Phrases readers associate with AI-written posts. */
+export const AI_TELL_PHRASES = [
+  "in today's fast-paced world",
+  "fast-paced world",
+  "ever-evolving landscape",
   "unlock the power",
   "delve into",
   "a testament to",
-  "synergies",
+  "let that sink in",
+  "here's the thing",
+  "buckle up",
+  "navigate the complexities",
 ] as const;

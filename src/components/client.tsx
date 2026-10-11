@@ -3,9 +3,9 @@
 import { useState, type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
 import { Check, Copy, LoaderCircle } from "lucide-react";
-import { buttonClass, type ButtonVariant } from "./ui";
+import { buttonClass, type ButtonSize, type ButtonVariant } from "./ui";
 
-/** Submit button that shows a spinner and pending label while its form's server action runs. */
+/** Submit button that shows a spinner and an honest pending label while its server action runs. */
 export function SubmitButton({
   pendingLabel,
   variant = "primary",
@@ -13,20 +13,14 @@ export function SubmitButton({
   className,
   children,
   ...props
-}: ComponentProps<"button"> & { pendingLabel?: string; variant?: ButtonVariant; size?: "sm" | "md" | "lg" }) {
+}: ComponentProps<"button"> & { pendingLabel?: string; variant?: ButtonVariant; size?: ButtonSize }) {
   const { pending } = useFormStatus();
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      aria-busy={pending}
-      className={buttonClass(variant, className, size)}
-      {...props}
-    >
+    <button type="submit" disabled={pending} aria-busy={pending} className={buttonClass(variant, className, size)} {...props}>
       {pending ? (
         <>
           <LoaderCircle aria-hidden className="animate-spin" />
-          {pendingLabel ?? "Working…"}
+          <span aria-live="polite">{pendingLabel ?? "Working…"}</span>
         </>
       ) : (
         children
@@ -38,34 +32,47 @@ export function SubmitButton({
 /** Copies text to the clipboard and confirms with a check mark. */
 export function CopyButton({
   text,
-  label = "Copy text",
-  variant = "primary",
+  label = "Copy",
+  copiedLabel = "Copied",
+  variant = "secondary",
+  size,
   className,
+  onCopied,
 }: {
   text: string;
   label?: string;
+  copiedLabel?: string;
   variant?: ButtonVariant;
+  size?: ButtonSize;
   className?: string;
+  onCopied?: () => void;
 }) {
   const [copied, setCopied] = useState(false);
   return (
     <button
       type="button"
-      className={buttonClass(variant, className)}
+      className={buttonClass(variant, className, size)}
       onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(text);
+        if (await copyText(text)) {
           setCopied(true);
+          onCopied?.();
           setTimeout(() => setCopied(false), 2000);
-        } catch {
-          setCopied(false);
         }
       }}
     >
       {copied ? <Check aria-hidden /> : <Copy aria-hidden />}
-      <span aria-live="polite">{copied ? "Copied" : label}</span>
+      <span aria-live="polite">{copied ? copiedLabel : label}</span>
     </button>
   );
+}
+
+export async function copyText(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /** Hidden input pre-filled with the browser's time zone. */

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { DEFAULT_RULES, type ConfidentialityRules } from "@/lib/domain/types";
-import { checkText, countWords, findBusinessFigures, findTerm } from "./check";
+import { checkText, countWords, findBusinessFigures, findTerm, issueTier } from "./check";
 
 const rules = (overrides: Partial<ConfidentialityRules> = {}): ConfidentialityRules => ({
   ...DEFAULT_RULES,
@@ -75,12 +75,39 @@ describe("checkText", () => {
     expect(generic.issues[0].code).toBe("employer_name");
   });
 
-  it("blocks job-search signals and clichés", () => {
+  it("blocks job-search signals but only suggests fixes for clichés", () => {
     const result = checkText(`Thrilled to announce my next chapter. ${words(150)}`, { kind: "post", rules: rules() });
-    const codes = result.issues.map((i) => i.code);
-    expect(codes).toContain("job_search");
-    expect(codes).toContain("cliche");
+    expect(result.issues.find((i) => i.code === "job_search")?.severity).toBe("error");
+    expect(result.issues.find((i) => i.code === "cliche")?.severity).toBe("warning");
     expect(result.passed).toBe(false);
+
+    const clicheOnly = checkText(`Thrilled to announce the launch. ${words(150)}`, { kind: "post", rules: rules() });
+    expect(clicheOnly.passed).toBe(true);
+  });
+
+  it("flags humblebrags and AI-sounding patterns as suggestions", () => {
+    const text = `Humbled to announce our results. It’s not about the tools, it’s about the people.\n${words(150)}\nThoughts?`;
+    const issues = checkText(text, { kind: "post", rules: rules() }).issues;
+    expect(issues.map((i) => i.code)).toEqual(expect.arrayContaining(["humblebrag", "ai_tell"]));
+    expect(issues.filter((i) => i.code === "ai_tell")).toHaveLength(2);
+    expect(issues.every((i) => i.severity === "warning")).toBe(true);
+  });
+
+  it("flags hashtag stacks", () => {
+    const issues = checkText(`${words(150)} #a #b #c #d`, { kind: "post", rules: rules() }).issues;
+    expect(issues.some((i) => i.message.startsWith("4 hashtags"))).toBe(true);
+  });
+
+  it("does not flag a genuine closing question", () => {
+    const issues = checkText(`${words(150)}\nWhat would you have done differently?`, { kind: "post", rules: rules() }).issues;
+    expect(issues).toEqual([]);
+  });
+
+  it("assigns tiers: confidentiality blocks, job-search notes, style suggests", () => {
+    expect(issueTier("never_mention")).toBe(1);
+    expect(issueTier("number_precision")).toBe(1);
+    expect(issueTier("job_search")).toBe(2);
+    expect(issueTier("humblebrag")).toBe(3);
   });
 
   it("applies the number policy", () => {

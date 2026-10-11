@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   addDays,
-  dailyStreak,
+  isWorkday,
+  workdayConsistency,
+  workdaysMissed,
   isPromptDue,
   isValidTimeZone,
   localParts,
@@ -72,17 +74,32 @@ describe("date helpers", () => {
   });
 });
 
-describe("dailyStreak", () => {
-  it("counts consecutive days ending today", () => {
-    expect(dailyStreak(["2026-10-08", "2026-10-09", "2026-10-10"], "2026-10-10")).toBe(3);
+describe("workday consistency", () => {
+  // 2026-10-05 is a Monday; 2026-10-10 is a Saturday.
+  it("knows weekends", () => {
+    expect(isWorkday("2026-10-09")).toBe(true);
+    expect(isWorkday("2026-10-10")).toBe(false);
   });
 
-  it("keeps yesterday's streak alive before today's entry", () => {
-    expect(dailyStreak(["2026-10-08", "2026-10-09"], "2026-10-10")).toBe(2);
+  it("counts logged workdays in the last five, skipping weekends", () => {
+    const entries = ["2026-10-05", "2026-10-06", "2026-10-08", "2026-10-09"];
+    expect(workdayConsistency(entries, "2026-10-12")).toEqual({ logged: 4, window: 5 });
   });
 
-  it("resets after a missed day", () => {
-    expect(dailyStreak(["2026-10-06", "2026-10-07", "2026-10-09"], "2026-10-10")).toBe(1);
-    expect(dailyStreak(["2026-10-07"], "2026-10-10")).toBe(0);
+  it("includes today only once it has an entry, so the count never drops before logging", () => {
+    const entries = ["2026-10-05", "2026-10-06", "2026-10-07", "2026-10-08", "2026-10-09"];
+    expect(workdayConsistency(entries, "2026-10-12")).toEqual({ logged: 5, window: 5 });
+    expect(workdayConsistency([...entries, "2026-10-12"], "2026-10-12")).toEqual({ logged: 5, window: 5 });
+  });
+
+  it("counts weekend entries as a bonus day in the window", () => {
+    expect(workdayConsistency(["2026-10-10"], "2026-10-10")).toEqual({ logged: 1, window: 5 });
+  });
+
+  it("measures workdays missed since the last entry", () => {
+    expect(workdaysMissed([], "2026-10-12")).toBeNull();
+    expect(workdaysMissed(["2026-10-09"], "2026-10-12")).toBe(0);
+    expect(workdaysMissed(["2026-10-05"], "2026-10-12")).toBe(4);
+    expect(workdaysMissed(["2026-10-12"], "2026-10-12")).toBe(0);
   });
 });

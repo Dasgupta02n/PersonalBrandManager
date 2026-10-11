@@ -19,8 +19,10 @@ export const TASK_SETTINGS = {
   post_ideas: { model: OPUS, effort: "medium", live: true },
   draft_post: { model: OPUS, effort: "high", live: true },
   check_draft: { model: OPUS, effort: "high", live: true },
+  how_it_reads: { model: OPUS, effort: "high", live: true },
+  revise_draft: { model: OPUS, effort: "medium", live: true },
   // Engagement
-  draft_comments: { model: OPUS, effort: "medium", live: true },
+  comment_starters: { model: OPUS, effort: "medium", live: true },
   draft_reply: { model: OPUS, effort: "medium", live: false },
   read_post_screenshot: { model: OPUS, effort: "low", live: false },
   // Onboarding imports

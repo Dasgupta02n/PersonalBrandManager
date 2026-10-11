@@ -1,6 +1,6 @@
 import { COMMENT_MAX_WORDS, POST_WORDS } from "@/lib/config/app";
 import type { ConfidentialityRules } from "@/lib/domain/types";
-import { CLICHE_PHRASES, JOB_SEARCH_PHRASES } from "./phrases";
+import { AI_TELL_PHRASES, CLICHE_PHRASES, HUMBLEBRAG_PHRASES, JOB_SEARCH_PHRASES } from "./phrases";
 
 export type GuardrailSeverity = "error" | "warning";
 export type GuardrailCode =
@@ -8,8 +8,32 @@ export type GuardrailCode =
   | "employer_name"
   | "job_search"
   | "cliche"
+  | "humblebrag"
+  | "ai_tell"
   | "number_precision"
   | "length";
+
+/**
+ * How loudly an issue is shown. Tier 1 (confidentiality) blocks copying until fixed or
+ * acknowledged; tier 2 is an inline note; tier 3 is a quiet suggestion. Few, specific
+ * warnings get read; many generic ones get ignored.
+ */
+export type GuardrailTier = 1 | 2 | 3;
+
+const TIER_BY_CODE: Record<GuardrailCode, GuardrailTier> = {
+  never_mention: 1,
+  employer_name: 1,
+  number_precision: 1,
+  job_search: 2,
+  cliche: 3,
+  humblebrag: 3,
+  ai_tell: 3,
+  length: 3,
+};
+
+export function issueTier(code: GuardrailCode): GuardrailTier {
+  return TIER_BY_CODE[code];
+}
 
 export interface GuardrailIssue {
   code: GuardrailCode;
@@ -31,6 +55,12 @@ export interface GuardrailOptions {
 }
 
 const normalize = (text: string) => text.replace(/[’‘]/g, "'");
+
+/** "It's not about X, it's Y" and close variants. */
+const NOT_X_BUT_Y = /\b(?:it's|it is|this isn't|this is not)\s+(?:just\s+)?(?:about\s+)?[^.?!\n]{1,60}?[,;—–-]\s*(?:it's|it is)\b[^.?!\n]*/i;
+
+/** A final line that only fishes for engagement. */
+const BAIT_CLOSER = /^(?:agree|thoughts|right|who's with me|am i wrong)\s*\?+$/i;
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -87,7 +117,7 @@ export function findBusinessFigures(text: string): FigureMatch[] {
 
 /**
  * Deterministic checks that run before the AI check. Errors must be fixed before a draft
- * is shown as ready; warnings are shown to the user.
+ * is shown as ready; warnings are suggestions.
  */
 export function checkText(text: string, options: GuardrailOptions): GuardrailResult {
   const issues: GuardrailIssue[] = [];
@@ -132,11 +162,41 @@ export function checkText(text: string, options: GuardrailOptions): GuardrailRes
     }
   }
 
-  for (const phrase of CLICHE_PHRASES) {
-    const match = findTerm(text, phrase);
-    if (match) {
-      issues.push({ code: "cliche", severity: "error", message: `"${match}" is an overused phrase.`, match });
+  const phraseChecks: [readonly string[], GuardrailCode, (match: string) => string][] = [
+    [CLICHE_PHRASES, "cliche", (m) => `"${m}" is an overused phrase.`],
+    [HUMBLEBRAG_PHRASES, "humblebrag", (m) => `"${m}" reads as a humblebrag; state the result plainly instead.`],
+    [AI_TELL_PHRASES, "ai_tell", (m) => `"${m}" is a phrase readers associate with AI-written posts.`],
+  ];
+  for (const [phrases, code, message] of phraseChecks) {
+    for (const phrase of phrases) {
+      const match = findTerm(text, phrase);
+      if (match) issues.push({ code, severity: "warning", message: message(match), match });
     }
+  }
+
+  const contrast = normalize(text).match(NOT_X_BUT_Y);
+  if (contrast) {
+    issues.push({
+      code: "ai_tell",
+      severity: "warning",
+      message: `"${contrast[0].trim()}" follows the "it's not X, it's Y" pattern readers associate with AI.`,
+      match: contrast[0].trim(),
+    });
+  }
+
+  const lastLine = normalize(text).trim().split("\n").at(-1)?.trim() ?? "";
+  if (BAIT_CLOSER.test(lastLine)) {
+    issues.push({
+      code: "ai_tell",
+      severity: "warning",
+      message: `Ending on "${lastLine}" reads as engagement bait; ask a specific question instead.`,
+      match: lastLine,
+    });
+  }
+
+  const hashtags = text.match(/(^|\s)#[\p{L}\p{N}_]+/gu)?.length ?? 0;
+  if (hashtags > 3) {
+    issues.push({ code: "ai_tell", severity: "warning", message: `${hashtags} hashtags; use three or fewer.` });
   }
 
   if (rules.numberPolicy !== "exact") {

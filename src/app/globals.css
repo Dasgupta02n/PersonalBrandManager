@@ -1,54 +1,55 @@
 @import "tailwindcss";
 
-/* Design tokens. Calm, editorial and private: warm paper, ink actions, indigo for focus and
-   links, brass reserved for the user's wins and progress. */
+/* Design tokens (see docs/DESIGN.md). Calm, factual and private: warm paper, ink actions,
+   tonal insets instead of white cards, indigo only for links and focus, brass only for the
+   user's achievements. Contrast ratios are WCAG 2.x on paper unless noted. */
 :root {
-  --background: #f7f5f0;
-  --surface: #ffffff;
-  --surface-2: #f2efe8;
-  --foreground: #17191c;
-  --muted: #5d636b;
-  --subtle: #8a9097;
-  --border: #e5e0d6;
-  --border-strong: #d3ccbf;
-  --ink: #17191c;
-  --ink-foreground: #ffffff;
-  --accent: #3346c4;
-  --accent-soft: #eceefb;
-  --brass: #9c6a1a;
-  --brass-soft: #f7efdf;
-  --success: #2b7a4b;
-  --success-soft: #e5f2ea;
-  --warning: #985f00;
-  --warning-soft: #fbf0d9;
-  --danger: #b3261e;
-  --danger-soft: #fbe9e7;
-  --shadow-color: 23 25 28;
+  --background: #faf8f3; /* paper */
+  --surface: #f2eee6; /* tonal inset */
+  --surface-2: #ebe6dc; /* deeper inset, decorative only */
+  --field: #faf8f3; /* inputs sit on paper inside insets */
+  --border: #e3ddd2; /* hairline, decorative */
+  --border-strong: #8a857c; /* control borders, 3.46:1 */
+  --foreground: #17161a; /* ink, 16.97:1 */
+  --muted: #5b5852; /* secondary text, 6.68:1 */
+  --subtle: #75716a; /* placeholders only, 4.57:1 on paper */
+  --ink: #17161a;
+  --ink-foreground: #faf8f3;
+  --accent: #3e3a8c; /* links (always underlined) and focus, 9.04:1 */
+  --accent-soft: #e9e8f5;
+  --brass: #7a5a1c; /* achievement text and icons, 5.98:1 */
+  --brass-fill: #b08d57; /* achievement fills behind ink text only */
+  --brass-soft: #f3ead9;
+  --seal: #b08d57; /* logo centre on the ink square */
+  --success: #2e6b4e; /* 5.94:1, always with an icon and label */
+  --success-soft: #e3efe8;
+  --danger: #b3261e; /* 6.16:1, always with an icon and label */
+  --danger-soft: #f9e7e5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #111214;
-    --surface: #191b1e;
-    --surface-2: #202327;
-    --foreground: #ebe9e4;
-    --muted: #a2a6ac;
-    --subtle: #7c8188;
-    --border: #2a2d32;
-    --border-strong: #3a3e44;
-    --ink: #ebe9e4;
-    --ink-foreground: #111214;
-    --accent: #9aa6ff;
-    --accent-soft: #23284a;
-    --brass: #d8aa5f;
-    --brass-soft: #34291a;
-    --success: #74cf9b;
-    --success-soft: #17301f;
-    --warning: #f0b45b;
-    --warning-soft: #382a12;
-    --danger: #f28b82;
-    --danger-soft: #3b1c1a;
-    --shadow-color: 0 0 0;
+    --background: #141311;
+    --surface: #1e1c19;
+    --surface-2: #26231f;
+    --field: #141311;
+    --border: #2c2925;
+    --border-strong: #77726a;
+    --foreground: #ece8e1;
+    --muted: #a6a198;
+    --subtle: #8f8a81;
+    --ink: #ece8e1;
+    --ink-foreground: #141311;
+    --accent: #acaef6;
+    --accent-soft: #26264a;
+    --brass: #d4b06a;
+    --brass-fill: #d4b06a;
+    --brass-soft: #2e2617;
+    --seal: #8c6a26; /* the square turns light in dark mode */
+    --success: #7cc4a0;
+    --success-soft: #16271e;
+    --danger: #f2a39c;
+    --danger-soft: #3a1c19;
   }
 }
 
@@ -56,34 +57,78 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-field: var(--field);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-subtle: var(--subtle);
-  --color-border: var(--border);
-  --color-border-strong: var(--border-strong);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-brass: var(--brass);
+  --color-brass-fill: var(--brass-fill);
   --color-brass-soft: var(--brass-soft);
+  --color-seal: var(--seal);
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
-  --color-warning: var(--warning);
-  --color-warning-soft: var(--warning-soft);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
-  --shadow-card: 0 1px 2px rgb(var(--shadow-color) / 0.04), 0 1px 1px rgb(var(--shadow-color) / 0.02);
-  --shadow-lift: 0 1px 2px rgb(var(--shadow-color) / 0.05), 0 12px 32px -12px rgb(var(--shadow-color) / 0.18);
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-preview: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Display type: Fraunces with its quirky axes off, so it reads editorial rather than retro. */
+@utility font-display {
+  font-family: var(--font-serif);
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+/* Type scale: ratio ~1.25 from a 16px base. */
+@utility text-display-xl {
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  @media (width >= 48rem) {
+    font-size: 3.5rem;
+    line-height: 3.75rem;
+  }
+}
+
+@utility text-display-l {
+  font-size: 2rem;
+  line-height: 2.375rem;
+}
+
+@utility text-display-m {
+  font-size: 1.5625rem;
+  line-height: 1.875rem;
+}
+
+/* Links are always underlined: indigo against ink body text is only 1.88:1. */
+@utility link {
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+html {
+  scroll-padding-bottom: 6rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  font-feature-settings: "cv11", "ss01";
   -webkit-tap-highlight-color: transparent;
 }
 

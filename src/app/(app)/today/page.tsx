@@ -1,115 +1,175 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Lightbulb, Lock, X } from "lucide-react";
 import { SubmitButton } from "@/components/client";
-import { Badge, Card, EmptyState, Notice, PageHeader } from "@/components/ui";
+import { Badge, EmptyState, Panel, SectionHeader, cx } from "@/components/ui";
+import { FORMAT_LABEL, WIN_KIND_LABEL } from "@/lib/content/labels";
 import { requireUser } from "@/lib/data/session";
-import { addDays, dailyStreak, localParts } from "@/lib/schedule/time";
-import { dismissIdea } from "./actions";
-import { LogEntryForm, WriteDraftForm } from "./forms";
+import type { PostFormat, WinKind } from "@/lib/domain/types";
+import { addDays, localParts, workdayConsistency, workdaysMissed } from "@/lib/schedule/time";
+import { dismissIdea, skipFollowUp } from "./actions";
+import { CaptureForm, FollowUpForm, MoreIdeasButton, WriteDraftButton } from "./forms";
 
 export const metadata: Metadata = { title: "Today" };
 
+function greeting(minutes: number) {
+  const hour = Math.floor(minutes / 60);
+  if (hour < 12) return "Good morning";
+  if (hour < 17) return "Good afternoon";
+  return "Good evening";
+}
+
 export default async function TodayPage() {
   const { supabase, user, profile } = await requireUser();
-  const today = localParts(new Date(), profile.timezone).date;
+  const now = localParts(new Date(), profile.timezone);
+  const today = now.date;
+  const monthStart = `${today.slice(0, 8)}01`;
 
-  const [entries, todaysWins, ideas] = await Promise.all([
+  const [entries, todaysWins, monthWins, ideas, recentWins] = await Promise.all([
     supabase
       .from("journal_entries")
-      .select("entry_date, follow_up_question, created_at")
+      .select("id, entry_date, follow_up_question, created_at")
       .eq("user_id", user.id)
       .gte("entry_date", addDays(today, -60))
       .order("created_at", { ascending: false }),
     supabase
       .from("wins")
-      .select("id, summary, metric, confidential")
+      .select("id, summary, metric, confidential, kind")
       .eq("user_id", user.id)
       .eq("occurred_on", today)
       .order("created_at", { ascending: false }),
+    supabase.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", monthStart),
     supabase
       .from("drafts")
-      .select("id, angle, hook")
+      .select("id, angle, hook, post_format")
       .eq("user_id", user.id)
       .eq("kind", "post_idea")
       .eq("status", "idea")
-      .order("created_at", { ascending: false })
-      .limit(6),
+      .order("created_at", { ascending: true })
+      .limit(3),
+    supabase.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", addDays(today, -30)),
   ]);
 
   const entryRows = entries.data ?? [];
-  const streak = dailyStreak(
-    entryRows.map((e) => e.entry_date),
-    today,
-  );
-  const followUp = entryRows.find((e) => e.entry_date === today && e.follow_up_question)?.follow_up_question;
+  const entryDates = entryRows.map((e) => e.entry_date);
+  const consistency = workdayConsistency(entryDates, today);
+  const missed = workdaysMissed(entryDates, today);
+  const followUp = entryRows.find((e) => e.entry_date === today && e.follow_up_question);
   const firstName = profile.full_name?.split(" ")[0];
+  const dateLabel = new Date().toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    timeZone: profile.timezone,
+  });
+  const winsThisMonth = monthWins.count ?? 0;
+  const ideaRows = ideas.data ?? [];
+  const hasRecentWins = (recentWins.count ?? 0) > 0;
 
   return (
     <>
-      <PageHeader
-        title={firstName ? `Hi ${firstName}` : "Today"}
-        description="Log what you did. Ideas and drafts are built from your real work."
-        action={
-          <Badge tone={streak > 0 ? "success" : "neutral"}>
-            {streak > 0 ? `${streak}-day streak` : "Start your streak today"}
-          </Badge>
-        }
-      />
+      <header>
+        <p className="text-[13px] font-medium text-muted">{dateLabel}</p>
+        <h1 className="mt-0.5 font-display text-display-m font-medium">
+          {greeting(now.minutes)}
+          {firstName ? `, ${firstName}` : ""}
+        </h1>
+        {entryDates.length > 0 && (
+          <p className="mt-1.5 text-sm text-muted">
+            {consistency.logged} of the last {consistency.window} workdays
+            {winsThisMonth > 0 && (
+              <>
+                {" · "}
+                <span className="font-medium text-brass">
+                  {winsThisMonth} {winsThisMonth === 1 ? "win" : "wins"} this month
+                </span>
+              </>
+            )}
+          </p>
+        )}
+      </header>
 
-      <Card>
-        <LogEntryForm prompt="What did you get done today?" />
-      </Card>
+      <Panel>
+        <CaptureForm prompt="What moved forward today?" comeback={missed !== null && missed >= 3} />
+      </Panel>
 
-      {followUp && (
-        <Notice tone="accent">
-          <strong>Quick question:</strong> {followUp} Add your answer as another entry above.
-        </Notice>
+      {followUp?.follow_up_question && (
+        <Panel tone="outline" className="flex flex-col gap-1">
+          <div className="flex items-start justify-between gap-2">
+            <p className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">One question</p>
+            <form action={skipFollowUp}>
+              <input type="hidden" name="entryId" value={followUp.id} />
+              <SubmitButton variant="ghost" size="sm" className="-mt-2 -mr-2" pendingLabel="Skipping…">
+                Skip
+              </SubmitButton>
+            </form>
+          </div>
+          <FollowUpForm entryId={followUp.id} question={followUp.follow_up_question} />
+        </Panel>
       )}
 
-      <section className="flex flex-col gap-3">
-        <h2 className="text-lg font-semibold">Today&apos;s wins</h2>
-        {todaysWins.data?.length ? (
-          <ul className="flex flex-col gap-2">
-            {todaysWins.data.map((win) => (
-              <li key={win.id} className="rounded-lg border border-border bg-surface px-3 py-2 text-sm">
-                {win.summary}
-                <span className="ml-2 inline-flex gap-1 align-middle">
-                  {win.metric && <Badge tone="accent">{win.metric}</Badge>}
-                  {win.confidential && <Badge tone="warning">Confidential</Badge>}
-                </span>
+      {(todaysWins.data?.length ?? 0) > 0 && (
+        <section className="flex flex-col gap-1">
+          <SectionHeader title="Today's wins" count={todaysWins.data?.length} />
+          <ul className="flex flex-col divide-y divide-border border-y border-border">
+            {todaysWins.data?.map((win) => (
+              <li key={win.id} className="flex flex-col gap-1.5 py-3">
+                <p className="text-[15px] leading-relaxed">{win.summary}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  <Badge>{WIN_KIND_LABEL[win.kind as WinKind]}</Badge>
+                  {win.metric && <Badge>{win.metric}</Badge>}
+                  {win.confidential && <Badge icon={Lock}>Confidential</Badge>}
+                </div>
               </li>
             ))}
           </ul>
-        ) : (
-          <EmptyState>No wins logged yet today.</EmptyState>
-        )}
-      </section>
+        </section>
+      )}
 
-      <section className="flex flex-col gap-3">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Post ideas</h2>
-          <Link href="/drafts" className="text-sm font-semibold text-accent">
-            All drafts
-          </Link>
-        </div>
-        {ideas.data?.length ? (
-          ideas.data.map((idea) => (
-            <Card key={idea.id} className="flex flex-col gap-3">
-              <p className="font-semibold">{idea.hook}</p>
-              <p className="text-sm text-muted">{idea.angle}</p>
-              <div className="flex flex-wrap items-start gap-2">
-                <WriteDraftForm ideaId={idea.id} />
-                <form action={dismissIdea}>
-                  <input type="hidden" name="ideaId" value={idea.id} />
-                  <SubmitButton variant="ghost" pendingLabel="Dismissing…">
-                    Not this one
-                  </SubmitButton>
-                </form>
-              </div>
-            </Card>
-          ))
+      <section className="flex flex-col gap-2">
+        <SectionHeader
+          title={ideaRows.length ? `${ideaRows.length} ways to share this` : "Ways to share your work"}
+          action={ideaRows.length > 0 ? <MoreIdeasButton /> : undefined}
+        />
+        {ideaRows.length ? (
+          <div className="flex flex-col gap-3">
+            {ideaRows.map((idea, i) => {
+              const suggested = i === 0;
+              return (
+                <Panel key={idea.id} tone={suggested ? "inset" : "outline"} className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="flex items-center gap-2 text-[13px] font-medium text-muted">
+                      {FORMAT_LABEL[(idea.post_format ?? "lesson") as PostFormat]}
+                      {suggested && <Badge tone="neutral">Suggested</Badge>}
+                    </p>
+                    <form action={dismissIdea}>
+                      <input type="hidden" name="ideaId" value={idea.id} />
+                      <button
+                        type="submit"
+                        aria-label="Not this one"
+                        title="Not this one"
+                        className="-m-2 flex size-11 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-foreground"
+                      >
+                        <X aria-hidden className="size-[18px]" />
+                      </button>
+                    </form>
+                  </div>
+                  <p className={cx("font-semibold text-balance", suggested ? "text-xl leading-7" : "text-base")}>{idea.hook}</p>
+                  {suggested && <p className="max-w-[65ch] text-[15px] leading-relaxed text-muted">{idea.angle}</p>}
+                  <div className="flex">
+                    <WriteDraftButton ideaId={idea.id} prominent={suggested} />
+                  </div>
+                </Panel>
+              );
+            })}
+          </div>
+        ) : hasRecentWins ? (
+          <EmptyState icon={Lightbulb} title="No ideas waiting" action={<MoreIdeasButton label="Find ideas from my recent wins" primary />}>
+            Ideas come only from wins you logged in the last 30 days.
+          </EmptyState>
         ) : (
-          <EmptyState>Log a win and your first post ideas will appear here.</EmptyState>
+          <EmptyState icon={Lightbulb} title="Your first ideas appear here">
+            Write a line above about something that moved forward. You&apos;ll get three ways to share it.
+          </EmptyState>
         )}
       </section>
     </>

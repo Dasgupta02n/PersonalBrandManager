@@ -1,6 +1,6 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { DEFAULT_RULES, type UserContext, type Win } from "@/lib/domain/types";
+import { DEFAULT_RULES, type PromptChannel, type Tone, type UserContext, type Win, type WinKind } from "@/lib/domain/types";
 
 export interface ProfileRow {
   id: string;
@@ -8,7 +8,10 @@ export interface ProfileRow {
   headline: string | null;
   timezone: string;
   prompt_time: string;
+  prompt_channel: PromptChannel;
   posts_per_week: number;
+  tone: Tone;
+  routine_cue: string | null;
   target_industries: string[];
   target_roles: string[];
   onboarding_completed_at: string | null;
@@ -23,9 +26,10 @@ export interface WinRow {
   skills: string[];
   pillar_id: string | null;
   confidential: boolean;
+  kind: WinKind;
 }
 
-export const WIN_COLUMNS = "id, occurred_on, summary, impact, metric, skills, pillar_id, confidential";
+export const WIN_COLUMNS = "id, occurred_on, summary, impact, metric, skills, pillar_id, confidential, kind";
 
 export function toWin(row: WinRow): Win {
   return {
@@ -37,6 +41,7 @@ export function toWin(row: WinRow): Win {
     skills: row.skills,
     pillarId: row.pillar_id,
     confidential: row.confidential,
+    kind: row.kind,
   };
 }
 
@@ -44,7 +49,8 @@ export async function loadProfile(supabase: SupabaseClient, userId: string): Pro
   const { data, error } = await supabase
     .from("profiles")
     .select(
-      "id, full_name, headline, timezone, prompt_time, posts_per_week, target_industries, target_roles, onboarding_completed_at",
+      "id, full_name, headline, timezone, prompt_time, prompt_channel, posts_per_week, tone, routine_cue, " +
+        "target_industries, target_roles, onboarding_completed_at",
     )
     .eq("id", userId)
     .maybeSingle();
@@ -60,7 +66,7 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
     supabase.from("voice_profiles").select("summary, sample_posts").eq("user_id", userId).maybeSingle(),
     supabase
       .from("confidentiality_rules")
-      .select("employer_name, employer_policy, never_mention, number_policy")
+      .select("employer_name, employer_policy, never_mention, number_policy, no_go_topics")
       .eq("user_id", userId)
       .maybeSingle(),
   ]);
@@ -74,6 +80,7 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
     headline: profile?.headline ?? null,
     targetIndustries: profile?.target_industries ?? [],
     targetRoles: profile?.target_roles ?? [],
+    tone: profile?.tone ?? "balanced",
     pillars: (pillars.data ?? []).map((p) => ({ id: p.id, name: p.name, description: p.description })),
     voice: {
       summary: voice.data?.summary ?? "",
@@ -85,6 +92,7 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
           employerPolicy: rules.data.employer_policy,
           neverMention: rules.data.never_mention,
           numberPolicy: rules.data.number_policy,
+          noGoTopics: rules.data.no_go_topics ?? [],
         }
       : DEFAULT_RULES,
   };

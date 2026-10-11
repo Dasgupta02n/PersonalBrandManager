@@ -4,84 +4,91 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { friendlyAiError } from "@/lib/ai/errors";
-import { draftPost, extractWins, generatePostIdeas } from "@/lib/ai/tasks";
-import { loadRecentWins, loadUserContext, toWin, WIN_COLUMNS, type WinRow } from "@/lib/data/context";
+import { draftPost } from "@/lib/ai/tasks";
+import { loadUserContext, toWin, WIN_COLUMNS, type WinRow } from "@/lib/data/context";
 import { requireUser } from "@/lib/data/session";
 import { usageRecorderFor } from "@/lib/data/usage";
-import { addDays, localParts } from "@/lib/schedule/time";
+import type { PostFormat } from "@/lib/domain/types";
+import { localParts } from "@/lib/schedule/time";
+import { processEntry, suggestIdeas, type LogState } from "./pipeline";
 
-export interface LogState {
-  status: "idle" | "done" | "partial" | "error";
-  message?: string;
-}
+export type { LogState } from "./pipeline";
 
-const EntrySchema = z.string().trim().min(3, "Write a few words about what you did.").max(4000, "That's too long for one entry.");
+const EntrySchema = z.string().trim().min(3, "Write a few words about what moved forward.").max(4000, "That's too long for one note.");
 
 export async function logEntry(_prev: LogState, formData: FormData): Promise<LogState> {
-  const { supabase, user, profile } = await requireUser();
+  const session = await requireUser();
   const parsed = EntrySchema.safeParse(formData.get("text"));
   if (!parsed.success) return { status: "error", message: parsed.error.issues[0]?.message };
+  return processEntry(session, parsed.data);
+}
 
-  const today = localParts(new Date(), profile.timezone).date;
-  const { data: entry, error: entryError } = await supabase
+const AnswerSchema = z.object({
+  entryId: z.uuid(),
+  answer: z.string().trim().min(1, "Write a short answer, or skip the question.").max(1000),
+});
+
+/** Answers the follow-up question as a new note, then clears the question. */
+export async function answerFollowUp(_prev: LogState, formData: FormData): Promise<LogState> {
+  const session = await requireUser();
+  const parsed = AnswerSchema.safeParse({ entryId: formData.get("entryId"), answer: formData.get("answer") });
+  if (!parsed.success) return { status: "error", message: parsed.error.issues[0]?.message };
+
+  const { data: entry } = await session.supabase
     .from("journal_entries")
-    .insert({ user_id: user.id, entry_date: today, raw_text: parsed.data, source: "web" })
-    .select("id")
-    .single();
-  if (entryError || !entry) return { status: "error", message: "Could not save your entry. Please try again." };
+    .select("raw_text, follow_up_question")
+    .eq("id", parsed.data.entryId)
+    .eq("user_id", session.user.id)
+    .maybeSingle();
+  if (!entry?.follow_up_question) return { status: "error", message: "That question was already answered." };
 
-  const onUsage = usageRecorderFor(user.id);
-  const ctx = await loadUserContext(supabase, user.id);
+  await session.supabase.from("journal_entries").update({ follow_up_question: null }).eq("id", parsed.data.entryId);
+  return processEntry(session, `${entry.raw_text}\n\n${entry.follow_up_question} ${parsed.data.answer}`);
+}
 
-  try {
-    const extracted = await extractWins({ text: parsed.data, ctx, onUsage });
-    if (extracted.wins.length) {
-      const { error } = await supabase.from("wins").insert(
-        extracted.wins.map((w) => ({
-          user_id: user.id,
-          journal_entry_id: entry.id,
-          occurred_on: today,
-          summary: w.summary,
-          impact: w.impact,
-          metric: w.metric,
-          skills: w.skills,
-          pillar_id: w.pillarId,
-          confidential: w.confidential,
-        })),
-      );
-      if (error) throw new Error(`Could not save wins: ${error.message}`);
-    }
-    if (extracted.followUpQuestion) {
-      await supabase.from("journal_entries").update({ follow_up_question: extracted.followUpQuestion }).eq("id", entry.id);
-    }
-  } catch (error) {
-    revalidatePath("/today");
-    return { status: "partial", message: `Your entry is saved. ${friendlyAiError(error)}` };
-  }
-
-  try {
-    const recent = await loadRecentWins(supabase, user.id, { sinceDate: addDays(today, -14), limit: 15 });
-    const ideas = await generatePostIdeas({ wins: recent, ctx, count: 3, onUsage });
-    if (ideas.length) {
-      const { error } = await supabase.from("drafts").insert(
-        ideas.map((idea) => ({
-          user_id: user.id,
-          kind: "post_idea",
-          status: "idea",
-          angle: idea.angle,
-          hook: idea.hook,
-          source_win_ids: idea.sourceWinIds,
-        })),
-      );
-      if (error) throw new Error(`Could not save ideas: ${error.message}`);
-    }
-  } catch (error) {
-    revalidatePath("/today");
-    return { status: "partial", message: `Your wins are saved. ${friendlyAiError(error)}` };
-  }
-
+export async function skipFollowUp(formData: FormData) {
+  const { supabase, user } = await requireUser();
+  const entryId = z.uuid().safeParse(formData.get("entryId"));
+  if (!entryId.success) return;
+  await supabase.from("journal_entries").update({ follow_up_question: null }).eq("id", entryId.data).eq("user_id", user.id);
   revalidatePath("/today");
-  return { status: "done", message: "Saved. Your wins and new post ideas are below." };
+}
+
+export interface IdeasState {
+  error?: string;
+}
+
+/** Fresh post ideas from the last 30 days of wins, avoiding angles already shown. */
+export async function moreIdeas(): Promise<IdeasState> {
+  const session = await requireUser();
+  const { supabase, user, profile } = session;
+  const today = localParts(new Date(), profile.timezone).date;
+
+  const { data: shown } = await supabase
+    .from("drafts")
+    .select("id, angle")
+    .eq("user_id", user.id)
+    .eq("kind", "post_idea")
+    .eq("status", "idea");
+
+  try {
+    const added = await suggestIdeas(session, today, (shown ?? []).map((d) => d.angle ?? "").filter(Boolean));
+    if (!added) return { error: "Log a win first; ideas are built only from your real work." };
+    if (shown?.length) {
+      await supabase
+        .from("drafts")
+        .update({ status: "discarded" })
+        .eq("user_id", user.id)
+        .in(
+          "id",
+          shown.map((d) => d.id),
+        );
+    }
+  } catch (error) {
+    return { error: friendlyAiError(error) };
+  }
+  revalidatePath("/today");
+  return {};
 }
 
 export interface DraftState {
@@ -95,7 +102,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
 
   const { data: idea } = await supabase
     .from("drafts")
-    .select("id, angle, hook, source_win_ids")
+    .select("id, angle, hook, source_win_ids, post_format")
     .eq("id", ideaId.data)
     .eq("user_id", user.id)
     .eq("kind", "post_idea")
@@ -113,8 +120,9 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
   let draftId: string;
   try {
     const ctx = await loadUserContext(supabase, user.id);
+    const format = (idea.post_format ?? "lesson") as PostFormat;
     const result = await draftPost({
-      idea: { angle: idea.angle ?? "", hook: idea.hook ?? "", sourceWinIds: idea.source_win_ids },
+      idea: { format, angle: idea.angle ?? "", hook: idea.hook ?? "", sourceWinIds: idea.source_win_ids },
       wins,
       ctx,
       onUsage: usageRecorderFor(user.id),
@@ -126,6 +134,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
         kind: "post",
         status: result.report.passed ? "ready" : "draft",
         parent_id: idea.id,
+        post_format: format,
         angle: idea.angle,
         hook: result.hook,
         body: result.body,

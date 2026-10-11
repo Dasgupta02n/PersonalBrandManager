@@ -2,12 +2,22 @@ export type EmployerPolicy = "name" | "generic" | "never";
 export type NumberPolicy = "exact" | "rounded" | "relative";
 export type DraftKind = "post_idea" | "post" | "comment" | "reply";
 export type DraftStatus = "idea" | "draft" | "ready" | "posted" | "discarded";
+export type Tone = "reserved" | "balanced" | "open";
+export type PromptChannel = "web_push" | "email" | "whatsapp";
+
+export const WIN_KINDS = ["result", "decision", "unblocked", "helped", "praise", "lesson"] as const;
+export type WinKind = (typeof WIN_KINDS)[number];
+
+export const POST_FORMATS = ["lesson", "decision", "credit", "how_to"] as const;
+export type PostFormat = (typeof POST_FORMATS)[number];
 
 export interface ConfidentialityRules {
   employerName: string | null;
   employerPolicy: EmployerPolicy;
   neverMention: string[];
   numberPolicy: NumberPolicy;
+  /** Themes the user never wants to post about. Checked by the AI on every draft. */
+  noGoTopics: string[];
 }
 
 export interface Pillar {
@@ -30,6 +40,7 @@ export interface Win {
   skills: string[];
   pillarId: string | null;
   confidential: boolean;
+  kind: WinKind;
 }
 
 export interface UserContext {
@@ -37,6 +48,7 @@ export interface UserContext {
   headline: string | null;
   targetIndustries: string[];
   targetRoles: string[];
+  tone: Tone;
   pillars: Pillar[];
   voice: VoiceProfile;
   rules: ConfidentialityRules;
@@ -47,4 +59,5 @@ export const DEFAULT_RULES: ConfidentialityRules = {
   employerPolicy: "generic",
   neverMention: [],
   numberPolicy: "rounded",
+  noGoTopics: [],
 };

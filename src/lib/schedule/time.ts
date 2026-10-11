@@ -75,17 +75,44 @@ export function weekStart(date: string): string {
   return addDays(date, -offset);
 }
 
+/** Monday to Friday. */
+export function isWorkday(date: string): boolean {
+  const day = new Date(`${date}T00:00:00Z`).getUTCDay();
+  return day !== 0 && day !== 6;
+}
+
 /**
- * Consecutive days with at least one entry, ending today. If today has no entry yet,
- * the streak still counts up to yesterday so it is not lost before the evening prompt.
+ * Of the last `window` workdays, how many have an entry. Today joins the window only once it
+ * has an entry, so the count never drops before the user has had a chance to log. There is
+ * deliberately no consecutive-day streak: a broken streak discourages people from returning.
  */
-export function dailyStreak(entryDates: Iterable<string>, today: string): number {
+export function workdayConsistency(
+  entryDates: Iterable<string>,
+  today: string,
+  window = 5,
+): { logged: number; window: number } {
   const days = new Set(entryDates);
   let cursor = days.has(today) ? today : addDays(today, -1);
-  let streak = 0;
-  while (days.has(cursor)) {
-    streak += 1;
+  let seen = 0;
+  let logged = 0;
+  while (seen < window) {
+    if (isWorkday(cursor) || days.has(cursor)) {
+      seen += 1;
+      if (days.has(cursor)) logged += 1;
+    }
     cursor = addDays(cursor, -1);
   }
-  return streak;
+  return { logged, window };
+}
+
+/** Workdays missed between the most recent entry and today, or null if there are no entries. */
+export function workdaysMissed(entryDates: Iterable<string>, today: string): number | null {
+  const sorted = [...entryDates].filter((d) => d <= today).sort();
+  const last = sorted.at(-1);
+  if (!last) return null;
+  let missed = 0;
+  for (let cursor = addDays(last, 1); cursor < today && missed < 60; cursor = addDays(cursor, 1)) {
+    if (isWorkday(cursor)) missed += 1;
+  }
+  return missed;
 }
