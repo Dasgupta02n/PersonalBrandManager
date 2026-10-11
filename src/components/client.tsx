@@ -2,31 +2,56 @@
 
 import { useState, type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
-import { buttonClass } from "./ui";
+import { Check, Copy, LoaderCircle } from "lucide-react";
+import { buttonClass, type ButtonVariant } from "./ui";
 
-/** Submit button that shows a pending label while its form's server action runs. */
+/** Submit button that shows a spinner and pending label while its form's server action runs. */
 export function SubmitButton({
   pendingLabel,
   variant = "primary",
+  size,
   className,
   children,
   ...props
-}: ComponentProps<"button"> & { pendingLabel?: string; variant?: "primary" | "secondary" | "ghost" | "danger" }) {
+}: ComponentProps<"button"> & { pendingLabel?: string; variant?: ButtonVariant; size?: "sm" | "md" | "lg" }) {
   const { pending } = useFormStatus();
   return (
-    <button type="submit" disabled={pending} className={buttonClass(variant, className)} {...props}>
-      {pending ? (pendingLabel ?? "Working…") : children}
+    <button
+      type="submit"
+      disabled={pending}
+      aria-busy={pending}
+      className={buttonClass(variant, className, size)}
+      {...props}
+    >
+      {pending ? (
+        <>
+          <LoaderCircle aria-hidden className="animate-spin" />
+          {pendingLabel ?? "Working…"}
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 }
 
-/** Copies text to the clipboard, falling back to selecting nothing if the API is unavailable. */
-export function CopyButton({ text, label = "Copy text" }: { text: string; label?: string }) {
+/** Copies text to the clipboard and confirms with a check mark. */
+export function CopyButton({
+  text,
+  label = "Copy text",
+  variant = "primary",
+  className,
+}: {
+  text: string;
+  label?: string;
+  variant?: ButtonVariant;
+  className?: string;
+}) {
   const [copied, setCopied] = useState(false);
   return (
     <button
       type="button"
-      className={buttonClass("primary")}
+      className={buttonClass(variant, className)}
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(text);
@@ -37,7 +62,8 @@ export function CopyButton({ text, label = "Copy text" }: { text: string; label?
         }
       }}
     >
-      {copied ? "Copied" : label}
+      {copied ? <Check aria-hidden /> : <Copy aria-hidden />}
+      <span aria-live="polite">{copied ? "Copied" : label}</span>
     </button>
   );
 }

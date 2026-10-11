@@ -1,41 +1,60 @@
 import Link from "next/link";
-import { APP_NAME } from "@/lib/config/app";
+import { LogOut, Settings } from "lucide-react";
+import { DesktopNav, MobileTabBar } from "@/components/app-nav";
+import { Wordmark } from "@/components/brand";
+import { createClient } from "@/lib/supabase/server";
 
-const nav = [
-  { href: "/today", label: "Today" },
-  { href: "/drafts", label: "Drafts" },
-  { href: "/engage", label: "Engage" },
-  { href: "/wins", label: "Wins" },
-  { href: "/onboarding", label: "Settings" },
-];
+/** Posts waiting for the user: drafts to review and drafts ready to post. */
+async function openDraftCount(): Promise<number> {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getUser();
+  if (!data.user) return 0;
+  const { count } = await supabase
+    .from("drafts")
+    .select("id", { count: "exact", head: true })
+    .eq("user_id", data.user.id)
+    .eq("kind", "post")
+    .in("status", ["ready", "draft"]);
+  return count ?? 0;
+}
 
-export default function AppLayout({ children }: LayoutProps<"/">) {
+export default async function AppLayout({ children }: LayoutProps<"/">) {
+  const draftCount = await openDraftCount();
+
   return (
     <div className="flex min-h-full flex-1 flex-col">
-      <header className="sticky top-0 z-10 border-b border-border bg-surface/95 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-4 px-4 py-3">
-          <Link href="/today" className="font-bold">
-            {APP_NAME}
+      <header className="sticky top-0 z-20 border-b border-border bg-background/90 pt-[env(safe-area-inset-top)] backdrop-blur">
+        <div className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between gap-4 px-4">
+          <Link href="/today" aria-label="Today">
+            <Wordmark />
           </Link>
-          <form action="/auth/signout" method="post">
-            <button type="submit" className="text-sm text-muted hover:text-foreground">
-              Sign out
-            </button>
-          </form>
-        </div>
-        <nav aria-label="Main" className="mx-auto flex w-full max-w-3xl gap-1 overflow-x-auto px-2 pb-2">
-          {nav.map((item) => (
+          <DesktopNav draftCount={draftCount} />
+          <div className="flex items-center gap-1">
             <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-lg px-3 py-2 text-sm font-semibold text-muted hover:bg-accent-soft hover:text-accent"
+              href="/onboarding"
+              aria-label="Settings"
+              title="Settings"
+              className="flex size-10 items-center justify-center rounded-lg text-muted transition hover:bg-surface-2 hover:text-foreground"
             >
-              {item.label}
+              <Settings aria-hidden className="size-5" />
             </Link>
-          ))}
-        </nav>
+            <form action="/auth/signout" method="post">
+              <button
+                type="submit"
+                aria-label="Sign out"
+                title="Sign out"
+                className="flex size-10 items-center justify-center rounded-lg text-muted transition hover:bg-surface-2 hover:text-foreground"
+              >
+                <LogOut aria-hidden className="size-5" />
+              </button>
+            </form>
+          </div>
+        </div>
       </header>
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-6 px-4 py-6">{children}</main>
+      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col gap-8 px-4 pt-6 pb-28 sm:pt-10 md:pb-16">
+        {children}
+      </main>
+      <MobileTabBar draftCount={draftCount} />
     </div>
   );
 }
