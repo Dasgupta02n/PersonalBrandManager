@@ -17,7 +17,7 @@ function safeNext(value: FormDataEntryValue | null): string {
 }
 
 function callbackUrl(next: string) {
-  const base = serverEnv().NEXT_PUBLIC_APP_URL.replace(/\/$/, "");
+  const base = serverEnv().APP_URL.replace(/\/$/, "");
   return `${base}/auth/callback?next=${encodeURIComponent(next)}`;
 }
 

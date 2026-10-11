@@ -1,0 +1,25 @@
+# Docker Compose project "pbm" on the Hostinger VPS (Docker Manager).
+# The shared "web" network is created by the "edge" project (deploy/edge.compose.yml),
+# whose Caddy server terminates HTTPS for c7xai.in and forwards to this container.
+# Variables come from the project's environment settings in Docker Manager (see .env.example).
+
+services:
+  app:
+    image: ghcr.io/dasgupta02n/personalbrandmanager:latest
+    container_name: pbm-app
+    restart: unless-stopped
+    environment:
+      APP_URL: ${APP_URL}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY}
+      SUPABASE_SECRET_KEY: ${SUPABASE_SECRET_KEY}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      CRON_SECRET: ${CRON_SECRET}
+    expose:
+      - "3000"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

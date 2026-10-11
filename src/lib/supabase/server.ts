@@ -12,7 +12,7 @@ export async function createClient() {
   const cookieStore = await cookies();
   const env = serverEnv();
 
-  return createServerClient(env.NEXT_PUBLIC_SUPABASE_URL, env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, {
+  return createServerClient(env.SUPABASE_URL, env.SUPABASE_PUBLISHABLE_KEY, {
     cookies: {
       getAll() {
         return cookieStore.getAll();
@@ -37,7 +37,7 @@ export async function createClient() {
  */
 export function createAdminClient() {
   const env = serverEnv();
-  return createAdminSupabaseClient(env.NEXT_PUBLIC_SUPABASE_URL, requireEnv("SUPABASE_SECRET_KEY"), {
+  return createAdminSupabaseClient(env.SUPABASE_URL, requireEnv("SUPABASE_SECRET_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }

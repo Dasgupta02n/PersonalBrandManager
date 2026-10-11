@@ -16,6 +16,7 @@
 ## Needed to run end to end
 
 - Supabase project (apply `supabase/migrations/`, set auth redirect URL to `<APP_URL>/auth/callback`)
+- Deployment plan for the Hostinger VPS and c7xai.in: see `docs/DEPLOY.md`
 - Anthropic API key
 - Hosting for the Next.js app
 

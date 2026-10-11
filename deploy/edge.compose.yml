@@ -1,0 +1,59 @@
+# Docker Compose project "edge" on the Hostinger VPS: the shared HTTPS front door.
+# The "hanumat" service is copied unchanged from the live project (hanumat.life).
+# Changes for this product: the "web" network (shared with the "pbm" project) and the
+# c7xai.in site block in the Caddyfile.
+
+services:
+  hanumat:
+    image: nginx:alpine
+    container_name: hanumat
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - "set -e; apk add --no-cache curl unzip ca-certificates; rm -rf /usr/share/nginx/html/*; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-07-24-full/hanumat_out_full.zip -o /tmp/h.zip; unzip -o /tmp/h.zip -d /usr/share/nginx/html; rm -f /tmp/h.zip; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-08-28-courtyard/hanumat-overlay-2026-08-28-courtyard.zip -o /tmp/o.zip; unzip -o /tmp/o.zip -d /usr/share/nginx/html; rm -f /tmp/o.zip; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-09-05-grow/hanumat-overlay-2026-09-05-grow.zip -o /tmp/c.zip; unzip -o /tmp/c.zip -d /usr/share/nginx/html; rm -f /tmp/c.zip; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-09-06-text/hanumat-overlay-2026-09-06-text.zip -o /tmp/t.zip; unzip -o /tmp/t.zip -d /usr/share/nginx/html; rm -f /tmp/t.zip; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-09-06-canon/hanumat-overlay-2026-09-06-canon.zip -o /tmp/n.zip; unzip -o /tmp/n.zip -d /usr/share/nginx/html; rm -f /tmp/n.zip; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-09-09-read/hanumat-overlay-2026-09-09-read.zip -o /tmp/r.zip; unzip -o /tmp/r.zip -d /usr/share/nginx/html; rm -f /tmp/r.zip; curl -fsSL https://github.com/Dasgupta02n/hanumat/releases/download/deploy-2026-09-09-panchang/hanumat-overlay-2026-09-09-panchang.zip -o /tmp/p.zip; unzip -o /tmp/p.zip -d /usr/share/nginx/html; rm -f /tmp/p.zip; rm -rf /usr/share/nginx/html/audio /usr/share/nginx/html/en/listen /usr/share/nginx/html/hi/listen /usr/share/nginx/html/en/radio /usr/share/nginx/html/hi/radio /usr/share/nginx/html/shiva/en/listen /usr/share/nginx/html/shiva/hi/listen /usr/share/nginx/html/shiva/en/radio /usr/share/nginx/html/shiva/hi/radio /usr/share/nginx/html/kali/en/listen /usr/share/nginx/html/kali/hi/listen /usr/share/nginx/html/kali/en/radio /usr/share/nginx/html/kali/hi/radio; test -f /usr/share/nginx/html/index.html; exec nginx -g 'daemon off;'"
+    expose:
+      - "80"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: edge-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    command:
+      - sh
+      - -lc
+      - |
+        cat >/tmp/Caddyfile <<'EOF'
+        hanumat.life, www.hanumat.life {
+          encode gzip
+          reverse_proxy hanumat:80
+        }
+
+        c7xai.in {
+          encode gzip
+          reverse_proxy pbm-app:3000
+        }
+
+        www.c7xai.in {
+          redir https://c7xai.in{uri} permanent
+        }
+        EOF
+        exec caddy run --config /tmp/Caddyfile --adapter caddyfile
+    depends_on:
+      - hanumat
+    networks:
+      - default
+      - web
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+networks:
+  web:
+    name: web
+
+volumes:
+  caddy_data:
+  caddy_config:

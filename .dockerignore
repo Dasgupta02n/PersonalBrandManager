@@ -1,0 +1,12 @@
+.git
+.github
+.next
+node_modules
+coverage
+.env*
+!.env.example
+*.log
+docs
+deploy
+supabase
+README.md

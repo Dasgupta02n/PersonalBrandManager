@@ -16,7 +16,7 @@ npm install
 npm run dev
 ```
 
-Apply the database schema from `supabase/migrations/` to your Supabase project.
+Apply the database schema from `supabase/migrations/` to your Supabase project. Deployment: [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ## Checks
 
