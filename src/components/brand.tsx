@@ -18,7 +18,7 @@ export function LogoMark({ className }: { className?: string }) {
 
 export function Wordmark({ className }: { className?: string }) {
   return (
-    <span className={cx("flex items-center gap-2.5", className)}>
+    <span className={cx("flex shrink-0 items-center gap-2.5 whitespace-nowrap", className)}>
       <LogoMark className="size-7" />
       <span className="font-display text-[19px] font-medium">{APP_NAME}</span>
     </span>

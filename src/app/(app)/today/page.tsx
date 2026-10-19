@@ -73,16 +73,15 @@ export default async function TodayPage() {
           {greeting(now.minutes)}
           {firstName ? `, ${firstName}` : ""}
         </h1>
-        {entryDates.length > 0 && (
+        {(consistency.logged > 0 || winsThisMonth > 0) && (
+          // A zero count is left out: after a gap the comeback prompt speaks, not a score.
           <p className="mt-1.5 text-sm text-muted">
-            {consistency.logged} of the last {consistency.window} workdays
+            {consistency.logged > 0 && `${consistency.logged} of the last ${consistency.window} workdays`}
+            {consistency.logged > 0 && winsThisMonth > 0 && " · "}
             {winsThisMonth > 0 && (
-              <>
-                {" · "}
-                <span className="font-medium text-brass">
-                  {winsThisMonth} {winsThisMonth === 1 ? "win" : "wins"} this month
-                </span>
-              </>
+              <span className="font-medium text-brass">
+                {winsThisMonth} {winsThisMonth === 1 ? "win" : "wins"} this month
+              </span>
             )}
           </p>
         )}
