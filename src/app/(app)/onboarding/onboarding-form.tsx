@@ -170,7 +170,7 @@ function RhythmFields({ d }: { d: OnboardingDefaults }) {
             maxLength={120}
             className="mt-0 min-w-0 flex-1 basis-48"
           />
-          <span>, I&apos;ll note one thing that moved forward.</span>
+          <span className="basis-full text-muted">…then I&apos;ll note one thing that moved forward.</span>
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -239,7 +239,7 @@ const STEPS: { title: string; reason: string; body: (d: OnboardingDefaults) => R
           className="mt-0 min-h-32"
           placeholder="Agreed the new pricing approach with the regional heads after two weeks of back and forth."
         />
-        <Hint>Private. Nothing is posted without you.</Hint>
+        <Hint>Private. Nothing is posted without you. Leave it empty to skip for now.</Hint>
       </div>
     ),
   },
@@ -262,7 +262,7 @@ function SetupWizard({ defaults, action, state }: { defaults: OnboardingDefaults
   };
 
   return (
-    <form action={action} className="flex flex-1 flex-col gap-6">
+    <form data-pushed action={action} className="flex flex-1 flex-col gap-6">
       <TimeZoneField name="timezone" defaultValue={defaults.timezone} />
       <div>
         <p className="text-[13px] font-medium text-muted">
@@ -301,18 +301,15 @@ function SetupWizard({ defaults, action, state }: { defaults: OnboardingDefaults
           </button>
         )}
         {last ? (
-          <>
-            <SubmitButton size="lg" className="flex-1" pendingLabel="Setting up and finding your wins…">
-              Finish and see my wins
-            </SubmitButton>
-          </>
+          <SubmitButton size="lg" className="flex-1" pendingLabel="Setting up and finding your wins…">
+            Finish and see my wins
+          </SubmitButton>
         ) : (
           <button type="button" onClick={next} className={buttonClass("primary", "flex-1", "lg")}>
             Continue
           </button>
         )}
       </div>
-      {last && <p className="-mt-3 text-center text-[13px] text-muted">Leave it empty to skip for now.</p>}
     </form>
   );
 }
@@ -329,7 +326,7 @@ function SettingsForm({ defaults, action, state }: { defaults: OnboardingDefault
     { id: "rhythm", title: "Your daily rhythm", body: <RhythmFields d={defaults} /> },
   ];
   return (
-    <form action={action} className="flex flex-col gap-6">
+    <form data-pushed action={action} className="flex flex-col gap-6">
       <TimeZoneField name="timezone" defaultValue={defaults.timezone} />
       <input type="hidden" name="firstWin" value="" />
       <h1 className="font-display text-display-m font-medium">Settings</h1>

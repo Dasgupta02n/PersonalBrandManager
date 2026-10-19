@@ -68,16 +68,9 @@ export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
       <PageHeader
         title="Your record"
         description="Everything you've logged, in your own words. Posts, your profile and your CV are built only from this."
-        action={
-          (monthCount.count ?? 0) > 0 ? (
-            <p className="text-sm font-medium text-brass">
-              {monthCount.count} this month
-            </p>
-          ) : undefined
-        }
       />
 
-      <nav aria-label="Filter by type" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+      <nav aria-label="Filter by type" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 pr-8 [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
         {[null, ...WIN_KINDS].map((k) => {
           const active = k === kind;
           return (
@@ -114,6 +107,9 @@ export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
             <p className="text-sm text-muted">
               {items.length} {items.length === 1 ? "win" : "wins"}
               {kind ? ` · ${WIN_KIND_LABEL[kind]}` : ""}
+              {!kind && (monthCount.count ?? 0) > 0 && (
+                <span className="font-medium text-brass"> · {monthCount.count} this month</span>
+              )}
             </p>
             <CopyButton text={asList} label="Copy as a list" size="sm" variant="ghost" />
           </div>

@@ -105,7 +105,7 @@ export function DraftWorkspace(props: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div data-pushed className="flex flex-1 flex-col gap-6">
       <div>
         <Link href="/drafts" className={buttonClass("ghost", "-ml-3 px-3", "sm")}>
           <ArrowLeft aria-hidden />

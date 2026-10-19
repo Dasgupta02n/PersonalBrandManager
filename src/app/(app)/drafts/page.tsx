@@ -98,7 +98,7 @@ export default async function DraftsPage({ searchParams }: PageProps<"/drafts">)
 function DraftRow({ row }: { row: Row }) {
   const report = normalizeReport(row.guardrails as Partial<GuardrailReport> | null);
   const blocked = blockingIssues(report).length > 0;
-  const firstLine = row.hook || row.body.split("\n")[0];
+  const [firstLine = row.hook ?? "", ...rest] = row.body.split("\n").filter((line) => line.trim());
   return (
     <li>
       <Link href={`/drafts/${row.id}`} className="flex flex-col gap-1.5 py-4 transition hover:opacity-80">
@@ -108,7 +108,7 @@ function DraftRow({ row }: { row: Row }) {
             ` · Posted ${new Date(row.posted_at).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}`}
         </p>
         <p className="font-semibold text-balance">{firstLine}</p>
-        <p className="line-clamp-2 text-sm leading-relaxed text-muted">{row.body.replace(firstLine, "").trim()}</p>
+        {rest.length > 0 && <p className="line-clamp-2 text-sm leading-relaxed text-muted">{rest.join(" ")}</p>}
         {row.status !== "posted" && (
           <p className="mt-0.5 flex items-center gap-1.5 text-[13px] font-medium">
             {blocked ? (

@@ -113,7 +113,7 @@ export function CaptureForm({ prompt, comeback }: { prompt: string; comeback: bo
         )}
       </div>
 
-      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1" role="group" aria-label="Quick starts">
+      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 pr-8 [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]" role="group" aria-label="Quick starts">
         {CAPTURE_STARTERS.map(({ label, starter }) => (
           <button
             key={label}

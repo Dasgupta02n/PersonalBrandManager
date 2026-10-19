@@ -23,25 +23,27 @@ src/
     config/            Environment parsing, app constants
     supabase/          Server and browser clients, proxy session refresh
     ai/                AI client (OpenRouter), model per function, prompts, AI tasks
-    guardrails/        Deterministic checks (confidentiality, clichés, job-search signals)
-    schedule/          Time-zone prompt windows, streaks
+    guardrails/        Deterministic checks (confidentiality, clichés, job-search signals), tiers
+    content/           LinkedIn preview rules, UI labels, verdict and check tiers for drafts
+    schedule/          Time-zone prompt windows, forgiving workday consistency
     domain/            Shared types
+  components/          UI primitives (ui.tsx), client widgets, brand mark, navigation
 supabase/
   migrations/          SQL migrations (schema + RLS)
-docs/                  PRD, architecture, decisions
+docs/                  PRD, architecture, design system, research
 ```
 
 ## Data model
 
 | Table | Purpose |
 |---|---|
-| `profiles` | One row per user: name, time zone, language, prompt time and channel, audience, onboarding state |
+| `profiles` | One row per user: name, role, tone (`reserved` / `balanced` / `open`), routine cue, time zone, language, prompt time and channel, audience, onboarding state |
 | `voice_profiles` | Writing-style summary, traits, sample posts |
 | `pillars` | 3–5 topics the user wants to be known for |
-| `confidentiality_rules` | Employer-name policy, never-mention list, number policy |
+| `confidentiality_rules` | Employer-name policy, never-mention list, number policy, no-go topics |
 | `journal_entries` | Raw daily entries, verbatim, with source channel |
-| `wins` | Structured wins extracted from entries (summary, impact, metric, skills, pillar) |
-| `drafts` | Post ideas, post drafts, comment and reply drafts, with guardrail results and status |
+| `wins` | Structured wins extracted from entries (summary, impact, metric, kind, skills, pillar) |
+| `drafts` | Post ideas, post drafts, comment and reply drafts, with format, guardrail and "how it reads" results, and status |
 | `opportunities` | Things that came to the user (headhunters, invitations, meetings) |
 | `profile_suggestions` | Weekly proposed changes to LinkedIn sections, with approval status |
 | `cv_versions` | Generated CV files (storage path), version number, change summary |
@@ -62,11 +64,13 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 
 | Function | Status | Model | Effort | Output (structured) |
 |---|---|---|---|---|
-| `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, skills, pillar, confidentiality flag; follow-up question |
-| `post_ideas` | live | Claude Opus 5.5 | medium | 2–3 ideas: angle, hook, source win ids |
-| `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, hashtags |
-| `check_draft` | live | Claude Opus 5.5 | high | Pass/fail per check, problems, revised text |
-| `draft_comments` | live | Claude Opus 5.5 | medium | 2–3 comment options |
+| `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, kind, skills, pillar, confidentiality flag; follow-up question |
+| `post_ideas` | live | Claude Opus 5.5 | medium | 2–3 ideas, best first: format, angle, hook, source win ids |
+| `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, 0–3 hashtags |
+| `check_draft` | live | Claude Opus 5.5 | high | Grounding, confidentiality, job-search signal, no-go topics, hierarchy risk, revised text |
+| `how_it_reads` | live | Claude Opus 5.5 | high | Verdict (confident / boastful / too modest / generic), sounds like the user, per-reader notes, lines to change |
+| `revise_draft` | live | Claude Opus 5.5 | medium | Shorter, more modest, or stronger first line |
+| `comment_starters` | live | Claude Opus 5.5 | medium | 2–3 approaches: opening line and what to add |
 | `draft_reply` | planned | Claude Opus 5.5 | medium | Reply options for comments on the user's posts |
 | `read_post_screenshot` | planned | Claude Opus 5.5 | low | Post text and author from a screenshot |
 | `import_profile` | planned | Claude Opus 5.5 | medium | Positions, skills, past posts from a LinkedIn PDF or export |
@@ -88,12 +92,25 @@ records the serving model, host, tokens and cost in `ai_usage`.
 
 ## Guardrails pipeline
 
+Draft pipeline (`draftPost` in `src/lib/ai/tasks.ts`): draft → review → how it reads.
+
 1. Deterministic checks (`src/lib/guardrails`): never-mention terms, employer-name policy,
-   job-search phrases, clichés, length.
+   number policy, job-search phrases, clichés, humblebrags, AI-sounding phrases, the
+   "it's not X, it's Y" construction, bait closers, hashtag count, length. Run on normalised text.
 2. AI check (`check_draft`): factual grounding against the user's wins, profile and CV;
-   confidentiality judgement; returns a revised draft when fixable.
-3. Drafts that still fail are stored with status `draft` and a visible warning; they are never
-   shown as ready to post.
+   confidentiality and no-go topics; outshining a boss or client; returns a revised draft when
+   fixable. The safer version is offered alongside the original.
+3. How it reads (`how_it_reads`): only quotes found verbatim in the draft are kept; "sounds like
+   you" is unknown until the user adds sample posts.
+4. Every issue has a tier (`issueTier`): 1 blocks copying until fixed or acknowledged, 2 is a
+   visible note, 3 is a quiet suggestion (`src/lib/content/verdict.ts`). Drafts with tier-1
+   problems are stored with status `draft` and never shown as ready to post. Edits mark the
+   AI review as stale until re-checked.
+
+## Design system
+
+Tokens, type, layout and copy rules are in `docs/DESIGN.md`; tokens live in
+`src/app/globals.css` and primitives in `src/components/ui.tsx`.
 
 ## Security
 

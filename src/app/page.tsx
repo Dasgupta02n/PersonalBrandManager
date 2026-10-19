@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, CircleCheck, Lock, PenLine, ShieldCheck, Sparkle, Unplug } from "lucide-react";
+import { ArrowRight, Ban, CircleCheck, Lock, PenLine, ShieldCheck, Unplug } from "lucide-react";
 import { Wordmark } from "@/components/brand";
 import { buttonClass } from "@/components/ui";
 import { APP_NAME, APP_PROMISE, APP_TAGLINE } from "@/lib/config/app";
@@ -148,7 +148,7 @@ export default function Home() {
               <ul className="mt-4 flex flex-col divide-y divide-border border-y border-border">
                 {NEVER.map((item) => (
                   <li key={item} className="flex items-center gap-3 py-3">
-                    <Sparkle aria-hidden className="size-4 text-brass" />
+                    <Ban aria-hidden className="size-4 text-muted" />
                     {item}
                   </li>
                 ))}
@@ -176,7 +176,7 @@ export default function Home() {
 
       <footer className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-8 text-sm text-muted">
         <Wordmark />
-        <p>Your record is yours. Export or delete it at any time.</p>
+        <p>Your record is yours. We never sell or share it.</p>
       </footer>
     </div>
   );

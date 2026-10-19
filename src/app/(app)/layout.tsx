@@ -27,7 +27,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <header className="sticky top-0 z-20 border-b border-border bg-background/95 pt-[env(safe-area-inset-top)] backdrop-blur">
-        <div className="mx-auto flex h-14 w-full max-w-[640px] items-center justify-between gap-4 px-4 md:max-w-3xl">
+        <div className="mx-auto flex h-14 w-full max-w-[640px] items-center justify-between gap-4 px-4">
           <Link href="/today" aria-label="Today">
             <Wordmark />
           </Link>
@@ -44,7 +44,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
           </div>
         </div>
       </header>
-      <main className="mx-auto flex w-full max-w-[640px] flex-1 flex-col gap-8 px-4 pt-6 pb-28 sm:pt-8 md:pb-16">
+      <main className="mx-auto flex w-full max-w-[640px] flex-1 flex-col gap-8 px-4 pt-6 pb-28 sm:pt-8 md:pb-16 has-[[data-pushed]]:pb-0">
         {children}
       </main>
       <MobileTabBar draftCount={draftCount} />
