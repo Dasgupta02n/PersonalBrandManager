@@ -32,6 +32,7 @@ src/
 supabase/
   migrations/          SQL migrations (schema + RLS)
 docs/                  PRD, architecture, design system, research
+evals/                 Quality bar: synthetic test sets, single-prompt baselines, blind grader, runner
 ```
 
 ## Data model
@@ -144,6 +145,19 @@ note is still saved and the AI step is skipped with a calm message.
   rows without the user id.
 - The free checker at `/check` runs the deterministic checks in the browser only.
 - Breach handling and data map: `docs/PRIVACY.md`.
+
+## Quality bar
+
+`evals/` measures every AI function against the strongest single prompt on the same model:
+- synthetic test sets with fictional personas (`evals/data/`, validated by `evals/data.test.ts`);
+- a baseline per function (`evals/lib/baselines.ts`);
+- a blind pairwise grader run in both orders (`evals/lib/judge.ts`);
+- plain-code metrics, including the safety check's catch rate and false alarms;
+- a report with pass or fail per function, and a blind review page for human experts.
+
+`npm run eval` runs it with real model calls. `npm test` includes a free dry run that keeps the
+harness working. Baselines and the grader call the model through `runWithModel` in
+`src/lib/ai/client.ts`.
 
 ## Design system
 

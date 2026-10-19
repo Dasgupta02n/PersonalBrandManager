@@ -3,7 +3,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import type { z } from "zod";
 import { requireEnv } from "@/lib/config/env";
-import { type AiTask, PROVIDER_PREFERENCES, effortForTask, modelForTask } from "./models";
+import { type AiTask, type Effort, PROVIDER_PREFERENCES, effortForTask, modelForTask } from "./models";
 
 /** OpenRouter's Anthropic-compatible API; the SDK appends `/v1/messages`. */
 const OPENROUTER_BASE_URL = "https://openrouter.ai/api";
@@ -23,7 +23,8 @@ export class AiOutputError extends Error {
 }
 
 export interface AiUsage {
-  task: AiTask;
+  /** The product function, or an evaluation step such as "eval_judge". */
+  task: AiTask | `eval_${string}`;
   model: string;
   provider: string | null;
   inputTokens: number;
@@ -65,13 +66,30 @@ export async function runStructured<Schema extends z.ZodType>(params: {
   maxTokens?: number;
   onUsage?: UsageRecorder;
 }): Promise<z.infer<Schema>> {
+  return runWithModel({ ...params, model: modelForTask(params.task), effort: effortForTask(params.task) });
+}
+
+/**
+ * The same call with an explicit model and effort. Product code uses runStructured, which pins
+ * both per function; the evaluation harness uses this for baselines and the grader.
+ */
+export async function runWithModel<Schema extends z.ZodType>(params: {
+  task: AiUsage["task"];
+  model: string;
+  effort: Effort;
+  system: string;
+  prompt: string;
+  schema: Schema;
+  maxTokens?: number;
+  onUsage?: UsageRecorder;
+}): Promise<z.infer<Schema>> {
   const format = zodOutputFormat(params.schema);
   const request: Anthropic.MessageCreateParamsNonStreaming & { provider: typeof PROVIDER_PREFERENCES } = {
-    model: modelForTask(params.task),
+    model: params.model,
     max_tokens: params.maxTokens ?? 16000,
     system: [{ type: "text", text: params.system, cache_control: { type: "ephemeral" } }],
     messages: [{ role: "user", content: params.prompt }],
-    output_config: { effort: effortForTask(params.task), format },
+    output_config: { effort: params.effort, format },
     provider: PROVIDER_PREFERENCES,
   };
   // `create`, not `parse`: the stop reason must be checked before parsing, because a

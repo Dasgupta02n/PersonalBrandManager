@@ -246,6 +246,7 @@ Every function must beat the strongest single prompt we can write for the same m
 the context a user could reasonably paste, in blind ratings by senior professionals and
 experienced ghostwriters. The safety check must catch at least 95% of a labelled set of risky
 posts. No quality change ships without beating both the current version and that baseline.
+The harness, test sets and pass rules are in `evals/` (see `evals/README.md`).
 
 ## 11. Open decisions
 

@@ -65,8 +65,11 @@ Open:
 
 ## Next milestones
 
-1. Quality bar: test sets per function, a strong single-prompt baseline, blind expert ratings;
-   then story arcs, voice profile, expert examples and multi-stage pipelines where they win
+1. Quality bar. Step 1 built: synthetic test sets for all nine functions, a single-prompt
+   baseline per function, a blind grader, metrics, reports and a human review kit (`evals/`).
+   Next: the first real run (needs `OPENROUTER_API_KEY` in the environment), expert review of
+   a sample of the test sets, then story arcs, expert examples and multi-stage pipelines where
+   the runs show they win
 2. Daily prompt delivery (email first, then WhatsApp and web push) via `/api/cron/tick`
 3. Voice profile generation from samples / LinkedIn export import; CV upload
 4. CV documents (DOCX/PDF) and versions; weekly profile prompt

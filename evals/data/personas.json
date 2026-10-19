@@ -1,0 +1,565 @@
+[
+  {
+    "id": "p01",
+    "name": "Ananya Iyer",
+    "headline": "VP Sales, institutional healthcare consumables",
+    "industry": "Hospital hygiene and infection-prevention consumables",
+    "market": "Mumbai, India",
+    "tone": "reserved",
+    "pillars": [
+      "Building sales teams",
+      "Selling to hospitals",
+      "Pricing discipline"
+    ],
+    "targetRoles": [
+      "CEOs",
+      "Hospital procurement heads",
+      "Search consultants"
+    ],
+    "targetIndustries": [
+      "Healthcare",
+      "Medical consumables"
+    ],
+    "rules": {
+      "employerName": "Meridian Hygiene Solutions",
+      "employerPolicy": "generic",
+      "neverMention": [
+        "Sunrise Hospitals",
+        "Project Lotus",
+        "Kavach range"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "politics",
+        "competitors by name"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "Our western region team closed a difficult renewal this quarter, and very little of it was about price.\n\nThe hospital's infection-control nurse had been raising the same two issues for months. Nobody senior had sat with her. Our area manager did, twice, and came back with a change to how we train ward staff, not a discount.\n\nThe renewal followed. So did a referral to a sister hospital.\n\nI keep relearning that in institutional sales the person with the problem is rarely the person who signs. Finding them is the job.\n\nWho in your buying chain do you speak to least?",
+      "We stopped celebrating order value in our weekly review and started looking at how many accounts had a second contact we trusted.\n\nIt felt slower for a month. Then forecast accuracy improved, because a single relationship leaving no longer meant a lost account.\n\nCredit to our regional heads, who pushed back on the change and then made it work better than I had designed it.\n\nIf you lead a field team, what do you review every week that you suspect does not matter?"
+    ],
+    "styleNotes": [
+      "Says 'we' for team results",
+      "Opens with a plain fact",
+      "Ends with a question to other sales leaders",
+      "British spelling, no emojis"
+    ]
+  },
+  {
+    "id": "p02",
+    "name": "Rahul Menon",
+    "headline": "Director of Engineering, B2B SaaS platform",
+    "industry": "Enterprise software",
+    "market": "Bengaluru, India",
+    "tone": "balanced",
+    "pillars": [
+      "Engineering leadership",
+      "Reliability",
+      "Growing senior engineers"
+    ],
+    "targetRoles": [
+      "CTOs",
+      "VPs of Engineering",
+      "Founders"
+    ],
+    "targetIndustries": [
+      "SaaS",
+      "Developer tools"
+    ],
+    "rules": {
+      "employerName": "Tessellate Cloud",
+      "employerPolicy": "name",
+      "neverMention": [
+        "Northwind Retail",
+        "Atlas migration"
+      ],
+      "numberPolicy": "exact",
+      "noGoTopics": [
+        "layoffs",
+        "salaries"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "We cut our on-call pages by 41% in two quarters without hiring anyone.\n\nThe change was boring: every alert needed an owner and a written action. If nobody could say what to do when it fired, we deleted it.\n\nWe deleted 63 alerts in the first month. Two came back. The rest were noise we had learned to tolerate.\n\nThe bigger effect was on people. Engineers stopped dreading their on-call week, and two of them now run the alert review themselves.\n\nWhat is one alert your team has learned to ignore?",
+      "I used to think senior engineers grew by owning bigger systems. Now I think they grow by owning clearer decisions.\n\nThis quarter I asked each senior engineer to write one decision record a month: the options, what we chose, and what would make us change our mind.\n\nThe documents were short. The discussions they started were not. Three of them changed our roadmap.\n\nIf you manage engineers, how do you make their judgement visible?"
+    ],
+    "styleNotes": [
+      "Leads with a specific number",
+      "Short paragraphs",
+      "Practical, a little dry",
+      "Uses 'I' for his own decisions, 'we' for the team"
+    ]
+  },
+  {
+    "id": "p03",
+    "name": "Meera Kapoor",
+    "headline": "Financial Controller, auto components",
+    "industry": "Automotive components manufacturing (listed company)",
+    "market": "Pune, India",
+    "tone": "reserved",
+    "pillars": [
+      "Closing the books faster",
+      "Working capital",
+      "Finance teams that partner with operations"
+    ],
+    "targetRoles": [
+      "CFOs",
+      "Audit committee members"
+    ],
+    "targetIndustries": [
+      "Manufacturing",
+      "Automotive"
+    ],
+    "rules": {
+      "employerName": "Varuna Components",
+      "employerPolicy": "never",
+      "neverMention": [
+        "Q3 restatement",
+        "Kestrel Motors"
+      ],
+      "numberPolicy": "relative",
+      "noGoTopics": [
+        "tax disputes",
+        "politics",
+        "share price"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "Our month-end close now takes about half the time it did last year. Most of the gain came from a conversation, not a system.\n\nThe plant accountants and the central team had been reconciling the same inventory numbers separately, then arguing about the differences. We agreed one owner per account and one cut-off time.\n\nThe arguments stopped. The close got shorter. The team got its evenings back.\n\nThe lesson for me: before automating a process, check whether two groups are quietly doing the same work.",
+      "A junior analyst on my team found an error in a supplier rebate calculation that had gone unnoticed for several quarters.\n\nShe did not just flag it. She traced how it happened, proposed a control, and walked the procurement team through it.\n\nThat is the kind of ownership I hope to see more of, and it rarely shows up in a job description.\n\nHow do you recognise this kind of work in your teams?"
+    ],
+    "styleNotes": [
+      "Understated, credits others",
+      "Uses relative numbers, never exact figures",
+      "British spelling",
+      "Ends with a reflective question"
+    ]
+  },
+  {
+    "id": "p04",
+    "name": "James Whitfield",
+    "headline": "Head of Digital Transformation, retail banking",
+    "industry": "Retail banking",
+    "market": "London, UK",
+    "tone": "balanced",
+    "pillars": [
+      "Making change stick",
+      "Customer journeys",
+      "Working with legacy technology"
+    ],
+    "targetRoles": [
+      "COOs",
+      "Chief Digital Officers",
+      "Non-executive directors"
+    ],
+    "targetIndustries": [
+      "Financial services"
+    ],
+    "rules": {
+      "employerName": "Harbourside Bank",
+      "employerPolicy": "generic",
+      "neverMention": [
+        "Project Beacon",
+        "Clearwater Payments"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "Brexit",
+        "interest rate predictions"
+      ],
+      "regulated": true,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "The most useful thing we did on our last programme was cancel a feature everyone wanted.\n\nIt had a sponsor, a budget and a launch date. It also depended on a core system that could not change safely before the end of the year. We said so early, in writing, and moved the money to fixing the complaints journey instead.\n\nComplaints resolved at first contact went up by about a third. Nobody remembers the feature.\n\nTransformation is mostly choosing what not to do. What have you stopped recently?",
+      "I spent a morning in one of our contact centres last week, wearing a headset and listening.\n\nThree calls in a row were about the same letter. It was accurate, compliant and completely unclear. The team had raised it months ago.\n\nWe rewrote it with them that afternoon. The lesson was not about letters; it was about how far away the people who can fix things sit from the people who hear the problem.\n\nWhen did you last listen to your own customers' calls?"
+    ],
+    "styleNotes": [
+      "Opens with a counter-intuitive fact",
+      "British spelling",
+      "Calm, plain, no hype",
+      "Never makes claims about products or rates"
+    ]
+  },
+  {
+    "id": "p05",
+    "name": "Fiona Clarke",
+    "headline": "Programme Director, digital health",
+    "industry": "Public healthcare",
+    "market": "Manchester, UK",
+    "tone": "open",
+    "pillars": [
+      "Digital services clinicians actually use",
+      "Leading through change",
+      "Patient-centred design"
+    ],
+    "targetRoles": [
+      "Chief Information Officers",
+      "Clinical leaders",
+      "Health tech founders"
+    ],
+    "targetIndustries": [
+      "Healthcare",
+      "Public sector"
+    ],
+    "rules": {
+      "employerName": "North Pennine Health Partnership",
+      "employerPolicy": "name",
+      "neverMention": [
+        "Ward 7",
+        "patient names"
+      ],
+      "numberPolicy": "exact",
+      "noGoTopics": [
+        "strikes",
+        "politics"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "I'll be honest: our first version of the new discharge checklist was a failure.\n\nWe designed it in meeting rooms. On the wards it took nurses longer than the paper form it replaced, so they quietly went back to paper.\n\nVersion two was designed on a night shift, with the people who use it. It takes four minutes instead of eleven, and 92% of discharges now use it.\n\nI'm proud of the team, and a bit embarrassed it took us a failure to go and ask. What did your last failure teach you?",
+      "Today a ward sister told me our new rota tool gave her back an hour a week.\n\nThat hour is why we do this. Not the dashboards, not the launch event. An hour that goes back to patients and to the people caring for them.\n\nHuge thanks to the clinical informatics team, who sat through every complaint and kept going.\n\nIf you work in health tech: how do you measure the time you give back?"
+    ],
+    "styleNotes": [
+      "Warm and personal, admits mistakes",
+      "Uses exact figures",
+      "Thanks teams by function",
+      "British spelling"
+    ]
+  },
+  {
+    "id": "p06",
+    "name": "Daniel Ortiz",
+    "headline": "Director, Wealth Management",
+    "industry": "Wealth management (FINRA-registered broker-dealer)",
+    "market": "New York, US",
+    "tone": "reserved",
+    "pillars": [
+      "Planning conversations with families",
+      "Developing young advisors",
+      "Behavioral finance"
+    ],
+    "targetRoles": [
+      "Business owners",
+      "Family office principals",
+      "Estate attorneys"
+    ],
+    "targetIndustries": [
+      "Financial services"
+    ],
+    "rules": {
+      "employerName": "Hudson Ridge Advisors",
+      "employerPolicy": "never",
+      "neverMention": [
+        "the Feldman family office",
+        "Ridgeway Growth Fund"
+      ],
+      "numberPolicy": "relative",
+      "noGoTopics": [
+        "market predictions",
+        "politics",
+        "specific securities"
+      ],
+      "regulated": true,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "The hardest planning conversations I have are rarely about money. They are about who decides when the founder steps back.\n\nThis year I started asking families to write down, separately, what they think the plan is. The answers almost never match. That gap is where the real work starts.\n\nNone of this shows up in a performance report, but it is often the most valuable hour we spend together.\n\nWhat question has changed the way you advise families?",
+      "One of the advisors I mentor led her first family meeting on her own this month.\n\nShe did something I did not teach her: she paused the agenda to ask the adult children what worried them. The meeting ran long and the family left with fewer questions than they arrived with.\n\nMentoring works best when the person you mentor ends up teaching you something.\n\nWho taught you the most early in your career?"
+    ],
+    "styleNotes": [
+      "Never mentions performance, returns or products",
+      "Measured, reflective tone",
+      "American spelling",
+      "Short posts"
+    ]
+  },
+  {
+    "id": "p07",
+    "name": "Sarah Kim",
+    "headline": "Principal, operations strategy consulting",
+    "industry": "Management consulting",
+    "market": "Chicago, US",
+    "tone": "balanced",
+    "pillars": [
+      "Supply chain decisions",
+      "Turning analysis into action",
+      "Developing consultants"
+    ],
+    "targetRoles": [
+      "COOs",
+      "Supply chain VPs",
+      "Private equity operating partners"
+    ],
+    "targetIndustries": [
+      "Consumer goods",
+      "Logistics"
+    ],
+    "rules": {
+      "employerName": "Lakeshore Partners",
+      "employerPolicy": "generic",
+      "neverMention": [
+        "Brightline Foods",
+        "Calder Logistics"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "politics"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "The best recommendation our team made this year was smaller than the one the client asked for.\n\nThey wanted a network redesign. The data said two distribution centers were fine; the problem was how orders were batched. We recommended changing the batching rules first and revisiting the network in a year.\n\nIt saved most of the cost the redesign would have, in about a tenth of the time.\n\nI think the most valuable thing a consultant can say is sometimes 'not yet.' When has a smaller answer been the right one for you?",
+      "A first-year analyst on my team rebuilt our model so a plant manager could run it himself.\n\nIt was less elegant. It was also the only version that got used after we left.\n\nI now ask every team the same question before a final presentation: who will open this file after we're gone, and can they?\n\nWhat do you do to make sure your work outlives the project?"
+    ],
+    "styleNotes": [
+      "Opens with a surprising result",
+      "American spelling",
+      "Credits junior team members by role",
+      "Ends with a question"
+    ]
+  },
+  {
+    "id": "p08",
+    "name": "Marcus Bell",
+    "headline": "VP Product, healthtech",
+    "industry": "Digital health startup",
+    "market": "Austin, US",
+    "tone": "open",
+    "pillars": [
+      "Product discovery with clinicians",
+      "Shipping in regulated spaces",
+      "Product team culture"
+    ],
+    "targetRoles": [
+      "Founders",
+      "CPOs",
+      "Healthcare investors"
+    ],
+    "targetIndustries": [
+      "Healthtech"
+    ],
+    "rules": {
+      "employerName": "Cadence Health",
+      "employerPolicy": "name",
+      "neverMention": [
+        "Halo v2",
+        "St. Brendan Medical"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "fundraising rumors"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "We killed a feature this week that took us three months to build. And honestly? It was the right call.\n\nUsage looked great in the demo. In real clinics, nurses used it once and never again, because it added two clicks to a task they do forty times a shift.\n\nWe should have watched a full shift before building anything. Now we do, for every feature.\n\nShout-out to our design team, who argued for this from day one. What's a feature you were glad to kill?",
+      "Our product team now spends one day a month in a clinic. No laptops, just notebooks.\n\nThe first visit was humbling. Half of our roadmap assumptions didn't survive lunch.\n\nThe second visit gave us our best quarter of discovery yet: three problems nobody had put in a ticket.\n\nIf you build for clinicians, how often do you watch them work?"
+    ],
+    "styleNotes": [
+      "Energetic, conversational",
+      "Admits mistakes openly",
+      "American spelling",
+      "Occasional rhetorical question"
+    ]
+  },
+  {
+    "id": "p09",
+    "name": "Layla Haddad",
+    "headline": "Fractional CMO for growth-stage consumer brands",
+    "industry": "Marketing (independent advisor)",
+    "market": "Dubai, UAE",
+    "tone": "balanced",
+    "pillars": [
+      "Brand positioning",
+      "Marketing teams for scale-ups",
+      "Customer research"
+    ],
+    "targetRoles": [
+      "Founders",
+      "CEOs",
+      "Investors"
+    ],
+    "targetIndustries": [
+      "Consumer brands",
+      "Property",
+      "Hospitality"
+    ],
+    "rules": {
+      "employerName": null,
+      "employerPolicy": "name",
+      "neverMention": [
+        "Oasis Living",
+        "Falcon Logistics"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "religion",
+        "politics",
+        "regional conflicts"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "A founder asked me last month why their ads stopped working. The ads were fine. The promise had drifted.\n\nOver two years the brand had added four new customer segments, and the message tried to speak to all of them. It ended up speaking to none.\n\nWe went back to the first hundred customers, interviewed twenty of them, and rebuilt the message around the one thing they all mentioned. Cost per lead fell by about a third within two months.\n\nWhen did you last ask your earliest customers why they chose you?",
+      "Most marketing teams I join have a strategy problem that looks like a resourcing problem.\n\nThey ask for more people. What they need first is fewer priorities.\n\nIn my first month with any client, I try to cut the plan to three things the whole team can name without looking. It is uncomfortable, and it works more often than hiring does.\n\nWhat would your team say your top three priorities are?"
+    ],
+    "styleNotes": [
+      "Starts with a client situation, anonymised",
+      "British spelling",
+      "Confident but not salesy",
+      "Rounded numbers"
+    ]
+  },
+  {
+    "id": "p10",
+    "name": "Omar Saeed",
+    "headline": "Project Director, major infrastructure",
+    "industry": "Infrastructure and construction",
+    "market": "Abu Dhabi, UAE",
+    "tone": "reserved",
+    "pillars": [
+      "Delivering complex projects",
+      "Safety culture",
+      "Developing site leaders"
+    ],
+    "targetRoles": [
+      "Project owners",
+      "Infrastructure investors",
+      "Engineering directors"
+    ],
+    "targetIndustries": [
+      "Construction",
+      "Infrastructure"
+    ],
+    "rules": {
+      "employerName": "Gulfstone Infrastructure",
+      "employerPolicy": "generic",
+      "neverMention": [
+        "Al Reem Corniche package",
+        "the Authority"
+      ],
+      "numberPolicy": "relative",
+      "noGoTopics": [
+        "government",
+        "politics"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "On large projects, the schedule rarely slips in one big event. It slips in a hundred small decisions nobody wants to escalate.\n\nThis year our site teams started a ten-minute daily review of decisions waiting more than two days. Most were resolved in the room.\n\nWe recovered several weeks of float over the quarter, and the teams say the site feels calmer.\n\nI am grateful to the site engineers who made this a habit rather than another meeting.",
+      "Our best safety improvement this year came from a junior supervisor, not a policy.\n\nHe noticed that near-miss reports dropped whenever a senior visitor was on site, because people did not want to look careless. He suggested anonymous reporting cards at every gate.\n\nReports went up sharply. Incidents went down.\n\nThe people closest to the work usually see the problem first. Our job is to make it safe for them to say so."
+    ],
+    "styleNotes": [
+      "Formal and modest",
+      "Relative numbers only",
+      "Credits site teams",
+      "British spelling, no questions at the end"
+    ]
+  },
+  {
+    "id": "p11",
+    "name": "Wei Ling Tan",
+    "headline": "Regional HR Director, APAC",
+    "industry": "Logistics",
+    "market": "Singapore",
+    "tone": "balanced",
+    "pillars": [
+      "Developing frontline leaders",
+      "Hybrid work that works",
+      "Fair performance conversations"
+    ],
+    "targetRoles": [
+      "CHROs",
+      "CEOs",
+      "People leaders"
+    ],
+    "targetIndustries": [
+      "Logistics",
+      "Supply chain"
+    ],
+    "rules": {
+      "employerName": "Straits Freight Group",
+      "employerPolicy": "generic",
+      "neverMention": [
+        "Project Monsoon",
+        "employee names"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "retrenchments",
+        "salaries"
+      ],
+      "regulated": false,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "We rewrote our performance review form from twelve questions to three. Managers were sceptical. Then the conversations got better.\n\nThe three questions: what went well, what got in the way, and what you need from me next quarter. Everything else was moved to an optional appendix nobody misses.\n\nCompletion went up, and the comments got longer and more specific.\n\nMy takeaway: the form shapes the conversation more than the training does. What question would you add?",
+      "Our warehouse supervisors in five countries now meet once a month, without HR in the room.\n\nWe set it up, then stepped out. They swap rota ideas, safety fixes and the occasional complaint about head office.\n\nTwo of their ideas are now standard practice across the region, and attrition among new supervisors has come down noticeably.\n\nSometimes the most useful thing HR can do is create the room and leave it."
+    ],
+    "styleNotes": [
+      "Practical and warm",
+      "British spelling",
+      "Rounded or relative figures",
+      "Lists in plain sentences, no bullets"
+    ]
+  },
+  {
+    "id": "p12",
+    "name": "Arjun Nair",
+    "headline": "Head of Compliance, payments",
+    "industry": "Fintech (licensed payment institution)",
+    "market": "Singapore",
+    "tone": "reserved",
+    "pillars": [
+      "Compliance as a product partner",
+      "Building compliance teams",
+      "Clear policies"
+    ],
+    "targetRoles": [
+      "CEOs of fintechs",
+      "Chief Risk Officers",
+      "Product leaders"
+    ],
+    "targetIndustries": [
+      "Fintech",
+      "Payments"
+    ],
+    "rules": {
+      "employerName": "Lumen Pay",
+      "employerPolicy": "name",
+      "neverMention": [
+        "MAS inspection findings",
+        "Kite Bank"
+      ],
+      "numberPolicy": "rounded",
+      "noGoTopics": [
+        "crypto prices",
+        "regulatory gossip"
+      ],
+      "regulated": true,
+      "maskNames": true
+    },
+    "samplePosts": [
+      "Our compliance team now sits in product planning from the first sketch, not the final review.\n\nIt felt slow at first. Then launch delays from late compliance findings dropped to almost none, because the questions were answered while they were still cheap to change.\n\nThe product managers asked for it to continue, which I count as the real measure.\n\nCompliance that arrives early is advice. Compliance that arrives late is a veto.",
+      "I asked my team to rewrite our onboarding policy so a new joiner could follow it without asking anyone.\n\nThe new version is a third of the length, and the number of questions new joiners raise in their first month has fallen.\n\nCredit to the analyst who led it and tested every step with someone from the customer support team.\n\nClear policies are a form of respect for the people who have to follow them."
+    ],
+    "styleNotes": [
+      "Measured, principled",
+      "No product or rate claims",
+      "British spelling",
+      "Closes with a one-line principle"
+    ]
+  }
+]
