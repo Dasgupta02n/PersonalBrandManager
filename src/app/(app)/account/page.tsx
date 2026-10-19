@@ -110,8 +110,11 @@ export default async function AccountPage() {
       <Panel className="flex flex-col gap-3">
         <h2 className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Privacy</h2>
         <p className="text-[15px] leading-relaxed">
-          Your data is stored in Mumbai, India. AI runs with zero data retention and is never trained on what you write. We never
-          sell or share it.{" "}
+          Your data is stored in Mumbai, India. We never use what you write to train AI models, and never sell or share it. Your{" "}
+          <Link href="/style" className="link">
+            style notebook
+          </Link>{" "}
+          stays in your account.{" "}
           <Link href="/privacy" className="link">
             Privacy notice
           </Link>

@@ -1,11 +1,13 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { PRIVACY_NOTICE_VERSION } from "@/lib/config/app";
 import { requireUser } from "@/lib/data/session";
 import { isValidTimeZone } from "@/lib/schedule/time";
+import { refreshQuietly } from "@/lib/voice/learn";
 import { processEntry } from "../today/pipeline";
 
 const list = (value: FormDataEntryValue | null) =>
@@ -115,8 +117,13 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
   if (rules.error) return { error: "Couldn't save your confidentiality settings." };
 
   if (formData.has("samplePosts")) {
+    const { data: before } = await supabase.from("voice_profiles").select("sample_posts").eq("user_id", user.id).maybeSingle();
     const voice = await supabase.from("voice_profiles").upsert({ user_id: user.id, sample_posts: v.samplePosts });
     if (voice.error) return { error: "Couldn't save your sample posts." };
+    // New samples: refresh the style notebook after the response, without making the user wait.
+    if (v.samplePosts.length && JSON.stringify(before?.sample_posts ?? []) !== JSON.stringify(v.samplePosts)) {
+      after(() => refreshQuietly(supabase, user.id));
+    }
   }
 
   // Replace pillars with the submitted list, keeping their order.

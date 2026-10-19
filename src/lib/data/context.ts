@@ -1,5 +1,6 @@
 import "server-only";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { buildNotebook } from "@/lib/voice/notebook";
 import { DEFAULT_RULES, type PromptChannel, type Tone, type UserContext, type Win, type WinKind } from "@/lib/domain/types";
 
 export interface ProfileRow {
@@ -16,6 +17,7 @@ export interface ProfileRow {
   target_roles: string[];
   onboarding_completed_at: string | null;
   privacy_consent_at: string | null;
+  privacy_notice_version: string | null;
 }
 
 export interface WinRow {
@@ -51,7 +53,7 @@ export async function loadProfile(supabase: SupabaseClient, userId: string): Pro
     .from("profiles")
     .select(
       "id, full_name, headline, timezone, prompt_time, prompt_channel, posts_per_week, tone, routine_cue, " +
-        "target_industries, target_roles, onboarding_completed_at, privacy_consent_at",
+        "target_industries, target_roles, onboarding_completed_at, privacy_consent_at, privacy_notice_version",
     )
     .eq("id", userId)
     .maybeSingle();
@@ -59,12 +61,23 @@ export async function loadProfile(supabase: SupabaseClient, userId: string): Pro
   return data as ProfileRow | null;
 }
 
+function voiceFrom(row: { summary: string; sample_posts: string[]; notes: unknown; muted: string[]; edit_stats: unknown } | null) {
+  const book = buildNotebook(row);
+  return {
+    summary: book.summary,
+    samplePosts: row?.sample_posts ?? [],
+    notes: book.notes.map((n) => n.text),
+    avoidWords: book.avoidWords,
+    skippedFormats: book.skippedFormats,
+  };
+}
+
 /** Everything the AI needs to write in the user's voice and respect their settings. */
 export async function loadUserContext(supabase: SupabaseClient, userId: string): Promise<UserContext> {
   const [profile, pillars, voice, rules] = await Promise.all([
     loadProfile(supabase, userId),
     supabase.from("pillars").select("id, name, description").eq("user_id", userId).order("position"),
-    supabase.from("voice_profiles").select("summary, sample_posts").eq("user_id", userId).maybeSingle(),
+    supabase.from("voice_profiles").select("summary, sample_posts, notes, muted, edit_stats").eq("user_id", userId).maybeSingle(),
     supabase
       .from("confidentiality_rules")
       .select("employer_name, employer_policy, never_mention, number_policy, no_go_topics, regulated, mask_names")
@@ -83,10 +96,7 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
     targetRoles: profile?.target_roles ?? [],
     tone: profile?.tone ?? "balanced",
     pillars: (pillars.data ?? []).map((p) => ({ id: p.id, name: p.name, description: p.description })),
-    voice: {
-      summary: voice.data?.summary ?? "",
-      samplePosts: voice.data?.sample_posts ?? [],
-    },
+    voice: voiceFrom(voice.data),
     rules: rules.data
       ? {
           employerName: rules.data.employer_name,

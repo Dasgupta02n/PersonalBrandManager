@@ -40,12 +40,12 @@ docs/                  PRD, architecture, design system, research
 |---|---|
 | `profiles` | One row per user: name, role, tone (`reserved` / `balanced` / `open`), routine cue, time zone, language, prompt time and channel, audience, onboarding state, privacy consent (time and notice version) |
 | `subscriptions` | Plan (`beta` / `trial` / `member`), start, billing fields. Users can read their own row; only trusted server code writes it |
-| `voice_profiles` | Writing-style summary, traits, sample posts |
+| `voice_profiles` | The private style notebook: voice summary, sample posts, learned and user-added notes, removed notes, edit counts |
 | `pillars` | 3–5 topics the user wants to be known for |
 | `confidentiality_rules` | Employer-name policy, never-mention list, number policy, no-go topics, regulated-firm mode, keep names out |
 | `journal_entries` | Daily entries as written, or with names replaced by roles when "keep names out" is on |
 | `wins` | Structured wins extracted from entries (summary, impact, metric, kind, skills, pillar) |
-| `drafts` | Post ideas, post drafts, comment and reply drafts, with format, guardrail and "how it reads" results, and status |
+| `drafts` | Post ideas, post drafts, comment and reply drafts, with format, guardrail and "how it reads" results, status, and the last AI-written version (to learn from the user's edits) |
 | `opportunities` | Things that came to the user (headhunters, invitations, meetings) |
 | `profile_suggestions` | Proposed headline, About, current-role bullets, CV bullets and skills, with the user's pasted current text and status |
 | `cv_versions` | Generated CV files (storage path), version number, change summary |
@@ -77,7 +77,7 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 | `read_post_screenshot` | planned | Claude Opus 5.5 | low | Post text and author from a screenshot |
 | `import_profile` | planned | Claude Opus 5.5 | medium | Positions, skills, past posts from a LinkedIn PDF or export |
 | `import_cv` | planned | Claude Opus 5.5 | medium | Facts from an uploaded CV |
-| `voice_profile` | planned | Claude Opus 5.5 | high | Writing-style summary and traits |
+| `voice_profile` | live | Claude Opus 5.5 | high | Voice summary and up to 8 style observations from samples and edited posts |
 | `profile_suggestions` | live | Claude Opus 5.5 | high | Headline, About, current-role bullets, CV bullets, skills, each with a reason |
 | `cv_update` | planned | Claude Opus 5.5 | high | New CV content and change summary |
 | `read_reach_screenshot` | planned | Claude Opus 5.5 | low | Reach numbers from an analytics screenshot |
@@ -116,6 +116,23 @@ One global price (`src/lib/billing/pricing.ts`, explained in `docs/PRICING.md`):
 `requireAllowance` runs before every AI action and sums the real cost of the period's calls from
 `ai_usage` (OpenRouter's reported cost, or tokens × list price). When the allowance is used, the
 note is still saved and the AI step is skipped with a calm message.
+
+## Style notebook
+
+`src/lib/voice/`: how each user writes, kept in their own `voice_profiles` row.
+
+- **Plain code learns from behaviour:** when a draft is marked posted, the AI's last version is
+  compared with what the user posted. That gives words removed or added, "I" moving to "we",
+  emojis, hashtags and exclamation marks removed, and length. Dismissed ideas count by format,
+  and one-tap revisions by mode. A pattern becomes a note once seen in two drafts.
+- **The AI learns from writing:** `voice_profile` reads the sample posts and the last five edited
+  posts, and writes up to 8 style observations. It runs when samples change, after every three
+  edited posts (in `after()`, so nobody waits), or on request. It uses the plan's allowance.
+  Observations that mention a never-mention term or the employer are dropped.
+- **The user controls it:** `/style` shows every note with its source. The user can remove any
+  (removed ones never come back), add their own, or clear what was learned.
+- **Every draft follows it:** the notebook goes into the user context for every AI step, and
+  words the user removes become a quiet tier-3 check.
 
 ## Privacy
 

@@ -62,6 +62,7 @@ const PLAN_FEATURES = [
   "A daily note that builds your private record",
   "Checked drafts and comment starters",
   "How it reads to peers, leadership and clients",
+  "A private notebook of how you write, so drafts sound like you",
   "Profile and CV refresh, appraisal exports",
   "Weekly scorecard led by what came to you",
 ];

@@ -13,7 +13,7 @@ GST; the merchant of record adds them at checkout where the law requires. The mo
 
 The price is set to fund the multi-pass quality pipeline (several drafts and a grader,
 specialist safety checkers): about **$6.10** of AI for an engaged month once it is built, with
-caching and overnight batch. Today's one-pass pipeline costs $4.42 for the same month, so
+caching and overnight batch. Today's one-pass pipeline costs $4.50 for the same month, so
 members have headroom until then.
 
 ## The split
@@ -73,9 +73,10 @@ then multiplied by 1.5 for headroom.
 | Re-check after edits | check + how it reads | $0.070 | 6 | $0.42 |
 | Comment starters | comment starters | $0.031 | 10 | $0.31 |
 | Profile and CV refresh | profile suggestions | $0.074 | 4 | $0.29 |
-| **Engaged month** | | | | **$4.42** |
+| Style notebook refresh | voice profile | $0.042 | 2 | $0.08 |
+| **Engaged month** | | | | **$4.50** |
 
-- Today's pipeline needs at least $21.00 a month: ($4.42 + $0.31 + $0.50) ÷ (29.91% − 5%).
+- Today's pipeline needs at least $21.34 a month: ($4.50 + $0.31 + $0.50) ÷ (29.91% − 5%).
 - The quality pipeline ($6.10 an engaged month, see below) needs at least **$27.70 a month**
   and **$311 a year**. $29 and $319 are the nearest standard price points that clear both.
 - The member allowance ($6.27) covers the planned pipeline. At today's costs it is about 60
@@ -90,7 +91,7 @@ then multiplied by 1.5 for headroom.
 | Daily note | $0.06 | about $0.07 (deeper ideas prepared overnight at batch price) |
 | Revision | $0.10 | about $0.11 |
 | Re-check | $0.07 | about $0.10 |
-| **Engaged month** | **$4.42** | **about $6.10** |
+| **Engaged month** | **$4.50** | **about $6.10** |
 
 These are estimates. Real costs from the beta's `ai_usage` replace them.
 

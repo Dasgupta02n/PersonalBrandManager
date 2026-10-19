@@ -133,6 +133,7 @@ const CALL_TOKENS = {
   revise_draft: [2400, 450],
   comment_starters: [2650, 500],
   profile_suggestions: [4750, 1500],
+  voice_profile: [4500, 500],
 } as const;
 
 /** Headroom for longer notes, larger records and higher-effort answers. */
@@ -146,6 +147,7 @@ const ACTION_CALLS = {
   recheck: ["check_draft", "how_it_reads"],
   commentStarters: ["comment_starters"],
   profileRefresh: ["profile_suggestions"],
+  styleRefresh: ["voice_profile"],
 } as const satisfies Record<string, readonly (keyof typeof CALL_TOKENS)[]>;
 
 export type Action = keyof typeof ACTION_CALLS;
@@ -167,6 +169,7 @@ export const ENGAGED_MONTH: Record<Action, number> = {
   recheck: 6,
   commentStarters: 10,
   profileRefresh: 4,
+  styleRefresh: 2,
 };
 
 export function monthCost(usage: Partial<Record<Action, number>>): number {

@@ -28,7 +28,7 @@ export const TASK_SETTINGS = {
   // Onboarding imports
   import_profile: { model: OPUS, effort: "medium", live: false },
   import_cv: { model: OPUS, effort: "medium", live: false },
-  voice_profile: { model: OPUS, effort: "high", live: false },
+  voice_profile: { model: OPUS, effort: "high", live: true },
   // Weekly refresh and scorecard
   profile_suggestions: { model: OPUS, effort: "high", live: true },
   cv_update: { model: OPUS, effort: "high", live: false },

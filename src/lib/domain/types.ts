@@ -33,6 +33,12 @@ export interface Pillar {
 export interface VoiceProfile {
   summary: string;
   samplePosts: string[];
+  /** The private style notebook: how this user writes, learned from samples and edits. */
+  notes: string[];
+  /** Words the user keeps removing from drafts. */
+  avoidWords: string[];
+  /** Post formats the user keeps dismissing. */
+  skippedFormats: PostFormat[];
 }
 
 export interface Win {

@@ -44,8 +44,12 @@
 - Privacy: consent with version, keep names out (default on), download everything, account
   deletion, privacy notice with sub-processors and Mumbai hosting, breach runbook
   (`docs/PRIVACY.md`)
+- Private style notebook ("How you write"): learns from edits before posting, dismissed ideas,
+  revisions and sample posts (`voice_profile` is live); visible, editable and clearable; used
+  by every draft. Consent wording now says "never used to train AI models", and consent is
+  asked again whenever the notice version changes
 - Fix: new ideas now replace the ones still waiting, so Today shows ideas from today's win
-- Checks: lint, typecheck, 91 unit tests, production build
+- Checks: lint, typecheck, 101 unit tests, production build
 
 ## Needed to run end to end
 

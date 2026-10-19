@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { friendlyAiError } from "@/lib/ai/errors";
@@ -10,6 +11,7 @@ import { loadUserContext, toWin, WIN_COLUMNS, type WinRow } from "@/lib/data/con
 import { requireUser } from "@/lib/data/session";
 import { usageRecorderFor } from "@/lib/data/usage";
 import { checkText } from "@/lib/guardrails/check";
+import { REFRESH_AFTER_EDITS, recordEdit, recordRevision, refreshQuietly } from "@/lib/voice/learn";
 
 type Session = Awaited<ReturnType<typeof requireUser>>;
 
@@ -57,7 +59,7 @@ export async function saveDraft(draftId: string, _prev: SaveState, formData: For
   if (!existing) return { status: "error", message: "Draft not found." };
 
   const ctx = await loadUserContext(session.supabase, session.user.id);
-  const check = checkText(body.data, { kind: "post", rules: ctx.rules });
+  const check = checkText(body.data, { kind: "post", rules: ctx.rules, avoidWords: ctx.voice.avoidWords });
   const previous = normalizeReport(existing.guardrails as Partial<GuardrailReport>);
   const report: GuardrailReport = {
     ...(previous ?? normalizeReport({ passed: true })!),
@@ -129,9 +131,10 @@ export async function reviseDraft(draftId: string, _prev: CheckState, formData: 
     });
     await session.supabase
       .from("drafts")
-      .update({ body: result.body, guardrails: result.report, status: statusFor(draft.status, result.report) })
+      .update({ body: result.body, ai_body: result.body, guardrails: result.report, status: statusFor(draft.status, result.report) })
       .eq("id", draftId)
       .eq("user_id", session.user.id);
+    await recordRevision(session.supabase, session.user.id, mode.data);
     refresh(draftId);
     return { status: "done" };
   } catch (error) {
@@ -144,14 +147,21 @@ const PostUrlSchema = z
   .trim()
   .refine((v) => v === "" || /^https:\/\/(www\.)?linkedin\.com\//.test(v), "Paste a linkedin.com link, or leave it empty.");
 
+/** Marks the draft posted and learns from what the user changed before posting it. */
 export async function markPosted(draftId: string, formData: FormData) {
   const { supabase, user } = await requireUser();
   const url = PostUrlSchema.safeParse(formData.get("postUrl") ?? "");
-  await supabase
+  const { data: draft } = await supabase
     .from("drafts")
     .update({ status: "posted", posted_at: new Date().toISOString(), post_url: url.success && url.data ? url.data : null })
     .eq("id", draftId)
-    .eq("user_id", user.id);
+    .eq("user_id", user.id)
+    .select("ai_body, body")
+    .maybeSingle();
+  if (draft?.ai_body) {
+    const stats = await recordEdit(supabase, user.id, draft.ai_body, draft.body);
+    if (stats && stats.pairsSinceRefresh >= REFRESH_AFTER_EDITS) after(() => refreshQuietly(supabase, user.id));
+  }
   refresh(draftId);
 }
 

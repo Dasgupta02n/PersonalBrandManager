@@ -138,6 +138,11 @@ export const ProfileSuggestionsSchema = z.object({
 });
 export type ProfileSuggestionsOutput = z.infer<typeof ProfileSuggestionsSchema>;
 
+export const VoiceProfileSchema = z.object({
+  summary: z.string().describe("One sentence describing the user's voice."),
+  notes: z.array(z.string()).describe("Up to 8 short observations about style only, most certain first."),
+});
+
 export const CommentStartersSchema = z.object({
   options: z.array(
     z.object({

@@ -8,7 +8,7 @@ vi.mock("./client", () => ({
   runStructured: vi.fn(async ({ task }: { task: string }) => outputs[task]),
 }));
 
-const { extractWins, readAsAudience, recheckPost, reviewDraft, suggestProfile } = await import("./tasks");
+const { extractWins, learnVoice, readAsAudience, recheckPost, reviewDraft, suggestProfile } = await import("./tasks");
 
 const ctx: UserContext = {
   fullName: "Priya",
@@ -17,7 +17,7 @@ const ctx: UserContext = {
   targetRoles: [],
   tone: "balanced",
   pillars: [],
-  voice: { summary: "", samplePosts: [] },
+  voice: { summary: "", samplePosts: [], notes: [], avoidWords: [], skippedFormats: [] },
   rules: { ...DEFAULT_RULES, noGoTopics: ["politics"] },
 };
 
@@ -111,5 +111,33 @@ describe("profile and CV suggestions", () => {
     expect(result[0].issues.some((i) => i.code === "job_search")).toBe(true);
     expect(result[2].text).toBe("• Grew the channel team");
     expect(result.every((s) => s.issues.every((i) => i.code !== "length"))).toBe(true);
+  });
+});
+
+describe("learning how the user writes", () => {
+  it("keeps style notes and drops any that mention a private name or the employer", async () => {
+    outputs.voice_profile = {
+      summary: "Plain and modest.",
+      notes: ["Opens with a plain fact", "Mentions Acme Bank often", "Credits Northwind for every result", "British spelling"],
+    };
+    const result = await learnVoice({
+      samples: ["A sample"],
+      pairs: [],
+      removed: [],
+      rules: { ...ctx.rules, neverMention: ["Acme Bank"], employerName: "Northwind", employerPolicy: "generic" },
+    });
+    expect(result.notes).toEqual(["Opens with a plain fact", "British spelling"]);
+  });
+
+  it("flags words the user keeps removing as a quiet suggestion", async () => {
+    outputs.check_draft = cleanCheck;
+    const result = await reviewDraft({
+      body: `We decided to leverage the regional data. ${words(140)}`,
+      kind: "post",
+      facts: [],
+      ctx: { ...ctx, voice: { ...ctx.voice, avoidWords: ["leverage"] } },
+    });
+    expect(result.report.issues.find((i) => i.code === "style_avoid")?.match).toBe("leverage");
+    expect(result.report.passed).toBe(true);
   });
 });

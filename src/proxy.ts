@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /** Routes that require a signed-in user. */
-const PROTECTED_PREFIXES = ["/today", "/wins", "/drafts", "/engage", "/onboarding", "/account", "/consent"];
+const PROTECTED_PREFIXES = ["/today", "/wins", "/drafts", "/engage", "/onboarding", "/account", "/consent", "/style"];
 
 /**
  * Refreshes the Supabase session on every matched request and redirects signed-out

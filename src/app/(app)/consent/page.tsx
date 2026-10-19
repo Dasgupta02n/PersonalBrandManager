@@ -9,7 +9,8 @@ export const metadata: Metadata = { title: "Privacy notice" };
 
 const POINTS = [
   "Your notes are used only to find your wins and suggest posts, your profile and your CV.",
-  "Stored in Mumbai, India. AI runs with zero data retention and never learns from what you write.",
+  "Stored in Mumbai, India. We never use what you write to train AI models or share it with anyone.",
+  "We keep a private note of your writing style in your account, which you can see and delete.",
   "Nothing is posted for you. We never log in to or read your LinkedIn.",
   "Download or delete everything at any time from Settings.",
 ];

@@ -71,6 +71,7 @@ the final name.
 | Profile & CV | Suggest updates | Optional pasted current text; each suggestion checked like a post, with reason, where to paste it, Copy and "I've updated it" |
 | Export | Copy for your appraisal | 3, 6 or 12 months ("Your year in wins"); grouped by topic, praise apart; download as text; print or save as PDF |
 | Setup | Continue | Five steps, one question each, sticky Back/Continue; consent on step 1 |
+| How you write | Add a note | The style notebook: voice summary, notes with their source, words you remove (removable chips), "Learn from my latest writing", clear what was learned |
 | Plan, data and privacy | Download everything | Plan and a usage bar in words ("Plenty left"), never credits; delete account behind a typed confirmation |
 | Free post check (public) | Check my post | Runs in the browser; results by tier; what the full check adds |
 | Landing | Join the beta | Leads with the check and the record; comparison with a general AI assistant; one global price |

@@ -128,7 +128,7 @@ export function DraftWorkspace(props: Props) {
               <li key={line.key} className="flex items-start gap-2.5 text-[15px] font-medium">
                 <Icon aria-hidden className={cx("mt-0.5 size-[18px] shrink-0", className)} />
                 {line.key === "voice" && line.state === "unknown" ? (
-                  <Link href="/onboarding#voice" className="link font-normal">
+                  <Link href="/style" className="link font-normal">
                     {line.label}
                   </Link>
                 ) : (

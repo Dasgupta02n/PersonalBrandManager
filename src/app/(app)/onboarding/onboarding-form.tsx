@@ -226,7 +226,12 @@ function VoiceFields({ d }: { d: OnboardingDefaults }) {
     <div>
       <Label htmlFor="samplePosts">Paste up to three posts or messages you wrote</Label>
       <Textarea id="samplePosts" name="samplePosts" defaultValue={d.samplePosts} className="min-h-40" />
-      <Hint>Separate them with a line of three dashes (---). Used only to match how you write.</Hint>
+      <Hint>
+        Separate them with a line of three dashes (---). Used only to match how you write.{" "}
+        <Link href="/style" className="link">
+          See what we&apos;ve learned
+        </Link>
+      </Hint>
     </div>
   );
 }

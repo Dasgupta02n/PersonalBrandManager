@@ -11,6 +11,7 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 | Account (email, name, photo) | Supabase Auth, Mumbai | The user; service role | Until account deletion |
 | Settings, rules, topics, voice samples | Supabase Postgres, Mumbai | The user (row-level security) | Until changed or deleted |
 | Notes and wins | Supabase Postgres, Mumbai | The user | Until deleted |
+| Style notebook (style notes, edit counts, single removed words) | Supabase Postgres, Mumbai | The user | Until cleared or the account is deleted |
 | Drafts, opportunities, profile suggestions | Supabase Postgres, Mumbai | The user | Until deleted |
 | AI usage (task, model, tokens, cost; no content) | Supabase Postgres, Mumbai | Service role only | Kept without the user id after deletion |
 | Text sent to AI | OpenRouter → Google Vertex AI | Processed only | Zero data retention |
@@ -19,6 +20,20 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 Sub-processors: Supabase, Hostinger, OpenRouter, Google Cloud Vertex AI, and Paddle once billing
 opens. Add any new one to the notice before it receives data, and bump the notice version if
 the change is material (users are asked to agree again).
+
+## How the product learns
+
+Only three ways, all consistent with "we never use what you write to train AI models":
+
+1. **A private style notebook per user,** in their own account, used only for their drafts. It
+   is visible and editable, and deleted with the account.
+2. **Counts with no text,** such as which formats get picked or how often a check is overridden,
+   used as totals to tune the product.
+3. **Examples and test sets we write or commission.** User text never goes into test sets,
+   shared examples or model training.
+
+Bump `PRIVACY_NOTICE_VERSION` when the notice changes materially; everyone is asked to agree
+again on their next visit.
 
 ## Rights requests
 

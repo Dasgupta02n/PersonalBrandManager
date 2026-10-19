@@ -21,6 +21,7 @@ export type GuardrailCode =
   | "regulated_language"
   | "sensitive"
   | "names_client"
+  | "style_avoid"
   | "length";
 
 /**
@@ -38,6 +39,7 @@ const TIER_BY_CODE: Record<GuardrailCode, GuardrailTier> = {
   job_search: 2,
   sensitive: 2,
   names_client: 2,
+  style_avoid: 3,
   cliche: 3,
   humblebrag: 3,
   ai_tell: 3,
@@ -67,6 +69,8 @@ export interface GuardrailOptions {
   commentMaxWords?: number;
   /** Flags phrases like "our client Acme". For the free checker, which has no never-mention list. */
   flagClientNames?: boolean;
+  /** Words this user keeps removing from drafts (from their style notebook). */
+  avoidWords?: string[];
 }
 
 const normalize = (text: string) => text.replace(/[’‘]/g, "'");
@@ -242,6 +246,13 @@ export function checkText(text: string, options: GuardrailOptions): GuardrailRes
     for (const phrase of phrases) {
       const match = findTerm(text, phrase);
       if (match) issues.push({ code, severity: "warning", message: message(match), match });
+    }
+  }
+
+  for (const word of options.avoidWords ?? []) {
+    const match = findTerm(text, word);
+    if (match) {
+      issues.push({ code: "style_avoid", severity: "warning", message: `You usually remove "${match}" from your posts.`, match });
     }
   }
 

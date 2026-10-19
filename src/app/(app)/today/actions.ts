@@ -6,6 +6,7 @@ import { z } from "zod";
 import { friendlyAiError } from "@/lib/ai/errors";
 import { draftPost } from "@/lib/ai/tasks";
 import { requireAllowance } from "@/lib/billing/allowance";
+import { recordSkippedIdea } from "@/lib/voice/learn";
 import { loadUserContext, toWin, WIN_COLUMNS, type WinRow } from "@/lib/data/context";
 import { requireUser } from "@/lib/data/session";
 import { usageRecorderFor } from "@/lib/data/usage";
@@ -131,6 +132,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
         angle: idea.angle,
         hook: result.hook,
         body: result.body,
+        ai_body: result.body,
         hashtags: result.hashtags,
         source_win_ids: idea.source_win_ids,
         guardrails: result.report,
@@ -149,10 +151,18 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
   redirect(`/drafts/${draftId}`);
 }
 
+/** "Not this one": retires the idea and notes which format the user passed over. */
 export async function dismissIdea(formData: FormData) {
   const { supabase, user } = await requireUser();
   const ideaId = z.uuid().safeParse(formData.get("ideaId"));
   if (!ideaId.success) return;
-  await supabase.from("drafts").update({ status: "discarded" }).eq("id", ideaId.data).eq("user_id", user.id);
+  const { data: idea } = await supabase
+    .from("drafts")
+    .update({ status: "discarded" })
+    .eq("id", ideaId.data)
+    .eq("user_id", user.id)
+    .select("post_format")
+    .maybeSingle();
+  if (idea?.post_format) await recordSkippedIdea(supabase, user.id, idea.post_format as PostFormat);
   revalidatePath("/today");
 }

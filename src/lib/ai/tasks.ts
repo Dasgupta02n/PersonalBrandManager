@@ -1,6 +1,6 @@
 import "server-only";
 import type { PostFormat, UserContext, Win, WinKind } from "@/lib/domain/types";
-import { checkText, type GuardrailIssue } from "@/lib/guardrails/check";
+import { checkText, findTerm, type GuardrailIssue } from "@/lib/guardrails/check";
 import { runStructured, type UsageRecorder } from "./client";
 import {
   CHECK_DRAFT_SYSTEM,
@@ -10,6 +10,7 @@ import {
   HOW_IT_READS_SYSTEM,
   POST_IDEAS_SYSTEM,
   PROFILE_SUGGESTIONS_SYSTEM,
+  VOICE_PROFILE_SYSTEM,
   REVISE_INSTRUCTIONS,
   REVISE_POST_SYSTEM,
   formatUserContext,
@@ -24,6 +25,7 @@ import {
   PostDraftSchema,
   PostIdeasSchema,
   ProfileSuggestionsSchema,
+  VoiceProfileSchema,
   RevisionSchema,
 } from "./schemas";
 
@@ -190,7 +192,7 @@ export async function reviewDraft(input: {
   onUsage?: UsageRecorder;
 }): Promise<{ body: string; suggestedBody: string | null; report: Omit<GuardrailReport, "howItReads"> }> {
   const applyFix = input.applyFix ?? true;
-  const first = checkText(input.body, { kind: input.kind, rules: input.ctx.rules });
+  const first = checkText(input.body, { kind: input.kind, rules: input.ctx.rules, avoidWords: input.ctx.voice.avoidWords });
   const automaticProblems = first.issues.filter((i) => i.severity === "error").map((i) => `- ${i.message}`);
 
   const check = await runStructured({
@@ -218,7 +220,7 @@ ${input.body}
   const fix = needsFix && check.revised_body?.trim() ? check.revised_body.trim() : null;
   const applied = applyFix ? fix : null;
   const finalBody = applied ?? input.body;
-  const final = applied ? checkText(finalBody, { kind: input.kind, rules: input.ctx.rules }) : first;
+  const final = applied ? checkText(finalBody, { kind: input.kind, rules: input.ctx.rules, avoidWords: input.ctx.voice.avoidWords }) : first;
 
   return {
     body: finalBody,
@@ -262,7 +264,7 @@ ${input.body}
 
   return {
     verdict: result.verdict,
-    soundsLikeYou: input.ctx.voice.samplePosts.length ? result.sounds_like_user : null,
+    soundsLikeYou: input.ctx.voice.samplePosts.length || input.ctx.voice.notes.length ? result.sounds_like_user : null,
     readers: result.readers.slice(0, 3).map((r) => ({
       reader: r.reader,
       readsAs: r.reads_as.trim(),
@@ -374,7 +376,7 @@ ${input.postText.slice(0, 6000)}
     approach: option.approach.trim(),
     starter: option.starter.trim(),
     add: option.add.trim(),
-    issues: checkText(option.starter, { kind: "comment", rules: input.ctx.rules }).issues,
+    issues: checkText(option.starter, { kind: "comment", rules: input.ctx.rules, avoidWords: input.ctx.voice.avoidWords }).issues,
   }));
 }
 
@@ -427,4 +429,41 @@ ${shared.length ? `What the user has today:\n<user_data>\n${shared.join("\n\n")}
     { section: "skills", text: list(result.skills.items).slice(0, 8).join(", "), reason: result.skills.reason.trim() },
   ];
   return sections.filter((s) => s.text).map((s) => ({ ...s, issues: check(s.text) }));
+}
+
+/**
+ * Learns how the user writes from their samples and their edits (what we drafted, what they
+ * posted). Style only: observations that mention a never-mention term or the employer are dropped.
+ */
+export async function learnVoice(input: {
+  samples: string[];
+  pairs: { drafted: string; posted: string }[];
+  removed: string[];
+  rules: UserContext["rules"];
+  onUsage?: UsageRecorder;
+}): Promise<{ summary: string; notes: string[] }> {
+  const samples = input.samples.slice(0, 3).map((s, i) => `Sample ${i + 1}:\n${s.slice(0, 1500)}`);
+  const pairs = input.pairs
+    .slice(0, 5)
+    .map((p, i) => `Pair ${i + 1}\nDrafted for them:\n${p.drafted.slice(0, 1500)}\nWhat they posted:\n${p.posted.slice(0, 1500)}`);
+
+  const result = await runStructured({
+    task: "voice_profile",
+    system: VOICE_PROFILE_SYSTEM,
+    schema: VoiceProfileSchema,
+    onUsage: input.onUsage,
+    prompt: `<user_data>
+${samples.length ? samples.join("\n\n") : "No sample posts."}
+
+${pairs.length ? pairs.join("\n\n") : "No edited posts yet."}
+</user_data>
+${input.removed.length ? `\nThe user removed these observations; never repeat them:\n${input.removed.map((r) => `- ${r}`).join("\n")}` : ""}`,
+  });
+
+  const privateTerms = [...input.rules.neverMention, ...(input.rules.employerName ? [input.rules.employerName] : [])];
+  const notes = result.notes
+    .map((n) => n.trim())
+    .filter((n) => n && n.length <= 120 && !privateTerms.some((term) => findTerm(n, term)))
+    .slice(0, 8);
+  return { summary: result.summary.trim().slice(0, 300), notes };
 }

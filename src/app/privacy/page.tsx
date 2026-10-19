@@ -48,7 +48,7 @@ export default function PrivacyPage() {
         <ul className="list-disc pl-5">
           <li>Log in to, read or automate your LinkedIn account, or post anything for you.</li>
           <li>Sell, rent or share what you write.</li>
-          <li>Use your notes, wins or drafts to train AI models, ours or anyone else&apos;s.</li>
+          <li>Use your notes, wins, drafts or style notebook to train AI models, ours or anyone else&apos;s.</li>
           <li>Show you ads or track you across other sites.</li>
         </ul>
       </Section>
@@ -67,8 +67,13 @@ export default function PrivacyPage() {
           suggestions. To suggest posts, keep your record and prepare your profile, CV and appraisal summaries.
         </p>
         <p>
+          <strong>Your style notebook:</strong> short notes about how you write (&ldquo;says &lsquo;we&rsquo; for team
+          results&rdquo;, &ldquo;no emojis&rdquo;), learned from your sample posts and from the changes you make before posting.
+          Style only, never what your posts say. Used only for your drafts; see, change or clear it in Settings → How you write.
+        </p>
+        <p>
           <strong>Usage records:</strong> which AI step ran, its token count and cost. No content. To keep each plan within its
-          fair-use allowance.
+          fair-use allowance. We also count how features are used, as totals with none of your text, to improve the product.
         </p>
         <p>
           We process this to provide the service you asked for, with your consent, which you give when you set up your account.

@@ -2,7 +2,7 @@
 
 import { useState, type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
-import { Check, Copy, LoaderCircle, Printer } from "lucide-react";
+import { Check, Copy, LoaderCircle, Printer, type LucideIcon } from "lucide-react";
 import { buttonClass, type ButtonSize, type ButtonVariant } from "./ui";
 
 /** Submit button that shows a spinner and an honest pending label while its server action runs. */
@@ -94,6 +94,16 @@ export function PrintButton({ label = "Print or save as PDF", variant = "seconda
     <button type="button" onClick={() => window.print()} className={buttonClass(variant, "print:hidden", size)}>
       <Printer aria-hidden />
       {label}
+    </button>
+  );
+}
+
+/** An icon-only submit button that shows a spinner while its form's action runs. */
+export function IconSubmitButton({ label, icon: Icon, className }: { label: string; icon: LucideIcon; className?: string }) {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" disabled={pending} aria-busy={pending} aria-label={label} title={label} className={className}>
+      {pending ? <LoaderCircle aria-hidden className="size-[18px] animate-spin" /> : <Icon aria-hidden className="size-[18px]" />}
     </button>
   );
 }

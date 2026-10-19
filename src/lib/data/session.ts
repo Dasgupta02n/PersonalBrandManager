@@ -1,5 +1,6 @@
 import "server-only";
 import { redirect } from "next/navigation";
+import { PRIVACY_NOTICE_VERSION } from "@/lib/config/app";
 import { createClient } from "@/lib/supabase/server";
 import { loadProfile, type ProfileRow } from "./context";
 
@@ -15,8 +16,10 @@ export async function requireUser(options: { allowIncompleteOnboarding?: boolean
   const profile = await loadProfile(supabase, data.user.id);
   if (!profile) redirect("/login");
   if (!profile.onboarding_completed_at && !options.allowIncompleteOnboarding) redirect("/onboarding");
-  // Accounts set up before consent was recorded confirm it once (new users give it during setup).
-  if (profile.onboarding_completed_at && !profile.privacy_consent_at && !options.allowMissingConsent) redirect("/consent");
+  // Consent is asked again whenever the notice changes materially (its version is bumped);
+  // new users give it during setup.
+  const consentCurrent = profile.privacy_consent_at && profile.privacy_notice_version === PRIVACY_NOTICE_VERSION;
+  if (profile.onboarding_completed_at && !consentCurrent && !options.allowMissingConsent) redirect("/consent");
 
   return { supabase, user: data.user, profile: profile as ProfileRow };
 }

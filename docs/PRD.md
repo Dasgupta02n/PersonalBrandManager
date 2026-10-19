@@ -75,7 +75,9 @@ anyone wanting automation.
    are kept out of the stored record by default. Checks are a careful second read, never
    presented as legal or compliance clearance.
 6. **The user's data is theirs.** Never sold or shared, never used to train AI models;
-   exportable and deletable at any time, with consent recorded.
+   exportable and deletable at any time, with consent recorded. The product learns in three
+   ways only: a private style notebook in each user's account, counts with no text, and
+   examples we commission from experts.
 7. **No dark patterns.** No streaks, guilt or loss-framing. Consistency is counted forgivingly
    (workdays logged in a recent window) and a gap is met with a calm comeback. Renewal reminders
    and one-tap cancellation.
@@ -117,6 +119,11 @@ email and photo only.
 
 - **Ideas:** 2–3 ways to share a recent win, best first ("Suggested"), each in a format that lands
   well for this audience: a lesson, a decision explained, credit to the team, a practical how-to.
+- **Style notebook** ("How you write"): a private notebook of how the user writes, learned from
+  their sample posts and from the edits they make before posting (words they remove, "we"
+  instead of "I", no emojis, formats they pass over, revisions they choose). Style only, never
+  content. Every draft follows it; the user can see, add, remove and clear notes. Kept in their
+  account, used only for their drafts, never used to train AI models.
 - **Drafts** in the user's tone: a first line under 140 characters, then result → credit →
   lesson → takeaway → a specific question; 120–220 words; 0–3 hashtags.
 - **Verdict before the draft:** three lines — is it safe to post, how it reads (confident,
