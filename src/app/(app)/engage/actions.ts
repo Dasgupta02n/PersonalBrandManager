@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { friendlyAiError } from "@/lib/ai/errors";
+import { requireAllowance } from "@/lib/billing/allowance";
 import { commentStarters } from "@/lib/ai/tasks";
 import { loadUserContext } from "@/lib/data/context";
 import { requireUser } from "@/lib/data/session";
@@ -21,6 +22,7 @@ export async function suggestStarters(_prev: StarterState, formData: FormData): 
   if (!postText.success) return { status: "error", message: postText.error.issues[0]?.message };
 
   try {
+    await requireAllowance(user.id);
     const ctx = await loadUserContext(supabase, user.id);
     const starters = await commentStarters({ postText: postText.data, ctx, onUsage: usageRecorderFor(user.id) });
     return {

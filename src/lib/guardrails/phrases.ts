@@ -61,3 +61,57 @@ export const AI_TELL_PHRASES = [
   "buckle up",
   "navigate the complexities",
 ] as const;
+
+/**
+ * Promissory and performance language that regulated firms (FINRA 2210, FCA financial
+ * promotions, SEBI) treat as a breach in a public post. Checked only in regulated-firm mode.
+ */
+export const REGULATED_PHRASES = [
+  "guaranteed return",
+  "guaranteed returns",
+  "guaranteed income",
+  "guaranteed growth",
+  "assured return",
+  "assured returns",
+  "risk-free",
+  "risk free",
+  "zero risk",
+  "no risk",
+  "can't lose",
+  "cannot lose",
+  "will outperform",
+  "beat the market",
+  "beats the market",
+  "double your money",
+  "best investment",
+  "safe investment",
+  "sure-shot",
+  "multibagger",
+  "target price",
+  "strong buy",
+  "stock tip",
+  "invest now",
+] as const;
+
+/** Words that suggest information that isn't public yet. A note to check, never a block. */
+export const SENSITIVE_PHRASES = [
+  "confidential",
+  "internal only",
+  "not yet public",
+  "not public yet",
+  "not yet announced",
+  "unannounced",
+  "under nda",
+  "nda",
+  "embargo",
+  "embargoed",
+  "off the record",
+  "between us",
+  "leaked",
+  "acquisition talks",
+  "merger talks",
+  "in talks to acquire",
+  "layoffs",
+  "before it's announced",
+  "ahead of the announcement",
+] as const;

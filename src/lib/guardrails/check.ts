@@ -1,6 +1,13 @@
 import { COMMENT_MAX_WORDS, POST_WORDS } from "@/lib/config/app";
 import type { ConfidentialityRules } from "@/lib/domain/types";
-import { AI_TELL_PHRASES, CLICHE_PHRASES, HUMBLEBRAG_PHRASES, JOB_SEARCH_PHRASES } from "./phrases";
+import {
+  AI_TELL_PHRASES,
+  CLICHE_PHRASES,
+  HUMBLEBRAG_PHRASES,
+  JOB_SEARCH_PHRASES,
+  REGULATED_PHRASES,
+  SENSITIVE_PHRASES,
+} from "./phrases";
 
 export type GuardrailSeverity = "error" | "warning";
 export type GuardrailCode =
@@ -11,6 +18,9 @@ export type GuardrailCode =
   | "humblebrag"
   | "ai_tell"
   | "number_precision"
+  | "regulated_language"
+  | "sensitive"
+  | "names_client"
   | "length";
 
 /**
@@ -24,7 +34,10 @@ const TIER_BY_CODE: Record<GuardrailCode, GuardrailTier> = {
   never_mention: 1,
   employer_name: 1,
   number_precision: 1,
+  regulated_language: 1,
   job_search: 2,
+  sensitive: 2,
+  names_client: 2,
   cliche: 3,
   humblebrag: 3,
   ai_tell: 3,
@@ -52,12 +65,21 @@ export interface GuardrailOptions {
   rules: ConfidentialityRules;
   postWords?: { min: number; max: number };
   commentMaxWords?: number;
+  /** Flags phrases like "our client Acme". For the free checker, which has no never-mention list. */
+  flagClientNames?: boolean;
 }
 
 const normalize = (text: string) => text.replace(/[’‘]/g, "'");
 
 /** "It's not about X, it's Y" and close variants. */
 const NOT_X_BUT_Y = /\b(?:it's|it is|this isn't|this is not)\s+(?:just\s+)?(?:about\s+)?[^.?!\n]{1,60}?[,;—–-]\s*(?:it's|it is)\b[^.?!\n]*/i;
+
+/** "12% returns", "returned 18%": performance figures a regulated firm must not post. */
+const RETURNS_FIGURE = /\b(?:\d+(?:\.\d+)?\s?%\s+(?:annual(?:ised|ized)?\s+)?returns?|returns?\s+of\s+(?:up\s+to\s+)?\d+(?:\.\d+)?\s?%|returned\s+\d+(?:\.\d+)?\s?%)/i;
+
+/** "our client Acme Bank", "clients like Northwind": a named client. */
+const NAMED_CLIENT = /\b[Cc]lients?(?:[ \t]+like|[ \t]+such[ \t]+as)?,?[ \t]+((?:[A-Z][\p{L}&.'-]*)(?:[ \t]+[A-Z][\p{L}&.'-]*){0,3})/gu;
+const NOT_A_NAME = new Set(["I", "We", "The", "A", "An", "Our", "My", "In", "On", "At", "For", "This", "That", "It", "They"]);
 
 /** A final line that only fishes for engagement. */
 const BAIT_CLOSER = /^(?:agree|thoughts|right|who's with me|am i wrong)\s*\?+$/i;
@@ -162,6 +184,55 @@ export function checkText(text: string, options: GuardrailOptions): GuardrailRes
     }
   }
 
+  if (rules.regulated) {
+    for (const phrase of REGULATED_PHRASES) {
+      const match = findTerm(text, phrase);
+      if (match) {
+        issues.push({
+          code: "regulated_language",
+          severity: "error",
+          message: `"${match}" is promissory or performance language your firm's rules don't allow in a post.`,
+          match,
+        });
+      }
+    }
+    const returns = text.match(RETURNS_FIGURE);
+    if (returns) {
+      issues.push({
+        code: "regulated_language",
+        severity: "error",
+        message: `"${returns[0]}" quotes performance; regulated firms generally don't allow that in a personal post.`,
+        match: returns[0],
+      });
+    }
+  }
+
+  for (const phrase of SENSITIVE_PHRASES) {
+    const match = findTerm(text, phrase);
+    if (match) {
+      issues.push({
+        code: "sensitive",
+        severity: "warning",
+        message: `"${match}" suggests information that may not be public yet. Check you're allowed to share it.`,
+        match,
+      });
+    }
+  }
+
+  if (options.flagClientNames) {
+    for (const match of text.matchAll(NAMED_CLIENT)) {
+      const name = match[1];
+      if (NOT_A_NAME.has(name.split(/\s+/)[0])) continue;
+      issues.push({
+        code: "names_client",
+        severity: "warning",
+        message: `Names a client ("${name}"). Check you have their permission, or describe them generally.`,
+        match: name,
+      });
+      break;
+    }
+  }
+
   const phraseChecks: [readonly string[], GuardrailCode, (match: string) => string][] = [
     [CLICHE_PHRASES, "cliche", (m) => `"${m}" is an overused phrase.`],
     [HUMBLEBRAG_PHRASES, "humblebrag", (m) => `"${m}" reads as a humblebrag; state the result plainly instead.`],
@@ -237,4 +308,19 @@ export function checkText(text: string, options: GuardrailOptions): GuardrailRes
   }
 
   return { passed: !issues.some((issue) => issue.severity === "error"), issues };
+}
+
+/**
+ * Replaces never-mention terms with a neutral placeholder, longest first, so private names are
+ * not stored in notes. Used when the user keeps names out of their record.
+ */
+export function maskTerms(text: string, terms: string[]): string {
+  const present = terms.filter((term) => findTerm(text, term));
+  if (!present.length) return text;
+  let masked = normalize(text);
+  for (const term of present.sort((a, b) => b.length - a.length)) {
+    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(normalize(term).trim())}(?![\\p{L}\\p{N}])`, "giu");
+    masked = masked.replace(pattern, "[private]");
+  }
+  return masked;
 }

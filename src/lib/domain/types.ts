@@ -18,6 +18,10 @@ export interface ConfidentialityRules {
   numberPolicy: NumberPolicy;
   /** Themes the user never wants to post about. Checked by the AI on every draft. */
   noGoTopics: string[];
+  /** Works at a regulated firm: promissory and performance language is stopped. */
+  regulated: boolean;
+  /** Keep other people's names out of stored notes and wins. */
+  maskNames: boolean;
 }
 
 export interface Pillar {
@@ -60,4 +64,6 @@ export const DEFAULT_RULES: ConfidentialityRules = {
   neverMention: [],
   numberPolicy: "rounded",
   noGoTopics: [],
+  regulated: false,
+  maskNames: true,
 };

@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Lightbulb, Lock, X } from "lucide-react";
 import { SubmitButton } from "@/components/client";
-import { Badge, EmptyState, Panel, SectionHeader, cx } from "@/components/ui";
+import { Badge, EmptyState, Notice, Panel, SectionHeader, cx } from "@/components/ui";
+import { loadAllowance } from "@/lib/billing/allowance";
+import { NEAR_LIMIT, exhaustedMessage, isExhausted, nearLimitMessage } from "@/lib/billing/allowance-period";
+import { loadUserContext } from "@/lib/data/context";
 import { FORMAT_LABEL, WIN_KIND_LABEL } from "@/lib/content/labels";
 import { requireUser } from "@/lib/data/session";
 import type { PostFormat, WinKind } from "@/lib/domain/types";
@@ -24,7 +28,7 @@ export default async function TodayPage() {
   const today = now.date;
   const monthStart = `${today.slice(0, 8)}01`;
 
-  const [entries, todaysWins, monthWins, ideas, recentWins] = await Promise.all([
+  const [entries, todaysWins, monthWins, ideas, recentWins, allowance, ctx] = await Promise.all([
     supabase
       .from("journal_entries")
       .select("id, entry_date, follow_up_question, created_at")
@@ -47,6 +51,8 @@ export default async function TodayPage() {
       .order("created_at", { ascending: true })
       .limit(3),
     supabase.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", addDays(today, -30)),
+    loadAllowance(user.id),
+    loadUserContext(supabase, user.id),
   ]);
 
   const entryRows = entries.data ?? [];
@@ -87,8 +93,17 @@ export default async function TodayPage() {
         )}
       </header>
 
+      {allowance && allowance.used >= NEAR_LIMIT && (
+        <Notice tone="neutral">
+          {isExhausted(allowance) ? exhaustedMessage(allowance) : nearLimitMessage(allowance)}{" "}
+          <Link href="/account" className="link font-semibold">
+            Your plan
+          </Link>
+        </Notice>
+      )}
+
       <Panel>
-        <CaptureForm prompt="What moved forward today?" comeback={missed !== null && missed >= 3} />
+        <CaptureForm prompt="What moved forward today?" comeback={missed !== null && missed >= 3} masksNames={ctx.rules.maskNames} />
       </Panel>
 
       {followUp?.follow_up_question && (
@@ -171,6 +186,13 @@ export default async function TodayPage() {
           </EmptyState>
         )}
       </section>
+
+      <p className="text-sm text-muted">
+        Did something come to you — a headhunter, an invitation, a client lead?{" "}
+        <Link href="/wins/week#log" className="link font-medium">
+          Log it
+        </Link>
+      </p>
     </>
   );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Lock, Trash2, Trophy } from "lucide-react";
 import { CopyButton } from "@/components/client";
+import { RecordNav } from "@/components/record-nav";
 import { Badge, EmptyState, PageHeader, buttonClass, cx } from "@/components/ui";
 import { WIN_KIND_LABEL } from "@/lib/content/labels";
 import { requireUser } from "@/lib/data/session";
@@ -65,9 +66,10 @@ export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
 
   return (
     <>
+      <RecordNav active="/wins" />
       <PageHeader
         title="Your record"
-        description="Everything you've logged, in your own words. Posts, your profile and your CV are built only from this."
+        description="Everything you've logged. Posts, your profile, your CV and your appraisal summary are built only from this."
       />
 
       <nav aria-label="Filter by type" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 pr-8 [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">

@@ -74,7 +74,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
           ))}
         </div>
         <p className="text-[13px] leading-relaxed text-muted">
-          Continuing with LinkedIn shares only your name, email and photo. We never post or act on LinkedIn for you.
+          Continuing with LinkedIn shares only your name, email and photo. We never post or act on LinkedIn for you. See the{" "}
+          <Link href="/privacy" className="link">
+            privacy notice
+          </Link>
+          .
         </p>
       </main>
     </div>

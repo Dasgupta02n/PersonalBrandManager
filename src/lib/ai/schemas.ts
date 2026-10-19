@@ -26,6 +26,13 @@ export const ExtractedWinsSchema = z.object({
     .string()
     .nullable()
     .describe("One short question about the user's own part or a number they can share, or null if nothing important is missing."),
+  masked_note: z
+    .string()
+    .nullable()
+    .describe(
+      "Only when asked to keep names out: the user's whole note, unchanged except that other people's names are replaced " +
+        "by their role and never-mention terms by a generic description. Otherwise null.",
+    ),
 });
 export type ExtractedWins = z.infer<typeof ExtractedWinsSchema>;
 
@@ -107,6 +114,29 @@ export type HowItReadsOutput = z.infer<typeof HowItReadsSchema>;
 export const RevisionSchema = z.object({
   body: z.string().describe("The full revised post."),
 });
+
+const section = (text: string) =>
+  z.object({
+    text: z.string().describe(text),
+    reason: z.string().describe("One sentence: why this, and which wins it draws on."),
+  });
+const bullets = (text: string) =>
+  z.object({
+    bullets: z.array(z.string()).describe(text),
+    reason: z.string().describe("One sentence: why these, and which wins they draw on."),
+  });
+
+export const ProfileSuggestionsSchema = z.object({
+  headline: section("The LinkedIn headline, under 220 characters."),
+  about: section("The LinkedIn About section, first person, 120–250 words."),
+  experience: bullets("3–5 bullets for the current role on LinkedIn."),
+  cv: bullets("3–6 achievement bullets for the CV."),
+  skills: z.object({
+    items: z.array(z.string()).describe("Up to 8 skills, most evidenced first."),
+    reason: z.string(),
+  }),
+});
+export type ProfileSuggestionsOutput = z.infer<typeof ProfileSuggestionsSchema>;
 
 export const CommentStartersSchema = z.object({
   options: z.array(

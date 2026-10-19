@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { friendlyAiError } from "@/lib/ai/errors";
+import { requireAllowance } from "@/lib/billing/allowance";
 import { normalizeReport, recheckPost, revisePost, type GuardrailReport, type RevisionMode } from "@/lib/ai/tasks";
 import { loadUserContext, toWin, WIN_COLUMNS, type WinRow } from "@/lib/data/context";
 import { requireUser } from "@/lib/data/session";
@@ -89,6 +90,7 @@ export async function recheckDraft(draftId: string): Promise<CheckState> {
   if (!draft) return { status: "error", message: "Draft not found." };
 
   try {
+    await requireAllowance(session.user.id);
     const ctx = await loadUserContext(session.supabase, session.user.id);
     const facts = await loadFacts(session, draft.source_win_ids);
     const result = await recheckPost({ body: draft.body, facts, ctx, onUsage: usageRecorderFor(session.user.id) });
@@ -115,6 +117,7 @@ export async function reviseDraft(draftId: string, _prev: CheckState, formData: 
   if (!draft) return { status: "error", message: "Draft not found." };
 
   try {
+    await requireAllowance(session.user.id);
     const ctx = await loadUserContext(session.supabase, session.user.id);
     const facts = await loadFacts(session, draft.source_win_ids);
     const result = await revisePost({

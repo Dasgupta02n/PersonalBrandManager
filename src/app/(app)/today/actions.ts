@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { friendlyAiError } from "@/lib/ai/errors";
 import { draftPost } from "@/lib/ai/tasks";
+import { requireAllowance } from "@/lib/billing/allowance";
 import { loadUserContext, toWin, WIN_COLUMNS, type WinRow } from "@/lib/data/context";
 import { requireUser } from "@/lib/data/session";
 import { usageRecorderFor } from "@/lib/data/usage";
@@ -66,24 +67,15 @@ export async function moreIdeas(): Promise<IdeasState> {
 
   const { data: shown } = await supabase
     .from("drafts")
-    .select("id, angle")
+    .select("angle")
     .eq("user_id", user.id)
     .eq("kind", "post_idea")
     .eq("status", "idea");
 
   try {
+    await requireAllowance(user.id);
     const added = await suggestIdeas(session, today, (shown ?? []).map((d) => d.angle ?? "").filter(Boolean));
     if (!added) return { error: "Log a win first; ideas are built only from your real work." };
-    if (shown?.length) {
-      await supabase
-        .from("drafts")
-        .update({ status: "discarded" })
-        .eq("user_id", user.id)
-        .in(
-          "id",
-          shown.map((d) => d.id),
-        );
-    }
   } catch (error) {
     return { error: friendlyAiError(error) };
   }
@@ -119,6 +111,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
 
   let draftId: string;
   try {
+    await requireAllowance(user.id);
     const ctx = await loadUserContext(supabase, user.id);
     const format = (idea.post_format ?? "lesson") as PostFormat;
     const result = await draftPost({

@@ -45,3 +45,12 @@ export const TONE_LABEL: Record<Tone, { label: string; hint: string }> = {
   balanced: { label: "Balanced", hint: "Confident and plain." },
   open: { label: "Open", hint: "Warmer and more personal." },
 };
+
+/** Things that come to the user because their work is visible. Private to them. */
+export const OPPORTUNITY_LABEL = {
+  headhunter: "A recruiter or headhunter",
+  invitation: "An invitation to speak, write or advise",
+  meeting: "A meeting request",
+  inbound_lead: "A client or business lead",
+  other: "Something else",
+} as const;

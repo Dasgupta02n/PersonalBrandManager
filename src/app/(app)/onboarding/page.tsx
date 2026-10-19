@@ -6,7 +6,7 @@ import { OnboardingForm } from "./onboarding-form";
 export const metadata: Metadata = { title: "Settings" };
 
 export default async function OnboardingPage() {
-  const { supabase, user, profile } = await requireUser({ allowIncompleteOnboarding: true });
+  const { supabase, user, profile } = await requireUser({ allowIncompleteOnboarding: true, allowMissingConsent: true });
   const ctx = await loadUserContext(supabase, user.id);
 
   return (
@@ -29,6 +29,8 @@ export default async function OnboardingPage() {
         neverMention: ctx.rules.neverMention.join("\n"),
         noGoTopics: ctx.rules.noGoTopics.join(", "),
         numberPolicy: ctx.rules.numberPolicy,
+        regulated: ctx.rules.regulated,
+        maskNames: ctx.rules.maskNames,
         samplePosts: ctx.voice.samplePosts.join("\n---\n"),
       }}
     />

@@ -1,7 +1,9 @@
+import { AllowanceExhaustedError } from "@/lib/billing/allowance";
 import { AiOutputError, AiRefusalError } from "./client";
 
 /** A message that is safe and helpful to show the user when an AI step fails. */
 export function friendlyAiError(error: unknown): string {
+  if (error instanceof AllowanceExhaustedError) return error.message;
   if (error instanceof AiRefusalError) {
     return "The AI couldn't help with that entry. Try rephrasing it.";
   }

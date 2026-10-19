@@ -106,6 +106,21 @@ Return 3 starters with clearly different approaches: add an example from the use
 
 ${SHARED_RULES}`;
 
+export const PROFILE_SUGGESTIONS_SYSTEM = `You refresh a senior professional's LinkedIn profile and CV from their real, logged wins.
+
+Write:
+- headline: under 220 characters. What they do and for whom, plainly, with one concrete strength from the wins. No slogans, emojis or "aspiring".
+- about: first person, 120–250 words, three short paragraphs: what they do, how they work (with one or two examples from the wins, crediting teams), what they care about. No buzzwords.
+- experience: 3–5 bullets for their current role, each starting with an action verb and ending with the result. Public, so follow the confidentiality settings exactly.
+- cv: 3–6 achievement bullets for their CV, in the same style. Also follow the confidentiality settings.
+- skills: up to 8 skills the wins demonstrate, most evidenced first.
+
+If the user shared their current text, improve on it and keep what is still accurate. For each section give one sentence of reason, naming the wins it draws on.
+
+Discretion matters most: the update must read as a natural refresh, never a job search. Never mention availability, "open to", "seeking", "next chapter" or anything similar.
+
+${SHARED_RULES}`;
+
 export function describeRules(rules: ConfidentialityRules): string {
   const employer = rules.employerName
     ? {
@@ -117,7 +132,7 @@ export function describeRules(rules: ConfidentialityRules): string {
 
   const numbers = {
     exact: "Exact figures the user provided may be used.",
-    rounded: "Round figures (for example ₹27 Cr, not ₹27.43 Cr; 50%, not 52.3%).",
+    rounded: "Round figures (for example 27 million, not 27.43 million; 50%, not 52.3%).",
     relative: "Do not use specific figures; use relative terms (for example 'doubled', 'cut by more than half').",
   }[rules.numberPolicy];
 
@@ -129,7 +144,13 @@ export function describeRules(rules: ConfidentialityRules): string {
     ? `No-go topics (never post about): ${rules.noGoTopics.join(", ")}.`
     : "No no-go topics set.";
 
-  return [employer, numbers, never, noGo].join("\n");
+  const regulated = rules.regulated
+    ? "The user works at a regulated firm (finance, insurance or investment): never make promissory or performance claims " +
+      "(returns, guarantees, 'risk-free'), never recommend a product, fund or security, and report any such content as a " +
+      "confidentiality problem."
+    : null;
+
+  return [employer, numbers, never, noGo, regulated].filter(Boolean).join("\n");
 }
 
 export function formatUserContext(ctx: UserContext): string {

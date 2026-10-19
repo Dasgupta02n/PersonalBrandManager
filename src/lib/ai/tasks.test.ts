@@ -8,7 +8,7 @@ vi.mock("./client", () => ({
   runStructured: vi.fn(async ({ task }: { task: string }) => outputs[task]),
 }));
 
-const { readAsAudience, recheckPost, reviewDraft } = await import("./tasks");
+const { extractWins, readAsAudience, recheckPost, reviewDraft, suggestProfile } = await import("./tasks");
 
 const ctx: UserContext = {
   fullName: "Priya",
@@ -78,5 +78,38 @@ describe("review pipeline", () => {
     const result = await readAsAudience({ body, ctx });
     expect(result.lines.map((l) => l.quote)).toEqual(["We opened three new states"]);
     expect(result.soundsLikeYou).toBeNull();
+  });
+});
+
+describe("keeping names out of the record", () => {
+  const extracted = { wins: [], follow_up_question: null, masked_note: "Closed the renewal with a client's CFO." };
+
+  it("returns the AI's masked note when the user keeps names out", async () => {
+    outputs.extract_wins = extracted;
+    const result = await extractWins({ text: "Closed the renewal with Ravi at Acme.", ctx: { ...ctx, rules: { ...ctx.rules, maskNames: true } } });
+    expect(result.maskedNote).toBe("Closed the renewal with a client's CFO.");
+  });
+
+  it("ignores it when the user has turned masking off", async () => {
+    outputs.extract_wins = extracted;
+    const result = await extractWins({ text: "Closed the renewal with Ravi at Acme.", ctx: { ...ctx, rules: { ...ctx.rules, maskNames: false } } });
+    expect(result.maskedNote).toBeNull();
+  });
+});
+
+describe("profile and CV suggestions", () => {
+  it("checks every section like a post and flags job-hunting signals", async () => {
+    outputs.profile_suggestions = {
+      headline: { text: "Head of Sales | Open to new opportunities", reason: "From your wins." },
+      about: { text: "I build sales teams.", reason: "r" },
+      experience: { bullets: ["Grew the channel team", ""], reason: "r" },
+      cv: { bullets: ["Cut discounting"], reason: "r" },
+      skills: { items: ["Pricing", "Hiring"], reason: "r" },
+    };
+    const result = await suggestProfile({ wins: [], current: { headline: "", about: "", experience: "" }, ctx });
+    expect(result.map((s) => s.section)).toEqual(["headline", "about", "experience", "cv", "skills"]);
+    expect(result[0].issues.some((i) => i.code === "job_search")).toBe(true);
+    expect(result[2].text).toBe("• Grew the channel team");
+    expect(result.every((s) => s.issues.every((i) => i.code !== "length"))).toBe(true);
   });
 });

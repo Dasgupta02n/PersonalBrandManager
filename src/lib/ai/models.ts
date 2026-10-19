@@ -30,7 +30,7 @@ export const TASK_SETTINGS = {
   import_cv: { model: OPUS, effort: "medium", live: false },
   voice_profile: { model: OPUS, effort: "high", live: false },
   // Weekly refresh and scorecard
-  profile_suggestions: { model: OPUS, effort: "high", live: false },
+  profile_suggestions: { model: OPUS, effort: "high", live: true },
   cv_update: { model: OPUS, effort: "high", live: false },
   read_reach_screenshot: { model: OPUS, effort: "low", live: false },
   weekly_summary: { model: OPUS, effort: "medium", live: false },

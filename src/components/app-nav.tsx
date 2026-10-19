@@ -68,7 +68,7 @@ export function MobileTabBar({ draftCount }: { draftCount: number }) {
   return (
     <nav
       aria-label="Main"
-      className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
+      className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden print:hidden"
     >
       <ul className="mx-auto grid h-14 max-w-md grid-cols-4">
         {NAV.map(({ href, label, icon: Icon }) => {

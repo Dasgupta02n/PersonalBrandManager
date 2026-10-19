@@ -1,15 +1,16 @@
 # Personal Brand Manager (working name)
 
-**Nothing you'll regret posting.** A private, facts-first LinkedIn ghostwriter for employed
-professionals. Note what moved forward in a minute a day; get post ideas and drafts built only
-from your real wins, checked for confidentiality, tone and how they will read before you see
-them, plus comment starters, a weekly profile and CV refresh, and a scorecard led by the
-opportunities that came to you. The user approves everything — the product never posts,
-comments or edits LinkedIn on its own.
+**Nothing you'll regret posting.** A pre-post check and a private record of real work for
+employed professionals on LinkedIn. Note what moved forward in a minute a day. Every draft is
+checked for what your employer, clients and peers will see before you see it. Posts, comment
+starters, profile and CV updates and appraisal summaries are built only from your record. The
+user approves everything; the product never posts, comments or edits LinkedIn on its own.
 
 - Product requirements: [docs/PRD.md](docs/PRD.md)
 - Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - Design system: [docs/DESIGN.md](docs/DESIGN.md)
+- Pricing: [docs/PRICING.md](docs/PRICING.md)
+- Privacy data map and breach runbook: [docs/PRIVACY.md](docs/PRIVACY.md)
 - Research behind the design: [docs/research/](docs/research/)
 - Build status: [docs/STATUS.md](docs/STATUS.md)
 

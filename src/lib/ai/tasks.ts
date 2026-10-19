@@ -9,6 +9,7 @@ import {
   EXTRACT_WINS_SYSTEM,
   HOW_IT_READS_SYSTEM,
   POST_IDEAS_SYSTEM,
+  PROFILE_SUGGESTIONS_SYSTEM,
   REVISE_INSTRUCTIONS,
   REVISE_POST_SYSTEM,
   formatUserContext,
@@ -22,6 +23,7 @@ import {
   HowItReadsSchema,
   PostDraftSchema,
   PostIdeasSchema,
+  ProfileSuggestionsSchema,
   RevisionSchema,
 } from "./schemas";
 
@@ -42,7 +44,14 @@ export async function extractWins(input: {
   text: string;
   ctx: UserContext;
   onUsage?: UsageRecorder;
-}): Promise<{ wins: NewWin[]; followUpQuestion: string | null }> {
+}): Promise<{ wins: NewWin[]; followUpQuestion: string | null; maskedNote: string | null }> {
+  const keepNamesOut = input.ctx.rules.maskNames
+    ? `
+
+Keep names out: in summaries, impact and the follow-up question, refer to people other than the user by their role ` +
+      `("a colleague", "my manager", "the client's CFO") and to never-mention terms generically ("a client", "a partner"). ` +
+      `Return masked_note.`
+    : "\n\nReturn masked_note as null.";
   const result = await runStructured({
     task: "extract_wins",
     system: EXTRACT_WINS_SYSTEM,
@@ -53,7 +62,7 @@ export async function extractWins(input: {
 Today's note from the user:
 <user_data>
 ${input.text}
-</user_data>`,
+</user_data>${keepNamesOut}`,
   });
 
   const pillarByName = new Map(input.ctx.pillars.map((p) => [p.name.toLowerCase(), p.id]));
@@ -69,7 +78,11 @@ ${input.text}
       kind: w.kind,
     }));
 
-  return { wins, followUpQuestion: result.follow_up_question?.trim() || null };
+  return {
+    wins,
+    followUpQuestion: result.follow_up_question?.trim() || null,
+    maskedNote: input.ctx.rules.maskNames ? result.masked_note?.trim() || null : null,
+  };
 }
 
 export interface PostIdea {
@@ -363,4 +376,55 @@ ${input.postText.slice(0, 6000)}
     add: option.add.trim(),
     issues: checkText(option.starter, { kind: "comment", rules: input.ctx.rules }).issues,
   }));
+}
+
+export type ProfileSection = "headline" | "about" | "experience" | "cv" | "skills";
+
+export interface ProfileSuggestion {
+  section: ProfileSection;
+  text: string;
+  reason: string;
+  issues: GuardrailIssue[];
+}
+
+/**
+ * Profile and CV suggestions from the record, each checked like a post (confidentiality,
+ * employer policy, figures, job-search signals). Length rules for posts don't apply here.
+ */
+export async function suggestProfile(input: {
+  wins: Win[];
+  current: { headline: string; about: string; experience: string };
+  ctx: UserContext;
+  onUsage?: UsageRecorder;
+}): Promise<ProfileSuggestion[]> {
+  const shared = [
+    input.current.headline && `Current headline:\n${input.current.headline}`,
+    input.current.about && `Current About:\n${input.current.about}`,
+    input.current.experience && `Current role bullets or CV lines:\n${input.current.experience}`,
+  ].filter(Boolean);
+
+  const result = await runStructured({
+    task: "profile_suggestions",
+    system: PROFILE_SUGGESTIONS_SYSTEM,
+    schema: ProfileSuggestionsSchema,
+    onUsage: input.onUsage,
+    prompt: `${formatUserContext(input.ctx)}
+
+${formatWins(input.wins)}
+
+${shared.length ? `What the user has today:\n<user_data>\n${shared.join("\n\n")}\n</user_data>` : "The user has not shared their current profile."}`,
+  });
+
+  const check = (text: string) =>
+    checkText(text, { kind: "comment", rules: input.ctx.rules, commentMaxWords: 10_000 }).issues.filter((i) => i.code !== "length");
+  const list = (items: string[]) => items.map((b) => b.trim()).filter(Boolean);
+
+  const sections: Omit<ProfileSuggestion, "issues">[] = [
+    { section: "headline", text: result.headline.text.trim().slice(0, 220), reason: result.headline.reason.trim() },
+    { section: "about", text: result.about.text.trim(), reason: result.about.reason.trim() },
+    { section: "experience", text: list(result.experience.bullets).slice(0, 5).map((b) => `• ${b}`).join("\n"), reason: result.experience.reason.trim() },
+    { section: "cv", text: list(result.cv.bullets).slice(0, 6).map((b) => `• ${b}`).join("\n"), reason: result.cv.reason.trim() },
+    { section: "skills", text: list(result.skills.items).slice(0, 8).join(", "), reason: result.skills.reason.trim() },
+  ];
+  return sections.filter((s) => s.text).map((s) => ({ ...s, issues: check(s.text) }));
 }

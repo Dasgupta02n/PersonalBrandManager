@@ -2,9 +2,11 @@ import "server-only";
 import { revalidatePath } from "next/cache";
 import { friendlyAiError } from "@/lib/ai/errors";
 import { extractWins, generatePostIdeas } from "@/lib/ai/tasks";
+import { requireAllowance } from "@/lib/billing/allowance";
 import { loadRecentWins, loadUserContext } from "@/lib/data/context";
 import type { requireUser } from "@/lib/data/session";
 import { usageRecorderFor } from "@/lib/data/usage";
+import { maskTerms } from "@/lib/guardrails/check";
 import { addDays, localParts } from "@/lib/schedule/time";
 
 export interface LogState {
@@ -14,21 +16,34 @@ export interface LogState {
 
 export type Session = Awaited<ReturnType<typeof requireUser>>;
 
-/** Saves a note, extracts wins and suggests post ideas. Each step that succeeds is kept. */
+/**
+ * Saves a note, extracts wins and suggests post ideas. Each step that succeeds is kept, and the
+ * note is always saved first, so the record has no gaps even when the AI step can't run.
+ * With "keep names out" on, never-mention terms are masked before the note is stored, and the
+ * stored note is replaced by the AI's version with people referred to by role.
+ */
 export async function processEntry({ supabase, user, profile }: Session, text: string): Promise<LogState> {
   const today = localParts(new Date(), profile.timezone).date;
+  const ctx = await loadUserContext(supabase, user.id);
+  const stored = ctx.rules.maskNames ? maskTerms(text, ctx.rules.neverMention) : text;
   const { data: entry, error: entryError } = await supabase
     .from("journal_entries")
-    .insert({ user_id: user.id, entry_date: today, raw_text: text, source: "web" })
+    .insert({ user_id: user.id, entry_date: today, raw_text: stored, source: "web" })
     .select("id")
     .single();
   if (entryError || !entry) return { status: "error", message: "Couldn't save your note. Please try again; your text is still here." };
 
   const onUsage = usageRecorderFor(user.id);
-  const ctx = await loadUserContext(supabase, user.id);
 
   try {
+    await requireAllowance(user.id);
     const extracted = await extractWins({ text, ctx, onUsage });
+    if (extracted.maskedNote) {
+      await supabase
+        .from("journal_entries")
+        .update({ raw_text: maskTerms(extracted.maskedNote, ctx.rules.neverMention) })
+        .eq("id", entry.id);
+    }
     if (extracted.wins.length) {
       const { error } = await supabase.from("wins").insert(
         extracted.wins.map((w) => ({
@@ -71,11 +86,13 @@ export async function processEntry({ supabase, user, profile }: Session, text: s
   return { status: "done", message: "Saved. Your wins and three ways to share them are below." };
 }
 
+/** Adds fresh ideas from the last 30 days of wins and retires the ones still waiting, so Today shows the new ones. */
 export async function suggestIdeas({ supabase, user }: Session, today: string, avoidAngles: string[] = []) {
   const ctx = await loadUserContext(supabase, user.id);
   const recent = await loadRecentWins(supabase, user.id, { sinceDate: addDays(today, -30), limit: 15 });
   const ideas = await generatePostIdeas({ wins: recent, ctx, count: 3, avoidAngles, onUsage: usageRecorderFor(user.id) });
   if (!ideas.length) return 0;
+  await supabase.from("drafts").update({ status: "discarded" }).eq("user_id", user.id).eq("kind", "post_idea").eq("status", "idea");
   const { error } = await supabase.from("drafts").insert(
     ideas.map((idea) => ({
       user_id: user.id,

@@ -26,7 +26,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
 
   return (
     <div className="flex min-h-full flex-1 flex-col">
-      <header className="sticky top-0 z-20 border-b border-border bg-background/95 pt-[env(safe-area-inset-top)] backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-border bg-background/95 pt-[env(safe-area-inset-top)] backdrop-blur print:hidden">
         <div className="mx-auto flex h-14 w-full max-w-[640px] items-center justify-between gap-4 px-4">
           <Link href="/today" aria-label="Today">
             <Wordmark />

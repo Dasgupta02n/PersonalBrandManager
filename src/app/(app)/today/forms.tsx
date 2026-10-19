@@ -80,7 +80,7 @@ function VoiceButton({ onText }: { onText: (text: string) => void }) {
   );
 }
 
-export function CaptureForm({ prompt, comeback }: { prompt: string; comeback: boolean }) {
+export function CaptureForm({ prompt, comeback, masksNames }: { prompt: string; comeback: boolean; masksNames: boolean }) {
   const [state, action] = useActionState<LogState, FormData>(logEntry, { status: "idle" });
   const [text, setText] = useState("");
   const [handled, setHandled] = useState(state);
@@ -138,7 +138,10 @@ export function CaptureForm({ prompt, comeback }: { prompt: string; comeback: bo
           placeholder="Closed the review with the regional team; agreed the new pricing approach."
           className="mt-0"
         />
-        <Hint id="text-hint">A line is enough — a decision, a fix, a thank-you you received. Private. Nothing is posted without you.</Hint>
+        <Hint id="text-hint">
+          A line is enough — a decision, a fix, a thank-you you received. Private. Nothing is posted without you.
+          {masksNames && " Other people's names are saved as roles."}
+        </Hint>
       </div>
 
       <div className="flex gap-2">

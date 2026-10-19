@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { normalizeReport, type GuardrailReport } from "@/lib/ai/tasks";
+import { loadUserContext } from "@/lib/data/context";
 import { requireUser } from "@/lib/data/session";
 import type { PostFormat, WinKind } from "@/lib/domain/types";
 import { DraftWorkspace } from "./workspace";
@@ -19,9 +20,12 @@ export default async function DraftPage({ params }: PageProps<"/drafts/[id]">) {
     .maybeSingle();
   if (!draft || draft.status === "discarded") notFound();
 
-  const { data: wins } = draft.source_win_ids.length
-    ? await supabase.from("wins").select("id, summary, kind").eq("user_id", user.id).in("id", draft.source_win_ids)
-    : { data: [] };
+  const [{ data: wins }, ctx] = await Promise.all([
+    draft.source_win_ids.length
+      ? supabase.from("wins").select("id, summary, kind").eq("user_id", user.id).in("id", draft.source_win_ids)
+      : Promise.resolve({ data: [] as { id: string; summary: string; kind: string }[] }),
+    loadUserContext(supabase, user.id),
+  ]);
 
   return (
     <DraftWorkspace
@@ -35,6 +39,7 @@ export default async function DraftPage({ params }: PageProps<"/drafts/[id]">) {
       author={{ name: profile.full_name ?? "You", headline: profile.headline ?? "" }}
       postedAt={draft.posted_at}
       postUrl={draft.post_url}
+      regulated={ctx.rules.regulated}
     />
   );
 }

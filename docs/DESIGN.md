@@ -66,8 +66,14 @@ the final name.
 | Draft | Copy post | Verdict (safe / how it reads / sounds like you) above the draft; safer-version suggestion; preview with "…see more" marker; revisions; "How it reads" by reader; sticky Copy → Open LinkedIn → Mark as posted |
 | Drafts | Open a draft | Segmented Ready / Needs a look / Posted; rows show the first line and the rest |
 | Comment | Get starters | Paste a post; 2–3 approaches with an opening line and what to add; "Write it myself" |
-| Wins ("Your record") | Log today's first win (empty) | Grouped by month; filter by kind; praise in brass; copy as a list |
-| Setup | Continue | Five steps, one question each, sticky Back/Continue |
+| Wins ("Your record") | Log today's first win (empty) | Tabs: Wins, This week, Profile & CV, Export. Grouped by month; filter by kind; praise in brass; copy as a list |
+| This week | Log it | Opportunities first (brass when there are any), workdays logged "x of y", wins, posts; last four weeks; one calm next-week suggestion |
+| Profile & CV | Suggest updates | Optional pasted current text; each suggestion checked like a post, with reason, where to paste it, Copy and "I've updated it" |
+| Export | Copy for your appraisal | 3, 6 or 12 months ("Your year in wins"); grouped by topic, praise apart; download as text; print or save as PDF |
+| Setup | Continue | Five steps, one question each, sticky Back/Continue; consent on step 1 |
+| Plan, data and privacy | Download everything | Plan and a usage bar in words ("Plenty left"), never credits; delete account behind a typed confirmation |
+| Free post check (public) | Check my post | Runs in the browser; results by tier; what the full check adds |
+| Landing | Join the beta | Leads with the check and the record; comparison with a general AI assistant; one global price |
 
 ## Copy
 
@@ -78,6 +84,12 @@ Serious, plain, specific; never cheerleading.
 - Credit before claim; "we" is welcome.
 - No exclamation marks, emoji, "crush it", "level up", streak language or fear of missing out.
 - British spelling in UI copy (`en-GB`); drafts follow the user's own spelling.
+
+## Usage and limits
+
+No credit counters. The allowance appears only from 80% used, as one calm note on Today that
+says when it renews, and as a bar described in words on the plan page. When it runs out, notes
+are still saved.
 
 ## Not used
 

@@ -15,6 +15,7 @@ export interface ProfileRow {
   target_industries: string[];
   target_roles: string[];
   onboarding_completed_at: string | null;
+  privacy_consent_at: string | null;
 }
 
 export interface WinRow {
@@ -50,7 +51,7 @@ export async function loadProfile(supabase: SupabaseClient, userId: string): Pro
     .from("profiles")
     .select(
       "id, full_name, headline, timezone, prompt_time, prompt_channel, posts_per_week, tone, routine_cue, " +
-        "target_industries, target_roles, onboarding_completed_at",
+        "target_industries, target_roles, onboarding_completed_at, privacy_consent_at",
     )
     .eq("id", userId)
     .maybeSingle();
@@ -66,7 +67,7 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
     supabase.from("voice_profiles").select("summary, sample_posts").eq("user_id", userId).maybeSingle(),
     supabase
       .from("confidentiality_rules")
-      .select("employer_name, employer_policy, never_mention, number_policy, no_go_topics")
+      .select("employer_name, employer_policy, never_mention, number_policy, no_go_topics, regulated, mask_names")
       .eq("user_id", userId)
       .maybeSingle(),
   ]);
@@ -93,6 +94,8 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
           neverMention: rules.data.never_mention,
           numberPolicy: rules.data.number_policy,
           noGoTopics: rules.data.no_go_topics ?? [],
+          regulated: rules.data.regulated ?? false,
+          maskNames: rules.data.mask_names ?? true,
         }
       : DEFAULT_RULES,
   };

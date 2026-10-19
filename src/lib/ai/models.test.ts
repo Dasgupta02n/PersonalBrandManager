@@ -19,6 +19,7 @@ describe("TASK_SETTINGS", () => {
       "how_it_reads",
       "revise_draft",
       "comment_starters",
+      "profile_suggestions",
     ]);
   });
 

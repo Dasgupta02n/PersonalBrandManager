@@ -1,7 +1,8 @@
 "use client";
 
 import { useActionState, useRef, useState, type ReactNode } from "react";
-import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import { SubmitButton, TimeZoneField } from "@/components/client";
 import { Hint, Input, Label, Notice, Panel, Select, Textarea, buttonClass, cx } from "@/components/ui";
 import { TONE_LABEL } from "@/lib/content/labels";
@@ -25,6 +26,8 @@ export interface OnboardingDefaults {
   neverMention: string;
   noGoTopics: string;
   numberPolicy: string;
+  regulated: boolean;
+  maskNames: boolean;
   samplePosts: string;
 }
 
@@ -117,12 +120,31 @@ function SafetyFields({ d }: { d: OnboardingDefaults }) {
       <div>
         <Label htmlFor="numberPolicy">Business figures</Label>
         <Select id="numberPolicy" name="numberPolicy" defaultValue={d.numberPolicy}>
-          <option value="rounded">Rounded (₹27 Cr, not ₹27.43 Cr)</option>
+          <option value="rounded">Rounded (27 million, not 27.43 million)</option>
           <option value="relative">Relative only (“doubled”, “cut by half”)</option>
           <option value="exact">Exact figures are fine</option>
         </Select>
       </div>
+      <CheckRow name="regulated" defaultChecked={d.regulated} label="I work at a regulated firm">
+        Finance, insurance or investment. Promissory and performance language is stopped, and you&apos;re reminded to get your
+        firm&apos;s approval before posting.
+      </CheckRow>
+      <CheckRow name="maskNames" defaultChecked={d.maskNames} label="Keep other people's names out of my record">
+        Colleagues and clients are saved as roles (“my manager”, “a client”). Your never-mention list is never stored in notes.
+      </CheckRow>
     </>
+  );
+}
+
+function CheckRow({ name, defaultChecked, label, children }: { name: string; defaultChecked: boolean; label: string; children: ReactNode }) {
+  return (
+    <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-border-strong px-3.5 py-3 has-checked:border-ink">
+      <input type="checkbox" name={name} defaultChecked={defaultChecked} className="mt-1 size-4 shrink-0 accent-[var(--ink)]" />
+      <span>
+        <span className="block text-sm font-semibold">{label}</span>
+        <span className="mt-0.5 block text-[13px] leading-snug text-muted">{children}</span>
+      </span>
+    </label>
   );
 }
 
@@ -212,7 +234,25 @@ function VoiceFields({ d }: { d: OnboardingDefaults }) {
 /* ---------- First-run setup: five short steps that end on the first win ---------- */
 
 const STEPS: { title: string; reason: string; body: (d: OnboardingDefaults) => ReactNode }[] = [
-  { title: "First, a little about you", reason: "Two lines. You can change anything later.", body: (d) => <AboutFields d={d} /> },
+  {
+    title: "First, a little about you",
+    reason: "Two lines. You can change anything later.",
+    body: (d) => (
+      <>
+        <AboutFields d={d} />
+        <label className="flex cursor-pointer items-start gap-3 text-[15px] leading-snug">
+          <input type="checkbox" name="consent" required className="mt-0.5 size-4 shrink-0 accent-[var(--ink)]" />
+          <span>
+            I agree that my notes are processed to suggest posts, as the{" "}
+            <Link href="/privacy" target="_blank" className="link">
+              privacy notice
+            </Link>{" "}
+            explains. Nothing is posted for me, and I can delete everything at any time.
+          </span>
+        </label>
+      </>
+    ),
+  },
   { title: "What do you want to be known for?", reason: "Pick up to three topics.", body: (d) => <TopicFields d={d} /> },
   {
     title: "What must never appear in your posts?",
@@ -329,7 +369,13 @@ function SettingsForm({ defaults, action, state }: { defaults: OnboardingDefault
     <form data-pushed action={action} className="flex flex-col gap-6">
       <TimeZoneField name="timezone" defaultValue={defaults.timezone} />
       <input type="hidden" name="firstWin" value="" />
-      <h1 className="font-display text-display-m font-medium">Settings</h1>
+      <div className="flex flex-wrap items-end justify-between gap-2">
+        <h1 className="font-display text-display-m font-medium">Settings</h1>
+        <Link href="/account" className={buttonClass("ghost", "-mr-3 px-3", "sm")}>
+          Plan, data and privacy
+          <ChevronRight aria-hidden />
+        </Link>
+      </div>
       {sections.map((s) => (
         <Panel key={s.id} id={s.id} className="flex scroll-mt-20 flex-col gap-4">
           <div>

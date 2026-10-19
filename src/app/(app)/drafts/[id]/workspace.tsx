@@ -61,6 +61,8 @@ interface Props {
   author: { name: string; headline: string };
   postedAt: string | null;
   postUrl: string | null;
+  /** Works at a regulated firm: remind them to get approval before posting. */
+  regulated: boolean;
 }
 
 export function DraftWorkspace(props: Props) {
@@ -207,6 +209,11 @@ export function DraftWorkspace(props: Props) {
             </ul>
           </details>
         )}
+        <p className="text-[13px] leading-snug text-muted">
+          {props.regulated
+            ? "A check, not compliance approval: it catches what your rules and the review can see."
+            : "A careful second read, not legal or compliance clearance."}
+        </p>
       </Panel>
 
       {props.sources.length > 0 && (
@@ -405,10 +412,15 @@ export function DraftWorkspace(props: Props) {
             </button>
           </div>
         ) : step === 0 ? (
-          <button type="button" onClick={copyPost} className={buttonClass("primary", "w-full", "lg")}>
-            <Copy aria-hidden />
-            Copy post
-          </button>
+          <div className="flex flex-col gap-1">
+            <button type="button" onClick={copyPost} className={buttonClass("primary", "w-full", "lg")}>
+              <Copy aria-hidden />
+              Copy post
+            </button>
+            {props.regulated && (
+              <p className="text-center text-[13px] text-muted">If your firm reviews social posts, get its approval first.</p>
+            )}
+          </div>
         ) : step === 1 ? (
           <div className="flex flex-col gap-1">
             <a

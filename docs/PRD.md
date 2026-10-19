@@ -4,11 +4,12 @@ Working name. The product name is set in one place (`APP_NAME`) so it can change
 
 ## 1. Summary
 
-A private, facts-first ghostwriter for employed professionals who know they should be visible on
-LinkedIn but rarely post. The user spends about a minute a day noting what moved forward at work.
-The product turns those real wins into LinkedIn posts and comment starters, checks every draft
-before the user sees it, keeps their LinkedIn profile and CV current, and reports a weekly
-scorecard led by the opportunities that came to them.
+A pre-post check and a private record of real work, for employed professionals who know they
+should be visible on LinkedIn but rarely post. The user spends about a minute a day noting what
+moved forward at work. Every draft is checked for what their employer, clients and peers will see
+before they see it; drafts, comment starters, profile and CV updates and appraisal summaries are
+built only from the record. The drafting is the easy part; the check and the record are what we
+sell, and the record is worth renewing for even in weeks the user doesn't post.
 
 **Promise:** Nothing you'll regret posting.
 
@@ -16,8 +17,12 @@ scorecard led by the opportunities that came to them.
 
 **Platform focus:** LinkedIn only. Other networks are out of scope for the beta.
 
-**Market:** global from day one (English first), starting with India, the UAE, the UK,
-Singapore and the US.
+**Market:** global from day one, in English, at one price everywhere. Go-to-market channels and
+targeting are decided later.
+
+**The real alternative** is a free general AI assistant plus the safety of staying silent, not
+other LinkedIn tools. The product must be visibly better than a well-prompted general assistant
+at every function (see section 10).
 
 ## 2. Problem
 
@@ -66,8 +71,11 @@ anyone wanting automation.
    invent or inflate a number, title, client, date or result.
 4. **Discreet.** Nothing may signal that the user is looking for a job.
 5. **Confidential.** Checks keep employer-sensitive details (named clients, internal figures,
-   unannounced plans, no-go topics) out of public drafts, automatically.
-6. **The user's data is theirs.** Never sold or shared; exportable and deletable at any time.
+   unannounced plans, no-go topics) out of public drafts, automatically. Other people's names
+   are kept out of the stored record by default. Checks are a careful second read, never
+   presented as legal or compliance clearance.
+6. **The user's data is theirs.** Never sold or shared, never used to train AI models;
+   exportable and deletable at any time, with consent recorded.
 7. **No dark patterns.** No streaks, guilt or loss-framing. Consistency is counted forgivingly
    (workdays logged in a recent window) and a gap is met with a calm comeback. Renewal reminders
    and one-tap cancellation.
@@ -80,9 +88,9 @@ A five-step wizard, one question per screen:
 
 | Step | Asks |
 |---|---|
-| About you | Name, role, tone (reserved / balanced / open) |
+| About you | Name, role; consent to the privacy notice |
 | Topics | What they want to be known for (topic pillars) and the audience |
-| Safety | Employer-name policy, never-mention list, number policy, no-go topics |
+| Safety | Employer-name policy, never-mention list, number policy, no-go topics, tone, regulated firm, keep names out |
 | Rhythm | When to ask, and a routine cue ("after my last meeting") |
 | First win | "What moved forward today?" — optional; processed straight into wins and ideas |
 
@@ -98,10 +106,12 @@ email and photo only.
 - Reply by text or voice (browser dictation now; WhatsApp and email reply later).
 - Quick-start chips: Moved forward, Unblocked, Decided, Helped someone, Praise I received, Learned.
 - At most one follow-up question per entry to fill in a missing number or name.
-- Each entry is stored verbatim and extracted into structured **wins**: summary, impact, metric
-  (if stated), kind (result, decision, unblocked, helped, praise, lesson), skills, topic pillar,
-  confidentiality flag, date.
-- **Your record** (wins bank): grouped by month, filter by kind, copy as a list, delete.
+- Each entry is stored as written or, with "keep names out" on (the default), with other people
+  referred to by role and never-mention terms masked. It is extracted into structured **wins**:
+  summary, impact, metric (if stated), kind (result, decision, unblocked, helped, praise,
+  lesson), skills, topic pillar, confidentiality flag, date.
+- **Your record** (wins bank): grouped by month, filter by kind, copy as a list, delete. Tabs for
+  This week, Profile & CV and Export sit alongside it.
 
 ### 5.3 Daily creation
 
@@ -125,28 +135,52 @@ email and photo only.
 - **Reply drafts** for comments on the user's own posts (later).
 - **Watch list** reminders (later). The product never reads anyone's activity.
 
-### 5.5 Weekly refresh (later milestone)
+### 5.5 Profile and CV refresh
 
-- Profile suggestions from the week's wins: headline, About, experience bullets, skills, featured.
-- CV update: new version (DOCX and PDF), version history, side-by-side diff.
-- Every change is approved by the user and copied into LinkedIn section by section.
+- On demand (weekly prompt later): headline, About, current-role bullets, CV bullets and skills,
+  built from the last year of wins. The user may paste their current text; we never read
+  LinkedIn.
+- Each suggestion is checked like a post (confidentiality, employer policy, figures, job-search
+  signals), copied by the user, and marked "updated".
+- A tip to turn off LinkedIn's profile-update notifications before editing.
+- Later: CV documents (DOCX and PDF), version history, side-by-side diff.
 
-### 5.6 Weekly scorecard (opportunities first, later milestone)
+### 5.6 Weekly scorecard (opportunities first)
 
 | Block | Source |
 |---|---|
-| Opportunities that came to you | One-tap "log an opportunity" + weekly question |
-| Consistency | Workdays logged in the recent window, wins logged, posts published (product data) |
-| Profile strength | Keyword coverage and completeness (product data) |
-| Reach | LinkedIn analytics screenshot shared by the user (optional) |
-| Next week | Suggested focus based on what worked |
+| Opportunities that came to you | "Log an opportunity" (Today link and This week) |
+| Consistency | Workdays logged this week, wins logged, posts published (product data) |
+| Last four weeks | The same counts, week by week |
+| Next week | One calm suggestion from simple rules (ready drafts, unposted wins, logging rhythm) |
+| Reach (later) | LinkedIn analytics screenshot shared by the user |
 
-### 5.7 Account, privacy, billing
+### 5.7 Record exports
 
-- Data export (JSON + files), full deletion, pause, notification settings.
-- Plans, free trial, beta coupons, regional pricing.
+- Appraisal summary for the last 3, 6 or 12 months ("Your year in wins"), grouped by topic with
+  results first and praise apart; optional removal of confidential wins.
+- Copy for an appraisal form, download as text, print or save as PDF. Plain code, no AI cost.
+- Later: a "year in wins" email before each annual renewal.
 
-### 5.8 Out of scope for beta
+### 5.8 Free post check (public)
+
+- `/check`: paste a draft, optionally add an employer, names to keep out, a figures policy and
+  regulated-firm mode. Runs the deterministic checks in the browser; nothing is sent or stored.
+- Adds a named-client heuristic and "not yet public" phrases; shows what the full check adds.
+- Common questions for search ("Is it OK to post about a client win?").
+
+### 5.9 Plans, account and privacy
+
+- Pricing: one global price (see `docs/PRICING.md`). Membership $29 a month or $319 a year;
+  first month $9.50 for 30 days. Sized to fund the multi-pass quality pipeline. Each plan has a monthly AI allowance that keeps input cost at or
+  below 30% of revenue; a calm note appears only from 80% used. No credit counters.
+- Plans live in a table users can read but not change. Billing (Paddle) comes later; the private
+  beta is free.
+- Consent to the privacy notice at setup (and once for existing accounts), with version and date.
+- Download everything (JSON), delete the account and everything in it, privacy notice with
+  sub-processors and hosting region (Mumbai).
+
+### 5.10 Out of scope for beta
 
 Native mobile apps (beta is an installable PWA), team/company accounts, networks other than
 LinkedIn, newsletters, carousel/video posts, one-tap publishing via the LinkedIn API (only after
@@ -161,8 +195,8 @@ Community Management API approval), job-search add-on.
 3. **Engagement:** paste a post → pick an approach → finish the comment in their own words.
 4. **Comeback:** after three or more missed workdays, Today shows a calm "pick up where you left
    off" instead of a broken streak.
-5. **Weekly (later):** summary → approve profile and CV changes → read scorecard → log
-   opportunities.
+5. **Weekly:** read This week → log opportunities → refresh profile and CV suggestions → copy
+   what fits. **Review season:** Export → copy the summary into the appraisal form.
 
 ## 7. Guardrails
 
@@ -172,12 +206,12 @@ automatic fix is attempted; the safer version is offered, never forced.
 
 | Tier | Checks | Handling |
 |---|---|---|
-| 1 — Blocking | Never-mention terms, employer-name policy, number policy, no-go topics, AI confidentiality findings | Copying is blocked until fixed or the user acknowledges "Post anyway — I have permission" |
-| 2 — Worth a look | Job-search signals, claims not found in the wins, outshining a boss or client | A visible note; never blocks |
+| 1 — Blocking | Never-mention terms, employer-name policy, number policy, no-go topics, AI confidentiality findings; in regulated-firm mode, promissory and performance language | Copying is blocked until fixed or the user acknowledges "Post anyway — I have permission" |
+| 2 — Worth a look | Job-search signals, claims not found in the wins, outshining a boss or client, words suggesting something isn't public yet | A visible note; never blocks |
 | 3 — Style | Clichés, humblebrag, AI-sounding phrases, "it's not X, it's Y", bait closers, more than 3 hashtags, length | Quiet suggestions |
 
 Check health is tracked in beta: any Tier 2 or 3 check that users override most of the time is
-retuned.
+retuned. Regulated-firm mode also reminds the user to get their firm's approval before posting.
 
 ## 8. Success metrics (beta)
 
@@ -199,11 +233,17 @@ Target values are set before the beta cohort starts.
   hosts.
 - Observability: errors, uptime, AI cost per user, message delivery failures.
 
-## 10. Open decisions
+## 10. Quality bar
+
+Every function must beat the strongest single prompt we can write for the same model, given all
+the context a user could reasonably paste, in blind ratings by senior professionals and
+experienced ghostwriters. The safety check must catch at least 95% of a labelled set of risky
+posts. No quality change ships without beating both the current version and that baseline.
+
+## 11. Open decisions
 
 - Product name and logo (the seal mark is a draft; avoid "brand" in the name).
 - Validate the palette, serif and brass in a 5-second test (see `docs/DESIGN.md`).
-- Legal entity and billing provider (Stripe vs Paddle; Razorpay for India).
-- Pricing tiers by market (INR well below the ~$39 USD anchor; premium tier for UAE/Singapore).
-- Default AI models per task (all functions use Claude Opus 5.5 via OpenRouter; cheaper models
-  can be set per function to reduce cost).
+- Legal entity (needed in the privacy notice) and billing provider (Paddle assumed in pricing).
+- Default AI models per task (all functions use Claude Opus 5.5 via OpenRouter). Extra quality
+  passes need budget that caching and overnight batch can only partly fund.

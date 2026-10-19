@@ -11,7 +11,7 @@
 | AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. |
 | Scheduling | `/api/cron/tick` every 15 minutes (Supabase `pg_cron` + `pg_net`, or any external cron) | Finds users whose local prompt time falls in the window; enqueues work. |
 | Messaging | WhatsApp Business Platform (Meta Cloud API), email (inbound + outbound), web push | Channel adapters behind one interface. |
-| Payments | Stripe or Paddle; Razorpay for India | Not in the first slice. |
+| Payments | Paddle as merchant of record | Not built yet. Plans and allowances are; see `docs/PRICING.md`. |
 | Monitoring | Sentry, uptime checks, AI usage table | Not in the first slice. |
 
 ## Source layout
@@ -23,8 +23,9 @@ src/
     config/            Environment parsing, app constants
     supabase/          Server and browser clients, proxy session refresh
     ai/                AI client (OpenRouter), model per function, prompts, AI tasks
+    billing/           Global price and split, plan allowances, allowance check
     guardrails/        Deterministic checks (confidentiality, clichés, job-search signals), tiers
-    content/           LinkedIn preview rules, UI labels, verdict and check tiers for drafts
+    content/           LinkedIn preview rules, UI labels, verdict and check tiers, record exports and scorecard
     schedule/          Time-zone prompt windows, forgiving workday consistency
     domain/            Shared types
   components/          UI primitives (ui.tsx), client widgets, brand mark, navigation
@@ -37,15 +38,16 @@ docs/                  PRD, architecture, design system, research
 
 | Table | Purpose |
 |---|---|
-| `profiles` | One row per user: name, role, tone (`reserved` / `balanced` / `open`), routine cue, time zone, language, prompt time and channel, audience, onboarding state |
+| `profiles` | One row per user: name, role, tone (`reserved` / `balanced` / `open`), routine cue, time zone, language, prompt time and channel, audience, onboarding state, privacy consent (time and notice version) |
+| `subscriptions` | Plan (`beta` / `trial` / `member`), start, billing fields. Users can read their own row; only trusted server code writes it |
 | `voice_profiles` | Writing-style summary, traits, sample posts |
 | `pillars` | 3–5 topics the user wants to be known for |
-| `confidentiality_rules` | Employer-name policy, never-mention list, number policy, no-go topics |
-| `journal_entries` | Raw daily entries, verbatim, with source channel |
+| `confidentiality_rules` | Employer-name policy, never-mention list, number policy, no-go topics, regulated-firm mode, keep names out |
+| `journal_entries` | Daily entries as written, or with names replaced by roles when "keep names out" is on |
 | `wins` | Structured wins extracted from entries (summary, impact, metric, kind, skills, pillar) |
 | `drafts` | Post ideas, post drafts, comment and reply drafts, with format, guardrail and "how it reads" results, and status |
 | `opportunities` | Things that came to the user (headhunters, invitations, meetings) |
-| `profile_suggestions` | Weekly proposed changes to LinkedIn sections, with approval status |
+| `profile_suggestions` | Proposed headline, About, current-role bullets, CV bullets and skills, with the user's pasted current text and status |
 | `cv_versions` | Generated CV files (storage path), version number, change summary |
 | `reach_snapshots` | Reach numbers read from screenshots (or API later) |
 | `scorecards` | Weekly scorecard snapshots |
@@ -64,7 +66,7 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 
 | Function | Status | Model | Effort | Output (structured) |
 |---|---|---|---|---|
-| `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, kind, skills, pillar, confidentiality flag; follow-up question |
+| `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, kind, skills, pillar, confidentiality flag; follow-up question; the note with names replaced by roles |
 | `post_ideas` | live | Claude Opus 5.5 | medium | 2–3 ideas, best first: format, angle, hook, source win ids |
 | `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, 0–3 hashtags |
 | `check_draft` | live | Claude Opus 5.5 | high | Grounding, confidentiality, job-search signal, no-go topics, hierarchy risk, revised text |
@@ -76,7 +78,7 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 | `import_profile` | planned | Claude Opus 5.5 | medium | Positions, skills, past posts from a LinkedIn PDF or export |
 | `import_cv` | planned | Claude Opus 5.5 | medium | Facts from an uploaded CV |
 | `voice_profile` | planned | Claude Opus 5.5 | high | Writing-style summary and traits |
-| `profile_suggestions` | planned | Claude Opus 5.5 | high | Proposed headline, About, experience, skills, featured |
+| `profile_suggestions` | live | Claude Opus 5.5 | high | Headline, About, current-role bullets, CV bullets, skills, each with a reason |
 | `cv_update` | planned | Claude Opus 5.5 | high | New CV content and change summary |
 | `read_reach_screenshot` | planned | Claude Opus 5.5 | low | Reach numbers from an analytics screenshot |
 | `weekly_summary` | planned | Claude Opus 5.5 | medium | Sunday summary for the scorecard |
@@ -106,6 +108,25 @@ Draft pipeline (`draftPost` in `src/lib/ai/tasks.ts`): draft → review → how 
    visible note, 3 is a quiet suggestion (`src/lib/content/verdict.ts`). Drafts with tier-1
    problems are stored with status `draft` and never shown as ready to post. Edits mark the
    AI review as stale until re-checked.
+
+## Plans and allowance
+
+One global price (`src/lib/billing/pricing.ts`, explained in `docs/PRICING.md`): 30% input cost,
+30% marketing, 30% profit after income tax. Each plan's monthly AI allowance is derived from it.
+`requireAllowance` runs before every AI action and sums the real cost of the period's calls from
+`ai_usage` (OpenRouter's reported cost, or tokens × list price). When the allowance is used, the
+note is still saved and the AI step is skipped with a calm message.
+
+## Privacy
+
+- Consent to the privacy notice is recorded at setup; accounts without it see `/consent` once.
+- "Keep names out" (default on): never-mention terms are masked before a note is stored, and the
+  stored note is replaced by the AI's version with people referred to by role.
+- `/account/export` returns everything the user stored as JSON (row-level security applies);
+  account deletion uses the service role and cascades to every user table. `ai_usage` keeps cost
+  rows without the user id.
+- The free checker at `/check` runs the deterministic checks in the browser only.
+- Breach handling and data map: `docs/PRIVACY.md`.
 
 ## Design system
 

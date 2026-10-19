@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
+import { PRIVACY_NOTICE_VERSION } from "@/lib/config/app";
 import { requireUser } from "@/lib/data/session";
 import { isValidTimeZone } from "@/lib/schedule/time";
 import { processEntry } from "../today/pipeline";
@@ -30,6 +31,8 @@ const OnboardingSchema = z.object({
   neverMention: z.array(z.string().max(120)).max(50),
   noGoTopics: z.array(z.string().max(80)).max(20),
   numberPolicy: z.enum(["exact", "rounded", "relative"]),
+  regulated: z.boolean(),
+  maskNames: z.boolean(),
   samplePosts: z.array(z.string().max(4000)).max(5),
   firstWin: z.string().trim().max(4000),
 });
@@ -43,7 +46,7 @@ export interface OnboardingState {
  * so the short setup never wipes audience or voice settings.
  */
 export async function saveOnboarding(_prev: OnboardingState, formData: FormData): Promise<OnboardingState> {
-  const session = await requireUser({ allowIncompleteOnboarding: true });
+  const session = await requireUser({ allowIncompleteOnboarding: true, allowMissingConsent: true });
   const { supabase, user, profile: current } = session;
 
   const parsed = OnboardingSchema.safeParse({
@@ -63,6 +66,8 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
     neverMention: list(formData.get("neverMention")),
     noGoTopics: list(formData.get("noGoTopics")),
     numberPolicy: formData.get("numberPolicy"),
+    regulated: formData.get("regulated") === "on",
+    maskNames: formData.get("maskNames") === "on",
     samplePosts: String(formData.get("samplePosts") ?? "")
       .split(/\n-{3,}\n/)
       .map((s) => s.trim())
@@ -71,6 +76,10 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
   });
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Please check the form." };
   const v = parsed.data;
+  const consenting = formData.get("consent") === "on";
+  if (!current.privacy_consent_at && !current.onboarding_completed_at && !consenting) {
+    return { error: "Please agree to the privacy notice to continue." };
+  }
 
   const profileUpdate = await supabase
     .from("profiles")
@@ -86,6 +95,9 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
       ...(formData.has("targetRoles") ? { target_roles: v.targetRoles } : {}),
       ...(formData.has("targetIndustries") ? { target_industries: v.targetIndustries } : {}),
       onboarding_completed_at: current.onboarding_completed_at ?? new Date().toISOString(),
+      ...(consenting && !current.privacy_consent_at
+        ? { privacy_consent_at: new Date().toISOString(), privacy_notice_version: PRIVACY_NOTICE_VERSION }
+        : {}),
     })
     .eq("id", user.id);
   if (profileUpdate.error) return { error: "Couldn't save your profile. Please try again." };
@@ -97,6 +109,8 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
     never_mention: v.neverMention,
     no_go_topics: v.noGoTopics,
     number_policy: v.numberPolicy,
+    regulated: v.regulated,
+    mask_names: v.maskNames,
   });
   if (rules.error) return { error: "Couldn't save your confidentiality settings." };
 

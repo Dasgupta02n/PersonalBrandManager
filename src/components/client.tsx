@@ -2,7 +2,7 @@
 
 import { useState, type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
-import { Check, Copy, LoaderCircle } from "lucide-react";
+import { Check, Copy, LoaderCircle, Printer } from "lucide-react";
 import { buttonClass, type ButtonSize, type ButtonVariant } from "./ui";
 
 /** Submit button that shows a spinner and an honest pending label while its server action runs. */
@@ -86,4 +86,14 @@ export function TimeZoneField({ name, defaultValue }: { name: string; defaultVal
     }
   });
   return <input type="hidden" name={name} value={value} />;
+}
+
+/** Opens the browser's print dialog, which also saves as PDF. */
+export function PrintButton({ label = "Print or save as PDF", variant = "secondary", size }: { label?: string; variant?: ButtonVariant; size?: ButtonSize }) {
+  return (
+    <button type="button" onClick={() => window.print()} className={buttonClass(variant, "print:hidden", size)}>
+      <Printer aria-hidden />
+      {label}
+    </button>
+  );
 }

@@ -28,6 +28,25 @@
 - Checks: lint, typecheck, 59 unit tests, production build; every screen screenshot-checked on
   phone and desktop
 
+## Milestone 1c — pricing, positioning and retention (done)
+
+- One global price: $29 a month, $319 a year, first month $9.50. Split 30% input, 30% marketing,
+  30% profit after income tax (`docs/PRICING.md`); tests fail if a plan breaks it
+- Plans table and a monthly AI allowance per plan, checked before every AI action against the
+  real cost of each call; notes are always saved
+- Landing page leads with the check and the private record; comparison with a general AI
+  assistant; pricing section; public header and footer; launch is global
+- Your record: This week (opportunities log and scorecard), Profile & CV refresh
+  (`profile_suggestions` is live), Export (appraisal summary and year in wins)
+- Free post check at `/check`, in the browser only
+- Regulated-firm mode: promissory and performance language blocked, approval reminder;
+  "not yet public" phrases noted; "a careful second read, not clearance" on every draft
+- Privacy: consent with version, keep names out (default on), download everything, account
+  deletion, privacy notice with sub-processors and Mumbai hosting, breach runbook
+  (`docs/PRIVACY.md`)
+- Fix: new ideas now replace the ones still waiting, so Today shows ideas from today's win
+- Checks: lint, typecheck, 91 unit tests, production build
+
 ## Needed to run end to end
 
 See `docs/DEPLOY.md`. Done: Supabase project in Mumbai with the schema applied and checked
@@ -37,14 +56,18 @@ Open:
 - Image access on the VPS (public GHCR package, or a one-time `docker login ghcr.io`); the `edge` update is done
 - `pbm` project on the VPS, with `OPENROUTER_API_KEY` added in Docker Manager
 - Custom SMTP for sign-in emails before inviting beta users
+- `SUPABASE_SECRET_KEY` on the server: allowance checks and account deletion need it
+- Privacy notice: legal entity name and address, legal review, a working `privacy@c7xai.in`
 
 ## Next milestones
 
+1. Quality bar: test sets per function, a strong single-prompt baseline, blind expert ratings;
+   then story arcs, voice profile, expert examples and multi-stage pipelines where they win
 2. Daily prompt delivery (email first, then WhatsApp and web push) via `/api/cron/tick`
 3. Voice profile generation from samples / LinkedIn export import; CV upload
-4. Weekly refresh: profile suggestions, CV versions (DOCX/PDF)
-5. Weekly scorecard: opportunities log, consistency, profile strength, reach from screenshot
-6. Billing, data export/deletion, admin console, monitoring
+4. CV documents (DOCX/PDF) and versions; weekly profile prompt
+5. Scorecard: profile strength, reach from screenshot
+6. Billing (Paddle), renewal emails with the year in wins, admin console, monitoring
 7. Desktop browser extension for "draft comment"
 
 ## Known limitations
