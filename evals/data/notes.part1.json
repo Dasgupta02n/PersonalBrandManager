@@ -1,0 +1,1635 @@
+[
+  {
+    "id": "note-001",
+    "personaId": "p01",
+    "date": "2025-11-06",
+    "text": "Sunrise Hospitals renewal signed at ₹4.8 crore, no price cut. Rohan's work with their infection-control nurse made the difference; I only joined for the final meeting with their COO. Also finally got finance to agree the new discount approval matrix.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "₹4.8 crore"
+      ],
+      "confidential": true,
+      "names": [
+        "Sunrise Hospitals",
+        "Rohan"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-002",
+    "personaId": "p01",
+    "date": "2025-11-18",
+    "text": "Back to back reviews all day, nothing moved. Tired.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-003",
+    "personaId": "p01",
+    "date": "2025-12-03",
+    "text": "Sat with Kavya (new area manager, Pune) in her first hospital procurement meeting. Let her lead and only stepped in on payment terms. She handled the CMO's pushback on unit price really well.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Kavya"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-004",
+    "personaId": "p01",
+    "date": "2025-12-17",
+    "text": "Decided we will not launch Project Lotus in the south until the distributor contracts are redone. Painful – the team wanted Q1. Better a late launch than one we can't service.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Project Lotus"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-005",
+    "personaId": "p01",
+    "date": "2026-01-09",
+    "text": "MD stopped me after the quarterly review to say the western region turnaround is the best thing she's seen this year. Credit really to Sameer and his team.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Sameer"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-006",
+    "personaId": "p01",
+    "date": "2026-10-07",
+    "text": "Good day. Q2 collections at 94% vs 81% last quarter after we tightened credit terms for nursing homes. Also cleared 11 rate-contract approvals that had been stuck since August. Margin on the gloves line back above 22%.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "94%",
+        "81%",
+        "11 rate-contract approvals",
+        "22%"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-007",
+    "personaId": "p01",
+    "date": "2026-02-04",
+    "text": "Lesson from losing the Nashik tender: we priced to win and the buyer read it as low quality. Next time lead with the infection-rate data, not the price.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-008",
+    "personaId": "p01",
+    "date": "2026-02-20",
+    "text": "Pilot feedback on the Kavach range from 3 hospitals all positive, esp. the hand-rub dispenser. Pushed product to fix the refill cap before we scale. Also sat with Imran on his forecast – he'd been undercalling the Goa accounts by almost half; corrected numbers go in tomorrow.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "3 hospitals"
+      ],
+      "confidential": true,
+      "names": [
+        "Kavach range",
+        "Imran"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-009",
+    "personaId": "p01",
+    "date": "2026-03-05",
+    "text": "Long one. Morning: Devika Multispeciality procurement finally agreed to trial our surface disinfectant in 2 ICUs, after six months of chasing – Neha deserves this, she kept the relationship warm when I'd given up. Afternoon was the pricing committee, where I held the line on no extra discount for the Thane distributor even though sales ops wanted to give 4% to close the month. Evening I called Prakash, who's thinking of leaving – not sure I convinced him, he wants a bigger territory and I can't give him one before April. Need to think about that. Also forgot lunch again.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "2 ICUs",
+        "4%"
+      ],
+      "confidential": true,
+      "names": [
+        "Devika Multispeciality",
+        "Neha",
+        "Prakash"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-010",
+    "personaId": "p01",
+    "date": "2026-04-08",
+    "text": "Finally closed the big tender today. Relieved.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-011",
+    "personaId": "p01",
+    "date": "2026-03-12",
+    "text": "Spent the day on the annual plan template. Half done. Regional heads still haven't sent their numbers.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-012",
+    "personaId": "p01",
+    "date": "2026-09-10",
+    "text": "Got the Kolhapur stock-out sorted – Ajay at the Pune depot agreed to move 900 cartons by Friday. 3 hospitals would have run out of hand-rub next week.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "900 cartons",
+        "3 hospitals"
+      ],
+      "confidential": false,
+      "names": [
+        "Ajay"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-013",
+    "personaId": "p01",
+    "date": "2026-01-22",
+    "text": "Agreed with the CEO to split the west into two regions from April. Sameer gets Gujarat. Not announced yet – telling the team after the offsite.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Sameer"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-014",
+    "personaId": "p01",
+    "date": "2026-05-14",
+    "text": "Infection control head at Tulsi Valley Hospitals emailed to say HAI rates on their surgical wards dropped from 3.1% to 1.9% since the ward-staff training programme I pushed for last year started. Forwarding to the team. Need her permission before we ever use this.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "3.1%",
+        "1.9%"
+      ],
+      "confidential": true,
+      "names": [
+        "Tulsi Valley Hospitals"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-015",
+    "personaId": "p01",
+    "date": "2026-06-03",
+    "text": "Weekly forecast call, numbers flat. Did manage to get Lata and Imran to agree a joint plan for the Navi Mumbai hospitals instead of fighting over the accounts.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Lata",
+        "Imran"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-016",
+    "personaId": "p01",
+    "date": "2026-07-15",
+    "text": "Pushed through the price increase on the swab range with almost no pushback from the top accounts. Volumes held too.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-017",
+    "personaId": "p01",
+    "date": "2026-08-19",
+    "text": "travelled to delhi for the north review, flight dleayed, missed half of it. nothing to report realy",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-018",
+    "personaId": "p02",
+    "date": "2025-11-12",
+    "text": "Atlas migration cutover done for 40% of tenants, zero rollback. Karthik ran the war room, I mostly kept stakeholders off his back.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "40%"
+      ],
+      "confidential": true,
+      "names": [
+        "Atlas migration",
+        "Karthik"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-019",
+    "personaId": "p02",
+    "date": "2025-11-27",
+    "text": "p99 latency on the search API down from 820ms to 310ms after Divya's caching change. Shipped Thursday, held all weekend.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "820ms",
+        "310ms"
+      ],
+      "confidential": false,
+      "names": [
+        "Divya"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-020",
+    "personaId": "p02",
+    "date": "2025-12-10",
+    "text": "Planning offsite prep. Spreadsheets. Nothing worth logging.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-021",
+    "personaId": "p02",
+    "date": "2026-01-07",
+    "text": "Said no to the Northwind Retail custom SSO request for this quarter. Would have pulled two engineers off the on-call fix for most of the quarter. Sales not happy, CEO backed me.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Northwind Retail"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-022",
+    "personaId": "p02",
+    "date": "2026-01-28",
+    "text": "One-to-one with Sana – she's ready to own the incident review process. Handed it over today, with the doc and the room. First review she runs is next week.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Sana"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-023",
+    "personaId": "p02",
+    "date": "2026-02-12",
+    "text": "Good week. On-call pages down 62% vs last month after we deleted 18 alerts nobody owned. And Ashwin accepted the staff engineer offer – been chasing him since spring.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "62%",
+        "18 alerts"
+      ],
+      "confidential": false,
+      "names": [
+        "Ashwin"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-024",
+    "personaId": "p02",
+    "date": "2026-03-05",
+    "text": "CS lead forwarded a note from Northwind Retail's CTO thanking us for the incident comms during Tuesday's outage – 'clearest RCA we've had from a vendor'.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Northwind Retail"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-025",
+    "personaId": "p02",
+    "date": "2026-03-25",
+    "text": "Lesson: the flaky deploy pipeline wasn't a tooling problem, it was three teams each assuming someone else owned it. Gave it one owner (Farhan) a fortnight ago and it's been green every day since.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Farhan"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-026",
+    "personaId": "p02",
+    "date": "2026-10-05",
+    "text": "Cloud bill for Sept: ₹1.52 crore, down from ₹1.91 crore in June. Platform team's rightsizing work finally showing – I'd made it the one Q3 goal for them. CFO wants a monthly review now.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "₹1.52 crore",
+        "₹1.91 crore"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-027",
+    "personaId": "p02",
+    "date": "2026-04-16",
+    "text": "Messy day. Incident late morning – payments webhook queue backed up, 2,300 events delayed, none lost. Varun and I traced it to the retry config from last week's release and had it fixed within the hour. Then explained to the Atlas migration steering group why we're pausing for a week; they took it better than expected. Still owe Meghna feedback on her promo packet. Tomorrow.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "2,300 events"
+      ],
+      "confidential": true,
+      "names": [
+        "Varun",
+        "Atlas migration",
+        "Meghna"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-028",
+    "personaId": "p02",
+    "date": "2026-05-06",
+    "text": "Fixed the thing that's been bugging the data team for months.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-029",
+    "personaId": "p02",
+    "date": "2026-05-21",
+    "text": "Two engineers from the payments team asked to shadow our on-call review. Ran it with them in the room; their manager Lakshmi messaged after to say they're starting their own next sprint.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Lakshmi"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-030",
+    "personaId": "p02",
+    "date": "2026-06-10",
+    "text": "Sprint planning ran long. Half the tickets carried over again. Grumpy.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-031",
+    "personaId": "p02",
+    "date": "2025-12-02",
+    "text": "Demoed the usage-based billing engine to the exec team – not public till the Jan launch. Approved to go GA with 5 design partners first. My call to cut the invoicing export from v1 held up.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "5 design partners"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-032",
+    "personaId": "p02",
+    "date": "2026-07-08",
+    "text": "Meghna's promotion to senior engineer went through. Two quarters of decision docs and running the reliability guild. I wrote her case, she did the work.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Meghna"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-033",
+    "personaId": "p02",
+    "date": "2026-08-05",
+    "text": "finaly got sign off on the observabilty budget. big relief. now need to hire for it",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-034",
+    "personaId": "p02",
+    "date": "2026-09-02",
+    "text": "Skip-level with the SRE team. Ravi said it's the first time in two years on-call feels manageable – that's what the last two quarters were for. Also approved Sana's proposal to rotate incident commanders weekly.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Ravi",
+        "Sana"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-035",
+    "personaId": "p03",
+    "date": "2025-11-05",
+    "text": "Month-end close done in 6 working days, down from 9 days last month. First time the plant accountants signed off before the central team. Sneha's cut-off calendar did it; I just held everyone to it.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "6 working days",
+        "9 days"
+      ],
+      "confidential": false,
+      "names": [
+        "Sneha"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-036",
+    "personaId": "p03",
+    "date": "2025-11-28",
+    "text": "Kestrel Motors finally paid the ₹14.6 crore overdue after I escalated through their CFO's office. DSO for the month drops to 58 days.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "₹14.6 crore",
+        "58 days"
+      ],
+      "confidential": true,
+      "names": [
+        "Kestrel Motors"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-037",
+    "personaId": "p03",
+    "date": "2026-02-10",
+    "text": "Audit committee pre-read on the Q3 restatement sent. Vikram and I rebuilt the reconciliation trail from scratch over the weekend; the chairman's office called it the clearest pack they've had from finance.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Q3 restatement",
+        "Vikram"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-038",
+    "personaId": "p03",
+    "date": "2026-01-14",
+    "text": "Budget meetings with plants all day. Same arguments as last year. Nothing settled.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-039",
+    "personaId": "p03",
+    "date": "2026-06-17",
+    "text": "Inventory at 41 days, down from 49 days, after the slow-moving stock review I set up with the Chakan plant – frees up roughly ₹22 crore. Also agreed with the MD that plant bonuses will carry a working-capital measure from next year.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "41 days",
+        "49 days",
+        "₹22 crore"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-040",
+    "personaId": "p03",
+    "date": "2025-12-12",
+    "text": "Lesson: the rebate errors keep coming from the same handoff between procurement and AP. A better template won't fix it; it needs one owner. Raised it with the CFO and he agreed – AP owns it from next month.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-041",
+    "personaId": "p03",
+    "date": "2026-01-30",
+    "text": "Coached Ritika through her first audit committee presentation. She was nervous, so I had her run it past me twice yesterday. Today she handled the lease accounting questions on her own.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Ritika"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-042",
+    "personaId": "p03",
+    "date": "2026-05-22",
+    "text": "Statutory auditors (Joshi Bhandari & Co.) told the CFO this is the cleanest year-end file they've had from us. No management letter points on revenue this year.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Joshi Bhandari & Co."
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-043",
+    "personaId": "p03",
+    "date": "2026-07-03",
+    "text": "Big improvement in the close this month. Team really pulled together.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-044",
+    "personaId": "p03",
+    "date": "2026-02-25",
+    "text": "Recommended to the CFO that we move the Nashik plant onto the central AP hub from April. Should cut about 30% of manual entries and the duplicate vendor master. He's taking it to the board next week – not to be shared with the plant yet.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "30%"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-045",
+    "personaId": "p03",
+    "date": "2026-03-18",
+    "text": "Three things today.\n- Kestrel Motors agreed to move from 60-day to 45-day payment terms. Anand in sales did the hard part; I gave him the cost-of-carry numbers.\n- Signed off the new capex approval matrix.\n- Interviewed two candidates for the treasury role, neither right.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "60-day",
+        "45-day"
+      ],
+      "confidential": true,
+      "names": [
+        "Kestrel Motors",
+        "Anand"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-046",
+    "personaId": "p03",
+    "date": "2026-04-22",
+    "text": "Long day, not sure how much of it counts. Morning on the forex hedging policy draft with treasury – close, still not final. Lunch with the Chakan plant head, who for the first time asked us to help with his scrap reporting instead of complaining about our deadlines, which honestly felt like the bigger win. Afternoon lost to an ERP outage, close entries delayed. Evening reviewed Pooja's variance commentary – much better than last month, and I told her so.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Pooja"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-047",
+    "personaId": "p03",
+    "date": "2026-08-12",
+    "text": "Board pack prep. Nothing to log.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-048",
+    "personaId": "p03",
+    "date": "2026-08-27",
+    "text": "Got the bank to release the LC for the tooling supplier after a fortnight stuck – the new line would have stopped next Monday. Rang their trade finance head myself.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-049",
+    "personaId": "p03",
+    "date": "2026-09-16",
+    "text": "CFO said in the leadership meeting that the working capital programme I've been running is the main reason we didn't need the ₹150 crore bridge facility this year. Said it in front of the MD, which I didn't expect.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "₹150 crore"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-050",
+    "personaId": "p03",
+    "date": "2026-09-30",
+    "text": "Ran a session for the plant managers on reading their own P&L – 11 plant managers came, two have already asked for monthly versions. Separately, closed the last open audit point from last year.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "11 plant managers"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-051",
+    "personaId": "p03",
+    "date": "2026-10-09",
+    "text": "Kestrel Motors' audit of our pricing went fine in the end. Relief.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Kestrel Motors"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-052",
+    "personaId": "p04",
+    "date": "2025-11-10",
+    "text": "Steering committee agreed to pause Project Beacon phase two until the core banking patch lands – my recommendation, written up last week. Avoids roughly £1.2m of rework if the patch slips again.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "£1.2m"
+      ],
+      "confidential": true,
+      "names": [
+        "Project Beacon"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-053",
+    "personaId": "p04",
+    "date": "2025-11-25",
+    "text": "Sat in with the mortgage servicing team this morning. Half the calls were customers who couldn't find their redemption figure in the app. Got Aisha's squad to move it to the home screen in the next release.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Aisha"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-054",
+    "personaId": "p04",
+    "date": "2025-12-09",
+    "text": "Clearwater Payments finally signed the revised SLA – 99.95% availability with service credits. Four months of back and forth. Tom in procurement carried most of it.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "99.95%"
+      ],
+      "confidential": true,
+      "names": [
+        "Clearwater Payments",
+        "Tom"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-055",
+    "personaId": "p04",
+    "date": "2026-01-20",
+    "text": "Quarterly risk committee. Two hours on the same three red RAG items. Nothing changed.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-056",
+    "personaId": "p04",
+    "date": "2026-07-09",
+    "text": "COO said at ExCo that the complaints journey work I've been leading is 'the first transformation programme I can actually see in the numbers'. First-contact resolution up from 54% to 71% since March.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "54%",
+        "71%"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-057",
+    "personaId": "p04",
+    "date": "2026-02-18",
+    "text": "Lesson from the branch pilot: we measured app downloads, the branches measured queue times, and nobody measured whether customers got what they came in for. Changing the success measure before we roll out any further.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-058",
+    "personaId": "p04",
+    "date": "2026-03-10",
+    "text": "Gave the board risk committee update to Priya instead of doing it myself. She was excellent – the chair asked her two follow-ups and she handled both.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Priya"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-059",
+    "personaId": "p04",
+    "date": "2026-03-26",
+    "text": "Decent day. The mainframe team agreed to open a test environment for us – took two lunches with their lead, but it's the first yes from them in years. Killed the chatbot rebuild; the money goes to fixing the address-change journey instead (38% drop-out today). And Ben is staying after our chat.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "38%"
+      ],
+      "confidential": false,
+      "names": [
+        "Ben"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-060",
+    "personaId": "p04",
+    "date": "2026-04-14",
+    "text": "Good outcome on the vendor negotiation today. Saved a decent chunk.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-061",
+    "personaId": "p04",
+    "date": "2026-01-13",
+    "text": "Board approved the business case for the new SME lending app – £14m. Not public until the results in February. I wrote most of the case over Christmas.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "£14m"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-062",
+    "personaId": "p04",
+    "date": "2026-05-12",
+    "text": "Long day. Started with the regulator readiness review for the Clearwater Payments onboarding – fine on operational resilience, weak on exit planning, which Hannah now owns. Then a long design review where I sided with the engineers against my own product lead: no custom KYC flow, we reuse the existing one and live with a clunkier UX for a while. Felt bad about overruling Josh in the room – should have done it privately. Spoke to him after. Finished with the CIO asking to borrow a couple of our architects for the data platform work. Said yes, for a month.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 4,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Clearwater Payments",
+        "Hannah",
+        "Josh"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-063",
+    "personaId": "p04",
+    "date": "2026-06-02",
+    "text": "Strategy offsite, first day. Lots of post-its, no decisions.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-064",
+    "personaId": "p04",
+    "date": "2026-06-23",
+    "text": "Mentoring session with Chloe, a grad on the ops rotation. Real instinct for process. Introduced her to our payments architecture lead; she's shadowing him next week.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Chloe"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-065",
+    "personaId": "p04",
+    "date": "2026-08-04",
+    "text": "Mobile onboarding completion up to 64% from 47% after the ID check change went live. Credit to Raj's squad.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "64%",
+        "47%"
+      ],
+      "confidential": false,
+      "names": [
+        "Raj"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-066",
+    "personaId": "p04",
+    "date": "2026-08-20",
+    "text": "Project Beacon data migration rehearsal passed with 0 critical defects – first clean run, so the extra rehearsal I insisted on paid off. Also got the Clearwater Payments contract change through legal in a week instead of the usual month.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "0 critical defects"
+      ],
+      "confidential": true,
+      "names": [
+        "Project Beacon",
+        "Clearwater Payments"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-067",
+    "personaId": "p04",
+    "date": "2026-09-07",
+    "text": "finally got complainst MI automated – no more manual spreadhseet every monday, ops team gets about a day a week back. also got sign off for 2 more devs on the journey team. good day",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "2 more devs"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-068",
+    "personaId": "p04",
+    "date": "2026-10-13",
+    "text": "Most of the day on the cost-reduction paper. In the middle of it, persuaded the CFO to keep funding the vulnerable customers work – it was on the cut list.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-069",
+    "personaId": "p05",
+    "date": "2025-11-14",
+    "text": "E-discharge live on all 6 medical wards today! 88% of discharges went through it this week. So glad I held go-live back a fortnight to fix the printers. Massive thanks to the clinical informatics nurses who did nights to support it.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "6 medical wards",
+        "88%"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-070",
+    "personaId": "p05",
+    "date": "2025-12-04",
+    "text": "Hard one to write. Ward 7 sister told me the new obs tool flagged Mr Doherty's deterioration 40 minutes earlier than the paper chart would have. He's OK. This is why we do it.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "40 minutes"
+      ],
+      "confidential": true,
+      "names": [
+        "Ward 7",
+        "Mr Doherty"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-071",
+    "personaId": "p05",
+    "date": "2026-01-15",
+    "text": "Rota tool rollout to theatres went badly – we didn't involve the theatre coordinators and they've gone back to the whiteboard. My fault for rushing the date. Rebooking design sessions with them, starting with nights.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-072",
+    "personaId": "p05",
+    "date": "2026-02-05",
+    "text": "Dr Okafor (A&E consultant, our loudest critic last year) stood up at clinical board and said the handover screen we rebuilt with his juniors has made his shift handovers 'actually safe'. May have cried a bit in the car.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Dr Okafor"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-073",
+    "personaId": "p05",
+    "date": "2026-03-03",
+    "text": "Outpatient DNA rates on the text-reminder pilot are way down – need the exact figure from Kieran but it's big.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Kieran"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-074",
+    "personaId": "p05",
+    "date": "2026-03-31",
+    "text": "Great day!! Rota tool now used by 214 nurses across 9 wards. Agency spend on those wards down £31,400 in the first month. And Jess from the informatics team got her promotion – she's earned it.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "214 nurses",
+        "9 wards",
+        "£31,400"
+      ],
+      "confidential": true,
+      "names": [
+        "Jess"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-075",
+    "personaId": "p05",
+    "date": "2026-04-29",
+    "text": "Clinicians are finally using the new referral form!! So proud of the team.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-076",
+    "personaId": "p05",
+    "date": "2026-05-19",
+    "text": "Spent an hour with Amira, our new product manager, walking the wards before she writes a single requirement. She spotted the label printer problem nobody has logged in a year.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Amira"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-077",
+    "personaId": "p05",
+    "date": "2025-12-18",
+    "text": "Board signed off the virtual wards pilot – £2.3m, 120 beds' worth of capacity, launching in spring. Not public until the partnership announces it. I've been pushing for this for over a year.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "£2.3m",
+        "120 beds"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-078",
+    "personaId": "p05",
+    "date": "2026-06-11",
+    "text": "Supplier finally fixed the bug that was double-booking outpatient slots, after weeks of me escalating. Chris on their side stayed late to get it into tonight's release.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Chris"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-079",
+    "personaId": "p05",
+    "date": "2026-06-25",
+    "text": "Reflecting after the go-live retro. We hit the date, but ward training was rushed and it showed – 140 support calls in the first week, most about logging in. Next time: training on the ward the week before, not in a classroom a month before. Sam and Ola covered the help desk for twelve hours straight on Monday; I owe them.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "140 support calls"
+      ],
+      "confidential": false,
+      "names": [
+        "Sam",
+        "Ola"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-080",
+    "personaId": "p05",
+    "date": "2026-07-21",
+    "text": "Med rec on the pilot ward: 15 mins down to 6 mins. Pharmacy team did something clever with the drug list – need to find out what. YES.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "15 mins",
+        "6 mins"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-081",
+    "personaId": "p05",
+    "date": "2026-02-24",
+    "text": "Decided we won't switch off the paper discharge forms until e-discharge hits 95% on every ward, not just on average. Exec team wanted the switch-off in March; they backed me in the end.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "95%"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-082",
+    "personaId": "p05",
+    "date": "2026-08-13",
+    "text": "Got a card from Mrs Patel's daughter thanking the team for the video visiting set-up on Ward 7 – she said goodbye to her mum on it. Pinned it up in the office. Not for LinkedIn.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Mrs Patel",
+        "Ward 7"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-083",
+    "personaId": "p05",
+    "date": "2026-09-17",
+    "text": "Ran a session for the digital team at Moorbank Infirmary on how we co-designed the e-obs screens with nurses; their CNIO has asked us to buddy them through their rollout. And the e-obs audit is back: 97% of observations recorded on time, up from 81%.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "97%",
+        "81%"
+      ],
+      "confidential": false,
+      "names": [
+        "Moorbank Infirmary"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-084",
+    "personaId": "p05",
+    "date": "2026-10-01",
+    "text": "absolutley shattered. two go-live rehearsals, both fell over on the same intergration. tomorrow again",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-085",
+    "personaId": "p06",
+    "date": "2025-11-07",
+    "text": "Third meeting with the Castellanos and we got there: both sons and their father agreed, for the first time, who runs the business if Ray steps back. I mostly kept asking the same question until the answers matched.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Castellanos",
+        "Ray"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-086",
+    "personaId": "p06",
+    "date": "2025-12-05",
+    "text": "Maya ran her first client review solo today. Sent the family a one-page summary within the hour – something I've never done consistently. Told her I'm stealing it.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Maya"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-087",
+    "personaId": "p06",
+    "date": "2026-01-16",
+    "text": "Engagement letter from the Feldman family office came back signed. Expanded scope. Big one for the team.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "the Feldman family office"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-088",
+    "personaId": "p06",
+    "date": "2026-02-06",
+    "text": "Compliance flagged that a couple of advisors had mentioned Ridgeway Growth Fund in prospecting emails. Rewrote the team guidance with compliance the same afternoon and walked everyone through it at the 4pm huddle.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Ridgeway Growth Fund"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-089",
+    "personaId": "p06",
+    "date": "2026-04-01",
+    "text": "Quarterly compliance attestations all day. Necessary, not a win.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-090",
+    "personaId": "p06",
+    "date": "2026-03-13",
+    "text": "New household onboarded – $18M transferred in from a retired surgeon the Castellanos referred. The referral came from the succession work, not anything we pitched.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "$18M"
+      ],
+      "confidential": true,
+      "names": [
+        "Castellanos"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-091",
+    "personaId": "p06",
+    "date": "2026-04-24",
+    "text": "Lesson: when a spouse misses the first meeting, the plan gets rewritten later. Asking for both from now on.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-092",
+    "personaId": "p06",
+    "date": "2026-05-15",
+    "text": "Estate attorney we work with at Whitcombe & Lyle told me the pre-meeting questionnaire I put together saved her a full billable day on the Navarro estate. She wants to use it with her own clients.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Whitcombe & Lyle",
+        "Navarro"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-093",
+    "personaId": "p06",
+    "date": "2026-06-05",
+    "text": "Tough family meeting but we finally got them to agree on the trustee question. Long road.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-094",
+    "personaId": "p06",
+    "date": "2026-09-11",
+    "text": "Productive day.\n- Leo passed his licensing exam. Six weeks of early-morning study sessions with him, worth every one.\n- The Brennan family agreed to set up the education trust for the grandkids, which we've been circling since spring.\n- Turned down a prospect who wanted performance guarantees. Right call.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Leo",
+        "Brennan"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-095",
+    "personaId": "p06",
+    "date": "2026-07-17",
+    "text": "Long day and a lot of it was waiting. Morning: annual review with the Halvorsen family, where the daughter finally said out loud that she doesn't want to run the dealership. Nobody fought. We spent the rest of the meeting on what that means for the buy-sell agreement instead of pretending. Lunch with Nadia, one of our second-year advisors, who's thinking about leaving – mostly listened, and offered her the co-lead on the Halvorsen follow-up so she gets real family work. She'll think about it. Afternoon was the regional meeting, mostly product updates I tuned out. Evening I wrote the Halvorsen follow-up memo myself because it mattered.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Halvorsen",
+        "Nadia"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-096",
+    "personaId": "p06",
+    "date": "2026-08-07",
+    "text": "Travel day to Boston. Nothing to log.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-097",
+    "personaId": "p06",
+    "date": "2026-10-14",
+    "text": "Team closed the year's net new assets goal at 112% with more than two months to spare – $64M net new, most of it referrals from existing families, so the referral-first approach I pushed this year paid off. Also finalized next year's mentoring pairings for the junior advisors.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "112%",
+        "$64M"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-098",
+    "personaId": "p06",
+    "date": "2026-08-28",
+    "text": "Tomas, one of the junior advisors, asked to sit in on how I handle the 'are we going to be okay' conversation. Afterward he said it was the most useful hour of his first year. Going to make it a monthly session for all the juniors.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 3,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Tomas"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-099",
+    "personaId": "p06",
+    "date": "2026-09-25",
+    "text": "Helped a client family thru a really hard conversation today. Proud of how it went.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-100",
+    "personaId": "p06",
+    "date": "2026-10-02",
+    "text": "Recommended we stop offering Ridgeway Growth Fund to new retirement-income clients – the liquidity terms don't fit what they need. Investment committee agreed today. Not communicated to the field yet.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Ridgeway Growth Fund"
+      ],
+      "followUpHelps": false
+    }
+  }
+]
