@@ -1,0 +1,1605 @@
+[
+  {
+    "id": "note-101",
+    "personaId": "p07",
+    "date": "2025-11-04",
+    "text": "Brightline Foods SteerCo went well. Got them to agree to pilot the new replenishment rules in 2 DCs before committing to the full network study. Tom said on the walk out it was the cleanest SteerCo he's seen me run.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "2 DCs"
+      ],
+      "confidential": true,
+      "names": [
+        "Brightline Foods",
+        "Tom"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-102",
+    "personaId": "p07",
+    "date": "2025-11-12",
+    "text": "Full day of stakeholder interviews at the plant. Pages of notes, no answers yet. Tired.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-103",
+    "personaId": "p07",
+    "date": "2025-11-20",
+    "text": "Jess (2nd-year analyst) presented the inventory findings to the client's VP Supply Chain on her own today. I stayed quiet for the whole hour, which was hard. She handled the pushback on safety stock better than I would have.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Jess"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-104",
+    "personaId": "p07",
+    "date": "2025-12-03",
+    "text": "Calder Logistics CFO signed off the carrier consolidation today. Carrier base cut by more than half, new rate card worth roughly $4.2M a year. Months of work, finally over the line.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "$4.2M"
+      ],
+      "confidential": true,
+      "names": [
+        "Calder Logistics"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-105",
+    "personaId": "p07",
+    "date": "2025-12-11",
+    "text": "Partner review moved to Monday. Spent the afternoon reformatting slides.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-106",
+    "personaId": "p07",
+    "date": "2026-01-08",
+    "text": "Lesson from today: I pushed the client team too fast on the SKU rationalization and their category managers dug in. Should have taken the long-tail list to them first instead of straight to the SVP. Rebuilding that bridge tomorrow.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-107",
+    "personaId": "p07",
+    "date": "2026-01-15",
+    "text": "Good day. 1) Tamsworth Capital asked us to do the ops diligence on their next acquisition, they came to us because of the Pellworth Brands work. 2) Priya's promotion to manager went through, I was her sponsor. 3) Finally found the bug in the demand model that's been haunting the team since Dec.",
+    "expect": {
+      "minWins": 3,
+      "maxWins": 3,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Tamsworth Capital",
+        "Pellworth Brands",
+        "Priya"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-108",
+    "personaId": "p07",
+    "date": "2026-01-27",
+    "text": "Client really liked the deck today. Big relief.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-109",
+    "personaId": "p07",
+    "date": "2026-02-05",
+    "text": "Told the Brightline Foods team we would NOT recommend the second plant. Their own volume forecast doesn't support it before 2028. Partner is nervous about losing the follow-on work (~$1.5M in fees). Holding the line.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "$1.5M"
+      ],
+      "confidential": true,
+      "names": [
+        "Brightline Foods"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-110",
+    "personaId": "p07",
+    "date": "2026-02-18",
+    "text": "Rough week honestly. Flew to Memphis Mon for the Calder site walk, flight delayed, got in at midnight. Tues was all workshops with the ops leads, who are skeptical of anything that looks like headcount cuts, which is fair given the last firm they used. Wed I threw out the agenda and just had them map where trucks actually wait at the dock. Turns out 40% of dwell time comes from one appointment-scheduling rule nobody owns. We changed the rule as a test Thurs morning and dock wait on the afternoon shift was down noticeably, proper numbers next week. Also my kid has the flu. Need sleep.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "40%"
+      ],
+      "confidential": true,
+      "names": [
+        "Calder"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-111",
+    "personaId": "p07",
+    "date": "2026-03-03",
+    "text": "Ran the first 'who opens this file after we leave?' review with the new team. Most of the models failed it. Analysts are rebuilding them in plain spreadsheets this week so the plant team can actually run them.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-112",
+    "personaId": "p07",
+    "date": "2026-03-19",
+    "text": "Email from Dana Whitcomb (COO, Pellworth Brands) to our managing partner saying ours was the most practical consulting team she's worked with. Forwarded to the team, they earned it, esp. Marco who basically lived at the plant for weeks.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Dana Whitcomb",
+        "Pellworth Brands",
+        "Marco"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-113",
+    "personaId": "p07",
+    "date": "2026-04-07",
+    "text": "Batching rule change is live at the second DC, picking productivity up again. Also my push to make Jess's model handover doc the template for the whole practice got approved.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Jess"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-114",
+    "personaId": "p07",
+    "date": "2026-04-22",
+    "text": "proposal for the bev client due fri, still waiting on their data. annoyed. nothing else to report",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-115",
+    "personaId": "p07",
+    "date": "2026-05-14",
+    "text": "Coached Aisha through her first scope negotiation with a client procurement lead, role-played it twice over lunch. She got the scope trimmed instead of the rate cut. Also decided to staff Ben on the Tamsworth diligence instead of me, he needs the PE exposure more than I do.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Aisha",
+        "Ben",
+        "Tamsworth"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-116",
+    "personaId": "p07",
+    "date": "2026-06-30",
+    "text": "Final readout done. Recommended fixing order batching before any network redesign: ~85% of the savings at a fraction of the cost and time. Client agreed. Lesson again: the smaller answer sells when the data is clear.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "85%"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-117",
+    "personaId": "p07",
+    "date": "2026-08-12",
+    "text": "Tom asked me to lead the internal training for new principals this fall. Didnt see that coming.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Tom"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-118",
+    "personaId": "p08",
+    "date": "2025-11-06",
+    "text": "Spent the whole day at St. Brendan Medical shadowing night nurses. The med-rec screen we were so proud of gets skipped 70% of the time because it times out mid-shift. Brutal, but exactly why we go. Fix is already in this sprint.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "70%"
+      ],
+      "confidential": true,
+      "names": [
+        "St. Brendan Medical"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-119",
+    "personaId": "p08",
+    "date": "2025-11-18",
+    "text": "Halo v2 scope locked!! Board saw the prototype today and gave us the green light for a Q2 beta. Kayla's clickable prototype did most of the convincing, honestly.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Halo v2",
+        "Kayla"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-120",
+    "personaId": "p08",
+    "date": "2025-12-02",
+    "text": "Sprint planning and 1:1s all day. Nina asked for more ownership of the clinical roadmap, need to think about what that looks like.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Nina"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-121",
+    "personaId": "p08",
+    "date": "2025-12-15",
+    "text": "We shipped the new triage queue without watching a full shift first (I skipped it because of the deadline). Nurses hate it. Rolling it back tomorrow. My call, my mistake. Never skipping the shadow shift again.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-122",
+    "personaId": "p08",
+    "date": "2026-01-09",
+    "text": "Big week for the team — the referral workflow went live in all our partner clinics and the feedback has been amazing.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-123",
+    "personaId": "p08",
+    "date": "2026-01-21",
+    "text": "Annual HIPAA security review passed with no findings, a first for us. Having compliance in every design review since spring is the whole story.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-124",
+    "personaId": "p08",
+    "date": "2026-02-04",
+    "text": "Ben (eng lead) and I finally agreed a 'no demo-driven features' rule after last week's argument. Took two coffees. Also worked with Nina on her first PRD for a clinical workflow, she nailed the problem statement.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Ben",
+        "Nina"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-125",
+    "personaId": "p08",
+    "date": "2026-02-19",
+    "text": "Corvallo Clinics renewed and expanded from 12 sites to 20 sites. Their CMO told me the nurse shadowing program is the reason. Cried a little in the parking lot ngl.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "12 sites",
+        "20 sites"
+      ],
+      "confidential": true,
+      "names": [
+        "Corvallo Clinics"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-126",
+    "personaId": "p08",
+    "date": "2026-03-05",
+    "text": "Sat in on the St. Brendan Medical QBR. Mostly their IT team presenting their own roadmap. Nothing for us to action yet.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "St. Brendan Medical"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-127",
+    "personaId": "p08",
+    "date": "2026-03-24",
+    "text": "CEO gave the product team a shout-out at all-hands for the discharge planner launch. Proud of this crew.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-128",
+    "personaId": "p08",
+    "date": "2026-04-09",
+    "text": "Ok long one. Spent the morning with our regulatory consultant, Priya Raman, going through whether the new dosing reminder counts as clinical decision support. Her read: if we only remind and never recommend a dose, we stay out of SaMD territory. So I made the call to strip the 'suggested dose' field out of Halo v2 entirely. Sales will hate it because two prospects asked for exactly that, but going down the regulated device path would add most of a year and we don't have that runway. Wrote it up as a decision record so we stop relitigating it every sprint. Afternoon was the hiring loop for the senior designer role, two strong candidates, deciding next week. Then my daughter's soccer game. We lost badly lol.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Priya Raman",
+        "Halo v2"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-129",
+    "personaId": "p08",
+    "date": "2026-05-01",
+    "text": "Activation on the new onboarding flow is way up!",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-130",
+    "personaId": "p08",
+    "date": "2026-05-20",
+    "text": "Kayla got promoted to Design Lead today!! I've been pushing for this since January. She sent me a note saying the weekly crit sessions I started are what got her portfolio there. Not crying, you're crying.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Kayla"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-131",
+    "personaId": "p08",
+    "date": "2026-06-11",
+    "text": "St. Brendan Medical pilot results are in: med-rec completion went from 31% to 78% after the timeout fix. Their CNO wants to roll it out system-wide. Need to figure out pricing before that conversation.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "31%",
+        "78%"
+      ],
+      "confidential": true,
+      "names": [
+        "St. Brendan Medical"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-132",
+    "personaId": "p08",
+    "date": "2026-07-08",
+    "text": "Platform team finished the cloud migration over the weekend with no downtime. I wasn't involved at all but seriously impressive. Rest of my day was offsite logistics, ugh",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-133",
+    "personaId": "p08",
+    "date": "2026-08-19",
+    "text": "Three things. 1. Killed the analytics dashboard project after a month of discovery showed nobody would open it, saves the team a quarter. 2. Dr. Alvarez at Corvallo agreed to be our clinical advisor for the ICU workflow. 3. Ran my first product review with the whole eng team in the room instead of just leads. Way better questions.",
+    "expect": {
+      "minWins": 3,
+      "maxWins": 3,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Alvarez",
+        "Corvallo"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-134",
+    "personaId": "p08",
+    "date": "2026-10-02",
+    "text": "Got a really nice message from Jordan at Corvallo about the discharge planner. Made my week.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Jordan",
+        "Corvallo"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-135",
+    "personaId": "p09",
+    "date": "2025-11-10",
+    "text": "Oasis Living workshop today. Took the leadership team from 7 brand pillars to 2 pillars in one afternoon. Karim (CEO) said it's the first time sales and the board agree on what they're actually selling.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "7 brand pillars",
+        "2 pillars"
+      ],
+      "confidential": true,
+      "names": [
+        "Oasis Living",
+        "Karim"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-136",
+    "personaId": "p09",
+    "date": "2025-11-25",
+    "text": "Admin day. Invoices, VAT return prep, chasing two late payments.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-137",
+    "personaId": "p09",
+    "date": "2025-12-09",
+    "text": "Did 6 customer interviews for the skincare client. Every single one mentioned the refill packaging, not the formula. Our brief assumed the opposite. Rewriting it. Lesson: interview before you brief, not after.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "6 customer interviews"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-138",
+    "personaId": "p09",
+    "date": "2026-01-06",
+    "text": "Falcon Logistics B2B lead gen campaign wrapped. Cost per qualified lead down from AED 1,900 to AED 1,150 and roughly AED 14M of pipeline added. Their CCO wants to extend my contract to Q4.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "AED 1,900",
+        "AED 1,150",
+        "AED 14M"
+      ],
+      "confidential": true,
+      "names": [
+        "Falcon Logistics"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-139",
+    "personaId": "p09",
+    "date": "2026-01-20",
+    "text": "Rebrand for the restaurant group went live today. Team did brilliantly.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-140",
+    "personaId": "p09",
+    "date": "2026-02-03",
+    "text": "Hessa, the marketing manager I've been coaching at Velmora Residences, ran the agency pitch review without me. She picked the agency I would have picked, for better reasons. My job there is nearly done.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Hessa",
+        "Velmora Residences"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-141",
+    "personaId": "p09",
+    "date": "2026-02-17",
+    "text": "Said no to a crypto exchange that wanted me on retainer. Not my space and I'd be learning on their money. Same day, a referral from Rania came through: boutique hotel group, starting in March.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Rania"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-142",
+    "personaId": "p09",
+    "date": "2026-03-03",
+    "text": "positioning doc for Nuqra finaly signed off by both founders",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Nuqra"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-143",
+    "personaId": "p09",
+    "date": "2026-03-18",
+    "text": "Long day. Morning at Oasis Living: they're planning a second, mid-market brand for September and want me to lead positioning. Nobody outside the exco knows yet. Told them honestly I think it will cannibalise the core unless the price gap is at least 25%, and walked them through the 20 tenant interviews. Karim went quiet, then agreed to test it with buyers before committing. Afternoon was a podcast recording, not sure how it went, I rambled. Evening, dinner with an old colleague who's thinking of going fractional too, gave her my honest view on how hard the first year is. Tired.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "25%",
+        "20 tenant interviews"
+      ],
+      "confidential": true,
+      "names": [
+        "Oasis Living",
+        "Karim"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-144",
+    "personaId": "p09",
+    "date": "2026-04-07",
+    "text": "A founder I worked with two years ago told a room full of investors tonight that I 'fixed their message in a month'. Had no idea she was going to say that.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-145",
+    "personaId": "p09",
+    "date": "2026-04-28",
+    "text": "A brand I pitched to last year (and didn't win) launched a rebrand today that looks a lot like my pitch. Annoying. Flying back from Riyadh tonight.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-146",
+    "personaId": "p09",
+    "date": "2026-05-12",
+    "text": "Hired the first in-house marketing lead for Qirfa Kitchen Group, ran the whole process for them, 140 applicants to one hire. Also rewrote their agency brief so it fits on one page.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "140 applicants"
+      ],
+      "confidential": true,
+      "names": [
+        "Qirfa Kitchen Group"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-147",
+    "personaId": "p09",
+    "date": "2026-06-02",
+    "text": "Message test results back for Falcon. The new version won clearly.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Falcon"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-148",
+    "personaId": "p09",
+    "date": "2026-06-23",
+    "text": "Lesson: when a founder says 'we need more leads', ask what happened to the last batch first. Today's client had 300 untouched leads sitting in a spreadsheet. We fixed the follow-up process before spending another dirham on ads.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "300 untouched leads"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-149",
+    "personaId": "p09",
+    "date": "2026-07-14",
+    "text": "Decided to cap myself at 3 clients from September and turned down a fourth. Also spent an hour reviewing a junior marketer's portfolio before her interview — she got the job today.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "3 clients"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-150",
+    "personaId": "p09",
+    "date": "2026-08-25",
+    "text": "Velmora Residences off-plan launch: 62% of units reserved in the first weekend against a target of 40%, and the campaign came in AED 300k under budget. Sales director took the whole team to dinner.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "62%",
+        "40%",
+        "AED 300k"
+      ],
+      "confidential": true,
+      "names": [
+        "Velmora Residences"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-151",
+    "personaId": "p09",
+    "date": "2026-10-06",
+    "text": "Qirfa Kitchen Group summer campaign beat its target by a mile. Owners thrilled.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Qirfa Kitchen Group"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-152",
+    "personaId": "p10",
+    "date": "2025-11-03",
+    "text": "Al Reem Corniche package: piling works completed 3 weeks ahead of the revised programme. Credit to Rashid's night shift crew.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "3 weeks"
+      ],
+      "confidential": true,
+      "names": [
+        "Al Reem Corniche package",
+        "Rashid"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-153",
+    "personaId": "p10",
+    "date": "2025-11-17",
+    "text": "Toolbox talk this morning was led by Imran, our youngest HSE officer, his first time running it for the full site. I coached him through it last week. He was nervous but the crews listened.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Imran"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-154",
+    "personaId": "p10",
+    "date": "2025-12-01",
+    "text": "Site inspection postponed again due to weather. Paperwork for the rest of the day.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-155",
+    "personaId": "p10",
+    "date": "2025-12-16",
+    "text": "Meeting with the Authority on the utility diversion. They wanted the night closures extended; I proposed a phased approach instead and they accepted. Saves roughly AED 6M in traffic management costs.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "AED 6M"
+      ],
+      "confidential": true,
+      "names": [
+        "the Authority"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-156",
+    "personaId": "p10",
+    "date": "2026-01-12",
+    "text": "Difficult day. Near miss at the north abutment this morning: a mobile crane outrigger was set on uncompacted fill, the banksman spotted the settlement and stopped the lift. Nobody hurt. I stopped all lifting operations for the rest of the shift and held a stand-down with every crew, about 300 people. Inspections found two more cranes set up the same way. Rewrote the lift plan checklist with the lifting supervisor so ground bearing is signed off by an engineer before any outrigger goes down. Will brief the PMC tomorow. The banksman deserves recognition, need to find out his name.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [
+        "300 people"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-157",
+    "personaId": "p10",
+    "date": "2026-01-29",
+    "text": "Deck 4 pour done overnight, first one using the new curing method. Looks much better.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-158",
+    "personaId": "p10",
+    "date": "2026-02-11",
+    "text": "Promoted two section engineers to site manager today, Fatima and Joseph. Both came through the site leadership programme we started last year. Also closed out the last of the open NCRs from the precast supplier.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Fatima",
+        "Joseph"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-159",
+    "personaId": "p10",
+    "date": "2026-02-26",
+    "text": "Value engineering workshop on the station canopies. Steel tonnage down about 18%, roughly AED 11M off the package cost. Design consultant resisted at first; we got there by agreeing to keep the architectural profile.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "18%",
+        "AED 11M"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-160",
+    "personaId": "p10",
+    "date": "2026-03-12",
+    "text": "Client's project director wrote to our MD praising the site's safety record and how our team handled the cable strike in January. Shared it with all the site leads. Same day, closed the last open RFI on the viaduct design.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-161",
+    "personaId": "p10",
+    "date": "2026-03-30",
+    "text": "Short day. Progress meeting, nothing new. Programme update due next week.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-162",
+    "personaId": "p10",
+    "date": "2026-04-15",
+    "text": "Decided to take the marine works back in-house on the Al Reem Corniche package after Sadaf Marine missed a third milestone. Hard call, we have worked with them for many years. Lesson for me: I should have acted after the second miss, not waited for the third.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Al Reem Corniche package",
+        "Sadaf Marine"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-163",
+    "personaId": "p10",
+    "date": "2026-05-06",
+    "text": "Site team recovered most of the float lost in March. Good work by everyone.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-164",
+    "personaId": "p10",
+    "date": "2026-05-27",
+    "text": "Mentoring session with Khalid, one of our graduate engineers. He asked how I handle pressure from the client side, so I told him about the first project I nearly lost. He said it was the most useful hour of his graduate programme so far.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Khalid"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-165",
+    "personaId": "p10",
+    "date": "2026-06-17",
+    "text": "Tomorrow: presentation to the Authority on the phase 2 programme. Deck ready, rehearsed twice with the team.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "the Authority"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-166",
+    "personaId": "p10",
+    "date": "2026-07-21",
+    "text": "Productive day. LTI-free hours on the project passed 5 million. Signed off the revised summer logistics plan, all concrete pours move to night shift through August. And Rashid ran his first full progress meeting with the client without me.",
+    "expect": {
+      "minWins": 3,
+      "maxWins": 3,
+      "metrics": [
+        "5 million"
+      ],
+      "confidential": false,
+      "names": [
+        "Rashid"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-167",
+    "personaId": "p10",
+    "date": "2026-09-08",
+    "text": "Bid team asked me to lead the technical submission for the airport link tender. Not public yet that we're bidding. Agreed, on condition that Joseph comes with me as deputy.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Joseph"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-168",
+    "personaId": "p10",
+    "date": "2026-10-13",
+    "text": "Quarterly safety figures: near-miss reporting up sharply since the anonymous cards went in at the gates, recordable incidents down. It was the junior supervisor's proposal; I backed it and funded the printing.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-169",
+    "personaId": "p11",
+    "date": "2025-11-07",
+    "text": "Supervisor forum in KL today with 18 new supervisors from 4 sites. Hafiz facilitated, I opened and left the room. Their shift-handover idea has already been adopted by the Penang site.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "18 new supervisors",
+        "4 sites"
+      ],
+      "confidential": false,
+      "names": [
+        "Hafiz"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-170",
+    "personaId": "p11",
+    "date": "2025-11-21",
+    "text": "Project Monsoon: finished the org design for the regional hub consolidation and exco approved it today. Change comms plan next. Nobody below director level knows yet.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Project Monsoon"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-171",
+    "personaId": "p11",
+    "date": "2025-12-05",
+    "text": "Payroll cutover problems in Vietnam, on calls till late. Still not resolved.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-172",
+    "personaId": "p11",
+    "date": "2025-12-19",
+    "text": "Ran calibration for the Thailand ops team with the new three-question form. Managers finished much faster than last year and the comments were actually specific. Also the Vietnam GM asked whether his site leads can join the supervisor forum, first country to ask rather than be told.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-173",
+    "personaId": "p11",
+    "date": "2026-01-09",
+    "text": "Coached Siew Ling (new HRBP, Indonesia) through her first difficult performance conversation, we role-played it twice yesterday. She said it went far better than she feared, and the manager agreed to a proper improvement plan instead of an exit.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Siew Ling"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-174",
+    "personaId": "p11",
+    "date": "2026-01-27",
+    "text": "Hybrid pilot for the Singapore office finished. Feedback very positive.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-175",
+    "personaId": "p11",
+    "date": "2026-02-10",
+    "text": "Long day. Started with the regional leadership call and finally got agreement that frontline supervisors join the same leadership programme as office managers, which I've been pushing for since I joined; we announced it to the region straight after. Then an hour with Thanh in Ho Chi Minh City on the overtime rostering complaint. We agreed a fairer rota and the union rep was happy with it. Lunch was a sandwich at my desk. Afternoon was the interview panel for the Philippines HR lead, strong shortlist, deciding Friday. Ended with a call from my old boss, who wants me to speak at her company's HR summit. Need to stop saying yes to things.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 3,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Thanh"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-176",
+    "personaId": "p11",
+    "date": "2026-02-24",
+    "text": "Frontline supervisor programme completion up to 92% from 61% last year.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "92%",
+        "61%"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-177",
+    "personaId": "p11",
+    "date": "2026-03-12",
+    "text": "Back-to-back interviews and a fire drill. Long day, nothing to log.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-178",
+    "personaId": "p11",
+    "date": "2026-03-31",
+    "text": "Project Monsoon update: Johor and Penang sites merge in Q3. Negotiated with the union so redeployment is the default option for every affected role, took four sessions. Ops head called it the best outcome we could have hoped for.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Project Monsoon"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-179",
+    "personaId": "p11",
+    "date": "2026-04-21",
+    "text": "Arif from the Jakarta warehouse sent me a voice note thanking me for pushing through the safer night-shift transport. He said a few of his team stayed because of it.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Arif"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-180",
+    "personaId": "p11",
+    "date": "2026-05-14",
+    "text": "Decided to replace the annual engagement survey with quarterly five-question pulses and told the country HR heads today. Lesson from last year: by the time results came back, the managers who caused the issues had moved on.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-181",
+    "personaId": "p11",
+    "date": "2026-06-09",
+    "text": "Manila supervisor programme graduation today. So proud of this cohort.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-182",
+    "personaId": "p11",
+    "date": "2026-07-07",
+    "text": "Two good things. Mei (HRBP, Malaysia) got the regional talent lead role, I sponsored her case. And the manager-led onboarding we piloted in Penang is now running at all 6 Thai sites.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "6 Thai sites"
+      ],
+      "confidential": false,
+      "names": [
+        "Mei"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-183",
+    "personaId": "p11",
+    "date": "2026-08-18",
+    "text": "Got CFO sign-off for a S$1.2M regional budget for frontline leadership training next year, up from S$400k. Took three rounds and a lot of supervisor attrition data.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "S$1.2M",
+        "S$400k"
+      ],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-184",
+    "personaId": "p11",
+    "date": "2026-10-08",
+    "text": "Mostly firefighting the HR system migration today. In between, a supervisor in Cebu messaged that the conflict-resolution module we rewrote helped her settle a dispute between two shift leads without escalating. That's the bit I want to remember.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-185",
+    "personaId": "p12",
+    "date": "2025-11-05",
+    "text": "Closed out the last of the MAS inspection findings ahead of the deadline. Team worked weekends for a month. Credit to Wen Hui for the evidence pack.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "MAS inspection findings",
+        "Wen Hui"
+      ],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-186",
+    "personaId": "p12",
+    "date": "2025-11-19",
+    "text": "Sat in on product planning for next year's merchant onboarding revamp. Flagged before the first sketch was done that the proposed instant activation would breach our own KYC policy; we agreed a tiered approach instead, with low limits until verification completes.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-187",
+    "personaId": "p12",
+    "date": "2025-12-03",
+    "text": "Team filed 4 STRs this week off the new mule-account typology Daniel built. I took him off BAU for a week so he could build it. Typology is now in the monitoring rules.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "4 STRs"
+      ],
+      "confidential": true,
+      "names": [
+        "Daniel"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-188",
+    "personaId": "p12",
+    "date": "2025-12-17",
+    "text": "Industry association breakfast. Lots of talk about who is getting licences next. Didn't contribute.",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-189",
+    "personaId": "p12",
+    "date": "2026-01-13",
+    "text": "Kite Bank's due diligence on us came back with no high-risk findings, the first partner bank review where that has happened. Their onboarding team said our policy pack was the clearest they'd seen this year.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": true,
+      "names": [
+        "Kite Bank"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-190",
+    "personaId": "p12",
+    "date": "2026-01-29",
+    "text": "Rewrote the sanctions screening procedure with Farah, from 40 pages to 12 pages. Tested it on two new analysts; both ran a case end to end without asking anyone.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "40 pages",
+        "12 pages"
+      ],
+      "confidential": false,
+      "names": [
+        "Farah"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-191",
+    "personaId": "p12",
+    "date": "2026-02-12",
+    "text": "Transaction monitoring alert backlog finally cleared.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-192",
+    "personaId": "p12",
+    "date": "2026-03-04",
+    "text": "Submitted the licence application for the Malaysia expansion today. Most of a year's work. Nobody outside leadership knows we're going into Malaysia yet.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": true,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-193",
+    "personaId": "p12",
+    "date": "2026-03-20",
+    "text": "Lesson from the false-positive review: we tuned the screening thresholds to cut noise and nearly missed a true match last month. Decided that every threshold change now needs a back-test against the last year of hits before it goes live.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-194",
+    "personaId": "p12",
+    "date": "2026-04-08",
+    "text": "CEO asked compliance to present at the board offsite, first time ever.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-195",
+    "personaId": "p12",
+    "date": "2026-04-30",
+    "text": "Long one. Morning: Kite Bank called about a merchant they think is running card testing through us. Pulled the data with Wen Hui, they were right, merchant offboarded by noon and the report filed. Chargebacks from that merchant were about S$85k last month, so it could have been much worse. Afternoon: two hours with product on the remittance corridor launch. Got them to drop the 'instant, no checks' wording from the landing page draft; we cannot promise that. Evening: prepping the board paper on the remaining MAS inspection findings, two still open. Missed my son's school concert. Again.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [
+        "S$85k"
+      ],
+      "confidential": true,
+      "names": [
+        "Kite Bank",
+        "Wen Hui",
+        "MAS inspection findings"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-196",
+    "personaId": "p12",
+    "date": "2026-05-19",
+    "text": "regulatory consultation paper out today, skimmed it, need to read properly tmrw",
+    "expect": {
+      "minWins": 0,
+      "maxWins": 0,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-197",
+    "personaId": "p12",
+    "date": "2026-06-16",
+    "text": "Promoted Ravi to compliance manager. He started as our first analyst three years ago; I wrote his promotion case myself and it went through unchanged. Also signed off the new gifts and entertainment policy, much shorter than the old one.",
+    "expect": {
+      "minWins": 2,
+      "maxWins": 2,
+      "metrics": [],
+      "confidential": false,
+      "names": [
+        "Ravi"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-198",
+    "personaId": "p12",
+    "date": "2026-07-21",
+    "text": "Product asked for compliance review on two more features this sprint without me chasing. Feels like the culture is shifting.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": true
+    }
+  },
+  {
+    "id": "note-199",
+    "personaId": "p12",
+    "date": "2026-08-26",
+    "text": "Recommended we do NOT launch cross-border payouts with Kite Bank until their sanctions screening matches ours. Commercial team unhappy, it pushes about S$2M of projected revenue into next year. CEO backed me.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 2,
+      "metrics": [
+        "S$2M"
+      ],
+      "confidential": true,
+      "names": [
+        "Kite Bank"
+      ],
+      "followUpHelps": false
+    }
+  },
+  {
+    "id": "note-200",
+    "personaId": "p12",
+    "date": "2026-10-14",
+    "text": "Spoke at a fintech compliance meetup on compliance as a product partner. About 120 people. 3 heads of product asked for the slides afterwards.",
+    "expect": {
+      "minWins": 1,
+      "maxWins": 1,
+      "metrics": [
+        "120 people",
+        "3 heads of product"
+      ],
+      "confidential": false,
+      "names": [],
+      "followUpHelps": false
+    }
+  }
+]
