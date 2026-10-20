@@ -5,7 +5,8 @@
 - Product spec, architecture, schema with row-level security (verified: signup trigger, per-user isolation)
 - Sign-in: email magic link; Google, Microsoft and LinkedIn buttons (providers must be enabled in Supabase)
 - Onboarding: name, role, topic pillars, audience, confidentiality rules, voice samples, prompt time
-- Today: log a win → AI extracts structured wins (+ optional follow-up question) → 3 post ideas
+- Today: log a win → AI extracts structured wins, fact-checked against the note (+ optional
+  follow-up question) → 3 post ideas when the user asks
 - Drafts: write a post from an idea → deterministic + AI checks (confidentiality, facts, job-search signals,
   clichés) with one automatic fix → edit, copy, open LinkedIn, mark as posted
 - Engage: paste a post → 3 comment options, checked (now comment starters)
@@ -80,7 +81,8 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
   (60%–96%, 14 cases), up from 57% at the first run; now on in the product. Usefulness to the
   reader is still the weakest criterion.
 - Wins from notes: 48% after rebalancing the prompt (from 13%); 63% with the fact-checker
-  (16 cases, faithful 69%), still below the gate, so it stays off for now.
+  (16 cases, faithful 69%). Not yet past the gate, but switched on by decision because it keeps
+  the record faithful; post ideas now come on request, which pays for it.
 - Post ideas: 58% with the grounded prompt; the sharper prompt plus fact-checker scored 50%
   (grounded but flat), so ideas keep the grounded prompt.
 - First tests of the rest: style notebook 80% (10 cases, just short of the gate; captures 57% of

@@ -68,7 +68,7 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 | Function | Status | Model | Effort | Output (structured) |
 |---|---|---|---|---|
 | `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, kind, skills, pillar, confidentiality flag; follow-up question; the note with names replaced by roles |
-| `verify_wins` | built, off | Claude Opus 5.5 | medium | Each win's summary and impact with anything the note doesn't support removed |
+| `verify_wins` | live | Claude Opus 5.5 | medium | Each win's summary and impact with anything the note doesn't support removed |
 | `post_ideas` | live | Claude Opus 5.5 | medium | 2–3 ideas, best first: format, angle, hook, source win ids |
 | `verify_ideas` | built, off | Claude Opus 5.5 | medium | Each idea's angle and first line with unsupported details and links removed |
 | `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, 0–3 hashtags; three drafts per idea with different leanings |
@@ -160,8 +160,9 @@ note is still saved and the AI step is skipped with a calm message.
 
 Extra pipeline steps are switched on in `QUALITY_STEPS` (`src/lib/ai/models.ts`) only once the
 quality bar shows they beat the baseline and their cost fits the plan allowance. Three drafts with
-an editor's pick are on; the fact-checkers for wins and ideas are built and off: they improved
-faithfulness but have not yet beaten the baseline.
+an editor's pick are on, and so is the fact-checker for wins (by decision: it keeps the record
+faithful, though it has not yet beaten the baseline by enough). The fact-checker for ideas is
+built and off. Post ideas are generated when the user asks, not after every note.
 
 `npm run eval` runs it with real model calls. `npm test` includes a free dry run that keeps the
 harness working. Baselines and the grader call the model through `runWithModel` in

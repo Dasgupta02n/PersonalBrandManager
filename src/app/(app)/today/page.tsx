@@ -37,14 +37,14 @@ export default async function TodayPage() {
       .order("created_at", { ascending: false }),
     supabase
       .from("wins")
-      .select("id, summary, metric, confidential, kind")
+      .select("id, summary, metric, confidential, kind, created_at")
       .eq("user_id", user.id)
       .eq("occurred_on", today)
       .order("created_at", { ascending: false }),
     supabase.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", monthStart),
     supabase
       .from("drafts")
-      .select("id, angle, hook, post_format")
+      .select("id, angle, hook, post_format, created_at")
       .eq("user_id", user.id)
       .eq("kind", "post_idea")
       .eq("status", "idea")
@@ -70,6 +70,10 @@ export default async function TodayPage() {
   const winsThisMonth = monthWins.count ?? 0;
   const ideaRows = ideas.data ?? [];
   const hasRecentWins = (recentWins.count ?? 0) > 0;
+  // Ideas come on request, so ideas already waiting may predate today's wins.
+  const latestWinAt = todaysWins.data?.[0]?.created_at ?? "";
+  const latestIdeaAt = ideaRows.reduce((latest, idea) => (idea.created_at > latest ? idea.created_at : latest), "");
+  const newWinsSinceIdeas = ideaRows.length > 0 && latestWinAt > latestIdeaAt;
 
   return (
     <>
@@ -142,7 +146,13 @@ export default async function TodayPage() {
       <section className="flex flex-col gap-2">
         <SectionHeader
           title={ideaRows.length ? `${ideaRows.length} ways to share this` : "Ways to share your work"}
-          action={ideaRows.length > 0 ? <MoreIdeasButton /> : undefined}
+          action={
+            newWinsSinceIdeas ? (
+              <MoreIdeasButton label="Use today's wins" pendingLabel="Finding ways to share…" primary />
+            ) : ideaRows.length > 0 ? (
+              <MoreIdeasButton />
+            ) : undefined
+          }
         />
         {ideaRows.length ? (
           <div className="flex flex-col gap-3">
@@ -177,12 +187,16 @@ export default async function TodayPage() {
             })}
           </div>
         ) : hasRecentWins ? (
-          <EmptyState icon={Lightbulb} title="No ideas waiting" action={<MoreIdeasButton label="Find ideas from my recent wins" primary />}>
-            Ideas come only from wins you logged in the last 30 days.
+          <EmptyState
+            icon={Lightbulb}
+            title="Ready when you want to post"
+            action={<MoreIdeasButton label="Suggest 3 ways to share" pendingLabel="Finding ways to share…" primary />}
+          >
+            Three ways to share your recent work, built only from wins you logged in the last 30 days.
           </EmptyState>
         ) : (
-          <EmptyState icon={Lightbulb} title="Your first ideas appear here">
-            Write a line above about something that moved forward. You&apos;ll get three ways to share it.
+          <EmptyState icon={Lightbulb} title="Ways to share appear here">
+            Write a line above about something that moved forward. When you want to post, ask for three ways to share it.
           </EmptyState>
         )}
       </section>

@@ -8,7 +8,7 @@ import { APP_NAME, APP_PROMISE, APP_TAGLINE } from "@/lib/config/app";
 const QUESTIONS = [
   {
     q: "What do I post?",
-    a: "Your one-line daily note builds a private record of real work. Each one becomes three ways to share it: a lesson, a decision explained, or credit to your team.",
+    a: "Your one-line daily note builds a private record of real work. When you want to post, it suggests three ways to share it: a lesson, a decision explained, or credit to your team.",
   },
   {
     q: "Will it be well received?",

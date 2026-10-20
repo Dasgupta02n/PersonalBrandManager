@@ -126,6 +126,7 @@ export function estimateCallCost(
 /** Typical tokens per call (input, output), measured from the prompts with a full user context. */
 const CALL_TOKENS = {
   extract_wins: [2050, 450],
+  verify_wins: [1100, 450],
   post_ideas: [2750, 500],
   draft_post: [2080, 700],
   select_draft: [3300, 600],
@@ -141,8 +142,9 @@ const CALL_TOKENS = {
 const ESTIMATE_SAFETY = 1.5;
 
 const ACTION_CALLS = {
-  log: ["extract_wins", "post_ideas"],
-  moreIdeas: ["post_ideas"],
+  // The note's wins, fact-checked (QUALITY_STEPS.verifyWins). Post ideas come only on request.
+  log: ["extract_wins", "verify_wins"],
+  ideas: ["post_ideas"],
   // Three drafts and the editor's pick (QUALITY_STEPS.draftCandidates), then the checks.
   draft: ["draft_post", "draft_post", "draft_post", "select_draft", "check_draft", "how_it_reads"],
   revision: ["revise_draft", "check_draft", "how_it_reads"],
@@ -165,7 +167,7 @@ export function actionCost(action: Action): number {
 /** An engaged member's month: the usage the member price is built to cover. */
 export const ENGAGED_MONTH: Record<Action, number> = {
   log: 22,
-  moreIdeas: 4,
+  ideas: 12,
   draft: 10,
   revision: 10,
   recheck: 6,

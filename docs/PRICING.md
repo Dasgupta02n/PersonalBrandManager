@@ -14,7 +14,8 @@ GST; the merchant of record adds them at checkout where the law requires. The mo
 The price is set to fund the multi-pass quality pipeline (several drafts and a grader,
 specialist safety checkers): about **$6.10** of AI for an engaged month once it is built, with
 caching and overnight batch. Today's pipeline, with three drafts and an editor's pick for every
-draft, costs $5.55 for the same month, so members have headroom until the rest is built.
+draft and a fact-check of every note, costs $5.55 for the same month, so members have headroom
+until the rest is built.
 
 ## The split
 
@@ -66,8 +67,8 @@ then multiplied by 1.5 for headroom.
 
 | Action | Calls | Cost each | Engaged month | Month cost |
 |---|---|---|---|---|
-| Daily note | extract wins + post ideas | $0.057 | 22 | $1.26 |
-| More ideas | post ideas | $0.032 | 4 | $0.13 |
+| Daily note | extract wins + fact-check | $0.046 | 22 | $1.01 |
+| Post ideas, on request | post ideas | $0.032 | 12 | $0.38 |
 | Checked draft | 3 drafts + editor's pick + check + how it reads | $0.208 | 10 | $2.08 |
 | Revision | revise + check + how it reads | $0.098 | 10 | $0.98 |
 | Re-check after edits | check + how it reads | $0.070 | 6 | $0.42 |
@@ -76,19 +77,22 @@ then multiplied by 1.5 for headroom.
 | Style notebook refresh | voice profile | $0.042 | 2 | $0.08 |
 | **Engaged month** | | | | **$5.55** |
 
-- Today's pipeline needs at least $25.54 a month: ($5.55 + $0.31 + $0.50) ÷ (29.91% − 5%).
+- Today's pipeline needs at least $25.55 a month: ($5.55 + $0.31 + $0.50) ÷ (29.91% − 5%).
 - The quality pipeline ($6.10 an engaged month, see below) needs at least **$27.70 a month**
   and **$311 a year**. $29 and $319 are the nearest standard price points that clear both.
 - The member allowance ($6.27) covers the planned pipeline. At today's costs it is about 30
   checked drafts.
-- The trial allowance ($1.55) is about 27 daily notes, or 7 checked drafts.
+- The trial allowance ($1.55) is about 33 daily notes, or 7 checked drafts. At measured costs, a
+  trial user who logs on 15 days has room for about 6 checked drafts: about a post a week.
+- Post ideas come when the user asks, not after every note (the first note at sign-up is the
+  exception). That pays for the fact-check on every note.
 
 ### The planned quality pipeline
 
 | Action | Today | With quality passes, caching and batch |
 |---|---|---|
 | Checked draft | $0.21 (3 drafts + editor's pick; about $0.18 measured in the quality bar) | about $0.18 (with specialist checkers and a fix pass, cached) |
-| Daily note | $0.06 | about $0.07 (deeper ideas prepared overnight at batch price) |
+| Daily note | $0.05 (note and fact-check; ideas on request) | about $0.07 (deeper ideas prepared overnight at batch price) |
 | Revision | $0.10 | about $0.11 |
 | Re-check | $0.07 | about $0.10 |
 | **Engaged month** | **$5.55** | **about $6.10** |

@@ -137,7 +137,7 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
   // Setup ends on value: the first win becomes wins and ideas straight away.
   if (v.firstWin.length >= 3) {
     const fresh = await requireUser();
-    await processEntry(fresh, v.firstWin);
+    await processEntry(fresh, v.firstWin, { withIdeas: true });
   }
 
   revalidatePath("/", "layout");

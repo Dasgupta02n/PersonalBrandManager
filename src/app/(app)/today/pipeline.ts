@@ -17,12 +17,13 @@ export interface LogState {
 export type Session = Awaited<ReturnType<typeof requireUser>>;
 
 /**
- * Saves a note, extracts wins and suggests post ideas. Each step that succeeds is kept, and the
- * note is always saved first, so the record has no gaps even when the AI step can't run.
+ * Saves a note and extracts wins. Each step that succeeds is kept, and the note is always saved
+ * first, so the record has no gaps even when the AI step can't run. Post ideas come when the user
+ * asks for them on Today; `withIdeas` also suggests them straight away (the first note at sign-up).
  * With "keep names out" on, never-mention terms are masked before the note is stored, and the
  * stored note is replaced by the AI's version with people referred to by role.
  */
-export async function processEntry({ supabase, user, profile }: Session, text: string): Promise<LogState> {
+export async function processEntry({ supabase, user, profile }: Session, text: string, { withIdeas = false } = {}): Promise<LogState> {
   const today = localParts(new Date(), profile.timezone).date;
   const ctx = await loadUserContext(supabase, user.id);
   const stored = ctx.rules.maskNames ? maskTerms(text, ctx.rules.neverMention) : text;
@@ -73,6 +74,11 @@ export async function processEntry({ supabase, user, profile }: Session, text: s
   } catch (error) {
     revalidatePath("/today");
     return { status: "partial", message: `Your note is saved. ${friendlyAiError(error)}` };
+  }
+
+  if (!withIdeas) {
+    revalidatePath("/today");
+    return { status: "done", message: "Saved. Your wins are below." };
   }
 
   try {

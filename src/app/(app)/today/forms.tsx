@@ -190,11 +190,19 @@ export function WriteDraftButton({ ideaId, prominent }: { ideaId: string; promin
   );
 }
 
-export function MoreIdeasButton({ label = "Try other angles", primary = false }: { label?: string; primary?: boolean }) {
+export function MoreIdeasButton({
+  label = "Try other angles",
+  pendingLabel = "Finding other angles…",
+  primary = false,
+}: {
+  label?: string;
+  pendingLabel?: string;
+  primary?: boolean;
+}) {
   const [state, action] = useActionState<IdeasState, FormData>(moreIdeas, {});
   return (
     <form action={action} className="flex flex-col gap-2">
-      <SubmitButton variant={primary ? "primary" : "ghost"} size="sm" pendingLabel="Finding other angles…">
+      <SubmitButton variant={primary ? "primary" : "ghost"} size="sm" pendingLabel={pendingLabel}>
         <RefreshCw aria-hidden />
         {label}
       </SubmitButton>

@@ -119,6 +119,8 @@ email and photo only.
 
 - **Ideas:** 2–3 ways to share a recent win, best first ("Suggested"), each in a format that lands
   well for this audience: a lesson, a decision explained, credit to the team, a practical how-to.
+  Suggested when the user asks on Today (and straight away for the first note at sign-up), so the
+  user chooses when to think about posting.
 - **Style notebook** ("How you write"): a private notebook of how the user writes, learned from
   their sample posts and from the edits they make before posting (words they remove, "we"
   instead of "I", no emojis, formats they pass over, revisions they choose). Style only, never
