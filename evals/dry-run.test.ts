@@ -4,14 +4,20 @@ import { stubFor } from "./lib/stub";
 // Keeps the harness working: every function runs end to end on stand-in answers (no model, no
 // cost) for each test set that exists.
 
+// Set `refuse` to answer every call the way OpenRouter does when the account is out of credit.
+const state = vi.hoisted(() => ({ refuse: false }));
+
 vi.mock("server-only", () => ({}));
 vi.mock("@/lib/ai/client", async (importOriginal) => {
   const actual = await importOriginal<typeof import("@/lib/ai/client")>();
-  const stub = async ({ schema }: { schema: Parameters<typeof stubFor>[0] }) => stubFor(schema);
+  const stub = async ({ schema }: { schema: Parameters<typeof stubFor>[0] }) => {
+    if (state.refuse) throw new Error('402 {"type":"error","error":{"type":"billing_error","message":"This request would exceed your available credits"}}');
+    return stubFor(schema);
+  };
   return { ...actual, runStructured: stub, runWithModel: stub };
 });
 
-const { FUNCTIONS, datasetFor, runAll } = await import("./lib/runner");
+const { FUNCTIONS, datasetFor, loadReuse, runAll, stoppedForCredit } = await import("./lib/runner");
 const { exists } = await import("./lib/load");
 const { humanReviewKit, markdown } = await import("./lib/report");
 
@@ -36,5 +42,22 @@ describe("the quality-bar harness (dry run)", () => {
     const [report] = await runAll({ functions: [ready[0]], limit: 3, seed: 1, concurrency: 1, judge: true, budget: 0 });
     expect(report.cases).toBe(0);
     expect(report.skippedForBudget).toBe(3);
+  });
+
+  it.skipIf(!ready.length)("reuses an earlier run's outputs for unchanged cases", async () => {
+    const opts = { functions: [ready[0]], limit: 2, seed: 1, concurrency: 1, judge: false };
+    const first = await runAll(opts);
+    const [again] = await runAll({ ...opts, reuse: loadReuse(first, [ready[0]]) });
+    expect(again.reused).toEqual({ product: 2, baseline: 2 });
+    expect(again.cost.product + again.cost.baseline).toBe(0);
+  });
+
+  // Last: running out of credit stops the rest of the process's run.
+  it.skipIf(!ready.length)("starts nothing new once OpenRouter refuses a call for lack of credit", async () => {
+    state.refuse = true;
+    const [report] = await runAll({ functions: [ready[0]], limit: 3, seed: 1, concurrency: 1, judge: true });
+    expect(stoppedForCredit()).toBe(true);
+    expect(report.cases).toBe(1);
+    expect(report.skippedForBudget).toBe(2);
   });
 });

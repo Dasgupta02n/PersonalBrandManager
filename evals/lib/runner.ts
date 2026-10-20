@@ -7,6 +7,7 @@ import { POST_FORMATS } from "@/lib/domain/types";
 import { estimateCallCost } from "@/lib/billing/pricing";
 import * as base from "./baselines";
 import { briefFor, winsText } from "./context";
+import { isCreditError } from "./credit";
 import { comparePair, traitCoverage, type PairResult, type RubricName } from "./judge";
 import { load } from "./load";
 import * as m from "./metrics";
@@ -95,6 +96,10 @@ export const PRIORITY: FunctionName[] = ["check", "draft", "reads", "extract", "
 let spent = 0;
 export const spentSoFar = () => spent;
 
+/** Set when OpenRouter refuses a call for lack of credit: nothing new starts after that. */
+let outOfCredit = false;
+export const stoppedForCredit = () => outOfCredit;
+
 const casesFor = (fn: FunctionName, opts: Pick<RunOptions, "limit" | "limits">) => opts.limits?.[fn] ?? opts.limit;
 
 export interface Metric {
@@ -182,7 +187,11 @@ function meter(): { record: UsageRecorder; total: () => number } {
   };
 }
 
-const message = (e: unknown) => (e instanceof Error ? e.message : String(e)).slice(0, 300);
+const message = (e: unknown) => {
+  const text = (e instanceof Error ? e.message : String(e)).slice(0, 300);
+  if (isCreditError(text)) outOfCredit = true;
+  return text;
+};
 const mean = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 const share = (xs: boolean[]) => ci(wilson(xs.filter(Boolean).length, xs.length));
 const avg = (xs: number[], digits = 2) => (xs.length ? mean(xs).toFixed(digits) : "–");
@@ -210,7 +219,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
   const reused = { product: 0, baseline: 0 };
   const previous = opts.reuse?.previous[fn];
   // Leave room for the calls already in flight, so the cap holds.
-  const affordable = (next: number) => opts.budget === undefined || spent + next * opts.concurrency <= opts.budget;
+  const affordable = (next: number) => !outOfCredit && (opts.budget === undefined || spent + next * opts.concurrency <= opts.budget);
 
   const ran = await pool(cases, opts.concurrency, async (c) => {
     const p = personas.get(c.personaId)!;

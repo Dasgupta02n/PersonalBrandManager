@@ -32,7 +32,8 @@ if (dryRun) {
 }
 
 test("quality bar", async () => {
-  const { FUNCTIONS, datasetFor, estimateCost, loadReuse, runAll } = await import("./lib/runner");
+  const { FUNCTIONS, datasetFor, estimateCost, loadReuse, runAll, stoppedForCredit } = await import("./lib/runner");
+  const { creditLeft } = await import("./lib/credit");
   const { loadRaw } = await import("./lib/load");
   const { markdown, writeRun } = await import("./lib/report");
 
@@ -67,11 +68,23 @@ test("quality bar", async () => {
   console.log(`Estimated cost: about $${estimate.toFixed(0)} for ${functions.join(", ")}${opts.budget !== undefined ? `, capped at $${opts.budget}` : ""}.`);
   if (env.EVAL_ESTIMATE === "1") return;
   if (!dryRun && !env.OPENROUTER_API_KEY) throw new Error("Set OPENROUTER_API_KEY in the environment, or use EVAL_DRY_RUN=1 to check the harness.");
+  if (!dryRun) {
+    // Keep a dollar back: OpenRouter holds credit for calls in flight and refuses new ones past the balance.
+    const left = await creditLeft(env.OPENROUTER_API_KEY!);
+    if (left !== null) {
+      const usable = Math.max(0, Math.floor((left - 1) * 100) / 100);
+      console.log(`OpenRouter credit left: $${left.toFixed(2)}.`);
+      if (opts.budget === undefined || opts.budget > usable) {
+        opts.budget = usable;
+        console.log(`Budget capped at $${usable.toFixed(2)} to stay within it.`);
+      }
+    }
+  }
 
   const startedAt = new Date().toISOString().slice(0, 16).replace("T", " ");
   const label = env.EVAL_LABEL ?? (dryRun ? "dry-run" : "run");
   const reports = await runAll(opts);
-  const md = markdown(reports, { ...opts, label, dryRun, startedAt, quality: env.EVAL_QUALITY });
+  const md = markdown(reports, { ...opts, label, dryRun, startedAt, quality: env.EVAL_QUALITY, stoppedForCredit: stoppedForCredit() });
   const dir = join(__dirname, "out", `${startedAt.replace(/[: ]/g, "-")}-${label}`);
   writeRun(dir, reports, md, opts.seed);
   console.log(`\n${md}\n\nWritten to ${dir}`);

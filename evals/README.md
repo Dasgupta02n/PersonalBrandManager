@@ -59,6 +59,10 @@ pipeline is unchanged). Grading always runs again. Keep the seed, so the same ca
 With `EVAL_BUDGET`, the safety check runs first, then drafting, then the rest, and no new case or
 grading starts once the cap is reached. The report shows what was skipped.
 
+Before a real run, the harness reads what the OpenRouter account can still spend and lowers the
+budget to that, less a dollar for calls in flight. If OpenRouter still refuses a call for lack of
+credit, nothing new starts; rerun with `EVAL_REUSE` pointing at that run to keep what finished.
+
 Each run writes `evals/out/<date>-<label>/`:
 - `report.md`: summary, pass or fail per function, win rates per criterion, metrics, costs;
 - `results.json`: every case;
