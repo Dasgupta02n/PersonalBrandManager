@@ -70,6 +70,20 @@
 - Not yet run against the real model: it needs `OPENROUTER_API_KEY` in the environment.
 - Checks: lint, typecheck, 157 unit tests, production build.
 
+## Milestone 1e — quality bar, first runs (done)
+
+Real runs on 20 October, about $41 in total. Reports in `evals/reports/`.
+- Safety check: passes. It catches every risk in the sample (46 risky posts) with no false alarm
+  that would stop or rewrite a clean post, once the clean posts' story details were recorded.
+- Drafts: pass with three drafts and an editor's pick: 86% against the single-prompt baseline
+  (60%–96%, 14 cases), up from 57% at the first run; now on in the product. Usefulness to the
+  reader is still the weakest criterion.
+- Wins from notes: 48% after rebalancing the prompt (from 13%); the fact-checker is built but
+  measured on only 4 cases. Post ideas: 58% with the grounded prompt; the sharper prompt plus
+  fact-checker is built but not yet graded. Both wait for OpenRouter credit.
+- The harness reuses earlier outputs and gradings, caps every run at the account's credit and
+  stops on the first credit refusal.
+
 ## Needed to run end to end
 
 See `docs/DEPLOY.md`. Done: Supabase project in Mumbai with the schema applied and checked
@@ -86,9 +100,9 @@ Open:
 
 1. Quality bar. Step 1 built: synthetic test sets for all nine functions, a single-prompt
    baseline per function, a blind grader, metrics, reports and a human review kit (`evals/`).
-   Next: the first real run (needs `OPENROUTER_API_KEY` in the environment), expert review of
-   a sample of the test sets (especially the risky posts and the read labels), then story arcs,
-   expert examples and multi-stage pipelines where the runs show they win
+   Drafts and the safety check pass. Next: grade the fact-checkers for wins and ideas (needs
+   OpenRouter credit), confirm drafts on more cases, expert review of a sample of the test sets
+   and of the blind review page, then story arcs and expert examples where the runs show they win
 2. Daily prompt delivery (email first, then WhatsApp and web push) via `/api/cron/tick`
 3. Voice profile generation from samples / LinkedIn export import; CV upload
 4. CV documents (DOCX/PDF) and versions; weekly profile prompt

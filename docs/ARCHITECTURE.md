@@ -68,8 +68,11 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 | Function | Status | Model | Effort | Output (structured) |
 |---|---|---|---|---|
 | `extract_wins` | live | Claude Opus 5.5 | low | Wins: summary, impact, metric, kind, skills, pillar, confidentiality flag; follow-up question; the note with names replaced by roles |
+| `verify_wins` | built, off | Claude Opus 5.5 | medium | Each win's summary and impact with anything the note doesn't support removed |
 | `post_ideas` | live | Claude Opus 5.5 | medium | 2–3 ideas, best first: format, angle, hook, source win ids |
-| `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, 0–3 hashtags |
+| `verify_ideas` | built, off | Claude Opus 5.5 | medium | Each idea's angle and first line with unsupported details and links removed |
+| `draft_post` | live | Claude Opus 5.5 | high | Hook, body, closing question, 0–3 hashtags; three drafts per idea with different leanings |
+| `select_draft` | live | Claude Opus 5.5 | high | Which of the three drafts the user sees, after ruling out unsupported or unsafe ones |
 | `check_draft` | live | Claude Opus 5.5 | high | Grounding, confidentiality, job-search signal, no-go topics, hierarchy risk, revised text |
 | `how_it_reads` | live | Claude Opus 5.5 | high | Verdict (confident / boastful / too modest / generic), sounds like the user, per-reader notes, lines to change |
 | `revise_draft` | live | Claude Opus 5.5 | medium | Shorter, more modest, or stronger first line |
@@ -154,6 +157,10 @@ note is still saved and the AI step is skipped with a calm message.
 - a blind pairwise grader run in both orders (`evals/lib/judge.ts`);
 - plain-code metrics, including the safety check's catch rate and false alarms;
 - a report with pass or fail per function, and a blind review page for human experts.
+
+Extra pipeline steps are switched on in `QUALITY_STEPS` (`src/lib/ai/models.ts`) only once the
+quality bar shows they beat the baseline and their cost fits the plan allowance. Three drafts with
+an editor's pick are on; the fact-checkers for wins and ideas are built and off until measured.
 
 `npm run eval` runs it with real model calls. `npm test` includes a free dry run that keeps the
 harness working. Baselines and the grader call the model through `runWithModel` in

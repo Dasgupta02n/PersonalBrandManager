@@ -128,6 +128,7 @@ const CALL_TOKENS = {
   extract_wins: [2050, 450],
   post_ideas: [2750, 500],
   draft_post: [2080, 700],
+  select_draft: [3300, 600],
   check_draft: [2400, 800],
   how_it_reads: [2250, 600],
   revise_draft: [2400, 450],
@@ -142,7 +143,8 @@ const ESTIMATE_SAFETY = 1.5;
 const ACTION_CALLS = {
   log: ["extract_wins", "post_ideas"],
   moreIdeas: ["post_ideas"],
-  draft: ["draft_post", "check_draft", "how_it_reads"],
+  // Three drafts and the editor's pick (QUALITY_STEPS.draftCandidates), then the checks.
+  draft: ["draft_post", "draft_post", "draft_post", "select_draft", "check_draft", "how_it_reads"],
   revision: ["revise_draft", "check_draft", "how_it_reads"],
   recheck: ["check_draft", "how_it_reads"],
   commentStarters: ["comment_starters"],

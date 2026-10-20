@@ -43,10 +43,13 @@ export type AiTask = keyof typeof TASK_SETTINGS;
 
 /**
  * Extra quality steps: a fact-checker for wins and ideas, and several drafts with an editor
- * choosing one. Off until the quality bar shows they beat the baseline and their cost fits the
- * plan allowance (src/lib/billing/pricing.ts). The quality bar can switch them on with EVAL_QUALITY.
+ * choosing one. Each stays off until the quality bar shows it beats the baseline and its cost
+ * fits the plan allowance (src/lib/billing/pricing.ts). The quality bar can switch them on with
+ * EVAL_QUALITY.
+ * - draftCandidates: 3 since 2026-10-20 (86% against the baseline, evals/reports/2026-10-20-quality-steps.md).
+ * - verifyWins, verifyIdeas: not yet measured on enough cases.
  */
-export const QUALITY_STEPS = { verifyWins: false, verifyIdeas: false, draftCandidates: 1 };
+export const QUALITY_STEPS = { verifyWins: false, verifyIdeas: false, draftCandidates: 3 };
 export type QualitySteps = typeof QUALITY_STEPS;
 export const AI_TASKS = Object.keys(TASK_SETTINGS) as AiTask[];
 
