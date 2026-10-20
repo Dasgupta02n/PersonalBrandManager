@@ -38,7 +38,10 @@ export function markdown(
       lines.push("| Criterion | Win rate |", "|---|---|", ...Object.entries(r.criteria).map(([k, v]) => `| ${k} | ${ci(v)} |`), "");
     }
     if (r.metrics.length) lines.push("| Measure | Product | Baseline |", "|---|---|---|", ...r.metrics.map((x) => `| ${x.label} | ${x.product} | ${x.baseline} |`), "");
-    const kept = r.reused && r.reused.product + r.reused.baseline ? ` Reused from an earlier run: ${r.reused.product} product and ${r.reused.baseline} baseline outputs.` : "";
+    const kept =
+      r.reused && r.reused.product + r.reused.baseline + (r.reused.judge ?? 0)
+        ? ` Reused from an earlier run: ${r.reused.product} product and ${r.reused.baseline} baseline outputs, ${r.reused.judge ?? 0} gradings.`
+        : "";
     lines.push(`Cost: product ${money(r.cost.product)}, baseline ${money(r.cost.baseline)}, grading ${money(r.cost.judge)}.${kept}`, "");
     if (r.errors.length) lines.push(`Errors (${r.errors.length}): ${r.errors.slice(0, 3).map((e) => `${e.side} ${e.caseId}: ${e.message}`).join("; ")}`, "");
   }

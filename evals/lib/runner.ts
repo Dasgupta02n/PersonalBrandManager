@@ -75,17 +75,40 @@ export const BASELINE_SOURCE = createHash("sha256")
   .digest("hex")
   .slice(0, 16);
 
+/** Fingerprint of the grader: an earlier grading is reused only while it is unchanged and it saw exactly the same pair. */
+export const JUDGE_SOURCE = createHash("sha256").update(readFileSync(new URL("./judge.ts", import.meta.url), "utf8")).digest("hex").slice(0, 16);
+
 export interface Reuse {
-  previous: Partial<Record<FunctionName, { baselineSource?: string; outputs: Map<string, { caseHash?: string; product: unknown; baseline: unknown }> }>>;
+  previous: Partial<
+    Record<
+      FunctionName,
+      {
+        baselineSource?: string;
+        judgeSource?: string;
+        outputs: Map<string, { caseHash?: string; product: unknown; baseline: unknown }>;
+        pairs: Map<string, PairRecord>;
+      }
+    >
+  >;
   /** Functions whose product pipeline hasn't changed since that run, so their product outputs can be reused too. */
   product: FunctionName[];
 }
 
-/** Earlier outputs from a run's results.json. Grading always runs again. */
-export function loadReuse(reports: Pick<FunctionReport, "fn" | "baselineSource" | "outputs">[], product: FunctionName[]): Reuse {
+/** Earlier outputs and gradings from a run's results.json. */
+export function loadReuse(reports: Pick<FunctionReport, "fn" | "baselineSource" | "judgeSource" | "outputs" | "pairs">[], product: FunctionName[]): Reuse {
   return {
     product,
-    previous: Object.fromEntries(reports.map((r) => [r.fn, { baselineSource: r.baselineSource, outputs: new Map(r.outputs.map((o) => [o.caseId, o])) }])),
+    previous: Object.fromEntries(
+      reports.map((r) => [
+        r.fn,
+        {
+          baselineSource: r.baselineSource,
+          judgeSource: r.judgeSource,
+          outputs: new Map(r.outputs.map((o) => [o.caseId, o])),
+          pairs: new Map((r.pairs ?? []).filter((p) => p.result).map((p) => [p.caseId, p])),
+        },
+      ]),
+    ),
   };
 }
 
@@ -122,9 +145,10 @@ export interface FunctionReport {
   cases: number;
   /** Cases not run, or not graded, because the budget ran out. */
   skippedForBudget: number;
-  /** Outputs taken from an earlier run instead of generated again. */
-  reused: { product: number; baseline: number };
+  /** Outputs and gradings taken from an earlier run instead of paid for again. */
+  reused: { product: number; baseline: number; judge?: number };
   baselineSource: string;
+  judgeSource: string;
   errors: { side: "product" | "baseline" | "judge"; caseId: string; message: string }[];
   cost: { product: number; baseline: number; judge: number };
   metrics: Metric[];
@@ -216,7 +240,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
   const costs = { product: meter(), baseline: meter(), judge: meter() };
   const errors: FunctionReport["errors"] = [];
   let skippedForBudget = 0;
-  const reused = { product: 0, baseline: 0 };
+  const reused = { product: 0, baseline: 0, judge: 0 };
   const previous = opts.reuse?.previous[fn];
   // Leave room for the calls already in flight, so the cap holds.
   const affordable = (next: number) => !outOfCredit && (opts.budget === undefined || spent + next * opts.concurrency <= opts.budget);
@@ -257,7 +281,18 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
         baseline: judge.render(r.baseline as never),
         result: null,
       };
-      if (opts.judge && !affordable(0.07)) {
+      const earlier = previous?.pairs.get(r.c.id);
+      if (
+        opts.judge &&
+        earlier?.result &&
+        previous!.judgeSource === JUDGE_SOURCE &&
+        earlier.context === record.context &&
+        earlier.product === record.product &&
+        earlier.baseline === record.baseline
+      ) {
+        record.result = earlier.result;
+        reused.judge += 1;
+      } else if (opts.judge && !affordable(0.07)) {
         skippedForBudget += 1;
       } else if (opts.judge) {
         record.result = await comparePair({ rubric: judge.rubric, context: record.context, product: record.product, baseline: record.baseline, onUsage: costs.judge.record }).catch(
@@ -281,6 +316,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
     skippedForBudget,
     reused,
     baselineSource: BASELINE_SOURCE,
+    judgeSource: JUDGE_SOURCE,
     errors,
     cost: { product: costs.product.total(), baseline: costs.baseline.total(), judge: costs.judge.total() },
     metrics: await spec.metrics(ok),

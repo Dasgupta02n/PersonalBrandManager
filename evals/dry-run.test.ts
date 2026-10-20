@@ -45,11 +45,11 @@ describe("the quality-bar harness (dry run)", () => {
   });
 
   it.skipIf(!ready.length)("reuses an earlier run's outputs for unchanged cases", async () => {
-    const opts = { functions: [ready[0]], limit: 2, seed: 1, concurrency: 1, judge: false };
+    const opts = { functions: ["draft" as const], limit: 2, seed: 1, concurrency: 1, judge: true };
     const first = await runAll(opts);
-    const [again] = await runAll({ ...opts, reuse: loadReuse(first, [ready[0]]) });
-    expect(again.reused).toEqual({ product: 2, baseline: 2 });
-    expect(again.cost.product + again.cost.baseline).toBe(0);
+    const [again] = await runAll({ ...opts, reuse: loadReuse(first, ["draft"]) });
+    expect(again.reused).toEqual({ product: 2, baseline: 2, judge: 2 });
+    expect(again.cost.product + again.cost.baseline + again.cost.judge).toBe(0);
   });
 
   // Last: running out of credit stops the rest of the process's run.
