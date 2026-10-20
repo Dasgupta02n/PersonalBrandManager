@@ -1,0 +1,5462 @@
+[
+  {
+    "id": "idea-001",
+    "personaId": "p01",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Renewed the three-year hand-hygiene and surface-disinfectant contract with Sunrise Hospitals (all six units) after their procurement team reopened it to tender.",
+        "impact": "Kept our largest western account. Procurement pushed for an 8% cut; we held price by showing lower consumption per bed-day from our ward training.",
+        "metric": "₹14.6 crore over three years",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Decided we will no longer match the lowest bid on surgical-scrub tenders below our floor margin. Put it in writing to all four regional heads.",
+        "impact": "Gives the field a clear walk-away point instead of escalating every tender to me.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-19",
+        "summary": "Spent an afternoon with Rohit, our newest area manager in Pune, mapping the buying committee at each of his top five hospitals.",
+        "impact": "He found two accounts where nobody had met the infection-control nurse or the CFO's office, the two people who actually decide renewals.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-23",
+        "summary": "Attended the quarterly business review with finance.",
+        "impact": "Numbers presented, no major actions for sales.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-25",
+        "summary": "Lost a district hospital tender on a technicality: the copy of our compliance certificate was not attested.",
+        "impact": "We had the best price and the best sample score. Every tender file now gets a second person's sign-off against a checklist before it goes in.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Got finance to approve a new discount-approval matrix: area managers up to 3%, regional heads up to 6%, anything above comes to me with a margin sheet.",
+        "impact": "Approvals that used to wait four or five days now clear within a day. Average discount on new deals fell from 9.2% to 6.8% in the first month.",
+        "metric": "Average discount 9.2% to 6.8%",
+        "kind": "unblocked",
+        "confidential": true,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-03",
+        "summary": "Western region recognised by the MD at the half-yearly review for the highest second-contact coverage in the country.",
+        "impact": "84% of their top 50 accounts now have two trusted contacts, up from about half in March. The regional head redesigned their weekly review to get there.",
+        "metric": "84% of top 50 accounts",
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-08",
+        "summary": "Project Lotus pilot: first two hospitals agreed to trial the ward-level dosing dispensers ahead of the national launch in January.",
+        "impact": "Early read from the first fortnight is about 20% lower consumption per bed-day.",
+        "metric": "~20% lower consumption per bed-day",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-13",
+        "summary": "Closed Q2 at 104% of target for the division.",
+        "impact": "Third quarter in a row above plan.",
+        "metric": "104% of target",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-002",
+    "personaId": "p01",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "coached Farah (RM South) before her first big renewal negotiation - she held price",
+        "impact": "renewal closed at last year's rate, no discount given",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Kavach range samples approved by infection control at 2 private chains in Bengaluru",
+        "impact": "opens door to approx ₹3 crore a year once launched",
+        "metric": "₹3 crore annual potential",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "submitted monthly forecast on time",
+        "impact": "ok",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "procurement head at a trust hospital said we were the only supplier who asked about their stock-out history before pitching",
+        "impact": "preparation is the differentiator. adding a stock-out question to our first-meeting guide",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-01",
+        "summary": "decided to promote from within for the new key-accounts lead role instead of hiring outside - Sneha gets it, not announced yet",
+        "impact": "sends a signal to the team that growth is possible here. she starts 1 Nov",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-07",
+        "summary": "unblocked a stuck price revision with a large Mumbai hospital group by splitting the 7% increase into two steps matched to their budget cycle",
+        "impact": "revision accepted, no volume loss",
+        "metric": "7% increase in two steps",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-12",
+        "summary": "infection-control nurse at one of our renewal accounts wrote to thank our area manager for running night-shift training for ward staff",
+        "impact": "shared it on the team call",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "idea-003",
+    "personaId": "p01",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Stopped offering free dispensers as a sweetener on new contracts below ₹25 lakh a year.",
+        "impact": "Dispenser capex had grown faster than revenue for two years. This protects margin on small accounts without touching key ones.",
+        "metric": "Threshold ₹25 lakh a year",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Completed hiring for the eastern region: four area managers onboarded in Kolkata and Bhubaneswar.",
+        "impact": "Region fully staffed for the first time in a year.",
+        "metric": "4 hires",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Ran a half-day workshop for all 22 area managers on reading a hospital's annual procurement plan.",
+        "impact": "Average feedback 4.6 out of 5. Several asked for a follow-up on tender documentation.",
+        "metric": "22 area managers",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-20",
+        "summary": "Won the Sunrise Hospitals Hyderabad unit, the last of their sites not on our contract.",
+        "impact": "All Sunrise units now on one agreement.",
+        "metric": "₹2.1 crore a year",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Updated CRM fields for the eastern region accounts.",
+        "impact": "Data cleaner for next month's review.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-26",
+        "summary": "Realised our price-increase letters were being read as negotiable because they said 'proposed'. Rewrote the template with finance.",
+        "impact": "First three letters sent on the new template were accepted without a meeting.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-30",
+        "summary": "Got the regulatory team to issue updated product dossiers within a week so two tenders could go in on time.",
+        "impact": "Both bids submitted; one already shortlisted.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-02",
+        "summary": "CEO mentioned at the town hall that sales forecast accuracy has improved three quarters running.",
+        "impact": "The credit belongs to the regional heads, who changed how the weekly review works.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-06",
+        "summary": "Board approved the Project Lotus national rollout budget for FY27.",
+        "impact": "Sales will need six additional specialist roles from April.",
+        "metric": "₹9 crore launch budget",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-09",
+        "summary": "Joined Imran on a call with a hospital CFO who wanted to drop us for a cheaper supplier. We walked through cost per patient-day instead of unit price.",
+        "impact": "The CFO agreed to a three-month side-by-side comparison rather than switching now.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-14",
+        "summary": "Gave a short talk on ward-level training at the national infection-prevention conference in Delhi.",
+        "impact": "Three hospital procurement heads asked for follow-up meetings.",
+        "metric": "3 follow-up meetings",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "idea-004",
+    "personaId": "p01",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Signed off travel plans for the October field visits.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-21",
+        "summary": "Two-hour call with a regional head who is struggling with a team member's attendance and attitude.",
+        "impact": "Agreed a plan; he will handle it directly, with HR support.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": true,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-28",
+        "summary": "Held list prices on the full surface-disinfectant line through the quarter even though two large accounts asked for reductions.",
+        "impact": "Gross margin on the line held at last year's level and neither account left. The area managers made the case on service, not price.",
+        "metric": "List price held on all 34 SKUs",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-04",
+        "summary": "Reviewed the new brochure drafts from marketing.",
+        "impact": "Sent comments.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-10",
+        "summary": "A new area manager resigned after six weeks. The exit conversation showed we never gave her a proper handover from her predecessor.",
+        "impact": "Every new joiner now gets a written territory handover and two joint visits with the outgoing person or their manager.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-15",
+        "summary": "Received a note from a long-standing hospital customer marking ten years of supply.",
+        "impact": "Nice to share with the team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "idea-005",
+    "personaId": "p01",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Took back a 400-bed hospital in Thane that had moved to Purewell last year.",
+        "impact": "They came back because of delivery reliability, not price. Purewell had missed three deliveries during the monsoon.",
+        "metric": "₹1.4 crore a year",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Analysed last year's lost tenders: in 7 of 11 we were not the highest price. We lost on documentation or delivery terms.",
+        "impact": "We are putting effort into a proper tender desk rather than deeper discounts.",
+        "metric": "7 of 11 losses not on price",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Moved two area managers from hospital chains to standalone hospitals, where their relationships are stronger.",
+        "impact": "Early pipeline in standalones is up; the chains are now covered by the key-accounts team.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-27",
+        "summary": "Completed the mandatory compliance e-learning.",
+        "impact": "Done before the deadline.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-01",
+        "summary": "Paired each new joiner with a buddy from another region for their first 90 days.",
+        "impact": "First cohort of five started this week.",
+        "metric": "5 new joiners",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-05",
+        "summary": "Cleared a three-month payment delay from a state-run hospital by meeting their accounts team with our credit controller instead of sending another reminder.",
+        "impact": "Overdue invoices cleared within ten days.",
+        "metric": "₹62 lakh cleared",
+        "kind": "unblocked",
+        "confidential": true,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-09",
+        "summary": "Regional head West told me the new discount matrix has made her job easier.",
+        "impact": "Small but useful signal that the change is landing.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Invited by the hospital procurement association to speak on supplier evaluation at their December meeting.",
+        "impact": "First time anyone from our side has been asked.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "idea-006",
+    "personaId": "p02",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Brought p95 latency on the billing API from 820 ms to 310 ms by removing an N+1 query and moving reads to a replica.",
+        "impact": "Invoice pages load noticeably faster; support tickets about slowness dropped from about 30 a week to 6.",
+        "metric": "p95 820 ms to 310 ms",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Chose to delay the reporting v2 launch by two weeks to finish load testing, against product's preference.",
+        "impact": "The load test found a connection-pool limit that would have failed at roughly 3x current traffic.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Reviewed Kavya's first design doc as tech lead and pushed her to add a 'what would change our mind' section.",
+        "impact": "She rewrote it; the review took 20 minutes instead of the usual hour.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Northwind Retail's peak-sale weekend ran with zero downtime after we pre-scaled their tenant.",
+        "impact": "Account team now expects the renewal. It's our largest customer.",
+        "metric": "₹6.4 crore ARR; zero downtime",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Quarterly skip-level 1:1s with six engineers.",
+        "impact": "Mostly fine. Two asked about promotion timelines.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Got security sign-off on the new secrets manager in three days instead of the usual three weeks by sitting in the review and answering questions live.",
+        "impact": "Payments team unblocked for their October release.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-01",
+        "summary": "Postmortem for the 47-minute outage on 28 September: a config change skipped canary because its flag was marked 'low risk'.",
+        "impact": "Removed the low-risk bypass. Every config change now goes through canary, no exceptions.",
+        "metric": "47-minute outage",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-06",
+        "summary": "Atlas migration phase 2 complete: 60% of tenants now on the new data plane.",
+        "impact": "On track for the February cutover. Not announced to customers yet.",
+        "metric": "60% of tenants migrated",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-09",
+        "summary": "Two senior engineers I mentor presented at the internal architecture forum for the first time.",
+        "impact": "The CTO asked one of them to lead the storage working group.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-14",
+        "summary": "Submitted the H2 headcount plan.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-007",
+    "personaId": "p02",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "on-call pages down to 38 this month (112 in March)",
+        "impact": "alert cleanup is working, nobody added headcount",
+        "metric": "112 to 38 pages/month",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "pair-debugged consumer lag on the event pipeline with Arjun for 2 hrs, mostly let him drive",
+        "impact": "he found it himself - partition skew",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "said no to building our own feature-flag service. buying one",
+        "impact": "saves roughly 2 engineer-quarters",
+        "metric": "~2 engineer-quarters saved",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "sprint planning",
+        "impact": "nothing notable",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-02",
+        "summary": "CS forwarded a note from a client CTO praising our incident comms during last week's outage",
+        "impact": "first time we've had praise for an outage",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-08",
+        "summary": "got data team and platform team to agree on ONE owner for the event pipeline after 3 months of back and forth",
+        "impact": "unblocks the analytics roadmap",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-13",
+        "summary": "promo panel: none of our senior candidates had written evidence of their decisions, panel fell back on manager opinion. Sanjay's case nearly failed because of it",
+        "impact": "making decision records part of senior expectations",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": "Growing senior engineers"
+      }
+    ]
+  },
+  {
+    "id": "idea-008",
+    "personaId": "p02",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Finished moving all 14 services to the new deploy pipeline.",
+        "impact": "Deploys take 9 minutes instead of 40, and rollback is one command.",
+        "metric": "40 min to 9 min",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Cleaned up the team wiki and archived 120 stale pages.",
+        "impact": "Runbooks easier to find.",
+        "metric": "120 pages archived",
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Helped the new engineering manager in the integrations team write her first team charter.",
+        "impact": "She ran the charter session with her team on her own the following week.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "Froze feature releases for one week after two Sev-2 incidents in five days.",
+        "impact": "Teams used the week to fix flaky tests and alert gaps. No Sev-2s since.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-23",
+        "summary": "Realised I had become the bottleneck on architecture reviews: nine reviews were waiting on me.",
+        "impact": "Handed reviews to three senior engineers with a written checklist. Queue cleared in a week.",
+        "metric": "9 reviews waiting",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-25",
+        "summary": "Cut monthly cloud spend by right-sizing database instances and deleting orphaned volumes.",
+        "impact": "Finance asked us to share the approach with the data team.",
+        "metric": "₹38 lakh a month saved",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-29",
+        "summary": "Engagement survey: my org's score on 'I understand how decisions are made' went from 54% to 78%.",
+        "impact": "Biggest jump in the company. I think the decision records did most of it.",
+        "metric": "54% to 78%",
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-01",
+        "summary": "Signed off the architecture for the AI-assisted reconciliation feature launching in Q1.",
+        "impact": "Not announced; demo for top customers in December.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-05",
+        "summary": "Got approval for a staff engineer track so senior engineers can grow without becoming managers.",
+        "impact": "Two engineers already working on plans to apply.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-07",
+        "summary": "Sat through vendor demos for observability tools.",
+        "impact": "Nothing compelling.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-12",
+        "summary": "Ran a design-doc writing workshop for 11 senior engineers.",
+        "impact": "Docs submitted since are shorter and state the trade-offs up front.",
+        "metric": "11 engineers",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-15",
+        "summary": "Core API back inside its error budget for the first time this quarter.",
+        "impact": "99.95% availability over the last 30 days.",
+        "metric": "99.95% availability",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      }
+    ]
+  },
+  {
+    "id": "idea-009",
+    "personaId": "p02",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Finalised the restructure: merged the two platform squads into one. Two roles affected by the company-wide reduction.",
+        "impact": "Hard week. Had both conversations myself.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-21",
+        "summary": "Wrote references and made introductions for the two engineers who are leaving.",
+        "impact": "One already has interviews lined up.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": true,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-25",
+        "summary": "Merged platform squad ran our first multi-region failover test: 4 minutes 12 seconds to fail over the primary database.",
+        "impact": "Never tested before. Now runs every month.",
+        "metric": "4 min 12 s failover",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-02",
+        "summary": "Merged teams need one shared on-call rota from day one. We waited two weeks and missed a page in between.",
+        "impact": "Rota merged; handover checklist added for future reorganisations.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-08",
+        "summary": "Updated team OKRs for Q4.",
+        "impact": "Aligned with product.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-14",
+        "summary": "A senior engineer told me the decision-record habit gave her the evidence she needed for her staff promotion case.",
+        "impact": "Exactly what the practice was meant to do.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      }
+    ]
+  },
+  {
+    "id": "idea-010",
+    "personaId": "p02",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Two engineers promoted to senior and one to staff in the September cycle.",
+        "impact": "All three used decision records as their main evidence.",
+        "metric": "3 promotions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Got the database team to pre-provision capacity for the festive-sale traffic three weeks early.",
+        "impact": "No last-minute scaling for the first time.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Northwind Retail renewal signed for three years; they cited reliability as the main reason.",
+        "impact": "Largest renewal in company history.",
+        "metric": "₹6.4 crore ARR, three years",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Chaos test in staging showed our retry logic triples load during a partial outage.",
+        "impact": "Added jitter and circuit breakers; the retest showed load flat.",
+        "metric": "3x load during partial outage",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-28",
+        "summary": "Mentored a first-time manager from another org through his first difficult performance conversation.",
+        "impact": "He said the script we wrote together kept it fair and specific.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-03",
+        "summary": "Cleared 30 pending access-request approvals.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-06",
+        "summary": "Decided every new service must have an SLO before it goes to production.",
+        "impact": "Three teams pushed back; we agreed a simple template instead of dropping it.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-10",
+        "summary": "SRE team mentioned in the CEO's all-hands for the festive-sale peak.",
+        "impact": "Zero incidents across 3.1x normal traffic.",
+        "metric": "3.1x traffic, zero incidents",
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-14",
+        "summary": "Budget approved for six new engineering hires in H2.",
+        "impact": "Two of them will be staff-level roles.",
+        "metric": "6 hires",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Engineering leadership"
+      }
+    ]
+  },
+  {
+    "id": "idea-011",
+    "personaId": "p03",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Q2 close completed on working day 5, down from day 8 last quarter.",
+        "impact": "First quarter-end close on day 5. The audit committee pack went out two days early.",
+        "metric": "WD8 to WD5",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Sat with the Chakan plant accountant and redid the scrap reconciliation together instead of sending queries by email.",
+        "impact": "Cleared a three-month backlog of variances in one afternoon.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-19",
+        "summary": "Negotiated revised payment terms with Kestrel Motors: 60 days down to 45.",
+        "impact": "Frees roughly ₹18 crore of working capital from the next billing cycle.",
+        "metric": "₹18 crore released",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Signed off September petty cash reconciliations.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-25",
+        "summary": "Got IT to give plant accountants read access to the central ledger.",
+        "impact": "Ends the weekly spreadsheet exchange between plants and head office.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-30",
+        "summary": "Inventory ageing review: 22% of slow-moving stock was for a model discontinued two years ago, and nobody had told finance.",
+        "impact": "Agreed a monthly SKU review with planning so discontinuations reach us the same week.",
+        "metric": "22% of slow-moving stock",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-05",
+        "summary": "Q2 results draft ready: EBITDA margin up 140 bps year on year. Board meeting 28 October.",
+        "impact": "On schedule for the board.",
+        "metric": "+140 bps EBITDA margin",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-09",
+        "summary": "Chakan plant head told the CFO that finance is 'finally useful' in his weekly review.",
+        "impact": "The plant finance partner has been attending his production meetings since July.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-13",
+        "summary": "Neha, a junior analyst, automated the intercompany matching file. Reviewed it with her and we rolled it out.",
+        "impact": "Saves about a day at every close.",
+        "metric": "~1 day saved per close",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      }
+    ]
+  },
+  {
+    "id": "idea-012",
+    "personaId": "p03",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Filed our response in the FY22 GST dispute; hearing listed for November.",
+        "impact": "Filed on time with the tax team and external counsel.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-20",
+        "summary": "Learned that operations heads only read our variance reports if the first line says what they need to do.",
+        "impact": "Rewrote the format with a single action line at the top. Two plant heads replied to it in the first week.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-24",
+        "summary": "Statutory audit planning meeting with the auditors.",
+        "impact": "Timetable agreed.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-29",
+        "summary": "Stopped taking early-payment discounts from suppliers where our cost of funds is higher than the discount.",
+        "impact": "Simple rule the treasury team can apply without asking me.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-06",
+        "summary": "Covered the month-end close for a colleague on medical leave and trained her backup on the fixed-asset register.",
+        "impact": "Close finished on time; we now have a second person who can run fixed assets.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": true,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-12",
+        "summary": "Receivable days down from 72 to 61 over the quarter after weekly collections calls with sales.",
+        "impact": "Sales now own the overdue list with us.",
+        "metric": "72 to 61 days",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working capital"
+      }
+    ]
+  },
+  {
+    "id": "idea-013",
+    "personaId": "p03",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Moved the inventory cut-off from midnight to 6 pm on the last working day, agreed with all three plants.",
+        "impact": "Gives plant teams the evening to count instead of the next morning.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Reviewed and approved 46 journal entries.",
+        "impact": "Routine.",
+        "metric": "46 entries",
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Ran a session for production supervisors on how scrap shows up in the P&L.",
+        "impact": "Two supervisors asked for monthly scrap figures for their own lines.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Collected long-overdue receivables from an aftermarket distributor after a joint visit with the sales head.",
+        "impact": "Account was on the verge of being written off.",
+        "metric": "₹9 crore collected",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "A late journal from treasury cost us half a day at close. Root cause: nobody owned the FX revaluation.",
+        "impact": "Assigned one owner with a checklist and a deadline.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-26",
+        "summary": "Unblocked the Hosur capex approval by rebuilding the business case with the plant engineering team.",
+        "impact": "Approved at the next capex committee.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-30",
+        "summary": "CFO asked me to present our close-improvement approach to the leadership team.",
+        "impact": "Will credit the plant accountants who made it work.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-02",
+        "summary": "Q3 restatement work: finalised the revised segment disclosures with the auditors.",
+        "impact": "Filing on track.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-07",
+        "summary": "September month-end close completed on working day 4, a record.",
+        "impact": "Day 9 this time last year.",
+        "metric": "WD4",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-09",
+        "summary": "Updated the delegation of authority matrix with the company secretary.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-14",
+        "summary": "Mentored a CA articleship trainee through her first bank reconciliation review.",
+        "impact": "She found a duplicate entry the previous reviewer had missed.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      }
+    ]
+  },
+  {
+    "id": "idea-014",
+    "personaId": "p03",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Reduced finished-goods inventory by 11 days through a weekly review with planning and sales.",
+        "impact": "Planning now flags slow lines before they build up.",
+        "metric": "11 days lower",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Asked plant finance teams to attend the daily production meeting twice a week instead of sending reports.",
+        "impact": "Plant heads get answers in the room rather than by email two days later.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Submitted annual insurance renewal paperwork.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "Supplier financing pilot failed: suppliers did not trust the platform's onboarding process.",
+        "impact": "Restarting with three suppliers and a personal call from our procurement head to each.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-30",
+        "summary": "Working capital released this half year.",
+        "impact": "Ahead of the full-year plan.",
+        "metric": "₹46 crore",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-05",
+        "summary": "Helped the Chakan plant head build a cost-per-part dashboard he now uses in his own reviews.",
+        "impact": "First time a plant has asked finance for a tool rather than the other way round.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-08",
+        "summary": "Internal audit rated the close process 'satisfactory with no exceptions' for the first time in four years.",
+        "impact": "Whole team's work over twelve months.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Board approved moving to a shared-services finance model from April.",
+        "impact": "Not yet communicated to staff.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-015",
+    "personaId": "p03",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Cut the number of manual journals at close from 310 to 140.",
+        "impact": "Fewer late adjustments and fewer review questions from auditors.",
+        "metric": "310 to 140 journals",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Our plant accountants were thanked at the operations review for spotting a costing error on a new part before launch.",
+        "impact": "Credit to the Hosur team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Got two large customers to move from quarterly to monthly rebate settlement.",
+        "impact": "Smooths cash flow and removes the quarter-end spike in disputes.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-29",
+        "summary": "Organised a team lunch after the record close.",
+        "impact": "Good to stop for an hour.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-03",
+        "summary": "Second time this year a new product reached launch without finance seeing the costing.",
+        "impact": "Asked to join the product gate review; the product team agreed.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-08",
+        "summary": "Completed the share buyback evaluation model for the CFO.",
+        "impact": "For board discussion only.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-12",
+        "summary": "Wrote a one-page close calendar, now pinned in every plant finance office.",
+        "impact": "Plant teams stopped asking head office for deadlines.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      }
+    ]
+  },
+  {
+    "id": "idea-016",
+    "personaId": "p04",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Relaunched the bereavement notification journey: families can now tell us once instead of once per product.",
+        "impact": "Average time to settle an estate account fell from 34 days to 19 in the first month.",
+        "metric": "34 days to 19",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Cancelled the plan to put real-time balance alerts on the core ledger this year and moved the money to the complaints journey.",
+        "impact": "The ledger could not change safely before the year-end freeze. Said so in writing to the sponsor before anyone committed a date.",
+        "metric": "£1.2m reallocated",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Coached a product owner through her first steering committee; we rehearsed the 'what we are not doing' slide together.",
+        "impact": "The committee agreed both of her de-scoping proposals.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Completed the annual conduct rules and SM&CR attestation.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Project Beacon: ExCo approved phase 2, the mortgage servicing redesign.",
+        "impact": "Funding confirmed through next year.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Spent a morning in the Leeds contact centre. Three calls in a row were about the same direct-debit letter.",
+        "impact": "Rewrote the letter with the agents that afternoon. Calls about it have dropped sharply since.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-01",
+        "summary": "Got the mainframe team and the cloud team to agree an interface contract for the payments API after two months of stalemate.",
+        "impact": "Both teams can now build in parallel.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-06",
+        "summary": "The COO cited the bereavement journey in her quarterly letter to staff.",
+        "impact": "Credit to the service design team and the bereavement specialists who co-designed it.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-09",
+        "summary": "Clearwater Payments contract signed for card tokenisation. Announcement planned for November.",
+        "impact": "Moves us off a vendor we have struggled with for years.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-14",
+        "summary": "Updated the transformation portfolio RAG report.",
+        "impact": "Two ambers, no reds.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-017",
+    "personaId": "p04",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "New savings account onboarding now takes under six minutes, down from fourteen.",
+        "impact": "Drop-off during onboarding roughly halved.",
+        "metric": "14 min to under 6",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Pricing committee approved a new fixed-rate saver at 4.6%, launching next month.",
+        "impact": "My team builds the journey.",
+        "metric": "4.6% fixed rate",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Ran a 'stop doing' workshop with four programme leads; we retired 11 reports nobody read.",
+        "impact": "Roughly a day a week of PMO time freed up.",
+        "metric": "11 reports retired",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "The first adoption push for the new case-management tool failed because we trained agents before their team leaders.",
+        "impact": "Retraining team leaders first. Usage is now doubling week on week.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-02",
+        "summary": "Sat on a fintech conference panel.",
+        "impact": "Mostly vendor pitches.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-07",
+        "summary": "Agreed to keep the legacy statement engine for another year rather than rush a replacement before the change freeze.",
+        "impact": "Avoids a risky cutover during peak statement season.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-13",
+        "summary": "A customer wrote to the CEO praising the new bereavement process.",
+        "impact": "Forwarded to the team who built it.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      }
+    ]
+  },
+  {
+    "id": "idea-018",
+    "personaId": "p04",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Merged two overlapping programme boards into one.",
+        "impact": "Senior time spent in board meetings cut from six hours a month to two.",
+        "metric": "6 hours to 2 a month",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Signed off Q3 vendor invoices.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Complaints resolved at first contact up from 52% to 71% since the complaints journey redesign.",
+        "impact": "Agents can now fix the eight most common issues without escalating.",
+        "metric": "52% to 71%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-21",
+        "summary": "Found a 'temporary' overnight batch job from 2009 that three customer journeys depend on.",
+        "impact": "Documented it and put it on the risk register with a named owner.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-23",
+        "summary": "Lent two service designers to the fraud team for their scam-warning redesign.",
+        "impact": "Their first prototype is in testing.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-25",
+        "summary": "Unblocked the Project Beacon data migration by getting the risk function to accept a phased cutover.",
+        "impact": "Removes a single big-bang weekend from the plan.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": true,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-29",
+        "summary": "A non-executive director asked for a one-to-one to understand how we measure adoption.",
+        "impact": "Took her through the usage dashboards.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-01",
+        "summary": "Programme spend at 96% of budget with three months to go.",
+        "impact": "On track to finish within budget.",
+        "metric": "£14.2m of £14.8m",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-05",
+        "summary": "Accessibility audit: all core app journeys now meet WCAG 2.2 AA.",
+        "impact": "Three journeys rebuilt to get there.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-07",
+        "summary": "Interviewed candidates for a delivery manager role.",
+        "impact": "Second round next week.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-12",
+        "summary": "Mentored a graduate on the leadership programme and helped her structure her first business case.",
+        "impact": "Approved at the first attempt.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-15",
+        "summary": "Retired three legacy applications this quarter.",
+        "impact": "Licence savings plus three fewer systems to patch.",
+        "metric": "~£400k a year saved",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Working with legacy technology"
+      }
+    ]
+  },
+  {
+    "id": "idea-019",
+    "personaId": "p04",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Presented the technology implications of post-Brexit passporting for our Irish branch to the board.",
+        "impact": "Board asked for a follow-up in the new year.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-21",
+        "summary": "Mortgage product switches can now be done online in one session.",
+        "impact": "40% of switches are now digital, up from 12%.",
+        "metric": "12% to 40% digital",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-28",
+        "summary": "Helped a peer in operations set up her first adoption dashboard.",
+        "impact": "She now reviews it weekly with her team leaders.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-03",
+        "summary": "Quarterly one-to-ones with direct reports.",
+        "impact": "Fine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-08",
+        "summary": "Paused new features for one sprint so the teams could fix 40 usability bugs.",
+        "impact": "App store rating complaints about 'clunky' screens dropped noticeably.",
+        "metric": "40 bugs fixed",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "The Leeds contact centre team sent a thank-you card for the rewritten letters.",
+        "impact": "Pinned it above my desk.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      }
+    ]
+  },
+  {
+    "id": "idea-020",
+    "personaId": "p04",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Found a way to show pending payments in the app without touching the core ledger, using the existing fraud event stream.",
+        "impact": "Delivers most of the value of the cancelled real-time project at a fraction of the cost.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Branch appointment booking now live in all 140 branches.",
+        "impact": "Customers can book a mortgage or bereavement appointment online.",
+        "metric": "140 branches",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "An exit survey from a programme team member said she never knew why priorities changed.",
+        "impact": "Started a fortnightly 'what changed and why' note to the whole programme.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Clearwater Payments integration passed security testing.",
+        "impact": "On schedule for go-live.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-28",
+        "summary": "Fire warden refresher training.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-01",
+        "summary": "Spent two days with the vulnerable customers team mapping where our journeys fail people with cognitive impairments.",
+        "impact": "Found seven points where we ask for information we already hold.",
+        "metric": "7 failure points",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-06",
+        "summary": "Removed the requirement for customers to visit a branch to add a power of attorney.",
+        "impact": "Families can now do it by post or video call.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-09",
+        "summary": "The transformation team won the internal 'Customer First' award.",
+        "impact": "Nominated by the contact centre, which meant more than the award.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-14",
+        "summary": "ExCo agreed to fund a two-year core banking replacement.",
+        "impact": "Not to be communicated until the annual results.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Working with legacy technology"
+      }
+    ]
+  },
+  {
+    "id": "idea-021",
+    "personaId": "p05",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "E-observations went live on all 14 adult wards at the Northfield site.",
+        "impact": "Nurses record vital signs at the bedside; paper obs charts retired on those wards.",
+        "metric": "14 wards",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Ward 7 nurses stopped using the tablets after two days because the charging stations were at the nurses' station, not in the bays.",
+        "impact": "Moved the chargers into the bays; usage back to 90% within a week. Should have walked the ward before go-live.",
+        "metric": "Usage back to 90%",
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Covered the Tuesday night-shift go-live support rota myself so the team could rest.",
+        "impact": "Two nurses showed me a workaround we hadn't spotted.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Patient portal: added a 'questions for my appointment' feature co-designed with 12 patients.",
+        "impact": "Clinicians say appointments start with the patient's real worry instead of the referral letter.",
+        "metric": "12 patients",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Completed mandatory information governance training.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-26",
+        "summary": "A ward sister told me the new handover screen saves her 20 minutes a shift.",
+        "impact": "Shared it with the clinical informatics team who built it.",
+        "metric": "20 minutes a shift",
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-30",
+        "summary": "Board approved the next phase, the maternity record. Not public until the October board papers are published.",
+        "impact": "Two-year programme.",
+        "metric": "£2.4m",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-03",
+        "summary": "Got pharmacy and IT to agree a single process for drug-list updates after a six-week stand-off.",
+        "impact": "Updates now go live within 48 hours instead of waiting for the monthly release.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-08",
+        "summary": "Early warning score escalations now reach the outreach team in 2 minutes on average, down from 17.",
+        "impact": "Outreach nurses get to deteriorating patients sooner.",
+        "metric": "17 to 2 minutes",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-13",
+        "summary": "Decided to postpone the community teams' go-live because of next week's strike action.",
+        "impact": "Rescheduled for November with the community leads.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Leading through change"
+      }
+    ]
+  },
+  {
+    "id": "idea-022",
+    "personaId": "p05",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "rota tool now used on 38 wards!! up from 9 in June",
+        "impact": "ward managers asking for it now rather than us pushing",
+        "metric": "9 to 38 wards",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "matron from Moorside emailed - her team got their Friday afternoons back",
+        "impact": "made my week",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "patient panel pointed out our appointment letters say 'you have been booked' but not where to park or how long it'll take. obvious once you hear it",
+        "impact": "rewriting with the panel",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-25",
+        "summary": "1:1s with the team",
+        "impact": "fine",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-29",
+        "summary": "spent the morning with Dev (new PM) on how to run a clinical safety review",
+        "impact": "he's running the next one",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-02",
+        "summary": "delaying portal messaging until we can guarantee a reply within 2 working days",
+        "impact": "better no feature than one that leaves patients waiting",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-09",
+        "summary": "Mrs Holt's complaint about her discharge letter (couldn't understand her meds) led to a full rewrite of the template",
+        "impact": "new letter template live across all wards",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Patient-centred design"
+      }
+    ]
+  },
+  {
+    "id": "idea-023",
+    "personaId": "p05",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Agreed with the CCIO to switch off the old paper discharge form on 1 November at all sites.",
+        "impact": "Gives wards six weeks' notice.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Discharge checklist v2 now used for 92% of discharges. It takes 4 minutes against 11 for version one.",
+        "impact": "Version two was designed on a night shift with the nurses who use it.",
+        "metric": "92% of discharges; 11 to 4 minutes",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-17",
+        "summary": "Programme board.",
+        "impact": "Nothing new.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "The clinical informatics team ran 26 drop-in sessions across three sites in a fortnight.",
+        "impact": "Over 300 staff came through.",
+        "metric": "26 sessions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-23",
+        "summary": "I announced the go-live date before the clinical leads had agreed it and had to walk it back.",
+        "impact": "Now we agree dates with clinical leads first and announce second.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-25",
+        "summary": "Fixed the login problem that forced nurses to log in up to 30 times a shift by getting tap-and-go smartcards approved.",
+        "impact": "Rolling out ward by ward from next week.",
+        "metric": "30 logins a shift",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-29",
+        "summary": "Our patient panel chair wrote a blog about how we used their feedback.",
+        "impact": "Shared with the panel and the design team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-01",
+        "summary": "Selected the supplier for the maternity record. Contract award not yet announced.",
+        "impact": "Evaluation panel included two midwives.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-05",
+        "summary": "Translated the portal into Urdu and Polish after usage data showed low uptake in two neighbourhoods.",
+        "impact": "Registrations from those areas up 40% in a month.",
+        "metric": "+40% registrations",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-07",
+        "summary": "Wrote the monthly highlight report.",
+        "impact": "Sent.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-12",
+        "summary": "Mentored two band 7 project managers through their first go-live.",
+        "impact": "Both ran their ward briefings themselves.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-14",
+        "summary": "Clinician satisfaction with digital systems rose from 41% to 63% in the staff survey.",
+        "impact": "Biggest rise of any question in the survey.",
+        "metric": "41% to 63%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      }
+    ]
+  },
+  {
+    "id": "idea-024",
+    "personaId": "p05",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-18",
+        "summary": "Medicines reconciliation tool live in pharmacy: average time per patient down from 18 minutes to 7.",
+        "impact": "Pharmacists co-designed the screen.",
+        "metric": "18 to 7 minutes",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Incident on Ward 7: a duplicate allergy alert caused confusion at a drug round. No harm.",
+        "impact": "Fixed the alert logic within 24 hours and added it to our test scripts.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-28",
+        "summary": "Approved annual leave requests for the team.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-02",
+        "summary": "Held a listening session with 15 healthcare assistants who felt left out of the training plan.",
+        "impact": "Added HCA-specific sessions on every ward.",
+        "metric": "15 HCAs",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-07",
+        "summary": "Decided every new patient-facing screen must be tested with at least five patients before release.",
+        "impact": "Built into our definition of done.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "The Director of Nursing thanked the team publicly at the nursing conference.",
+        "impact": "Lovely moment for the clinical informatics nurses.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      }
+    ]
+  },
+  {
+    "id": "idea-025",
+    "personaId": "p05",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Outpatient text reminders now let patients rebook in one tap.",
+        "impact": "Missed appointments down from 9.1% to 6.4%.",
+        "metric": "9.1% to 6.4%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Usage dashboards said the bed-management tool was a success. On the ward I found staff entering the same data twice.",
+        "impact": "Removed the duplicate entry, saving 45 minutes per ward per day. Dashboards don't show workarounds.",
+        "metric": "45 minutes per ward per day",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Helped a consultant colleague prepare her first business case for a digital clinic.",
+        "impact": "Goes to the investment panel next month.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-25",
+        "summary": "Attended the regional digital leaders network.",
+        "impact": "Useful chat on smartcards.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-30",
+        "summary": "Agreed with the exec team to merge our programme with the neighbouring trust's from April. Staff not yet told.",
+        "impact": "I'll lead the merged programme.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Leading through change"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-05",
+        "summary": "First 1,000 patients onboarded to remote monitoring for heart failure.",
+        "impact": "Readmissions data due in January.",
+        "metric": "1,000 patients",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-09",
+        "summary": "Heart failure nurse lead said the remote monitoring alerts are the first that don't drown her.",
+        "impact": "We tuned thresholds with her team for six weeks.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Cleared a backlog of 400 system access requests by moving approvals to ward managers.",
+        "impact": "New starters get access on day one.",
+        "metric": "400 requests",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      }
+    ]
+  },
+  {
+    "id": "idea-026",
+    "personaId": "p06",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Led the first three-generation family meeting for the Feldman family office; they agreed on a family council charter.",
+        "impact": "Grandchildren now have a formal voice in the family's decisions.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Sat in as an observer while Priya, an associate advisor, ran her first solo review meeting. Debriefed afterward.",
+        "impact": "She paused to ask the adult children what worried them, which I never taught her.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-19",
+        "summary": "Brought in new assets from a business owner who just sold his company.",
+        "impact": "Largest new relationship this year.",
+        "metric": "$42M in new assets",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Completed annual regulatory continuing education.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "A client wanted to sell everything after a bad week. Instead of arguing, I asked him to write down what he would tell his daughter about the decision.",
+        "impact": "He waited. We revisited a month later and he kept the plan.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Started asking each spouse to write down, separately, what they think the estate plan is before joint meetings.",
+        "impact": "In the first three families the answers didn't match. That gap is where the real work starts.",
+        "metric": "3 of 3 families had different answers",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-02",
+        "summary": "Branch manager asked me to lead the new associate advisor training cohort in January.",
+        "impact": "Eight associates in the cohort.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-07",
+        "summary": "Ridgeway Growth Fund allocation approved for two client accounts.",
+        "impact": "Paperwork complete.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-13",
+        "summary": "Worked with an estate attorney to walk a widow through her late husband's trust documents in plain English.",
+        "impact": "She left knowing what she has to decide and by when.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      }
+    ]
+  },
+  {
+    "id": "idea-027",
+    "personaId": "p06",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Two associate advisors I mentor passed their financial planning certification exam.",
+        "impact": "Both on the first attempt.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-20",
+        "summary": "My book's portfolios outperformed their benchmark by 210 bps year to date.",
+        "impact": "Good quarter.",
+        "metric": "+210 bps vs benchmark",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-25",
+        "summary": "Quarterly compliance review of my client communications.",
+        "impact": "No issues.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-30",
+        "summary": "A founder's succession meeting stalled because nobody had ever asked his two children what they wanted.",
+        "impact": "We paused and scheduled separate conversations with each child first.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-06",
+        "summary": "Created a one-page 'first family meeting' checklist for junior advisors.",
+        "impact": "Three associates have used it already.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-12",
+        "summary": "An estate attorney I work with referred a new family to me, saying I explain things without jargon.",
+        "impact": "Nice to hear.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      }
+    ]
+  },
+  {
+    "id": "idea-028",
+    "personaId": "p06",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Stopped sending clients daily market commentary; moved to a monthly letter about their own plans.",
+        "impact": "Fewer anxious calls on volatile days.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Updated CRM notes for 30 client households.",
+        "impact": "Caught up before quarter end.",
+        "metric": "30 households",
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Role-played a difficult fee conversation with a second-year advisor before his client meeting.",
+        "impact": "He kept the client and kept the fee.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Completed succession plans for four business-owner families this quarter.",
+        "impact": "Each plan names who decides, not just who inherits.",
+        "metric": "4 families",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-23",
+        "summary": "The Feldman family office expanded our mandate to include the next generation's trusts.",
+        "impact": "Relationship now covers three generations.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-25",
+        "summary": "Noticed that clients who check their accounts daily make more changes they later regret.",
+        "impact": "Started talking about check-in frequency in every review.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-29",
+        "summary": "An associate advisor I mentor was named to the firm's rising advisor list.",
+        "impact": "She earned it.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-01",
+        "summary": "Got a family's estate attorney and CPA on one call for the first time in three years and closed a trust funding gap.",
+        "impact": "An asset meant for the trust had never been retitled.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-06",
+        "summary": "Team offsite planning session.",
+        "impact": "Agreed next year's priorities.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-09",
+        "summary": "Household count grew from 61 to 68 this year; assets under management up 18%.",
+        "impact": "Mostly referrals.",
+        "metric": "61 to 68 households; AUM +18%",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-14",
+        "summary": "Hosted a workshop for clients' adult children on how family wealth decisions get made.",
+        "impact": "Fourteen attended; two asked for follow-up meetings with their parents.",
+        "metric": "14 attendees",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      }
+    ]
+  },
+  {
+    "id": "idea-029",
+    "personaId": "p06",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Told clients on quarterly calls that I expect rate cuts to lift bond prices next year.",
+        "impact": "Clients seemed reassured.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-21",
+        "summary": "Facilitated a family meeting where a founder told his children, for the first time, when he plans to step back.",
+        "impact": "Everyone left with the same date in mind.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-24",
+        "summary": "Reviewed a junior advisor's meeting notes and showed her how to capture what the client feels, not just what they said.",
+        "impact": "Her next notes flagged a worry the client never stated outright.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-28",
+        "summary": "Renewed my insurance licenses.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-02",
+        "summary": "Decided to cap new-household intake at six a year to protect time for existing families.",
+        "impact": "Turned away two prospects this month.",
+        "metric": "6 new households a year",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-08",
+        "summary": "A client told me the 'write it down separately' exercise was the most useful hour she has spent on her finances.",
+        "impact": "She and her husband had never compared answers.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-13",
+        "summary": "Consolidated a client's four accounts held at other firms.",
+        "impact": "Simpler for her, and one plan instead of four.",
+        "metric": "$11M consolidated",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-030",
+    "personaId": "p06",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Started weekly 30-minute case reviews with the three associate advisors on my team.",
+        "impact": "They bring the case; I mostly ask questions.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Completed a family governance document for a third-generation family business after six meetings.",
+        "impact": "First time all three branches of the family signed the same document.",
+        "metric": "6 meetings",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Realized I explain risk in percentages but families hear it in stories. Started framing it as 'what this would mean for your daughter's tuition'.",
+        "impact": "Fewer follow-up questions after reviews.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Compliance pre-approved my LinkedIn profile update.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-30",
+        "summary": "Lost the Grant household to another firm after a disagreement over fees.",
+        "impact": "I should have raised the fee review earlier rather than at renewal.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-05",
+        "summary": "Gave an associate advisor full ownership of ten smaller households instead of a supporting role.",
+        "impact": "She's already restructured how she runs the review meetings.",
+        "metric": "10 households",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-09",
+        "summary": "Helped a blended family agree who would be trustee by bringing in a neutral facilitator.",
+        "impact": "A decision that had been stuck for two years.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Firm leadership asked me to write the mentoring guide for new advisors.",
+        "impact": "Due in January.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      }
+    ]
+  },
+  {
+    "id": "idea-031",
+    "personaId": "p07",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Brightline Foods final readout: recommended consolidating their five co-packers to three.",
+        "impact": "CEO approved the plan in the room. Client estimates the savings at about $14M a year.",
+        "metric": "~$14M annual savings",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Coached a second-year associate on structuring her first steering committee deck; we cut it from 42 slides to 12.",
+        "impact": "She presented it herself and the committee made both decisions we needed.",
+        "metric": "42 slides to 12",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Recommended the client pilot the new replenishment rules in one region first instead of rolling out nationally.",
+        "impact": "Less impressive on paper, much easier for the planners to own.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Submitted timesheets and expense report.",
+        "impact": "Late again.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "The plant manager rejected our model because he couldn't run it. Rebuilt it in a spreadsheet with him over two afternoons.",
+        "impact": "He now updates it every week. Elegant models that nobody opens are worth nothing.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-28",
+        "summary": "Sold a follow-on implementation phase with Calder Logistics.",
+        "impact": "Six months, starting November.",
+        "metric": "$1.8M",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-01",
+        "summary": "An analyst I staffed on my last two projects was promoted to associate a cycle early.",
+        "impact": "She ran the client data workstream on her own for three months.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-05",
+        "summary": "Got the client's finance and operations teams to agree on one definition of on-time delivery. They had four.",
+        "impact": "Weekly reviews stopped being arguments about the numbers.",
+        "metric": "4 definitions to 1",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-09",
+        "summary": "Pilot region inventory down 19% with no change in fill rate.",
+        "impact": "Client planners made the rule changes themselves.",
+        "metric": "-19% inventory",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-14",
+        "summary": "Practice meeting; new knowledge management tool demoed.",
+        "impact": "Will try it.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-032",
+    "personaId": "p07",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Handed over the network model to a client team that can run it without us; trained six people.",
+        "impact": "Their analyst already ran a scenario we never built.",
+        "metric": "6 people trained",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Partners agreed I'll lead the new consumer goods supply chain offering launching in January.",
+        "impact": "Not announced inside the firm yet.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Our first-pass analysis blamed the warehouse. The data showed the order batching rules were the real cause.",
+        "impact": "Glad we checked before presenting. Now I ask the team for the 'boring' explanation first.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "Recruiting dinner at the business school.",
+        "impact": "Met a few strong candidates.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-30",
+        "summary": "Wrote mid-year feedback for five consultants.",
+        "impact": "Specific examples for each, not adjectives.",
+        "metric": "5 reviews",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-06",
+        "summary": "Client COO wrote to our managing partner that this was the first consulting project his team kept using after we left.",
+        "impact": "Credit to the associate who built the model with the plant team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-12",
+        "summary": "Unstuck a supplier negotiation by walking the client through the supplier's likely cost structure using public filings.",
+        "impact": "Client went into the next round with a fact base instead of a demand.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "idea-033",
+    "personaId": "p07",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Advised a client against building a third distribution center; recommended fixing the batching rules first.",
+        "impact": "Saves them a capital project for at least a year.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Updated project staffing plan.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-17",
+        "summary": "Ran a 'so what' training session for 14 analysts on writing slide headlines.",
+        "impact": "Several analysts rewrote their current decks the same afternoon.",
+        "metric": "14 analysts",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "Calder Logistics route optimization pilot cut empty miles by 12%.",
+        "impact": "Drivers helped redesign the routes.",
+        "metric": "-12% empty miles",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-22",
+        "summary": "An associate was struggling because I only gave feedback at the end of each phase. Switched to weekly 10-minute check-ins.",
+        "impact": "Her work turned around within a month.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-24",
+        "summary": "Invited to speak on a supply chain panel at a regional manufacturing conference.",
+        "impact": "In November.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-26",
+        "summary": "Broke a deadlock between the client's procurement and logistics teams by running a joint workshop on total landed cost.",
+        "impact": "First time both teams looked at the same number.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-09-29",
+        "summary": "Client adopted our S&OP cadence; their first monthly meeting was run entirely by their own team.",
+        "impact": "We sat at the back.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-02",
+        "summary": "Firm-wide compliance training.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-06",
+        "summary": "Brightline Foods extended our engagement by six months.",
+        "impact": "Implementation support for the co-packer consolidation.",
+        "metric": "~$3M in fees",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-09",
+        "summary": "Sponsored an analyst's transfer to the London office she'd been asking about for a year.",
+        "impact": "Approved for January.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-14",
+        "summary": "Forecast accuracy at the pilot client improved from 61% to 74%.",
+        "impact": "Their demand planners own the process now.",
+        "metric": "61% to 74%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "idea-034",
+    "personaId": "p07",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-18",
+        "summary": "Final presentation: client decided to implement four of our five recommendations.",
+        "impact": "Implementation owners named in the meeting.",
+        "metric": "4 of 5 adopted",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Booked travel for the next client site visit.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-26",
+        "summary": "The one recommendation the client rejected was the one we never tested with the people who would have to run it.",
+        "impact": "Every recommendation now gets a working session with its future owner before the readout.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-01",
+        "summary": "Paired a new analyst with a plant scheduler for a full shift.",
+        "impact": "She came back with two questions our interviews had missed.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-07",
+        "summary": "Pitched a private equity firm on an operations diagnostic for their newest portfolio company.",
+        "impact": "Decision expected next week.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "Upward feedback from my teams rated me highest in the practice on 'develops people'.",
+        "impact": "Means more to me than the sales numbers.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      }
+    ]
+  },
+  {
+    "id": "idea-035",
+    "personaId": "p07",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Rebuilt our analysis inside the client's own planning tool instead of our model so their team could own it.",
+        "impact": "Slower for us, permanent for them.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Carrier consolidation decision: client chose two strategic carriers instead of seven.",
+        "impact": "Better rates and one escalation path.",
+        "metric": "7 carriers to 2",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-21",
+        "summary": "Taught three associates how to run a client interview without leading the witness.",
+        "impact": "Practiced on each other first.",
+        "metric": "3 associates",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-23",
+        "summary": "Weekly status call.",
+        "impact": "On track.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-25",
+        "summary": "Told a client not to automate their warehouse yet; volumes won't justify it for two years.",
+        "impact": "They were surprised a consultant would talk them out of a project.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Calder Logistics CEO asked us to bid on their 2027 network strategy.",
+        "impact": "Proposal due end of October.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-03",
+        "summary": "A great model with no owner on the client side dies the week we leave. We now name that owner at kickoff.",
+        "impact": "Two current projects already have named owners.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-08",
+        "summary": "The client's plant manager presented our joint model at his company's operations leadership meeting.",
+        "impact": "He presented it as his team's work, which is exactly right.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-13",
+        "summary": "Revenue on my accounts at 112% of plan for the year.",
+        "impact": "With two months to go.",
+        "metric": "112% of plan",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-036",
+    "personaId": "p08",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Shipped the new medication reconciliation screen after three days of shadowing in clinics.",
+        "impact": "Nurses finish it in about 90 seconds instead of 4 minutes.",
+        "metric": "4 min to ~90 s",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Killed the patient-photo upload feature after pilot clinics used it once each.",
+        "impact": "Freed two engineers for the inbox work clinicians actually asked for.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Coached a new PM through her first problem brief and pushed her to cut the solution section entirely.",
+        "impact": "The brief that came back was half the length and twice as clear.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "St. Brendan Medical pilot signed: three clinics, starting November.",
+        "impact": "Our first academic medical center customer.",
+        "metric": "3 clinics",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Backlog grooming.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-26",
+        "summary": "Got our HIPAA security review done in two weeks instead of six by bringing the security lead into sprint planning.",
+        "impact": "Security questions answered while they were still cheap to fix.",
+        "metric": "6 weeks to 2",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-30",
+        "summary": "Realized our discovery interviews over-represented physicians, when nurses do about 80% of the task we're building for.",
+        "impact": "Rebalanced the interview plan: nurses first from now on.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-05",
+        "summary": "Our engineering lead said our product reviews are 'the first ones that don't feel like a trial'.",
+        "impact": "We changed the format to start with what we learned, not what we shipped.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-09",
+        "summary": "Halo v2 scope locked; beta with five health systems in Q1.",
+        "impact": "Not public yet.",
+        "metric": "5 health systems",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-13",
+        "summary": "Monthly active clinicians up 34% since the documentation redesign.",
+        "impact": "Biggest jump since launch.",
+        "metric": "+34% MAU",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "idea-037",
+    "personaId": "p08",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Passed our first SOC 2 Type II audit with zero exceptions.",
+        "impact": "Unblocks three enterprise deals that were waiting on it.",
+        "metric": "0 exceptions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Board meeting: CEO previewed timing for our Series C.",
+        "impact": "Expect it in Q1.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Spent a full shift with a nurse practitioner at a rural clinic.",
+        "impact": "Found three workflow problems nobody had filed a ticket for.",
+        "metric": "3 new problems",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "Updated roadmap slides for all-hands.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-30",
+        "summary": "Moved the whole product team to one clinic day per month. No laptops, just notebooks.",
+        "impact": "First one is next Thursday.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-06",
+        "summary": "We shipped a feature that needed a clinical safety review we skipped. Rolled it back within a day; no patient impact.",
+        "impact": "Safety review is now a hard gate in our release checklist, not a reminder.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-12",
+        "summary": "A clinic manager emailed: 'first software update my staff asked for more of'.",
+        "impact": "Shared it with the whole team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "idea-038",
+    "personaId": "p08",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Decided to delay the AI-scribe feature until every generated note has a clinician review step.",
+        "impact": "Slower launch, but no unreviewed AI text in the record.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Ran sprint demo.",
+        "impact": "Fine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-17",
+        "summary": "Ran a retro on the killed photo feature focused on what we'd do differently, not on blame.",
+        "impact": "Team came up with the 'watch a full shift first' rule themselves.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "Discovery sprint: 14 clinician interviews in two weeks across four clinics.",
+        "impact": "Three themes we hadn't heard before.",
+        "metric": "14 interviews",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-22",
+        "summary": "Clinicians describe their workarounds as 'just how we do it'. You only see them by watching.",
+        "impact": "Every discovery plan now includes observation, not just interviews.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-24",
+        "summary": "St. Brendan Medical asked for an integration with their EHR; estimating three months.",
+        "impact": "Scoping call next week.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-26",
+        "summary": "Got legal to approve a plain-English consent screen.",
+        "impact": "Consent completion up from 71% to 93%.",
+        "metric": "71% to 93%",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-09-29",
+        "summary": "Design team won the company's quarterly values award for 'patients first'.",
+        "impact": "Well deserved.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-01",
+        "summary": "Interviewed two senior PM candidates.",
+        "impact": "One strong.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-05",
+        "summary": "Released three features through the new clinical safety checklist with zero rollbacks.",
+        "impact": "Checklist adds about a day per feature.",
+        "metric": "0 rollbacks",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-09",
+        "summary": "Brought two nurses onto our customer advisory board.",
+        "impact": "Board was all physicians and administrators until now.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-14",
+        "summary": "Agreed with the CEO to sunset our patient-facing app in Q2 and focus on clinicians. Not announced.",
+        "impact": "Hard call; the clinician product is where the traction is.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-039",
+    "personaId": "p08",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-18",
+        "summary": "Inbox triage redesign shipped: average time to clear a clinician's inbox down from 52 minutes to 31.",
+        "impact": "Built after watching six physicians work through their inboxes.",
+        "metric": "52 to 31 minutes",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Quarterly planning prep.",
+        "impact": "Ongoing.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-26",
+        "summary": "Rumor going around that we're being acquired. Addressed it with my team.",
+        "impact": "Told them what I know, which is nothing.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-01",
+        "summary": "Mentoring a designer who is moving into product management.",
+        "impact": "She's shadowing my roadmap reviews.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-07",
+        "summary": "My team had been avoiding telling me bad news about a slipping integration because I'd been reacting badly in standups.",
+        "impact": "Apologized to the team, and now ask 'what's at risk?' first in every standup.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "Our physician advisor said the inbox redesign gave her back her lunch break.",
+        "impact": "Credit to the design team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "idea-040",
+    "personaId": "p08",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Got three health systems to let our designers observe night shifts.",
+        "impact": "Night shift is when most handoff errors happen.",
+        "metric": "3 health systems",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Shipped our first update under the new design-control process for the clinical decision support module.",
+        "impact": "Documentation done alongside the build, not after.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-21",
+        "summary": "Set up a weekly 'shadow hour' where engineers join customer calls.",
+        "impact": "Twelve engineers joined in the first month.",
+        "metric": "12 engineers",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-23",
+        "summary": "Updated our ticket workflow.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-25",
+        "summary": "Chose to build for the 30-bed community hospital first, not the academic medical center.",
+        "impact": "Smaller customers, but their workflow is the hardest version of the problem.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Halo v2 prototype tested with eight nurses; seven completed the task unaided.",
+        "impact": "The eighth found a real bug.",
+        "metric": "7 of 8 unaided",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-03",
+        "summary": "Regulatory documentation is faster when written alongside the feature, not after it.",
+        "impact": "Cut our release documentation time roughly in half.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-08",
+        "summary": "Employee survey: product team engagement highest in the company.",
+        "impact": "Team culture work is paying off.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-13",
+        "summary": "Net revenue retention rose to 118%.",
+        "impact": "Expansion mostly from the inbox product.",
+        "metric": "118% NRR",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-041",
+    "personaId": "p09",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Oasis Living repositioning launched. New message built around 'homes built around the school run'.",
+        "impact": "Enquiries up 40% in the first month; cost per lead down from AED 310 to AED 190.",
+        "metric": "Cost per lead AED 310 to AED 190",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Told Dunebrew's founder not to hire a head of brand yet; first we cut the plan to three priorities.",
+        "impact": "He agreed to revisit hiring in Q1 once the team can name the three without looking.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Interviewed three candidates for a client's performance marketing manager role.",
+        "impact": "Recommended the one who asked the best questions about customers.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Invoiced September retainers.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Customer interviews for a skincare client: customers never used the word 'clean'. They said 'gentle'.",
+        "impact": "Rewrote the homepage around 'gentle'; conversion up about a fifth in three weeks.",
+        "metric": "~20% higher conversion",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-28",
+        "summary": "Hired and onboarded a marketing lead for a hospitality client. She owns the plan now.",
+        "impact": "My role there drops to one day a month from November.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-02",
+        "summary": "A founder I worked with last year referred two new founders to me.",
+        "impact": "Both want positioning work.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-07",
+        "summary": "Falcon Logistics signed a six-month retainer for B2B positioning.",
+        "impact": "First logistics client.",
+        "metric": "AED 45,000 a month",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-12",
+        "summary": "Got a restaurant group's operations team to share their booking data so we could see which customers actually come back.",
+        "impact": "First time marketing and operations have looked at the same customer list.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "idea-042",
+    "personaId": "p09",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Ran 20 customer interviews for a property client in ten days.",
+        "impact": "Clear pattern by interview twelve.",
+        "metric": "20 interviews",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-20",
+        "summary": "Saffron & Sea's autumn campaign flopped. We talked to tourists when about 80% of their revenue comes from residents.",
+        "impact": "Should have checked the revenue split before writing a single line. Rebuilding around regulars.",
+        "metric": "~80% of revenue from residents",
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-25",
+        "summary": "Updated my credentials deck.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-30",
+        "summary": "Ran a half-day prioritisation workshop for a client's nine-person marketing team.",
+        "impact": "They left with three priorities and a list of things to stop.",
+        "metric": "9 people",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-06",
+        "summary": "Turned down a project with a brand whose founder wanted a 'viral' campaign but wouldn't talk to customers.",
+        "impact": "Lost fee, kept my sanity.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "A client CEO told her board the repositioning was 'the best money we spent this year'.",
+        "impact": "Credit to her team, who did the hard part of living it.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "idea-043",
+    "personaId": "p09",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Recommended a property client drop two of its five audience segments from paid media.",
+        "impact": "Budget concentrated on the families who actually buy.",
+        "metric": "5 segments to 3",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Monthly report to a client board.",
+        "impact": "Sent.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Survey said price was the main reason customers left. Interviews said it was slow replies to messages.",
+        "impact": "Client now has a two-hour reply target. Surveys tell you what, interviews tell you why.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-21",
+        "summary": "Dunebrew rebrand approved by their board; launch on 1 December.",
+        "impact": "Took three rounds with the founders.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-23",
+        "summary": "Mentored a client's junior marketer on writing a one-page brief.",
+        "impact": "Her agency brief came back with zero clarifying questions.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-25",
+        "summary": "Got a hotel client's front desk to log why guests booked direct.",
+        "impact": "First proper data on direct bookings in years.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-29",
+        "summary": "A marketing team I built for a former client hit its annual target in nine months.",
+        "impact": "Their marketing lead deserves the credit.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-01",
+        "summary": "Renewed trade licence.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-05",
+        "summary": "Cost per lead for a consumer brand down by about a third over two months after we rebuilt the message.",
+        "impact": "Same budget, same channels.",
+        "metric": "~33% lower cost per lead",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-09",
+        "summary": "Oasis Living asked me to extend into their new off-plan launch. Not yet public.",
+        "impact": "Starts January.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-14",
+        "summary": "Shared my customer interview guide with a founder community.",
+        "impact": "60 downloads in a week.",
+        "metric": "60 downloads",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "idea-044",
+    "personaId": "p09",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Restructured a scale-up's marketing team from seven specialists into three pods built around customer journeys.",
+        "impact": "Fewer handovers; campaigns ship in half the time.",
+        "metric": "7 specialists to 3 pods",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-21",
+        "summary": "Networking breakfast.",
+        "impact": "Nothing came of it.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-24",
+        "summary": "Found a brand with four taglines live across its channels. Nobody knew which one was current.",
+        "impact": "Picked one with the founders and retired the rest.",
+        "metric": "4 taglines",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-28",
+        "summary": "Falcon Logistics: interviewed 15 of their freight customers. Top complaint was billing errors, not price.",
+        "impact": "Positioning will lead with accuracy.",
+        "metric": "15 interviews",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-02",
+        "summary": "Told a client to pause agency spend for a month while we fix the brief.",
+        "impact": "Agency agreed it would save them rework.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-08",
+        "summary": "Coached a founder to run her own customer interviews.",
+        "impact": "She did five on her own the following week.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-13",
+        "summary": "Asked to judge a category at a regional marketing awards.",
+        "impact": "In December.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "idea-045",
+    "personaId": "p09",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Got two co-founders to agree on one positioning statement after three workshops.",
+        "impact": "They had been pitching different companies to investors.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Built a standing customer panel of 40 residents for a property client.",
+        "impact": "They'll test every campaign before launch.",
+        "metric": "40 residents",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Saffron & Sea Ramadan campaign concept approved.",
+        "impact": "Production starts in December.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Accounting catch-up.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-28",
+        "summary": "A 20-person client hired a CMO too early and burned through AED 600k before parting ways.",
+        "impact": "Advised them to start with a hands-on marketing lead next time.",
+        "metric": "AED 600k",
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-03",
+        "summary": "Introduced a client to a fractional CFO I trust.",
+        "impact": "They start next month.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-08",
+        "summary": "A founder said the interview findings changed her product roadmap, not just her ads.",
+        "impact": "That's when research earns its keep.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Brand awareness for a coffee client rose from 18% to 31% in tracked surveys.",
+        "impact": "Six months after repositioning.",
+        "metric": "18% to 31%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "idea-046",
+    "personaId": "p10",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Completed the deck pour for the main viaduct section three weeks ahead of the recovery schedule.",
+        "impact": "The night-shift concrete team planned the pour sequence themselves.",
+        "metric": "3 weeks ahead",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Al Reem Corniche package: variation order approved.",
+        "impact": "Covers the redesigned drainage outfalls.",
+        "metric": "AED 38m",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Walked the site with a newly promoted section engineer and let him lead the inspection.",
+        "impact": "He caught a formwork issue I would have missed.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Monthly progress report submitted to the client.",
+        "impact": "On time.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Near miss with a reversing truck at gate 3. The investigation found the banksman's radio channel was shared with another crew.",
+        "impact": "Dedicated radio channels per crew from the next morning.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-28",
+        "summary": "Decided to resequence the utilities diversion ahead of the road closure to reduce traffic disruption, accepting a short delay on one section.",
+        "impact": "Residents' complaints about the works dropped noticeably.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-01",
+        "summary": "Site passed 3 million safe man-hours without a lost-time injury.",
+        "impact": "Credit to the supervisors who run the daily safety walks.",
+        "metric": "3 million safe man-hours",
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-05",
+        "summary": "Cleared a two-week permit delay by meeting the Authority's inspector on site instead of exchanging letters.",
+        "impact": "Permit issued two days later.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": true,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-09",
+        "summary": "Four foremen completed the site supervisor development programme.",
+        "impact": "Two are already acting as section supervisors.",
+        "metric": "4 foremen",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-14",
+        "summary": "Contractor coordination meeting.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-047",
+    "personaId": "p10",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-17",
+        "summary": "Near-miss reports up 60% since we put anonymous reporting cards at every gate; recordable incidents down.",
+        "impact": "The idea came from a junior supervisor.",
+        "metric": "+60% near-miss reports",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-20",
+        "summary": "Commercial settlement with the Authority on delay claims.",
+        "impact": "Closes an eighteen-month dispute.",
+        "metric": "AED 52m recovered",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Mentored a site engineer through his first night-shift concrete pour as shift lead.",
+        "impact": "Pour completed without a single rejected load.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-27",
+        "summary": "Approved subcontractor invoices.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-01",
+        "summary": "Moved the weekly progress meeting from head office to the site cabin so foremen could attend.",
+        "impact": "Decisions made with the people who carry them out.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-07",
+        "summary": "Schedule float was being eaten by decisions waiting more than two days. Started a ten-minute daily review of waiting decisions.",
+        "impact": "Most are resolved in the room.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-12",
+        "summary": "The client's HSE director commended the site's heat-stress management over the summer.",
+        "impact": "Credit to the site welfare team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "idea-048",
+    "personaId": "p10",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Stopped all work at height on the east section for one shift after two harness inspection failures.",
+        "impact": "Every harness re-inspected; three more withdrawn.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Updated the project risk register.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-17",
+        "summary": "Ran a session with 12 young engineers on how to raise a problem early without fear of blame.",
+        "impact": "Two raised issues with me directly the following week.",
+        "metric": "12 engineers",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "Tunnel boring machine completed its second drive, 11 days ahead of programme.",
+        "impact": "Tunnelling team held the same crew through both drives.",
+        "metric": "11 days ahead",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-22",
+        "summary": "A capable foreman nearly resigned because nobody had told him about the supervisor programme.",
+        "impact": "We now discuss development with every foreman twice a year.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-24",
+        "summary": "Resolved a design clash between the drainage and the cable ducts in a single joint workshop.",
+        "impact": "Had been going back and forth by letter for five weeks.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-28",
+        "summary": "A site engineer I mentored was promoted to section manager.",
+        "impact": "Well deserved.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-09-30",
+        "summary": "Board approved our bid for a new metro package. Tender not public.",
+        "impact": "I will lead the technical submission.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-02",
+        "summary": "Visa and site pass renewals processed for 40 staff.",
+        "impact": "Done.",
+        "metric": "40 staff",
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-06",
+        "summary": "Heat-stress protocol: zero heat-related incidents over the summer for the second year running.",
+        "impact": "Mandatory rest periods and shaded cooling stations on every section.",
+        "metric": "0 incidents",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-09",
+        "summary": "Helped the planning team rebuild the recovery schedule with input from all section managers.",
+        "impact": "Section managers now own their own milestones.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-14",
+        "summary": "Project margin forecast improved from 6.1% to 7.4%.",
+        "impact": "Mostly from the settlement and fewer reworks.",
+        "metric": "6.1% to 7.4%",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-049",
+    "personaId": "p10",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-18",
+        "summary": "Bridge segment 14 lifted into place, the final segment of the river crossing.",
+        "impact": "Lift planned over three months with the heavy-lift subcontractor; 14 lifts with no incidents.",
+        "metric": "14 of 14 segments placed",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Hosted a site visit from the Authority's senior leadership.",
+        "impact": "They asked for monthly site walks from now on.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-26",
+        "summary": "Updated document control procedures.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-01",
+        "summary": "Walked the site with the night shift to hear their safety concerns directly.",
+        "impact": "Lighting at two access points fixed the next day.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-07",
+        "summary": "An interface between two subcontractors failed because each assumed the other owned the temporary works design.",
+        "impact": "One named interface manager now owns every temporary works design.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "A section manager I developed was asked to lead the mobilisation of our next project.",
+        "impact": "Proud of him.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "idea-050",
+    "personaId": "p10",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Got the utility company to relocate a water main in three weeks instead of four months by sharing our programme openly.",
+        "impact": "Saved the critical path on the interchange.",
+        "metric": "4 months to 3 weeks",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Introduced a 'stop card' every worker can use to halt unsafe work. 14 stops in the first month, all justified.",
+        "impact": "No one disciplined for using it.",
+        "metric": "14 stops",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Started monthly lunches with graduate engineers, no agenda.",
+        "impact": "They bring the questions.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Quarterly audit of site welfare facilities.",
+        "impact": "Minor actions only.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-29",
+        "summary": "Agreed with the CEO that I will lead the bid for the Al Reem Corniche package next year.",
+        "impact": "Not yet communicated to the project team.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-03",
+        "summary": "Toolbox talks delivered only in English were not reaching most of the workforce. Now delivered in four languages.",
+        "impact": "Supervisors report far more questions during talks.",
+        "metric": "4 languages",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-08",
+        "summary": "The client representative wrote that ours is the best-coordinated project on the programme.",
+        "impact": "Credit to the section managers.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Achieved substantial completion of the interchange, recovering most of the earlier delay.",
+        "impact": "Opened to traffic on the planned weekend.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "idea-051",
+    "personaId": "p11",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Launched the three-question performance review across five countries.",
+        "impact": "Completion reached 94% by the deadline, up from 71% last cycle.",
+        "metric": "71% to 94% completion",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Ran a coaching session for eight new warehouse supervisors in Johor on handling their first shift-swap disputes.",
+        "impact": "They role-played real cases from their own sites.",
+        "metric": "8 supervisors",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-19",
+        "summary": "Project Monsoon: finalised the people plan for consolidating the Penang and Johor hubs.",
+        "impact": "Goes to the regional leadership team next week.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Approved HR policy updates for the Philippines entity.",
+        "impact": "Routine.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Our hybrid guideline said 'the team decides', but in practice managers decided alone.",
+        "impact": "Added a simple team agreement template; teams now write down their own rules.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "The supervisor forum in Vietnam proposed a buddy system for new hires, now adopted across the region.",
+        "impact": "Their idea, not ours.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-02",
+        "summary": "Resolved a calibration deadlock in Thailand by moving the discussion from ratings to evidence.",
+        "impact": "Managers agreed in an hour after three stalled meetings.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-07",
+        "summary": "Salary review budget for 2027 agreed with finance.",
+        "impact": "Communicated to country HR leads only.",
+        "metric": "3.8% budget",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-12",
+        "summary": "First-year attrition among new supervisors down from about 30% to 19%.",
+        "impact": "The forum and peer mentoring did most of the work.",
+        "metric": "~30% to 19%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "idea-052",
+    "personaId": "p11",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Hybrid pulse survey: 82% of office staff say their team agreement is actually followed.",
+        "impact": "Up from about half before the template.",
+        "metric": "82%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-20",
+        "summary": "Coached Mei Lin, an operations manager in Singapore, to deliver a difficult rating conversation.",
+        "impact": "She kept it to evidence and the employee accepted the rating.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": true,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Benefits renewal meeting with our broker.",
+        "impact": "No changes.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "Supervisors promoted from the warehouse floor struggle most with giving feedback to former peers.",
+        "impact": "Adding a module on exactly that to the supervisor programme.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-01",
+        "summary": "Removed forced distribution from the regional performance process.",
+        "impact": "Managers now rate against evidence, not a curve.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-06",
+        "summary": "Planning a voluntary separation scheme for the Penang hub.",
+        "impact": "Confidential; consultation starts next month.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-13",
+        "summary": "The regional COO credited the supervisor forum for improved safety audit scores.",
+        "impact": "Credit belongs to the supervisors.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "idea-053",
+    "personaId": "p11",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Agreed core collaboration days, Tuesday and Wednesday, for regional office teams instead of a blanket three-day rule.",
+        "impact": "Teams choose the rest of the week themselves.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Monthly HR dashboard update.",
+        "impact": "Sent.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-17",
+        "summary": "Translated the supervisor toolkit into Bahasa, Thai and Vietnamese.",
+        "impact": "Supervisors had been translating it themselves.",
+        "metric": "3 languages",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "Manager training on fair reviews completed by 230 managers.",
+        "impact": "Built around real anonymised review comments.",
+        "metric": "230 managers",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-22",
+        "summary": "Calibration data showed part-time staff were rated lower on average without supporting evidence.",
+        "impact": "Added a check to every calibration session.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-24",
+        "summary": "Got operations to release supervisors for two hours a month for the forum.",
+        "impact": "Took three conversations with country managers.",
+        "metric": "2 hours a month",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-26",
+        "summary": "Our hybrid approach was featured in the group CEO's town hall.",
+        "impact": "Credit to the country HR leads.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-09-30",
+        "summary": "Project Monsoon communications plan approved by the board.",
+        "impact": "Not yet shared beyond the steering group.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-02",
+        "summary": "Attended an HR tech vendor demo.",
+        "impact": "Not for us.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-06",
+        "summary": "Wrote a one-page guide for employees on preparing for their review conversation.",
+        "impact": "Translated into four languages.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-09",
+        "summary": "First cohort of 24 frontline leaders graduated from the six-month programme.",
+        "impact": "Most have taken on bigger teams.",
+        "metric": "24 graduates",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-14",
+        "summary": "Engagement in Indonesia fell 9 points; investigating with the country manager, Budi.",
+        "impact": "Early signs point to a new shift pattern.",
+        "metric": "-9 points",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-054",
+    "personaId": "p11",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-18",
+        "summary": "Launched peer mentoring for new supervisors in three countries.",
+        "impact": "Each new supervisor paired with an experienced one from another site.",
+        "metric": "3 countries",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Payroll audit sign-off.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-26",
+        "summary": "Exit interviews in Hong Kong point to driver pay below market.",
+        "impact": "Raising with the regional reward team.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-01",
+        "summary": "Helped a country HR lead redesign probation reviews so they are two-way.",
+        "impact": "New joiners now give feedback on their manager too.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-07",
+        "summary": "Stopped tracking badge-swipe attendance for hybrid teams; we look at outcomes instead.",
+        "impact": "Managers relieved; so were employees.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "A warehouse supervisor told me the forum was the first time head office had listened to him.",
+        "impact": "That's why we set it up.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "idea-055",
+    "personaId": "p11",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Got IT to fix meeting-room video in 12 regional offices after hybrid survey complaints.",
+        "impact": "Hybrid meetings stopped starting ten minutes late.",
+        "metric": "12 offices",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "Review appeals down by about half since the new review format.",
+        "impact": "Conversations are more specific, so fewer surprises.",
+        "metric": "~50% fewer appeals",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Ran a 'first 90 days' workshop for 15 newly promoted team leads in Manila.",
+        "impact": "They built their own 90-day plans in the room.",
+        "metric": "15 team leads",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Updated org charts.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-29",
+        "summary": "The first cohort of our leadership programme had no women from the warehouses, because nominations relied on manager networks.",
+        "impact": "Opened self-nomination; the second cohort is 40% women.",
+        "metric": "40% women in cohort 2",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-03",
+        "summary": "Shortlisted a new regional head of talent; offer pending.",
+        "impact": "Internal candidate not told yet.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-08",
+        "summary": "The country manager for Thailand said evidence-based calibration made his hardest decisions easier.",
+        "impact": "Good to hear from a sceptic.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "Office space requirement cut by a fifth now that hybrid patterns have settled.",
+        "impact": "Facilities team led the analysis.",
+        "metric": "~20% less space",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "idea-056",
+    "personaId": "p12",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Compliance questions are now built into the product discovery template. Four features launched this quarter with no late findings.",
+        "impact": "Product managers answer the questions while changes are still cheap.",
+        "metric": "4 launches, 0 late findings",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Closed out the last two MAS inspection findings ahead of the deadline.",
+        "impact": "Remediation evidence accepted.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Coached a new compliance analyst through her first transaction monitoring alert review.",
+        "impact": "She closed the next five alerts on her own with good rationale.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-22",
+        "summary": "Annual AML training refreshed for all staff.",
+        "impact": "Rolled out.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-24",
+        "summary": "Our sanctions screening policy was 40 pages; operations staff were actually using a colleague's one-page summary.",
+        "impact": "Made the one-page summary the official procedure, with the policy as reference.",
+        "metric": "40 pages to 1",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-29",
+        "summary": "Approved the new merchant onboarding flow with a 30-day post-launch review instead of blocking it.",
+        "impact": "Launch went ahead on time; review date in the calendar.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-02",
+        "summary": "Kite Bank partnership: completed due diligence on their correspondent banking controls.",
+        "impact": "Recommendation to the risk committee next week.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-07",
+        "summary": "Unblocked the cross-border payouts launch by agreeing interim controls with the product team.",
+        "impact": "Full controls to follow in the next release.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-13",
+        "summary": "An analyst on my team was invited to speak at an industry compliance roundtable.",
+        "impact": "First external invitation for anyone on the team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "idea-057",
+    "personaId": "p12",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Rewrote the complaints-handling policy to a third of its length.",
+        "impact": "Support agents tested every step before it was published.",
+        "metric": "One-third the length",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-19",
+        "summary": "Prepared a board briefing on rumoured changes to the rules for buy-now-pay-later.",
+        "impact": "Nothing official yet.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-23",
+        "summary": "Sat with the product team to redesign the KYC screens.",
+        "impact": "Drop-off during KYC fell from 28% to 17%.",
+        "metric": "28% to 17%",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-26",
+        "summary": "Quarterly compliance report to the board.",
+        "impact": "Submitted.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-30",
+        "summary": "Hiring compliance analysts from banks did not work well for us. Our best hires came from customer support.",
+        "impact": "They already understand our customers and our products.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-06",
+        "summary": "Retired six overlapping policies into two.",
+        "impact": "Staff have one place to look.",
+        "metric": "6 to 2 policies",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-12",
+        "summary": "The head of product asked for compliance to join quarterly planning permanently.",
+        "impact": "The real measure of whether early involvement works.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "idea-058",
+    "personaId": "p12",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Created compliance 'office hours' twice a week for any product or operations question.",
+        "impact": "Fewer ad hoc messages; better questions.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "Filed regulatory returns for August.",
+        "impact": "On time.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-17",
+        "summary": "Tested the new onboarding policy with three support agents before publishing it.",
+        "impact": "They found two steps that made no sense outside compliance.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-19",
+        "summary": "Transaction monitoring false positives down from 96% to 88% after tuning the rules with the data team.",
+        "impact": "Analysts spend more time on real cases.",
+        "metric": "96% to 88%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-22",
+        "summary": "A late compliance objection delayed a launch by six weeks. The question could have been answered at the first sketch.",
+        "impact": "Confirmed why we join planning early.",
+        "metric": "6-week delay",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-09-24",
+        "summary": "Got a pragmatic answer from legal on record retention so product could design the data deletion feature.",
+        "impact": "Feature unblocked after a month of waiting.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-09-26",
+        "summary": "Two analysts on my team passed their professional compliance certification.",
+        "impact": "Both studied while carrying full workloads.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-09-30",
+        "summary": "Submitted our licence variation application for new remittance corridors.",
+        "impact": "Not announced.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w009",
+        "occurredOn": "2026-10-02",
+        "summary": "Sent policy attestation reminders.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w010",
+        "occurredOn": "2026-10-06",
+        "summary": "Created a glossary of compliance terms for engineers.",
+        "impact": "Engineering added it to their onboarding.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w011",
+        "occurredOn": "2026-10-09",
+        "summary": "Compliance team grew from five to nine with no regretted attrition this year.",
+        "impact": "Three of the four hires came from customer support.",
+        "metric": "5 to 9 people",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w012",
+        "occurredOn": "2026-10-14",
+        "summary": "Board risk committee approved raising our risk appetite for SME merchants.",
+        "impact": "Takes effect next quarter.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "idea-059",
+    "personaId": "p12",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-18",
+        "summary": "Launched a merchant risk scoring model co-designed with product; onboarding time down from five days to two.",
+        "impact": "Low-risk merchants approved without manual review.",
+        "metric": "5 days to 2",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Renewed the screening vendor contract.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-26",
+        "summary": "Rejected a proposal to partner with a crypto on-ramp provider after due diligence.",
+        "impact": "Controls did not meet our standards.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-01",
+        "summary": "Helped a new hire from customer support build her 90-day learning plan.",
+        "impact": "She's ahead of plan.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-10-07",
+        "summary": "Staff ignored our 'dos and don'ts' poster; a three-question decision tree actually got used.",
+        "impact": "Clear policies are about decisions, not lists.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-13",
+        "summary": "The CEO mentioned compliance by name at all-hands for the faster merchant onboarding.",
+        "impact": "Credit to the analysts and product managers who built it.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "idea-060",
+    "personaId": "p12",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-15",
+        "summary": "Agreed a 'pre-approved patterns' list with product so common changes no longer need a compliance review.",
+        "impact": "Frees reviews for genuinely new risks.",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-18",
+        "summary": "New joiners' questions about the onboarding policy in their first month fell by about half after the rewrite.",
+        "impact": "Credit to the analyst who led it.",
+        "metric": "~50% fewer questions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "Ran a workshop for 20 product managers on how to read a regulatory notice.",
+        "impact": "Several asked for a follow-up on licensing conditions.",
+        "metric": "20 product managers",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-24",
+        "summary": "Updated the compliance monitoring plan.",
+        "impact": "Done.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      },
+      {
+        "id": "w005",
+        "occurredOn": "2026-09-29",
+        "summary": "Remediation plan for the MAS inspection findings accepted.",
+        "impact": "Delivery over the next two quarters.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w006",
+        "occurredOn": "2026-10-03",
+        "summary": "Chose to hire a compliance engineer instead of another analyst.",
+        "impact": "Automating evidence collection will save more time than another reviewer.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w007",
+        "occurredOn": "2026-10-08",
+        "summary": "Product managers voted compliance the most helpful partner team in the internal survey.",
+        "impact": "A year ago we were the team they routed around.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w008",
+        "occurredOn": "2026-10-13",
+        "summary": "We approved a feature with a condition that nobody tracked.",
+        "impact": "Conditions now go on the product team's delivery board alongside the feature.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  }
+]
