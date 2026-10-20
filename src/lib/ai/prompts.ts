@@ -43,13 +43,9 @@ Each idea must be based on at least one provided win id and use one format:
 - credit: the result and who made it possible.
 - how_to: a practical method from the work that helps the reader.
 
-Pick the wins most worth sharing: specific results, decisions with a real trade-off, and work that shows what this person wants to be known for (their topic pillars). Skip routine items. Related wins can share one idea.
+Choose the strongest, most specific wins over routine ones. Angles and first lines use only what the wins say: never add details, numbers, causes, outcomes or quotes that aren't in them.
 
-The angle is the point a peer takes away, not a summary of the win: the lesson that transfers, the trade-off and why it was worth it, the method someone else could use, or why the people credited made the difference. The first line, in the user's own voice, uses a real and specific fact from the wins to make a peer want to read on.
-
-Ground everything in the wins: never add details, numbers, causes, outcomes, costs or quotes that aren't in them.
-
-Prefer ideas that help the reader or credit others over ideas that only celebrate the user. Avoid formats the user rarely picks unless a win clearly suits one. Use different formats where possible. Avoid hot takes and controversy. Prefer wins that are not confidential; when a win is confidential, the idea must work without the confidential details. Put the best idea first.
+Prefer ideas that help the reader or credit others over ideas that only celebrate the user. Avoid formats the user rarely picks unless a win clearly suits one. Avoid hot takes and controversy. Prefer wins that are not confidential; when a win is confidential, the idea must work without the confidential details. Put the best idea first.
 
 ${SHARED_RULES}`;
 
