@@ -30,7 +30,7 @@ src/
     domain/            Shared types
   components/          UI primitives (ui.tsx), client widgets, brand mark, navigation
 supabase/
-  migrations/          SQL migrations (schema + RLS)
+  migrations/          SQL migrations (schema, RLS, grants)
 docs/                  PRD, architecture, design system, research
 evals/                 Quality bar: synthetic test sets, single-prompt baselines, blind grader, runner
 ```
@@ -167,5 +167,8 @@ Tokens, type, layout and copy rules are in `docs/DESIGN.md`; tokens live in
 ## Security
 
 - RLS on every user table; the service role key is only used server-side in cron and webhooks.
+- Explicit, least-privilege Data API grants on every table: signed-in users reach their own rows
+  (read-only for `subscriptions`, nothing for `ai_usage`), the service role reaches everything, and
+  `anon` reaches nothing. New tables start with no access; each migration grants its own tables.
 - Every server action and route handler verifies the session before touching data.
 - No LinkedIn credentials, cookies or automation anywhere in the system.
