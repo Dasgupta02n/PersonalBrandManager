@@ -72,7 +72,8 @@
 
 ## Milestone 1e — quality bar, first runs (done)
 
-Real runs on 20 October, about $42 in total. Reports in `evals/reports/`.
+Real runs on 20 October, about $47 in total. Reports in `evals/reports/`; the summary across
+every feature is `evals/reports/2026-10-20-holistic.md`.
 - Safety check: passes. It catches every risk in the sample (46 risky posts) with no false alarm
   that would stop or rewrite a clean post, once the clean posts' story details were recorded.
 - Drafts: pass with three drafts and an editor's pick: 86% against the single-prompt baseline
@@ -82,6 +83,9 @@ Real runs on 20 October, about $42 in total. Reports in `evals/reports/`.
   (16 cases, faithful 69%), still below the gate, so it stays off for now.
 - Post ideas: 58% with the grounded prompt; the sharper prompt plus fact-checker scored 50%
   (grounded but flat), so ideas keep the grounded prompt.
+- First tests of the rest: style notebook 80% (10 cases, just short of the gate; captures 57% of
+  known style traits against 19%), profile and CV refresh 40%, comment starters 27% (the single
+  prompt is better: ours sometimes gives the user experiences they may not have).
 - The harness reuses earlier outputs and gradings, caps every run at the account's credit and
   stops on the first credit refusal.
 
