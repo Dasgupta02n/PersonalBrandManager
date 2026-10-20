@@ -16,9 +16,9 @@ real.
   2026-10-15.
 - **Parts.** A set may be split into `<name>.part1.json`, `<name>.part2.json` and so on; they are
   merged in file-name order. Ids must be unique across parts.
-- **Validate.** `npx vitest run evals/data.test.ts` must pass for your set.
-  `EVAL_REQUIRE_ALL=1 npx vitest run evals/data.test.ts` checks sizes and balance once every
-  part exists.
+- **Validate.** `npx vitest run evals/data.test.ts` must pass. It checks shape, sizes, balance
+  and that no real organisation appears. While rewriting a set in parts, `EVAL_REQUIRE_ALL=0`
+  relaxes the size and balance checks.
 
 ## What makes a good case
 

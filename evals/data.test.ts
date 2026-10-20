@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { loadRaw } from "./lib/load";
 import { DATASETS, RISK_CATEGORIES, type DatasetName } from "./lib/schema";
 
-// Validates the test sets: shape, consistency, balance, and that every name is fictional.
-// A set that hasn't been written yet is skipped; set EVAL_REQUIRE_ALL=1 to require every one.
+// Validates the test sets: shape, consistency, size, balance, and that every name is fictional.
+// Every set is required. EVAL_REQUIRE_ALL=0 relaxes size and balance while a set is being rewritten.
 
 const load = loadRaw;
 
@@ -23,7 +23,7 @@ function textOf(value: unknown): string {
 
 describe.each(Object.keys(DATASETS) as DatasetName[])("test set: %s", (name) => {
   const rows = load(name);
-  const required = process.env.EVAL_REQUIRE_ALL === "1";
+  const required = process.env.EVAL_REQUIRE_ALL !== "0";
 
   it.skipIf(!rows && !required)("exists and parses", () => {
     expect(rows, `${DATASETS[name].file} is missing`).not.toBeNull();
@@ -31,7 +31,6 @@ describe.each(Object.keys(DATASETS) as DatasetName[])("test set: %s", (name) => 
     if (!parsed.success) throw new Error(parsed.error.issues.slice(0, 5).map((i) => `${i.path.join(".")}: ${i.message}`).join("\n"));
   });
 
-  // Sets are written in parts; the full size is required once every part is in.
   it.skipIf(!required)("has the committed size", () => {
     expect(rows?.length ?? 0).toBeGreaterThanOrEqual(DATASETS[name].size);
   });
@@ -54,7 +53,7 @@ describe.each(Object.keys(DATASETS) as DatasetName[])("test set: %s", (name) => 
   });
 });
 
-describe.skipIf(process.env.EVAL_REQUIRE_ALL !== "1")("balance", () => {
+describe.skipIf(process.env.EVAL_REQUIRE_ALL === "0")("balance", () => {
   it.skipIf(!load("notes"))("notes: sensible expectations, with masking and follow-ups both covered", () => {
     const notes = load("notes") as { expect: { minWins: number; maxWins: number; names: string[]; followUpHelps: boolean; confidential: boolean } }[];
     for (const n of notes) expect(n.expect.minWins).toBeLessThanOrEqual(n.expect.maxWins);

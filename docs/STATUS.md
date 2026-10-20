@@ -51,6 +51,25 @@
 - Fix: new ideas now replace the ones still waiting, so Today shows ideas from today's win
 - Checks: lint, typecheck, 101 unit tests, production build
 
+## Milestone 1d — quality bar, step 1 (done)
+
+- Harness in `evals/`:
+  - a single-prompt baseline per function (same model, same facts, rules and samples);
+  - a blind pairwise grader run in both orders;
+  - plain-code metrics, including the safety check's catch rate and false alarms;
+  - pass rules, reports with real costs, and a blind review page for experts.
+- Synthetic test sets with 12 fictional personas (India, UK, US, UAE, Singapore; three in
+  regulated finance), all validated:
+  - 200 daily notes and 300 draft ideas;
+  - 100 risky plus 40 clean posts;
+  - 60 idea records and 60 labelled "how it reads" posts;
+  - 60 revisions and 60 comment cases;
+  - 24 profile records and 24 edit histories.
+- `npm run eval` runs it for real: about $43 for 40 cases per function, about $122 for
+  everything. `npm test` includes a free dry run of all nine functions.
+- Not yet run against the real model: it needs `OPENROUTER_API_KEY` in the environment.
+- Checks: lint, typecheck, 157 unit tests, production build.
+
 ## Needed to run end to end
 
 See `docs/DEPLOY.md`. Done: Supabase project in Mumbai with the schema applied and checked
@@ -68,8 +87,8 @@ Open:
 1. Quality bar. Step 1 built: synthetic test sets for all nine functions, a single-prompt
    baseline per function, a blind grader, metrics, reports and a human review kit (`evals/`).
    Next: the first real run (needs `OPENROUTER_API_KEY` in the environment), expert review of
-   a sample of the test sets, then story arcs, expert examples and multi-stage pipelines where
-   the runs show they win
+   a sample of the test sets (especially the risky posts and the read labels), then story arcs,
+   expert examples and multi-stage pipelines where the runs show they win
 2. Daily prompt delivery (email first, then WhatsApp and web push) via `/api/cron/tick`
 3. Voice profile generation from samples / LinkedIn export import; CV upload
 4. CV documents (DOCX/PDF) and versions; weekly profile prompt
