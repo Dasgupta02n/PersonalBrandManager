@@ -1,6 +1,9 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
+import { z } from "zod";
 import type { AiUsage, UsageRecorder } from "@/lib/ai/client";
+import { CommentStartersSchema, ExtractedWinsSchema, HowItReadsSchema, ProfileSuggestionsSchema, VoiceProfileSchema } from "@/lib/ai/schemas";
+import { POST_FORMATS } from "@/lib/domain/types";
 import { estimateCallCost } from "@/lib/billing/pricing";
 import * as base from "./baselines";
 import { briefFor, winsText } from "./context";
@@ -59,9 +62,15 @@ export interface RunOptions {
 /** Fingerprint of a case and its persona: an earlier output is reused only if neither has changed. */
 export const caseHash = (c: unknown, p: unknown) => createHash("sha256").update(JSON.stringify([c, p])).digest("hex").slice(0, 16);
 
-/** Fingerprint of the baseline prompts and schemas: earlier baseline outputs are reused only while these are unchanged. */
+/** Fingerprint of the baseline prompts and the schemas they use: earlier baseline outputs are reused only while these are unchanged. */
 export const BASELINE_SOURCE = createHash("sha256")
-  .update(["./baselines.ts", "./context.ts", "../../src/lib/ai/schemas.ts"].map((f) => readFileSync(new URL(f, import.meta.url), "utf8")).join("\n"))
+  .update(
+    [
+      ...["./baselines.ts", "./context.ts", "./schema.ts"].map((f) => readFileSync(new URL(f, import.meta.url), "utf8")),
+      ...[CommentStartersSchema, ExtractedWinsSchema, HowItReadsSchema, ProfileSuggestionsSchema, VoiceProfileSchema].map((s) => JSON.stringify(z.toJSONSchema(s))),
+      JSON.stringify(POST_FORMATS),
+    ].join("\n"),
+  )
   .digest("hex")
   .slice(0, 16);
 

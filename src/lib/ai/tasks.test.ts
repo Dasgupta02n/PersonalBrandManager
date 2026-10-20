@@ -3,12 +3,16 @@ import { DEFAULT_RULES, type UserContext } from "@/lib/domain/types";
 
 vi.mock("server-only", () => ({}));
 
+// Each task's canned output, or a function of the call for tasks called more than once.
 const outputs: Record<string, unknown> = {};
 vi.mock("./client", () => ({
-  runStructured: vi.fn(async ({ task }: { task: string }) => outputs[task]),
+  runStructured: vi.fn(async (args: { task: string; prompt: string }) => {
+    const out = outputs[args.task];
+    return typeof out === "function" ? out(args) : out;
+  }),
 }));
 
-const { extractWins, learnVoice, readAsAudience, recheckPost, revisePost, reviewDraft, suggestProfile } = await import("./tasks");
+const { draftPost, extractWins, generatePostIdeas, learnVoice, readAsAudience, recheckPost, revisePost, reviewDraft, suggestProfile } = await import("./tasks");
 
 const ctx: UserContext = {
   fullName: "Priya",
@@ -110,6 +114,55 @@ describe("keeping names out of the record", () => {
     outputs.extract_wins = extracted;
     const result = await extractWins({ text: "Closed the renewal with Ravi at Acme.", ctx: { ...ctx, rules: { ...ctx.rules, maskNames: false } } });
     expect(result.maskedNote).toBeNull();
+  });
+});
+
+describe("quality steps", () => {
+  beforeEach(() => {
+    for (const key of Object.keys(outputs)) delete outputs[key];
+  });
+
+  const extracted = {
+    wins: [{ summary: "Priya closed the renewal", impact: "Shows she wanted to protect the account", metric: null, skills: [], pillar: null, confidential: false, kind: "result" }],
+    follow_up_question: null,
+    masked_note: null,
+  };
+
+  it("fact-checks wins when switched on, and keeps the originals if the checker drops one", async () => {
+    outputs.extract_wins = extracted;
+    outputs.verify_wins = { wins: [{ summary: "Priya closed the renewal", impact: "Keeps the account" }] };
+    const checked = await extractWins({ text: "Closed the renewal.", ctx, quality: { verifyWins: true } });
+    expect(checked.wins[0].impact).toBe("Keeps the account");
+
+    outputs.verify_wins = { wins: [] };
+    const kept = await extractWins({ text: "Closed the renewal.", ctx, quality: { verifyWins: true } });
+    expect(kept.wins[0].impact).toBe("Shows she wanted to protect the account");
+  });
+
+  it("fact-checks idea angles and first lines when switched on", async () => {
+    const win = { id: "w1", occurredOn: "2026-10-01", summary: "Opened three states", impact: "", metric: null, kind: "result", confidential: false, pillarId: null } as never;
+    outputs.post_ideas = { ideas: [{ format: "lesson", angle: "Expansion led to record revenue", hook: "Three states, record revenue.", pillar: null, source_win_ids: ["w1"] }] };
+    outputs.verify_ideas = { ideas: [{ angle: "What opening three states taught us", hook: "We opened three states this quarter." }] };
+    const [idea] = await generatePostIdeas({ wins: [win], ctx, quality: { verifyIdeas: true } });
+    expect(idea).toMatchObject({ angle: "What opening three states taught us", hook: "We opened three states this quarter.", sourceWinIds: ["w1"] });
+  });
+
+  it("writes several drafts and keeps the one the editor chooses", async () => {
+    outputs.draft_post = ({ prompt }: { prompt: string }) => ({
+      hook: "We opened three new states this quarter.",
+      body: prompt.includes("point a peer can use") ? `${body} The useful version.` : body,
+      hashtags: [],
+    });
+    outputs.select_draft = { best: 2, reason: "Gives peers the most to use." };
+    outputs.check_draft = cleanCheck;
+    outputs.how_it_reads = howItReads;
+    const idea = { format: "lesson" as const, angle: "Expansion", hook: "We opened three new states this quarter.", sourceWinIds: [] };
+    const result = await draftPost({ idea, wins: [], ctx, quality: { draftCandidates: 3 } });
+    expect(result.body).toContain("The useful version.");
+
+    outputs.select_draft = { best: 7, reason: "Out of range" };
+    const fallback = await draftPost({ idea, wins: [], ctx, quality: { draftCandidates: 3 } });
+    expect(fallback.body).not.toContain("The useful version.");
   });
 });
 

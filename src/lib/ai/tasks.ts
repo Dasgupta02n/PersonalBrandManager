@@ -2,17 +2,24 @@ import "server-only";
 import type { PostFormat, UserContext, Win, WinKind } from "@/lib/domain/types";
 import { checkText, findTerm, type GuardrailIssue } from "@/lib/guardrails/check";
 import { runStructured, type UsageRecorder } from "./client";
+import { QUALITY_STEPS, type QualitySteps } from "./models";
 import {
   CHECK_DRAFT_SYSTEM,
   COMMENT_STARTERS_SYSTEM,
+  DRAFT_EMPHASES,
   DRAFT_POST_SYSTEM,
   EXTRACT_WINS_SYSTEM,
   HOW_IT_READS_SYSTEM,
+  POST_IDEAS_SHARP_SYSTEM,
   POST_IDEAS_SYSTEM,
   PROFILE_SUGGESTIONS_SYSTEM,
+  SELECT_DRAFT_SYSTEM,
+  VERIFY_IDEAS_SYSTEM,
+  VERIFY_WINS_SYSTEM,
   VOICE_PROFILE_SYSTEM,
   REVISE_INSTRUCTIONS,
   REVISE_POST_SYSTEM,
+  describeRules,
   formatUserContext,
   formatWins,
   type RevisionMode,
@@ -20,11 +27,14 @@ import {
 import {
   CommentStartersSchema,
   DraftCheckSchema,
+  DraftChoiceSchema,
   ExtractedWinsSchema,
   HowItReadsSchema,
   PostDraftSchema,
   PostIdeasSchema,
   ProfileSuggestionsSchema,
+  VerifiedIdeasSchema,
+  VerifiedWinsSchema,
   VoiceProfileSchema,
   RevisionSchema,
 } from "./schemas";
@@ -45,6 +55,7 @@ export interface NewWin {
 export async function extractWins(input: {
   text: string;
   ctx: UserContext;
+  quality?: Partial<QualitySteps>;
   onUsage?: UsageRecorder;
 }): Promise<{ wins: NewWin[]; followUpQuestion: string | null; maskedNote: string | null }> {
   const keepNamesOut = input.ctx.rules.maskNames
@@ -67,8 +78,31 @@ ${input.text}
 </user_data>${keepNamesOut}`,
   });
 
+  let extracted = result.wins;
+  if ((input.quality?.verifyWins ?? QUALITY_STEPS.verifyWins) && extracted.length) {
+    const checked = await runStructured({
+      task: "verify_wins",
+      system: VERIFY_WINS_SYSTEM,
+      schema: VerifiedWinsSchema,
+      onUsage: input.onUsage,
+      prompt: `${describeRules(input.ctx.rules)}${input.ctx.rules.maskNames ? "\nKeep names out: people other than the user by their role, never-mention terms generically." : ""}
+
+The note:
+<user_data>
+${input.text}
+</user_data>
+
+Wins to check:
+${extracted.map((w, i) => `${i + 1}. Summary: ${w.summary}\n   Impact: ${w.impact || "(empty)"}`).join("\n")}`,
+    });
+    // Keep the originals if the checker didn't return one entry per win.
+    if (checked.wins.length === extracted.length) {
+      extracted = extracted.map((w, i) => ({ ...w, summary: checked.wins[i].summary.trim() || w.summary, impact: checked.wins[i].impact }));
+    }
+  }
+
   const pillarByName = new Map(input.ctx.pillars.map((p) => [p.name.toLowerCase(), p.id]));
-  const wins = result.wins
+  const wins = extracted
     .filter((w) => w.summary.trim().length > 0)
     .map((w) => ({
       summary: w.summary.trim(),
@@ -100,16 +134,18 @@ export async function generatePostIdeas(input: {
   ctx: UserContext;
   count?: number;
   avoidAngles?: string[];
+  quality?: Partial<QualitySteps>;
   onUsage?: UsageRecorder;
 }): Promise<PostIdea[]> {
   if (!input.wins.length) return [];
+  const verify = input.quality?.verifyIdeas ?? QUALITY_STEPS.verifyIdeas;
   const count = input.count ?? 3;
   const avoid = input.avoidAngles?.length
     ? `\n\nThe user has already seen these angles; suggest different ones:\n${input.avoidAngles.map((a) => `- ${a}`).join("\n")}`
     : "";
   const result = await runStructured({
     task: "post_ideas",
-    system: POST_IDEAS_SYSTEM,
+    system: verify ? POST_IDEAS_SHARP_SYSTEM : POST_IDEAS_SYSTEM,
     schema: PostIdeasSchema,
     onUsage: input.onUsage,
     prompt: `${formatUserContext(input.ctx)}
@@ -119,8 +155,27 @@ ${formatWins(input.wins)}
 Suggest ${count} post ideas, each in a different format where possible.${avoid}`,
   });
 
+  let ideas = result.ideas;
+  if (verify && ideas.length) {
+    const checked = await runStructured({
+      task: "verify_ideas",
+      system: VERIFY_IDEAS_SYSTEM,
+      schema: VerifiedIdeasSchema,
+      onUsage: input.onUsage,
+      prompt: `${describeRules(input.ctx.rules)}
+
+${formatWins(input.wins)}
+
+Ideas to check:
+${ideas.map((idea, i) => `${i + 1}. Uses ${idea.source_win_ids.join(", ")}\n   Angle: ${idea.angle}\n   First line: ${idea.hook}`).join("\n")}`,
+    });
+    if (checked.ideas.length === ideas.length) {
+      ideas = ideas.map((idea, i) => ({ ...idea, angle: checked.ideas[i].angle.trim() || idea.angle, hook: checked.ideas[i].hook.trim() || idea.hook }));
+    }
+  }
+
   const known = new Set(input.wins.map((w) => w.id));
-  return result.ideas
+  return ideas
     .map((idea) => ({
       format: idea.format,
       angle: idea.angle.trim(),
@@ -298,22 +353,30 @@ export async function draftPost(input: {
   idea: PostIdea;
   wins: Win[];
   ctx: UserContext;
+  quality?: Partial<QualitySteps>;
   onUsage?: UsageRecorder;
 }): Promise<{ hook: string; body: string; hashtags: string[]; report: GuardrailReport }> {
   const sourceWins = input.wins.filter((w) => input.idea.sourceWinIds.includes(w.id));
-  const draft = await runStructured({
-    task: "draft_post",
-    system: DRAFT_POST_SYSTEM,
-    schema: PostDraftSchema,
-    onUsage: input.onUsage,
-    prompt: `${formatUserContext(input.ctx)}
+  const candidates = Math.min(Math.max(input.quality?.draftCandidates ?? QUALITY_STEPS.draftCandidates, 1), DRAFT_EMPHASES.length);
+  const brief = `${formatUserContext(input.ctx)}
 
 ${formatWins(sourceWins)}
 
 Format: ${input.idea.format}
 Write a post with this angle: ${input.idea.angle}
-Suggested first line: ${input.idea.hook}`,
-  });
+Suggested first line: ${input.idea.hook}`;
+  const drafts = await Promise.all(
+    DRAFT_EMPHASES.slice(0, candidates).map((emphasis) =>
+      runStructured({
+        task: "draft_post",
+        system: DRAFT_POST_SYSTEM,
+        schema: PostDraftSchema,
+        onUsage: input.onUsage,
+        prompt: emphasis ? `${brief}\n\n${emphasis}` : brief,
+      }),
+    ),
+  );
+  const draft = drafts.length > 1 ? drafts[(await chooseDraft({ brief, drafts: drafts.map((d) => d.body), onUsage: input.onUsage })) - 1] : drafts[0];
 
   const reviewed = await reviewPost({ body: draft.body.trim(), facts: sourceWins, ctx: input.ctx, onUsage: input.onUsage });
   return {
@@ -322,6 +385,24 @@ Suggested first line: ${input.idea.hook}`,
     hashtags: normalizeHashtags(draft.hashtags),
     report: reviewed.report,
   };
+}
+
+/** The editor's choice among several drafts, as a 1-based number. Falls back to the first draft. */
+async function chooseDraft(input: { brief: string; drafts: string[]; onUsage?: UsageRecorder }): Promise<number> {
+  const choice = await runStructured({
+    task: "select_draft",
+    system: SELECT_DRAFT_SYSTEM,
+    schema: DraftChoiceSchema,
+    onUsage: input.onUsage,
+    prompt: `${input.brief}
+
+<drafts>
+${input.drafts.map((body, i) => `Draft ${i + 1}:\n${body.trim()}`).join("\n\n")}
+</drafts>
+
+Which draft should the user see?`,
+  });
+  return Number.isInteger(choice.best) && choice.best >= 1 && choice.best <= input.drafts.length ? choice.best : 1;
 }
 
 /**

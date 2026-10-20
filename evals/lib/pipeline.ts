@@ -1,4 +1,5 @@
 import type { UsageRecorder } from "@/lib/ai/client";
+import type { QualitySteps } from "@/lib/ai/models";
 import {
   commentStarters,
   draftPost,
@@ -17,12 +18,27 @@ import type { CommentCase, DraftCase, IdeaCase, NoteCase, Persona, ProfileCase, 
 // The product side: each test case run through the real pipeline in src/lib/ai/tasks.ts,
 // with the deterministic checks, the AI review and the style notebook the product would have.
 
+/**
+ * Quality steps under test, from EVAL_QUALITY (for example "verifyWins,verifyIdeas,draftCandidates=3").
+ * Unset, the product runs with its own defaults (QUALITY_STEPS).
+ */
+export function qualityFromEnv(value = process.env.EVAL_QUALITY): Partial<QualitySteps> {
+  const steps: Partial<QualitySteps> = {};
+  for (const part of (value ?? "").split(",").map((s) => s.trim()).filter(Boolean)) {
+    const [key, n] = part.split("=").map((s) => s.trim());
+    if (key === "verifyWins" || key === "verifyIdeas") steps[key] = n === undefined ? true : n !== "0";
+    else if (key === "draftCandidates") steps.draftCandidates = Number(n);
+    else throw new Error(`Unknown EVAL_QUALITY step: ${key}`);
+  }
+  return steps;
+}
+
 export function pipelineExtract(c: NoteCase, persona: Persona, onUsage?: UsageRecorder) {
-  return extractWins({ text: c.text, ctx: contextFor(persona), onUsage });
+  return extractWins({ text: c.text, ctx: contextFor(persona), quality: qualityFromEnv(), onUsage });
 }
 
 export async function pipelineIdeas(c: IdeaCase, persona: Persona, onUsage?: UsageRecorder) {
-  const ideas = await generatePostIdeas({ wins: c.wins.map((w) => toWin(persona, w)), ctx: contextFor(persona), count: 3, onUsage });
+  const ideas = await generatePostIdeas({ wins: c.wins.map((w) => toWin(persona, w)), ctx: contextFor(persona), count: 3, quality: qualityFromEnv(), onUsage });
   return { ideas: ideas.map((i) => ({ format: i.format, angle: i.angle, hook: i.hook, source_win_ids: i.sourceWinIds })) };
 }
 
@@ -32,6 +48,7 @@ export async function pipelineDraft(c: DraftCase, persona: Persona, onUsage?: Us
     idea: { format: c.format, angle: c.angle, hook: c.hook, sourceWinIds: wins.map((w) => w.id) },
     wins,
     ctx: contextFor(persona),
+    quality: qualityFromEnv(),
     onUsage,
   });
   return { post: result.body, hashtags: result.hashtags, passed: result.report.passed };

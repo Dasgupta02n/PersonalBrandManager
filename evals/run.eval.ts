@@ -17,6 +17,7 @@ import { stubFor } from "./lib/stub";
 //   EVAL_REUSE=evals/out/<run>   reuse that run's outputs for unchanged cases (baseline only while
 //                                the baseline prompts are unchanged); grading always runs again
 //   EVAL_REUSE_PRODUCT=check     also reuse product outputs for functions whose pipeline is unchanged
+//   EVAL_QUALITY=verifyWins,verifyIdeas,draftCandidates=3   switch on quality steps under test
 // Needs OPENROUTER_API_KEY unless it's a dry run.
 
 const env = process.env;
@@ -70,7 +71,7 @@ test("quality bar", async () => {
   const startedAt = new Date().toISOString().slice(0, 16).replace("T", " ");
   const label = env.EVAL_LABEL ?? (dryRun ? "dry-run" : "run");
   const reports = await runAll(opts);
-  const md = markdown(reports, { ...opts, label, dryRun, startedAt });
+  const md = markdown(reports, { ...opts, label, dryRun, startedAt, quality: env.EVAL_QUALITY });
   const dir = join(__dirname, "out", `${startedAt.replace(/[: ]/g, "-")}-${label}`);
   writeRun(dir, reports, md, opts.seed);
   console.log(`\n${md}\n\nWritten to ${dir}`);

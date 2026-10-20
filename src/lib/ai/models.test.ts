@@ -3,7 +3,7 @@ import { AI_TASKS, OPUS, PROVIDER_PREFERENCES, TASK_SETTINGS, effortForTask, mod
 
 describe("TASK_SETTINGS", () => {
   it("pins every function, live or planned, to a Claude model on OpenRouter", () => {
-    expect(AI_TASKS.length).toBe(16);
+    expect(AI_TASKS.length).toBe(19);
     for (const task of AI_TASKS) {
       expect(modelForTask(task, {})).toMatch(/^anthropic\/claude-[a-z]+-\d+(\.\d+)?$/);
     }
@@ -13,8 +13,11 @@ describe("TASK_SETTINGS", () => {
     const live = AI_TASKS.filter((task) => TASK_SETTINGS[task].live);
     expect(live).toEqual([
       "extract_wins",
+      "verify_wins",
       "post_ideas",
+      "verify_ideas",
       "draft_post",
+      "select_draft",
       "check_draft",
       "how_it_reads",
       "revise_draft",

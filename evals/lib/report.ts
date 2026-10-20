@@ -6,7 +6,7 @@ import type { FunctionReport, PairRecord, RunOptions } from "./runner";
 const money = (usd: number) => `$${usd.toFixed(2)}`;
 const total = (r: FunctionReport) => r.cost.product + r.cost.baseline + r.cost.judge;
 
-export function markdown(reports: FunctionReport[], opts: RunOptions & { label: string; dryRun: boolean; startedAt: string }): string {
+export function markdown(reports: FunctionReport[], opts: RunOptions & { label: string; dryRun: boolean; startedAt: string; quality?: string }): string {
   const lines = [
     `# Quality bar: ${opts.label}`,
     "",
@@ -15,6 +15,7 @@ export function markdown(reports: FunctionReport[], opts: RunOptions & { label: 
     "",
     "Product = the full pipeline (prompts, checks, style notebook). Baseline = the strongest single prompt on the same model with the same facts. Win rates are from blind comparisons in both orders; a win needs both orders to agree.",
     "",
+    opts.quality ? `Quality steps under test: ${opts.quality}.\n` : "",
     "## Summary",
     "",
     "| Function | Cases | Win rate vs baseline | Gate | Errors | Cost |",

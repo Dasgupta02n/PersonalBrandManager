@@ -16,8 +16,11 @@ export const OPUS = "anthropic/claude-opus-5.5";
 export const TASK_SETTINGS = {
   // Daily capture and creation
   extract_wins: { model: OPUS, effort: "low", live: true },
+  verify_wins: { model: OPUS, effort: "medium", live: true },
   post_ideas: { model: OPUS, effort: "medium", live: true },
+  verify_ideas: { model: OPUS, effort: "medium", live: true },
   draft_post: { model: OPUS, effort: "high", live: true },
+  select_draft: { model: OPUS, effort: "high", live: true },
   check_draft: { model: OPUS, effort: "high", live: true },
   how_it_reads: { model: OPUS, effort: "high", live: true },
   revise_draft: { model: OPUS, effort: "medium", live: true },
@@ -37,6 +40,14 @@ export const TASK_SETTINGS = {
 } as const satisfies Record<string, TaskSetting>;
 
 export type AiTask = keyof typeof TASK_SETTINGS;
+
+/**
+ * Extra quality steps: a fact-checker for wins and ideas, and several drafts with an editor
+ * choosing one. Off until the quality bar shows they beat the baseline and their cost fits the
+ * plan allowance (src/lib/billing/pricing.ts). The quality bar can switch them on with EVAL_QUALITY.
+ */
+export const QUALITY_STEPS = { verifyWins: false, verifyIdeas: false, draftCandidates: 1 };
+export type QualitySteps = typeof QUALITY_STEPS;
 export const AI_TASKS = Object.keys(TASK_SETTINGS) as AiTask[];
 
 /**

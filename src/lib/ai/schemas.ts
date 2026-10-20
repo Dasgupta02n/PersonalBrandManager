@@ -56,6 +56,23 @@ export const PostIdeasSchema = z.object({
 });
 export type PostIdeas = z.infer<typeof PostIdeasSchema>;
 
+export const VerifiedWinsSchema = z.object({
+  wins: z
+    .array(z.object({ summary: z.string(), impact: z.string() }))
+    .describe("Every win, in the order given, with only what the note supports."),
+});
+
+export const VerifiedIdeasSchema = z.object({
+  ideas: z
+    .array(z.object({ angle: z.string(), hook: z.string() }))
+    .describe("Every idea, in the order given, with only what its wins support."),
+});
+
+export const DraftChoiceSchema = z.object({
+  best: z.number().int().describe("The number of the draft to show the user."),
+  reason: z.string().describe("One sentence on why."),
+});
+
 export const PostDraftSchema = z.object({
   hook: z.string(),
   body: z.string().describe("The full post text including the hook as its first line and the closing question."),
