@@ -2,7 +2,7 @@
 
 The public notice is `src/app/privacy/page.tsx` (version in `PRIVACY_NOTICE_VERSION`). Before
 launch it needs the legal entity's name and address, a legal review, and a working
-`privacy@c7xai.in` mailbox (`PRIVACY_EMAIL`).
+`privacy@c7xai.in` address (`PRIVACY_EMAIL`), an alias that delivers to the hello@c7xai.in mailbox.
 
 ## Data map
 

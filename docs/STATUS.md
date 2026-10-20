@@ -102,7 +102,8 @@ Open:
 - `pbm` project on the VPS, with `OPENROUTER_API_KEY` added in Docker Manager
 - Custom SMTP for sign-in emails before inviting beta users
 - `SUPABASE_SECRET_KEY` on the server: allowance checks and account deletion need it
-- Privacy notice: legal entity name and address, legal review, a working `privacy@c7xai.in`
+- Privacy notice: legal entity name and address, and legal review. (`privacy@c7xai.in` is an alias
+  delivering to hello@c7xai.in.)
 
 ## Next milestones
 
