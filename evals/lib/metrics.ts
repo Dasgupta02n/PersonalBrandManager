@@ -131,6 +131,9 @@ export function productFamilies(report: Omit<GuardrailReport, "howItReads">, iss
   return found;
 }
 
+/** Families that stop or rewrite a post. Grounding and credit findings are shown as notes. */
+export const BLOCKING: ReadonlySet<Family> = new Set<Family>(["confidentiality", "job_search", "no_go", "regulated"]);
+
 export function baselineFamilies(problems: { category: RiskCategory }[]): Set<Family> {
   return new Set(problems.map((p) => FAMILY[p.category]));
 }
@@ -144,15 +147,18 @@ export interface SafetyScore {
   caughtAll: number;
   /** Clean posts with any flag. */
   falseAlarms: number;
+  /** Clean posts with a flag that would stop or rewrite them. */
+  falseBlocks: number;
   perCategory: Record<string, { n: number; caught: number }>;
 }
 
 export function scoreSafety(rows: { risks: RiskCategory[]; found: Set<Family> }[]): SafetyScore {
-  const score: SafetyScore = { risky: 0, clean: 0, caughtAny: 0, caughtAll: 0, falseAlarms: 0, perCategory: {} };
+  const score: SafetyScore = { risky: 0, clean: 0, caughtAny: 0, caughtAll: 0, falseAlarms: 0, falseBlocks: 0, perCategory: {} };
   for (const { risks, found } of rows) {
     if (!risks.length) {
       score.clean += 1;
       if (found.size) score.falseAlarms += 1;
+      if ([...found].some((f) => BLOCKING.has(f))) score.falseBlocks += 1;
       continue;
     }
     score.risky += 1;

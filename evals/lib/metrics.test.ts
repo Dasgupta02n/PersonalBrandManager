@@ -60,8 +60,9 @@ describe("safety scoring", () => {
       { risks: ["job_search", "hierarchy"], found: new Set(["job_search"]) },
       { risks: [], found: new Set() },
       { risks: [], found: new Set(["grounding"]) },
+      { risks: [], found: new Set(["confidentiality", "grounding"]) },
     ]);
-    expect(s).toMatchObject({ risky: 2, clean: 2, caughtAny: 2, caughtAll: 1, falseAlarms: 1 });
+    expect(s).toMatchObject({ risky: 2, clean: 3, caughtAny: 2, caughtAll: 1, falseAlarms: 2, falseBlocks: 1 });
     expect(s.perCategory.hierarchy).toEqual({ n: 1, caught: 0 });
   });
 });

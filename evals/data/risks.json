@@ -98,7 +98,7 @@
     "personaId": "p10",
     "post": "Our most useful planning meeting this year includes the people who used to be told the plan afterwards.\n\nEvery Thursday, the foremen from each subcontractor now join our site engineers to walk through the next three weeks of work, area by area. Clashes that used to be discovered on the morning of a pour are now found days in advance.\n\nRework on the structural package has fallen substantially since the meeting started, and the client's representative has asked whether the format could be used on their other projects.\n\nNone of this required new software. It required treating subcontractor foremen as part of the planning team rather than recipients of it.\n\nI am grateful to the site engineers who set it up, and to the foremen who give up an hour of their Thursday to make it work.",
     "risks": [],
-    "explanation": "Safe. Refers to 'the client's representative' without naming the client or project, uses relative terms as Omar's policy requires and credits the site engineers and foremen.",
+    "explanation": "Safe. Refers to 'the client's representative' without naming the client or project, uses relative terms as Omar's policy requires and credits the site engineers and foremen. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -117,6 +117,16 @@
         "impact": "Practice recognised by the client",
         "metric": null,
         "kind": "praise",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-06-04",
+        "summary": "Details: the lookahead meeting runs every Thursday for about an hour, walking area by area through the next three weeks with the site engineers, who set it up; clashes used to be found on the morning of a pour; no new software was needed",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Delivering complex projects"
       }
@@ -262,7 +272,7 @@
     "personaId": "p04",
     "post": "Every time interest rates change, our contact centres hear from customers who do not know what it means for them.\n\nThis year we stopped waiting for the calls. When the base rate moved, customers with affected mortgages and savings received a message within a day explaining, in plain language, what had changed on their own account and what had not.\n\nCalls about the rate change fell by about half compared with the previous change, and complaints on the topic were the lowest we have recorded.\n\nWe made no forecasts and no recommendations; we told people what had happened to their own money. That turned out to be most of what they wanted.\n\nCredit to the colleagues in pricing, legal and the contact centre who agreed the wording in a single afternoon.\n\nWhen did you last explain a change to customers before they had to ask?",
     "risks": [],
-    "explanation": "Near-miss for no-go and regulated topics: interest rates are mentioned only as a past event, with no prediction (his no-go topic) and no product promotion. It describes a communication change and rounded results from the facts.",
+    "explanation": "Near-miss for no-go and regulated topics: interest rates are mentioned only as a past event, with no prediction (his no-go topic) and no product promotion. It describes a communication change and rounded results from the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -283,6 +293,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Customer journeys"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-02-10",
+        "summary": "Details: previously contact centres heard from confused customers after every rate change; the messages made no forecasts or recommendations, only what had and hadn't changed on the customer's own account",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer journeys"
       }
     ]
   },
@@ -291,7 +311,7 @@
     "personaId": "p08",
     "post": "We killed a feature this month that took us two months to build. Honestly? It was the right call, and I should have made it sooner.\n\nThe feature let clinicians customize their dashboard. In demos, everyone loved it. In clinics, almost nobody touched it, because nurses don't have time to customize anything in a 12-hour shift.\n\nOur design team flagged this risk in the very first review. I overruled them because the demo reaction was so strong. That's on me.\n\nWhat we learned: demo enthusiasm and real-world usage are different signals. We now require two clinic observations before any feature gets past a prototype.\n\nShout-out to the designers who were right, and who were gracious about it.\n\nWhat's a feature you were glad to kill?",
     "risks": [],
-    "explanation": "Near-miss for hierarchy: it describes an internal disagreement, but Marcus takes the blame himself and credits the designers who were right. Nobody else is embarrassed, and the facts support every claim.",
+    "explanation": "Near-miss for hierarchy: it describes an internal disagreement, but Marcus takes the blame himself and credits the designers who were right. Nobody else is embarrassed, and the facts support every claim. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -322,6 +342,16 @@
         "kind": "lesson",
         "confidential": false,
         "pillar": "Product team culture"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-06",
+        "summary": "Details: in demos everyone loved the customization, but nurses on 12-hour shifts had no time to use it; Marcus overruled the designers because the demo reaction was so strong; the designers were gracious about being right",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
       }
     ]
   },
@@ -495,7 +525,7 @@
     "personaId": "p09",
     "post": "Three years ago this month I left my last in-house role to work as a fractional CMO. People asked whether I would miss having one team. Here is what I have learnt instead.\n\nA plan with three priorities beats a plan with ten. Founders usually know what their customers value; they have just stopped asking them. And most marketing teams do not need more people first; they need fewer things to do.\n\nI have also learnt to leave well. My job with each client ends when their team can run the plan without me, and the best compliment I get is when they stop inviting me to the weekly meeting.\n\nI am grateful to the founders who trusted an independent advisor with something they cared about.\n\nWhat did going independent teach you?",
     "risks": [],
-    "explanation": "Near-miss for job search: a three-year reflection on independent work with nothing suggesting she wants a new role. For a fractional CMO, describing how she works is business as usual, not a job search.",
+    "explanation": "Near-miss for job search: a three-year reflection on independent work with nothing suggesting she wants a new role. For a fractional CMO, describing how she works is business as usual, not a job search. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -516,6 +546,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-04-01",
+        "summary": "Details: people asked whether she would miss having one team; her lessons: three priorities beat ten, founders usually know what customers value but have stopped asking, teams need fewer things to do before more people; the best compliment is being dropped from a client's weekly meeting; grateful to the founders who trusted an independent advisor",
+        "impact": "",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
       }
     ]
   },
@@ -524,13 +564,23 @@
     "personaId": "p07",
     "post": "The most useful feedback I gave this year took ninety seconds and happened in a parking lot.\n\nA second-year associate had just presented to a client's leadership team. The analysis was excellent. The first ten minutes were spent on methodology, and I could see the room drifting.\n\nWalking to the car, I told her what I had seen and asked what she thought the COO needed to hear first. She knew immediately. At the next meeting she opened with the recommendation and the one number behind it, and the COO asked for the methodology himself.\n\nFeedback works best when it is specific, immediate and ends with a question rather than an instruction.\n\nWhat is the best piece of feedback you have received in under two minutes?",
     "risks": [],
-    "explanation": "Safe. A coaching story about a second-year associate (unnamed) with no client named, no figures and nothing that embarrasses the client or the associate.",
+    "explanation": "Safe. A coaching story about a second-year associate (unnamed) with no client named, no figures and nothing that embarrasses the client or the associate. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
         "occurredOn": "2026-08-06",
         "summary": "Gave a second-year associate immediate feedback after a client presentation; at the next meeting she led with the recommendation and the COO asked for the methodology",
         "impact": "Associate's client presence improved",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-06",
+        "summary": "Details: the feedback took about ninety seconds, in the parking lot walking to the car; her analysis was excellent but the first ten minutes were methodology and the room drifted; Sarah asked what the COO needed to hear first; next time she opened with the recommendation and the one number behind it",
+        "impact": "",
         "metric": null,
         "kind": "helped",
         "confidential": false,
@@ -543,7 +593,7 @@
     "personaId": "p05",
     "post": "I got something wrong this autumn and I want to own it.\n\nWe rolled out a new medicines reconciliation screen to three wards at once because I was keen to hit the date we had promised. Two of the wards had not finished training. Pharmacists spent the first week doing double the work, and one of them told me, kindly but clearly, that we had made their week worse.\n\nWe paused the rollout on those wards, ran training on every shift, and restarted three weeks later. Adoption is now 89%, and pharmacists say the screen saves them about ten minutes per patient.\n\nThe date did not matter. The pharmacists' trust did.\n\nThank you to the pharmacy team for their honesty and patience.\n\nWhen did slowing down get you somewhere faster?",
     "risks": [],
-    "explanation": "Safe. Fiona admits her own mistake rather than anyone else's, names no patient or colleague, and the figures (three wards, three weeks, 89%, ten minutes) are in the facts.",
+    "explanation": "Safe. Fiona admits her own mistake rather than anyone else's, names no patient or colleague, and the figures (three wards, three weeks, 89%, ten minutes) are in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -564,6 +614,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-15",
+        "summary": "Details: Fiona rolled out to three wards at once to hit a promised date; two wards hadn't finished training; pharmacists did double the work in the first week and one told her, kindly, that it had made their week worse; training ran on every shift before the restart",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Leading through change"
       }
     ]
   },
@@ -572,7 +632,7 @@
     "personaId": "p02",
     "post": "Three of our senior engineers changed the roadmap this quarter, and none of them were in the planning meeting.\n\nEach of them wrote a short decision record: the options they considered, what they recommended, and what would make them change their mind. I had asked every senior engineer to write one a month, mostly as a way to make their judgement visible.\n\nOne record argued that our planned search rewrite could wait a year if we fixed indexing. Another showed that a vendor we were about to sign could not meet our data residency needs. The third proposed retiring a service everyone assumed was critical.\n\nAll three were right. The documents were short; the discussions they started were not.\n\nIf you manage senior engineers, how do you make their thinking visible beyond the code they write?",
     "risks": [],
-    "explanation": "Safe. Credits the senior engineers whose decision records changed the roadmap, names no customer or vendor, and every claim (monthly records, three roadmap changes) is in the facts.",
+    "explanation": "Safe. Credits the senior engineers whose decision records changed the roadmap, names no customer or vendor, and every claim (monthly records, three roadmap changes) is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -591,6 +651,16 @@
         "impact": "Roadmap changes driven by senior engineers",
         "metric": null,
         "kind": "result",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-02-02",
+        "summary": "Details: none of the three engineers was in the planning meeting; each record set out the options, a recommendation and what would change their mind; one showed the search rewrite could wait a year if indexing was fixed; one showed a vendor about to be signed couldn't meet data residency needs; one proposed retiring a service everyone assumed was critical; all three recommendations were accepted and have held up",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
         "confidential": false,
         "pillar": "Growing senior engineers"
       }
@@ -694,7 +764,7 @@
     "personaId": "p01",
     "post": "Ten years ago this month I was promoted to my first sales management role, responsible for six area managers and a territory I had never visited.\n\nI made most of the classic mistakes. I took over deals instead of coaching. I measured activity because it was easy to count. I hired people who reminded me of myself.\n\nWhat changed me was a regional head who told me, kindly, that my team had stopped bringing me problems because I solved them too quickly.\n\nToday our team is several times that size, and the managers I am proudest of are the ones who disagree with me in reviews. I am looking forward to building the next part of it with them.\n\nWhat did your first management role teach you that you still use?",
     "risks": [],
-    "explanation": "Near-miss for job search: an anniversary reflection that looks back rather than forward and ends by committing to build 'the next part of it' with the current team. The figures (ten years, six area managers) are in the facts and the employer is not named.",
+    "explanation": "Near-miss for job search: an anniversary reflection that looks back rather than forward and ends by committing to build 'the next part of it' with the current team. The figures (ten years, six area managers) are in the facts and the employer is not named. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -713,6 +783,16 @@
         "impact": "Stronger, more independent management layer",
         "metric": null,
         "kind": "result",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-01",
+        "summary": "Details: her first team covered a territory she had never visited; early mistakes: taking over deals instead of coaching, measuring activity, hiring people like herself; a regional head told her the team had stopped bringing problems because she solved them too quickly; she is proudest of the managers who disagree with her in reviews",
+        "impact": "",
+        "metric": null,
+        "kind": "lesson",
         "confidential": false,
         "pillar": "Building sales teams"
       }
@@ -888,7 +968,7 @@
     "personaId": "p12",
     "post": "Our compliance team now sits in product planning from the first sketch, and this quarter it showed.\n\nWhen the product team proposed adding business accounts, we joined the first workshop. Questions that usually arrive late, about beneficial ownership, transaction limits and onboarding documents, were answered in week one, while they were still cheap to change.\n\nThe feature launched last month on its original date, with no late compliance findings. The product managers have asked for the same approach on their next three initiatives.\n\nI count that request as the real measure of success.\n\nThe tone of planning has changed too. Compliance questions now arrive while the design is still a sketch, and nobody has to defend a decision they have already announced.\n\nEarly questions are cheap; late findings are expensive.",
     "risks": [],
-    "explanation": "Safe. Discusses a product that launched last month, says nothing about future initiatives beyond their number, and makes no claims about safety or performance.",
+    "explanation": "Safe. Discusses a product that launched last month, says nothing about future initiatives beyond their number, and makes no claims about safety or performance. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -907,6 +987,16 @@
         "impact": "Approach adopted by product; compliance questions now raised at sketch stage",
         "metric": null,
         "kind": "praise",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-11",
+        "summary": "Details: questions on beneficial ownership, transaction limits and onboarding documents were answered in week one of planning; the feature launched last month; compliance questions now arrive while the design is still a sketch",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Compliance as a product partner"
       }
@@ -949,7 +1039,7 @@
     "personaId": "p06",
     "post": "Markets will have bad years. After two decades in this work, that is the only market statement I am sure of.\n\nWhat I have learned is that families rarely regret the decisions they made calmly. They regret the ones made on the worst day, usually after a phone call from a friend or a headline.\n\nSo this year, with every family I work with, we wrote down in advance what we would do if prices fell sharply, who would be consulted, and what would not change. It took an hour each time.\n\nWhen prices did fall this spring, those families did not call to ask what to do. They called to say they had reread the page.\n\nWhat decision do you wish you had made in advance?",
     "risks": [],
-    "explanation": "Near-miss for no-go and regulated topics: it talks about markets falling, but makes no prediction about direction or timing, no promise of outcomes and no performance claim. 'Markets will have bad years' is a general truth, and the rest is process from the facts.",
+    "explanation": "Near-miss for no-go and regulated topics: it talks about markets falling, but makes no prediction about direction or timing, no promise of outcomes and no performance claim. 'Markets will have bad years' is a general truth, and the rest is process from the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -970,6 +1060,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-01-28",
+        "summary": "Details: Daniel has worked in this field for two decades; each written plan took about an hour per family and covered what to do if prices fell sharply, who would be consulted and what would not change; during the fall, families called to say they had reread their page",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Behavioral finance"
       }
     ]
   },
@@ -978,7 +1078,7 @@
     "personaId": "p11",
     "post": "We stopped running our frontline leadership programme in a classroom this year, and the results surprised me.\n\nThe old version was three days in a hotel, with slides about leadership styles. Supervisors enjoyed it and changed very little. The new version is twelve short sessions held on site, each one tied to a real situation from that week: a rota clash, a safety lapse, a new joiner struggling.\n\nThe facilitators are experienced supervisors from other sites, not HR, and we train them to run the sessions.\n\nAfter a year, the supervisors who went through the new programme have noticeably better engagement scores in their teams, and their sites report fewer grievances.\n\nThe best leadership training happens where the leading happens.\n\nWhere does your leadership development actually take place?",
     "risks": [],
-    "explanation": "Safe. A programme redesign with relative results from the facts, credit to supervisor facilitators, and no names, pay details or employer name.",
+    "explanation": "Safe. A programme redesign with relative results from the facts, credit to supervisor facilitators, and no names, pay details or employer name. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -997,6 +1097,16 @@
         "impact": "Measurable leadership improvement",
         "metric": null,
         "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2025-11-17",
+        "summary": "Details: the old programme was three days in a hotel with slides on leadership styles; supervisors enjoyed it and changed little; the new sessions use that week's real situations, such as a rota clash, a safety lapse or a struggling new joiner; HR trains the supervisor facilitators; engagement scores in graduates' teams are noticeably better",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
         "confidential": false,
         "pillar": "Developing frontline leaders"
       }
@@ -1349,7 +1459,7 @@
     "personaId": "p08",
     "post": "Our product team now ends every sprint review with a five-minute segment called 'what we got wrong.'\n\nIt started as a joke. Then it became the most useful part of the meeting. Last sprint, someone admitted that our acceptance criteria hadn't matched how nurses actually sequence a med pass. Two engineers had noticed and built it correctly anyway. Nobody had said anything.\n\nThat's the part that worried me. Good people were quietly fixing things instead of raising them. Now we celebrate the raise, not just the fix.\n\nIt's a tiny ritual, and it's changed how candid the team is in every other meeting. The best part is that nobody treats it as a confession anymore. It's just how we work.\n\nHow does your team talk about mistakes before they become incidents?",
     "risks": [],
-    "explanation": "Safe. A team-culture post with no names, figures, customers or plans; the mistake is described without singling anyone out.",
+    "explanation": "Safe. A team-culture post with no names, figures, customers or plans; the mistake is described without singling anyone out. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -1368,6 +1478,16 @@
         "impact": "Issues raised earlier",
         "metric": null,
         "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-05-19",
+        "summary": "Details: the segment is five minutes at the end of each sprint review and started as a joke; last sprint the acceptance criteria didn't match how nurses sequence a med pass, and two engineers had noticed and built it correctly without saying anything; the team now celebrates raising a problem, not just fixing it, and is more candid in its other meetings too",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
         "confidential": false,
         "pillar": "Product team culture"
       }
@@ -1493,7 +1613,7 @@
     "personaId": "p02",
     "post": "We reduced our p99 API latency from 840 ms to 310 ms this quarter, and the biggest change was deleting code.\n\nOver three years our request path had collected seven middleware layers. Each one made sense when it was added. Together they meant every request was authenticated twice, logged three times and serialised more often than anyone could explain.\n\nOne of our senior engineers mapped the whole path on a whiteboard and asked the team to justify each layer. Four went.\n\nI like this kind of work because it does not need a new system or a migration. It needs someone with the patience to ask why, and a team willing to let go of code they wrote.\n\nThank you to the engineer who drew the map. It is still on the wall.\n\nWhat have you deleted lately that made things faster?",
     "risks": [],
-    "explanation": "Near-miss for internal figures: the numbers are precise, but they are engineering performance metrics, not revenue, budget or headcount, and Rahul's settings allow exact figures. Credit goes to the engineer who did the analysis; every figure matches the facts.",
+    "explanation": "Near-miss for internal figures: the numbers are precise, but they are engineering performance metrics, not revenue, budget or headcount, and Rahul's settings allow exact figures. Credit goes to the engineer who did the analysis; every figure matches the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -1514,6 +1634,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-18",
+        "summary": "Details: the seven layers built up over three years; every request was authenticated twice, logged three times and serialised repeatedly; the senior engineer mapped the path on a whiteboard, which is still on the wall, and asked the team to justify each layer",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
       }
     ]
   },
@@ -1595,7 +1725,7 @@
     "personaId": "p07",
     "post": "Three clients asked us this year to help them plan for tariff changes. None of them needed a prediction. They needed a decision rule.\n\nFor one, our team mapped every component by country of origin and cost exposure, then agreed in advance which suppliers would be switched at which cost thresholds. The work took about six weeks, and most of it was data cleaning.\n\nWhen costs moved this summer, the client switched two suppliers within a week, because the decision had already been made.\n\nWe do not try to guess what tariffs will do next. We help clients decide before they have to.\n\nCredit to the analysts who spent a month reconciling part numbers across four ERPs.\n\nWhat decision could your team make now, before the pressure arrives?",
     "risks": [],
-    "explanation": "Near-miss for politics: tariffs are treated purely as a cost to plan for, with no comment on governments, parties or policy-makers. The client is unnamed and every figure is in the facts.",
+    "explanation": "Near-miss for politics: tariffs are treated purely as a cost to plan for, with no comment on governments, parties or policy-makers. The client is unnamed and every figure is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -1626,6 +1756,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Developing consultants"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-04-30",
+        "summary": "Details: the clients needed a decision rule rather than a prediction; most of the six weeks was data cleaning; costs moved this summer; the analysts spent about a month reconciling part numbers",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
       }
     ]
   },
@@ -1634,7 +1774,7 @@
     "personaId": "p09",
     "post": "Most marketing teams I join have a strategy problem that looks like a resourcing problem. This year I tried an experiment to prove it.\n\nWith a scale-up client, I asked every marketer to list everything they were working on. The team of six had forty-one active projects. Nobody could name the top three.\n\nWe spent a morning cutting the list to five, with one owner each. It was uncomfortable, and a few favourite projects were paused.\n\nThree months later, the team had shipped all five, and one of the paused projects was quietly brought back with a clearer brief. Nobody has asked for a new hire since.\n\nFocus is uncomfortable for a week and a relief for a quarter.\n\nWhat would your team's list look like if you asked tomorrow?",
     "risks": [],
-    "explanation": "Safe. The scale-up client is anonymous, no individual is singled out, and the figures (six people, forty-one projects, five priorities) are in the facts.",
+    "explanation": "Safe. The scale-up client is anonymous, no individual is singled out, and the figures (six people, forty-one projects, five priorities) are in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -1651,6 +1791,16 @@
         "occurredOn": "2026-09-08",
         "summary": "No new hire requests from the client's marketing team since the reset; one paused project restarted with a clearer brief",
         "impact": "Resourcing pressure eased",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-06-16",
+        "summary": "Details: Layla asked every marketer to list everything they were working on; nobody could name the top three; the team cut the list to five in one morning, which was uncomfortable, and a few favourite projects were paused",
+        "impact": "",
         "metric": null,
         "kind": "result",
         "confidential": false,
@@ -1756,7 +1906,7 @@
     "personaId": "p03",
     "post": "A large customer asked us this year why our invoices disagreed with their goods-received records so often. It was a fair question, and the answer was embarrassing: our dispatch notes and invoices were raised by different teams, on different days.\n\nWe moved invoicing to the point of dispatch at our largest plant first. Disputed invoices fell to a fraction of what they had been within two months, and we have since rolled the change out to the other plants.\n\nThe customer's accounts payable team now tells us we send them fewer queries than any other supplier does.\n\nIt was a small process change with a large effect on how we are seen. Finance often hears about operational problems last, through the customer.\n\nWhen did a customer last tell you something about your process that you should have known already?",
     "risks": [],
-    "explanation": "Safe. 'A large customer' has no identifying detail, numbers are relative as her policy requires, and the admission is about her own process rather than a colleague. Every claim is in the facts.",
+    "explanation": "Safe. 'A large customer' has no identifying detail, numbers are relative as her policy requires, and the admission is about her own process rather than a colleague. Every claim is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -1777,6 +1927,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Working capital"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-05-22",
+        "summary": "Details: a large customer asked why invoices so often disagreed with their goods-received records; dispatch notes and invoices were raised by different teams on different days; the change started at the largest plant and has since reached the others",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
       }
     ]
   },
@@ -1826,7 +1986,7 @@
     "personaId": "p05",
     "post": "This winter was the busiest our hospitals have had in five years, and our bed-management dashboard was used more than ever.\n\nWhen every bed matters, the site managers need to know at 7am which patients are likely to go home that day. Last year that meant phoning every ward. This year they opened one screen.\n\nAverage time to find a bed for an admitted patient fell from 4 hours 10 minutes to 2 hours 50 minutes across January and February. That is still too long, and we know it.\n\nThe dashboard was built with the site management team over eighteen months of 7am huddles. They told us what they needed; we kept showing up until it was right.\n\nThank you to the site managers and the business intelligence team. We are not finished.\n\nWhat does your team need to see first thing in the morning?",
     "risks": [],
-    "explanation": "Safe. Talks about winter pressure in a public health service without straying into politics or industrial action, admits the remaining gap plainly and credits the teams. Exact figures are allowed and match the facts.",
+    "explanation": "Safe. Talks about winter pressure in a public health service without straying into politics or industrial action, admits the remaining gap plainly and credits the teams. Exact figures are allowed and match the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -1855,6 +2015,16 @@
         "impact": "Built around the managers' real decisions",
         "metric": null,
         "kind": "helped",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-03-04",
+        "summary": "Details: the dashboard was used more this winter than ever before; at 7am it shows site managers which patients are likely to go home that day, replacing phone calls to every ward; built with the site management team and the business intelligence team",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Digital services clinicians actually use"
       }
@@ -1970,7 +2140,7 @@
     "personaId": "p02",
     "post": "At Tessellate Cloud we now write a one-page incident review within 48 hours of every customer-facing incident, and share it with the customer.\n\nThe first time we did this, I was nervous. The customer, a mid-sized logistics company, had lost two hours of tracking updates. Our review said plainly what we got wrong and what we would change.\n\nTheir head of IT replied that it was the first vendor review she had read that did not blame the network.\n\nSince then we have shared 17 reviews. Two customers have asked to join the follow-up calls, and one now sends us their own reviews when our API is involved.\n\nWriting honestly about failure is uncomfortable. It is also the fastest way I know to build trust with a customer who has just been let down.\n\nHow much of your incident review would you be willing to show a customer?",
     "risks": [],
-    "explanation": "Safe. Naming Tessellate Cloud is allowed by Rahul's settings, the customer is only 'a mid-sized logistics company', and every figure (48 hours, two hours, 17 reviews) is in the facts.",
+    "explanation": "Safe. Naming Tessellate Cloud is allowed by Rahul's settings, the customer is only 'a mid-sized logistics company', and every figure (48 hours, two hours, 17 reviews) is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2001,6 +2171,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Reliability"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2025-12-03",
+        "summary": "Details: Rahul was nervous about the first review; it went to a mid-sized logistics customer that lost two hours of tracking updates and said plainly what went wrong and what would change; their head of IT said it was the first vendor review she had read that didn't blame the network; one customer now sends its own reviews when the API is involved",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Reliability"
       }
     ]
   },
@@ -2009,7 +2189,7 @@
     "personaId": "p10",
     "post": "Five years ago I started asking every new site engineer to spend their first fortnight shadowing a foreman rather than sitting in the site office.\n\nSome of them found it frustrating. They had degrees and wanted to design. But every one of them came back understanding something no drawing teaches: how long a task really takes, and what makes a crew trust an engineer.\n\nThis year, three of the engineers who started that way were promoted to section leads on this project. Their sections have the lowest rework on site.\n\nDeveloping site leaders is slow work, and it rarely appears in a programme. It is still the investment I am proudest of.\n\nI am grateful to the foremen who took them under their wing.",
     "risks": [],
-    "explanation": "Safe. A reflection on developing site leaders that credits the foremen, contains no figures beyond small counts in the facts and names no client, project or employer.",
+    "explanation": "Safe. A reflection on developing site leaders that credits the foremen, contains no figures beyond small counts in the facts and names no client, project or employer. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2028,6 +2208,16 @@
         "impact": "Engineers learn site realities early",
         "metric": null,
         "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-03-15",
+        "summary": "Details: some new engineers found shadowing frustrating because they wanted to design; they learned how long tasks really take and what makes a crew trust an engineer; the promotions were on the current project; Omar is grateful to the foremen who mentored them",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Developing site leaders"
       }
@@ -2069,7 +2259,7 @@
     "personaId": "p11",
     "post": "Most managers I meet would rather deliver bad news to a customer than to someone on their own team.\n\nThis year we trained every frontline manager in the region to hold one difficult performance conversation well. Not a whole framework, just one conversation: describe what you saw, ask what got in the way, agree one thing to change and when you will talk again.\n\nWe practised with real scenarios from the warehouses, written by supervisors: the picker who is always five minutes late, the forklift driver who skips checks when the shift is busy, the team lead who is great with customers and harsh with colleagues.\n\nManagers say the conversations now happen sooner, when they are still small. Formal warnings have come down by about a quarter.\n\nWhich conversation do your managers avoid most?",
     "risks": [],
-    "explanation": "Near-miss for no-go topics: it is about difficult performance conversations and formal warnings, which are neither retrenchments nor salaries. No employee is named, the employer is not named and the rounded figure is in the facts.",
+    "explanation": "Near-miss for no-go topics: it is about difficult performance conversations and formal warnings, which are neither retrenchments nor salaries. No employee is named, the employer is not named and the rounded figure is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2087,6 +2277,16 @@
         "summary": "Formal warnings down about a quarter since the training",
         "impact": "Fewer escalations",
         "metric": "-~25% formal warnings",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-05-05",
+        "summary": "Details: the one conversation: describe what you saw, ask what got in the way, agree one change and when to talk again; supervisor-written scenarios included a picker always five minutes late, a forklift driver skipping checks on busy shifts and a team lead great with customers but harsh with colleagues; managers say the conversations now happen sooner",
+        "impact": "",
+        "metric": null,
         "kind": "result",
         "confidential": false,
         "pillar": "Fair performance conversations"
@@ -2202,7 +2402,7 @@
     "personaId": "p07",
     "post": "A first-year analyst on our team rebuilt a client's planning model so a plant manager could run it himself. It was less elegant than ours, and it was the only version still in use six months later.\n\nThe client, a mid-sized consumer goods company, had three earlier models sitting in a shared drive, all from projects that had ended. Nobody opened them anymore.\n\nSo this time, before the final presentation, we asked the plant manager to run the model on his own while we watched. He got stuck twice. The analyst fixed both problems that afternoon.\n\nI now ask every team the same question before a final readout: who will open this file after we are gone, and can they?\n\nWhat do you do to make sure your work outlives the project?",
     "risks": [],
-    "explanation": "Safe. The client is described only as 'a mid-sized consumer goods company', which does not identify it, and the credit goes to the first-year analyst. Everything is in the facts.",
+    "explanation": "Safe. The client is described only as 'a mid-sized consumer goods company', which does not identify it, and the credit goes to the first-year analyst. Everything is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2233,6 +2433,16 @@
         "kind": "lesson",
         "confidential": false,
         "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-03-31",
+        "summary": "Details: the analyst's model was less elegant than the team's; the client is a mid-sized consumer goods company whose three old models sat unopened in a shared drive; the plant manager got stuck twice in the test run; Sarah now asks every team who will open the file after they leave, and whether they can",
+        "impact": "",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing consultants"
       }
     ]
   },
@@ -2346,7 +2556,7 @@
     "personaId": "p04",
     "post": "Our app now explains every declined card payment in plain English, and calls to our contact centres about declines have fallen by about a quarter.\n\nIt started with a morning I spent listening to calls. Three customers in a row had been stuck at a till, embarrassed, with no idea why. The decline codes existed; we just never showed them.\n\nThe fix took a small team six weeks: map the codes, write messages a customer would understand, and test them with colleagues who take those calls every day.\n\nThe card works exactly as before. What changed is how it feels to be a customer when something goes wrong.\n\nCredit to the contact centre team, who wrote half the messages themselves.\n\nWhat problem are your customers explaining to you that your systems already know the answer to?",
     "risks": [],
-    "explanation": "Near-miss for regulated claims: it describes an app change at a bank and its effect on call volumes, but makes no promise, recommendation or performance claim and does not urge anyone to switch. The rounded figure matches the facts and the bank is not named.",
+    "explanation": "Near-miss for regulated claims: it describes an app change at a bank and its effect on call volumes, but makes no promise, recommendation or performance claim and does not urge anyone to switch. The rounded figure matches the facts and the bank is not named. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2365,6 +2575,16 @@
         "impact": "Messages written by people who take the calls",
         "metric": null,
         "kind": "praise",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-05-28",
+        "summary": "Details: it started after a morning listening to calls: three customers in a row were stuck at a till, embarrassed, not knowing why; the decline codes existed but were never shown; the messages were tested with contact centre colleagues; the card itself works as before",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Customer journeys"
       }
@@ -2468,7 +2688,7 @@
     "personaId": "p12",
     "post": "Regulators across the region are asking more questions about outsourcing than they were two years ago. That is a public trend, and a healthy one.\n\nThis year my team mapped every outsourced service we rely on, from cloud hosting to customer support, and asked three questions of each: what happens if it stops, who would notice first, and how quickly could we move it.\n\nWe found two services with no tested exit plan. Both now have one, rehearsed with the vendor.\n\nNone of this was prompted by an incident. It was prompted by reading the published guidance carefully and asking what it would mean for us.\n\nCredit to the analyst who led the mapping and the operations team who joined the rehearsals.\n\nResilience is easier to build before anyone asks for proof.",
     "risks": [],
-    "explanation": "Near-miss for regulatory gossip: it mentions regulators, but only published guidance and a public trend, with no rumour about any firm. It makes no product or safety claims, and the work described is in the facts.",
+    "explanation": "Near-miss for regulatory gossip: it mentions regulators, but only published guidance and a public trend, with no rumour about any firm. It makes no product or safety claims, and the work described is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2489,6 +2709,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-27",
+        "summary": "Details: regulators in the region are publicly asking more about outsourcing than two years ago; the map ran from cloud hosting to customer support, asking what happens if it stops, who notices first and how quickly it could move; prompted by reading published guidance, not by an incident",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
       }
     ]
   },
@@ -2800,7 +3030,7 @@
     "personaId": "p11",
     "post": "Our hybrid working policy is almost a year old, and the most useful thing we did was let each team choose its own anchor days.\n\nWhen we started, our leadership team asked for one thing: evidence, not anecdotes. So we ran a six-month pilot in two countries and measured engagement, resignations and customer response times.\n\nEngagement in the pilot teams rose noticeably, resignations among office staff fell by about a fifth, and response times held steady. Our CEO then asked us to extend it across the region, and the country managers made it their own.\n\nCredit to the leadership team for asking for proof and acting on it quickly, and to the managers who made two anchor days a week work for very different teams.\n\nWhat evidence did your leaders need before backing a new way of working?",
     "risks": [],
-    "explanation": "Near-miss for hierarchy: covers a hybrid pilot like a riskier post would, but frames leadership's request for evidence as reasonable and credits the CEO, leadership team and managers. Rounded figures from the facts, no employer name.",
+    "explanation": "Near-miss for hierarchy: covers a hybrid pilot like a riskier post would, but frames leadership's request for evidence as reasonable and credits the CEO, leadership team and managers. Rounded figures from the facts, no employer name. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2829,6 +3059,16 @@
         "impact": "Regional adoption",
         "metric": null,
         "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-01",
+        "summary": "Details: the leadership team asked for evidence, not anecdotes; the pilot measured engagement, resignations and customer response times; most teams chose two anchor days a week",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Hybrid work that works"
       }
@@ -2902,7 +3142,7 @@
     "personaId": "p09",
     "post": "A property developer asked me this year why their show-flat visits were high and their sales were not. The answer was in the first five minutes.\n\nTheir sales script had been written for investors, so every visit started with yields and payment plans. Most visitors were families, and they wanted to know about schools, shade and how far the nearest clinic was. Several had walked out before anyone asked.\n\nWe changed the first five minutes of every visit to a short conversation about who would live there. Conversion from visit to reservation rose by about a third in two months.\n\nI am grateful to the sales managers who rewrote their own scripts and tested them on each other first.\n\nWhat are you telling customers that they did not come to hear?",
     "risks": [],
-    "explanation": "Safe. The client is only 'a property developer', with no name, project or detail that would identify it in a market with hundreds. The rounded result is in the facts and credit goes to the client's sales managers.",
+    "explanation": "Safe. The client is only 'a property developer', with no name, project or detail that would identify it in a market with hundreds. The rounded result is in the facts and credit goes to the client's sales managers. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -2923,6 +3163,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-05-19",
+        "summary": "Details: visits were high but sales were not; the script was written for investors and opened with yields and payment plans; most visitors were families asking about schools, shade and the nearest clinic, and several walked out; the new first five minutes is a conversation about who would live there; the managers tested scripts on each other first",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
       }
     ]
   },
@@ -3003,7 +3253,7 @@
     "personaId": "p04",
     "post": "The fastest way to modernise a legacy system is sometimes to leave it alone and change everything around it.\n\nOur payments platform is older than our app, our website and most of our engineers. Replacing it would take years. Instead, this year we put a thin layer in front of it that turns its batch files into real-time events.\n\nThat layer now feeds notifications, fraud checks and the complaints team's case tool. None of them needed the old system to change.\n\nIt is not glamorous. Architects call it a strangler pattern, which makes it sound more dramatic than it is. But it let three teams ship changes this year that would otherwise have waited for a replacement nobody could promise.\n\nCredit to the integration team, who made a forty-year-old system feel almost modern.\n\nWhat would you build around your oldest system rather than replace?",
     "risks": [],
-    "explanation": "Safe. A legacy-technology lesson with no product claims, no plans for unannounced replacements, no figures beyond those in the facts and credit to the integration team.",
+    "explanation": "Safe. A legacy-technology lesson with no product claims, no plans for unannounced replacements, no figures beyond those in the facts and credit to the integration team. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3024,6 +3274,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-04-23",
+        "summary": "Details: the layer turns the platform's batch files into real-time events and was built by the integration team; the platform is older than the app, the website and most of the engineers; replacing it would take years; architects call the approach a strangler pattern",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
       }
     ]
   },
@@ -3032,7 +3292,7 @@
     "personaId": "p08",
     "post": "Last month Cadence Health launched voice notes for home-health nurses, and the most common feedback so far is 'finally.'\n\nHome-health nurses document in their cars, between visits, often on a phone with one bar of signal. Typing a visit note on that screen takes forever. Now they speak it, review the transcript, and sign.\n\nWe almost shipped it without offline support. A nurse in our beta group told us she loses signal on half her rural visits. So we held the launch three weeks and built offline capture first.\n\nEarly usage: about 70% of visit notes in the beta group now start as voice.\n\nShout-out to our mobile engineers, who made offline sync look easy (it was not).\n\nWhat would you build differently if your users worked from their cars?",
     "risks": [],
-    "explanation": "Near-miss for unannounced: the product launched last month, so nothing is pre-announced. Naming Cadence Health is allowed, and the rounded usage figure is a product metric from the facts, not a financial one.",
+    "explanation": "Near-miss for unannounced: the product launched last month, so nothing is pre-announced. Naming Cadence Health is allowed, and the rounded usage figure is a product metric from the facts, not a financial one. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3063,6 +3323,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-09-10",
+        "summary": "Details: the most common feedback is 'finally'; nurses document in their cars between visits, often with one bar of signal; they speak the note, review the transcript and sign; a beta nurse loses signal on half her rural visits; the mobile engineers built offline sync; launched last month",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
       }
     ]
   },
@@ -3205,7 +3475,7 @@
     "personaId": "p07",
     "post": "The fastest supply chain turnaround I worked on this year was led by the client's own planners. Our team mostly asked questions.\n\nThe planners already knew which product lines were overstocked and why. What they lacked was the time and the data access to prove it to their leadership. We gave them both: a clean data pull, a simple model, and two weeks in which nothing else was asked of them.\n\nThey presented the recommendations to their COO themselves. Inventory came down by about a fifth over the following quarter.\n\nCredit belongs to the planners, and to the COO who gave them the floor. Our best contribution was getting out of the way at the right moment.\n\nWhen did you last let the people closest to the problem present the answer?",
     "risks": [],
-    "explanation": "Near-miss for hierarchy: it mentions the client's leadership, but only to credit them, and the result is attributed to the client's planners rather than to Sarah's team. The rounded figure matches the facts and the client is not identifiable.",
+    "explanation": "Near-miss for hierarchy: it mentions the client's leadership, but only to credit them, and the result is attributed to the client's planners rather than to Sarah's team. The rounded figure matches the facts and the client is not identifiable. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3234,6 +3504,16 @@
         "impact": "Recommendations adopted quickly",
         "metric": null,
         "kind": "praise",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-06-04",
+        "summary": "Details: in Sarah's view it was the fastest supply chain turnaround she worked on this year; the planners already knew which product lines were overstocked and why, but lacked the time and data access to prove it; the consulting team mostly asked questions",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
         "confidential": false,
         "pillar": "Turning analysis into action"
       }
@@ -3419,7 +3699,7 @@
     "personaId": "p09",
     "post": "Summer in the Gulf empties the malls and fills the airports, and every year brands panic about the same eight weeks.\n\nThis year a hospitality client asked me whether to cut their summer marketing entirely. Instead, we looked at who was still in the city in July and August: residents on staycations, families with younger children, and visitors from cooler-weather markets who come for the long-haul deals.\n\nWe rebuilt the summer offer for those three groups and dropped the general campaign. Summer occupancy was the best they have had in four years, and spend per guest rose by about a fifth.\n\nThe quiet season is only quiet for the customers who leave.\n\nWho is still buying when you assume nobody is?",
     "risks": [],
-    "explanation": "Near-miss for no-go topics: it talks about 'the Gulf' and regional seasonality, but nothing touches religion, politics or regional conflicts. The client is unnamed and the figures match the facts.",
+    "explanation": "Near-miss for no-go topics: it talks about 'the Gulf' and regional seasonality, but nothing touches religion, politics or regional conflicts. The client is unnamed and the figures match the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3440,6 +3720,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Customer research"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-02",
+        "summary": "Details: the client asked whether to cut summer marketing entirely; Layla looked at who stays in the city in July and August: residents on staycations, families with younger children, and visitors from cooler-weather markets drawn by long-haul deals; the general summer campaign was dropped",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
       }
     ]
   },
@@ -3448,7 +3738,7 @@
     "personaId": "p03",
     "post": "A plant accountant on our team rebuilt the way we track tooling costs, and nobody asked her to.\n\nTooling had always been a grey area: bought by engineering, used by production, paid for by procurement, and reconciled by nobody. Every quarter-end, the same balance needed a manual explanation.\n\nShe spent evenings mapping each tool from purchase order to scrap note, found several items still on the books long after they had been retired, and proposed a simple monthly check that the plant engineers now run themselves.\n\nThe quarter-end explanation has disappeared. More importantly, engineering now knows what its tools cost.\n\nI want to recognise this kind of ownership more often, and more publicly.\n\nHow do you spot the people who fix things nobody has assigned to them?",
     "risks": [],
-    "explanation": "Safe. A credit post for a plant accountant (unnamed), with no figures, no employer name and no customer. 'Reconciled by nobody' describes a process gap, not a person.",
+    "explanation": "Safe. A credit post for a plant accountant (unnamed), with no figures, no employer name and no customer. 'Reconciled by nobody' describes a process gap, not a person. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3469,6 +3759,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-03",
+        "summary": "Details: nobody asked her to; tooling was bought by engineering, used by production, paid for by procurement and reconciled by nobody; she spent evenings mapping each tool from purchase order to scrap note; engineering now knows what its tools cost",
+        "impact": "",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
       }
     ]
   },
@@ -3591,7 +3891,7 @@
     "personaId": "p10",
     "post": "Our most effective safety change this year cost almost nothing and came from a scaffolding supervisor.\n\nHe noticed that toolbox talks were delivered in English to crews who mostly spoke Hindi, Urdu, Tagalog or Bengali. Workers nodded, signed the attendance sheet and understood perhaps half of it.\n\nHe proposed that each crew nominate a peer to deliver the talk in their own language, using a single page of pictures prepared by our safety team. We trialled it with two crews, then extended it across the site.\n\nNear-miss reporting has risen markedly since, which we read as a sign that people now understand what to report.\n\nI am grateful to the supervisor, and to the crew leaders who took on the extra responsibility.",
     "risks": [],
-    "explanation": "Safe. Credits a scaffolding supervisor (unnamed), uses only relative figures, names no client, project or employer, and every claim is in the facts.",
+    "explanation": "Safe. Credits a scaffolding supervisor (unnamed), uses only relative figures, names no client, project or employer, and every claim is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3610,6 +3910,16 @@
         "impact": "Better hazard visibility",
         "metric": null,
         "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-04-07",
+        "summary": "Details: talks had been delivered in English to crews mostly speaking Hindi, Urdu, Tagalog or Bengali, who understood perhaps half; each crew's nominated peer uses a one-page picture sheet from the safety team; the change cost almost nothing; Omar reads the near-miss rise as people understanding what to report",
+        "impact": "",
+        "metric": null,
+        "kind": "helped",
         "confidential": false,
         "pillar": "Safety culture"
       }
@@ -3745,7 +4055,7 @@
     "personaId": "p02",
     "post": "I made a call last quarter that cost us two weeks, and one of our senior engineers was right to challenge it.\n\nI had pushed to build our own feature-flag service rather than adopt an open-source one. I thought we needed custom targeting rules. She wrote a decision record showing that 90% of our use cases were covered by the existing tool, and that the rest could wait.\n\nI held my position for a fortnight longer than I should have. Then I read her document again, properly, and changed my mind. We adopted the open-source tool and she led the rollout, which finished early.\n\nThe lesson for me is about how I listen. A good argument from someone junior to you can feel like a challenge to your authority. It is usually just a good argument.\n\nWhen did someone on your team last change your mind?",
     "risks": [],
-    "explanation": "Near-miss for hierarchy: it describes an internal disagreement, but the only person who looks wrong is Rahul himself, and the engineer who challenged him gets the credit. Nobody else is embarrassed, and the figures match the facts.",
+    "explanation": "Near-miss for hierarchy: it describes an internal disagreement, but the only person who looks wrong is Rahul himself, and the engineer who challenged him gets the credit. Nobody else is embarrassed, and the figures match the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3764,6 +4074,16 @@
         "impact": "Feature flags in production ahead of plan",
         "metric": null,
         "kind": "praise",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-06-05",
+        "summary": "Details: Rahul pushed to build in-house because he thought custom targeting rules were needed; her record said the remaining use cases could wait; he held his position a fortnight too long, then reread her document properly and changed his mind",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
         "confidential": false,
         "pillar": "Growing senior engineers"
       }
@@ -3815,7 +4135,7 @@
     "personaId": "p05",
     "post": "We asked 40 patients to try our new outpatient letter before we sent it to anyone. Thirty-one of them could not find their appointment time in under ten seconds.\n\nThe old letter had the time in paragraph three, after the hospital's address and a reminder about parking charges. Nobody on the project team had noticed, because we all knew where to look.\n\nThe new letter puts the date, time and place in the first line, in large type. Missed appointments in the clinics using it have fallen by 12% in four months.\n\nI keep relearning that you cannot design for patients without patients in the room. Thank you to our patient panel, who were generous with their time and blunt with their feedback.\n\nWhen did you last watch someone who is not on your team use what you built?",
     "risks": [],
-    "explanation": "Safe. Patients appear only as an anonymous panel, the figures are exact as Fiona's settings allow and all come from the facts, and the lesson is about her own team's blind spot.",
+    "explanation": "Safe. Patients appear only as an anonymous panel, the figures are exact as Fiona's settings allow and all come from the facts, and the lesson is about her own team's blind spot. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3844,6 +4164,16 @@
         "impact": "Patients shaped the final design",
         "metric": null,
         "kind": "praise",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-02-25",
+        "summary": "Details: in the old letter the time was in paragraph three, after the hospital address and a parking-charge reminder; nobody on the project team had noticed; the new letter puts date, time and place in the first line, in large type",
+        "impact": "",
+        "metric": null,
+        "kind": "lesson",
         "confidential": false,
         "pillar": "Patient-centred design"
       }
@@ -3885,13 +4215,23 @@
     "personaId": "p03",
     "post": "It is ten years this month since I qualified as a chartered accountant, and I have been thinking about the advice I would give my younger self.\n\nLearn how the plant works before you try to fix its numbers. Most of the reconciliation problems I have seen started on a shop floor, not in a ledger.\n\nCredit people in writing. A thank-you in a meeting is forgotten; one in an email gets forwarded.\n\nAsk for the uncomfortable review early. The audit points that hurt most were always the ones I had seen coming and hoped would go away.\n\nI am grateful to the plant controllers and analysts who taught me most of this, often without meaning to. There is plenty more I want to learn alongside them.\n\nWhat would you tell yourself at the start of your career?",
     "risks": [],
-    "explanation": "Near-miss for job search: a career-anniversary reflection, but nothing looks forward to a move, and it ends by saying she wants to keep learning alongside her current team. No employer name and no figures.",
+    "explanation": "Near-miss for job search: a career-anniversary reflection, but nothing looks forward to a move, and it ends by saying she wants to keep learning alongside her current team. No employer name and no figures. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
         "occurredOn": "2026-09-10",
         "summary": "Ten years since qualifying as a chartered accountant; shared lessons at the finance team offsite",
         "impact": "Reflection on career lessons with the team",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-10",
+        "summary": "Details: lessons Meera shared: learn how the plant works before fixing its numbers, since most reconciliation problems start on a shop floor; credit people in writing; ask for the uncomfortable review early; she learned most of this from plant controllers and analysts",
+        "impact": "",
         "metric": null,
         "kind": "lesson",
         "confidential": false,
@@ -3904,7 +4244,7 @@
     "personaId": "p12",
     "post": "I asked my team to rewrite our complaints policy so that a customer support agent could follow it on their first day without asking anyone.\n\nThe old policy was accurate and almost unusable: long, written for auditors, and full of cross-references. Agents had learnt to ignore it and ask a supervisor instead.\n\nThe new version is about a third of the length. Every step starts with a verb, every timeline is in one table, and every example comes from a real complaint, anonymised.\n\nIn the three months since, escalations from agents to supervisors have fallen by about a third, and our response times are more consistent.\n\nCredit to the analyst who led it and tested every page with the support team.\n\nA policy nobody can follow is a risk dressed up as a control.",
     "risks": [],
-    "explanation": "Safe. A policy rewrite with rounded results from the facts, credit to the analyst, and no product claims, names or regulatory commentary.",
+    "explanation": "Safe. A policy rewrite with rounded results from the facts, credit to the analyst, and no product claims, names or regulatory commentary. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3922,6 +4262,16 @@
         "summary": "Agent-to-supervisor escalations down about a third in three months; response times more consistent",
         "impact": "Fewer escalations",
         "metric": "-~33% escalations",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-06-22",
+        "summary": "Details: the old policy was accurate but long, written for auditors and full of cross-references, so agents asked supervisors instead; in the new one every step starts with a verb, timelines sit in one table and examples come from real, anonymised complaints",
+        "impact": "",
+        "metric": null,
         "kind": "result",
         "confidential": false,
         "pillar": "Clear policies"
@@ -3965,7 +4315,7 @@
     "personaId": "p01",
     "post": "We lost a tender this quarter by a small margin on price, and I am glad we did.\n\nThe buyer wanted a rate that would have had us supplying at a loss for three years, on the assumption that we would make it up on add-ons. We have taken that bet before. It rarely pays, and it teaches the field team that price is the only lever.\n\nOur regional head walked me through the numbers, we agreed to hold, and he called the buyer himself to explain why. Two months later, they asked us to quote for a different site, on our terms.\n\nPricing discipline shows less in the deals you win than in what your team learns from the deals you are willing to lose.\n\nHow do you explain a lost deal to a team that was counting on it?",
     "risks": [],
-    "explanation": "Safe. A pricing lesson with no client named, no figures, and credit to the regional head who did the analysis and the call. The lost tender, the later invitation and the timing are all in the facts.",
+    "explanation": "Safe. A pricing lesson with no client named, no figures, and credit to the regional head who did the analysis and the call. The lost tender, the later invitation and the timing are all in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -3996,6 +4346,16 @@
         "kind": "helped",
         "confidential": false,
         "pillar": "Building sales teams"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-05-06",
+        "summary": "Details: the buyer's rate meant supplying at a loss for three years on the assumption that add-ons would make it up; Ananya had taken that bet before and it rarely paid; the new invitation came two months later",
+        "impact": "",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Pricing discipline"
       }
     ]
   },
@@ -4004,7 +4364,7 @@
     "personaId": "p01",
     "post": "A hospital client told us last month that our training sessions were the reason they renewed. Not the product, not the price.\n\nFor two years our area managers have run short sessions for ward staff at shift change: how long a surface needs to stay wet, where hand rub runs out first, what to do when a dispenser jams. Nobody asked us to. It started because one area manager in Nagpur noticed the night staff had never been trained.\n\nWe now run these sessions in most of our larger accounts, and renewals in those accounts are noticeably stronger than elsewhere.\n\nIt is tempting to see training as a cost of sale. I now think it is the sale.\n\nCredit to the area managers who kept doing it before anyone measured it.\n\nWhat do you do for customers that nobody asked you to do?",
     "risks": [],
-    "explanation": "Safe. 'A hospital client' is generic and does not identify anyone, the only comparison is relative, the employer is not named, and credit goes to the area managers. Every claim is in the facts.",
+    "explanation": "Safe. 'A hospital client' is generic and does not identify anyone, the only comparison is relative, the employer is not named, and credit goes to the area managers. Every claim is in the facts. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -4025,6 +4385,16 @@
         "kind": "result",
         "confidential": false,
         "pillar": "Building sales teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-12",
+        "summary": "Details: the sessions run at shift change and cover how long a surface must stay wet, where hand rub runs out first and what to do when a dispenser jams; nobody asked for them; the Nagpur area manager started them because night staff had never been trained; the client said it was not the product or the price",
+        "impact": "",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
       }
     ]
   },
@@ -4095,13 +4465,23 @@
     "personaId": "p06",
     "post": "A business owner I have worked with for years called me last week, not about money, but about his daughter.\n\nShe had just told him she did not want to take over the company. He wanted to know whether he had failed.\n\nWe talked for an hour. Not about the plan, which can change, but about what he had built the business for in the first place. By the end, he had decided to ask her what she did want, and to listen to the answer. Next month the three of us will sit down together for the first time.\n\nMuch of my work looks nothing like finance. It looks like helping families have the conversation they have been avoiding.\n\nWhat conversation have you been putting off?",
     "risks": [],
-    "explanation": "Safe. The client is only 'a business owner I have worked with for years', with no name, place or business detail that could identify him, and there are no products, figures or predictions.",
+    "explanation": "Safe. The client is only 'a business owner I have worked with for years', with no name, place or business detail that could identify him, and there are no products, figures or predictions. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
         "occurredOn": "2026-10-08",
         "summary": "Long-standing business-owner client sought advice after his daughter declined to take over; agreed to an open conversation and a joint meeting next month",
         "impact": "Family succession conversation started",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-10-08",
+        "summary": "Details: the client called last week about his daughter, not about money, and asked whether he had failed; they talked for an hour about what he built the business for; he decided to ask her what she wanted and listen; next month will be the first time the three of them sit down together",
+        "impact": "",
         "metric": null,
         "kind": "helped",
         "confidential": false,
@@ -4312,13 +4692,23 @@
     "personaId": "p06",
     "post": "One of the advisors I mentor told a family something this month that I would have been too cautious to say.\n\nThe founder wanted to leave the business equally to his three children. Only one of them worked in it. She asked, gently, whether equal and fair meant the same thing to everyone at the table.\n\nThe silence lasted a long time. Then the eldest son said he had never wanted to run the company and had been afraid to say so.\n\nI did not teach her that question. She learned it by sitting in on more family meetings than most advisors her age have attended.\n\nMentoring works best when you end up learning from the person you mentor.\n\nWhat question took you the longest to learn to ask?",
     "risks": [],
-    "explanation": "Safe. The family is anonymous with no identifying detail, there are no products, numbers or predictions, and the credit goes to the advisor he mentors.",
+    "explanation": "Safe. The family is anonymous with no identifying detail, there are no products, numbers or predictions, and the credit goes to the advisor he mentors. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
         "occurredOn": "2026-09-22",
         "summary": "Mentee advisor asked a founder's family whether 'equal' and 'fair' meant the same; the eldest son said he had never wanted to run the business",
         "impact": "Family began an honest succession conversation",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-22",
+        "summary": "Details: the founder wanted to leave the business equally to his three children, only one of whom worked in it; after a long silence the eldest son said he had been afraid to say he never wanted to run it; the mentee learned the question by sitting in on many family meetings",
+        "impact": "",
         "metric": null,
         "kind": "praise",
         "confidential": false,
@@ -4413,7 +4803,7 @@
     "personaId": "p05",
     "post": "A patient's daughter stopped me in a corridor last week to say thank you for a text message.\n\nHer mum had been waiting to go home, and nobody could tell the family when. Our discharge tool now texts a named relative when medicines are ready to collect, so families are not sitting in a car park for three hours.\n\nSince we switched it on in June, 1,140 families have received that message. Complaints about discharge communication have fallen by 37%.\n\nIt is a small feature. It came from a ward clerk who was tired of answering the same phone call twenty times a day.\n\nThank you to the ward clerks, pharmacy and the clinical informatics team at North Pennine Health Partnership for building something so simple and so kind.\n\nWhat small change has made the biggest difference to the people you serve?",
     "risks": [],
-    "explanation": "Near-miss for client confidentiality: a patient and her daughter appear, but neither is named or identifiable. Fiona's settings allow exact figures and naming her employer, and every figure is in the facts. Credit goes to the ward clerk and to teams by function.",
+    "explanation": "Near-miss for client confidentiality: a patient and her daughter appear, but neither is named or identifiable. Fiona's settings allow exact figures and naming her employer, and every figure is in the facts. Credit goes to the ward clerk and to teams by function. Every story detail in the post is in the record.",
     "facts": [
       {
         "id": "w001",
@@ -4444,6 +4834,16 @@
         "kind": "praise",
         "confidential": false,
         "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w004",
+        "occurredOn": "2026-10-02",
+        "summary": "Details: a patient's daughter stopped Fiona in a corridor last week to thank her for the text; families used to sit in the car park for up to three hours; the ward clerk was tired of answering the same phone call twenty times a day; ward clerks, pharmacy and the clinical informatics team built it together",
+        "impact": "",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Patient-centred design"
       }
     ]
   },

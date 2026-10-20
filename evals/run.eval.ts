@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { expect, test, vi } from "vitest";
 import { stubFor } from "./lib/stub";
@@ -13,6 +14,9 @@ import { stubFor } from "./lib/stub";
 //   EVAL_ESTIMATE=1              print the cost estimate and stop
 //   EVAL_DRY_RUN=1               stand-in model answers; checks the harness, costs nothing
 //   EVAL_LABEL=baseline-v1       a name for the run
+//   EVAL_REUSE=evals/out/<run>   reuse that run's outputs for unchanged cases (baseline only while
+//                                the baseline prompts are unchanged); grading always runs again
+//   EVAL_REUSE_PRODUCT=check     also reuse product outputs for functions whose pipeline is unchanged
 // Needs OPENROUTER_API_KEY unless it's a dry run.
 
 const env = process.env;
@@ -27,7 +31,7 @@ if (dryRun) {
 }
 
 test("quality bar", async () => {
-  const { FUNCTIONS, datasetFor, estimateCost, runAll } = await import("./lib/runner");
+  const { FUNCTIONS, datasetFor, estimateCost, loadReuse, runAll } = await import("./lib/runner");
   const { loadRaw } = await import("./lib/load");
   const { markdown, writeRun } = await import("./lib/report");
 
@@ -47,7 +51,14 @@ test("quality bar", async () => {
         .map(([fn, n]) => [fn, Number(n)]),
     ),
     budget: env.EVAL_BUDGET ? Number(env.EVAL_BUDGET) : undefined,
+    reuse: env.EVAL_REUSE
+      ? loadReuse(
+          JSON.parse(readFileSync(join(env.EVAL_REUSE, "results.json"), "utf8")),
+          (env.EVAL_REUSE_PRODUCT?.split(",").map((s) => s.trim()).filter(Boolean) ?? []) as (typeof FUNCTIONS)[number][],
+        )
+      : undefined,
   };
+  for (const fn of opts.reuse?.product ?? []) expect(FUNCTIONS, `unknown function in EVAL_REUSE_PRODUCT: ${fn}`).toContain(fn);
   for (const fn of Object.keys(opts.limits)) expect(FUNCTIONS, `unknown function in EVAL_LIMITS: ${fn}`).toContain(fn);
 
   const sizes = Object.fromEntries(functions.map((fn) => [fn, loadRaw(datasetFor(fn))?.length ?? 0]));

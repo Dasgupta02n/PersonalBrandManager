@@ -30,3 +30,6 @@ real.
   stated, near-misses that look risky but aren't, notes where the win is buried.
 - **Honest labels.** A label states what a careful senior reviewer would conclude. If a case is
   ambiguous, rewrite it until it isn't.
+- **Clean means fully supported.** Every specific detail in a clean post (durations, settings,
+  who said what, anecdotes) must be in its facts, or a correct grounding check will flag it. Put
+  story details in a final "Details: ..." fact when they don't belong in a win.

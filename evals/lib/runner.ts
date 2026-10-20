@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import type { AiUsage, UsageRecorder } from "@/lib/ai/client";
 import { estimateCallCost } from "@/lib/billing/pricing";
 import * as base from "./baselines";
@@ -50,6 +52,31 @@ export interface RunOptions {
   judge: boolean;
   /** Hard cap in US dollars across the whole run: no new case or grading starts once it is reached. */
   budget?: number;
+  /** Outputs from an earlier run to use again instead of paying for them twice. */
+  reuse?: Reuse;
+}
+
+/** Fingerprint of a case and its persona: an earlier output is reused only if neither has changed. */
+export const caseHash = (c: unknown, p: unknown) => createHash("sha256").update(JSON.stringify([c, p])).digest("hex").slice(0, 16);
+
+/** Fingerprint of the baseline prompts and schemas: earlier baseline outputs are reused only while these are unchanged. */
+export const BASELINE_SOURCE = createHash("sha256")
+  .update(["./baselines.ts", "./context.ts", "../../src/lib/ai/schemas.ts"].map((f) => readFileSync(new URL(f, import.meta.url), "utf8")).join("\n"))
+  .digest("hex")
+  .slice(0, 16);
+
+export interface Reuse {
+  previous: Partial<Record<FunctionName, { baselineSource?: string; outputs: Map<string, { caseHash?: string; product: unknown; baseline: unknown }> }>>;
+  /** Functions whose product pipeline hasn't changed since that run, so their product outputs can be reused too. */
+  product: FunctionName[];
+}
+
+/** Earlier outputs from a run's results.json. Grading always runs again. */
+export function loadReuse(reports: Pick<FunctionReport, "fn" | "baselineSource" | "outputs">[], product: FunctionName[]): Reuse {
+  return {
+    product,
+    previous: Object.fromEntries(reports.map((r) => [r.fn, { baselineSource: r.baselineSource, outputs: new Map(r.outputs.map((o) => [o.caseId, o])) }])),
+  };
 }
 
 /** Where a capped budget goes first: the promise, then the core writing, then the rest. */
@@ -81,6 +108,9 @@ export interface FunctionReport {
   cases: number;
   /** Cases not run, or not graded, because the budget ran out. */
   skippedForBudget: number;
+  /** Outputs taken from an earlier run instead of generated again. */
+  reused: { product: number; baseline: number };
+  baselineSource: string;
   errors: { side: "product" | "baseline" | "judge"; caseId: string; message: string }[];
   cost: { product: number; baseline: number; judge: number };
   metrics: Metric[];
@@ -89,7 +119,7 @@ export interface FunctionReport {
   gate: { rule: string; passed: boolean } | null;
   pairs: PairRecord[];
   /** Every case's raw output from both sides, for diagnosing results. */
-  outputs: { caseId: string; product: unknown; baseline: unknown }[];
+  outputs: { caseId: string; caseHash: string; product: unknown; baseline: unknown }[];
 }
 
 // ---------------------------------------------------------------------------
@@ -168,20 +198,31 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
   const costs = { product: meter(), baseline: meter(), judge: meter() };
   const errors: FunctionReport["errors"] = [];
   let skippedForBudget = 0;
+  const reused = { product: 0, baseline: 0 };
+  const previous = opts.reuse?.previous[fn];
   // Leave room for the calls already in flight, so the cap holds.
   const affordable = (next: number) => opts.budget === undefined || spent + next * opts.concurrency <= opts.budget;
 
   const ran = await pool(cases, opts.concurrency, async (c) => {
-    if (!affordable(COST_PER_CASE[fn])) {
+    const p = personas.get(c.personaId)!;
+    const hash = caseHash(c, p);
+    const earlier = previous?.outputs.get(c.id);
+    const same = earlier !== undefined && earlier.caseHash === hash;
+    const keepProduct = same && opts.reuse!.product.includes(fn) && earlier.product != null;
+    const keepBaseline = same && previous!.baselineSource === BASELINE_SOURCE && earlier.baseline != null;
+    if (!(keepProduct && keepBaseline) && !affordable(COST_PER_CASE[fn])) {
       skippedForBudget += 1;
       return null;
     }
-    const p = personas.get(c.personaId)!;
     const [prod, baseOut] = await Promise.all([
-      spec.product(c, p, costs.product.record).catch((e) => (errors.push({ side: "product", caseId: c.id, message: message(e) }), null)),
-      spec.baseline(c, p, costs.baseline.record).catch((e) => (errors.push({ side: "baseline", caseId: c.id, message: message(e) }), null)),
+      keepProduct
+        ? (reused.product++, earlier.product)
+        : spec.product(c, p, costs.product.record).catch((e) => (errors.push({ side: "product", caseId: c.id, message: message(e) }), null)),
+      keepBaseline
+        ? (reused.baseline++, earlier.baseline)
+        : spec.baseline(c, p, costs.baseline.record).catch((e) => (errors.push({ side: "baseline", caseId: c.id, message: message(e) }), null)),
     ]);
-    return { c, p, product: prod, baseline: baseOut };
+    return { c, p, hash, product: prod, baseline: baseOut };
   });
   const rows = ran.filter((r) => r !== null);
   const ok = rows.filter((r) => r.product !== null && r.baseline !== null);
@@ -220,6 +261,8 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
     fn,
     cases: rows.length,
     skippedForBudget,
+    reused,
+    baselineSource: BASELINE_SOURCE,
     errors,
     cost: { product: costs.product.total(), baseline: costs.baseline.total(), judge: costs.judge.total() },
     metrics: await spec.metrics(ok),
@@ -227,7 +270,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
     criteria,
     gate: null,
     pairs,
-    outputs: rows.map((r) => ({ caseId: r.c.id, product: r.product, baseline: r.baseline })),
+    outputs: rows.map((r) => ({ caseId: r.c.id, caseHash: r.hash, product: r.product, baseline: r.baseline })),
   };
   report.gate = spec.gate ? spec.gate(report, ok) : rate ? { rule: "Wins at least 60% against the baseline, interval above 50%", passed: beatsBaseline(rate) } : null;
   return report;
@@ -325,7 +368,9 @@ function specs(): { [K in FunctionName]: () => Spec<never> } {
           return [
             { label: "Risky posts caught (at least one real risk)", product: ci(wilson(a.caughtAny, a.risky)), baseline: ci(wilson(b.caughtAny, b.risky)) },
             { label: "Risky posts fully caught (every risk)", product: ci(wilson(a.caughtAll, a.risky)), baseline: ci(wilson(b.caughtAll, b.risky)) },
-            { label: "False alarms on clean posts", product: ci(wilson(a.falseAlarms, a.clean)), baseline: ci(wilson(b.falseAlarms, b.clean)) },
+            { label: "False alarms on clean posts (any flag)", product: ci(wilson(a.falseAlarms, a.clean)), baseline: ci(wilson(b.falseAlarms, b.clean)) },
+            { label: "…that would stop or rewrite the post", product: ci(wilson(a.falseBlocks, a.clean)), baseline: ci(wilson(b.falseBlocks, b.clean)) },
+            { label: "…notes only (grounding or credit)", product: ci(wilson(a.falseAlarms - a.falseBlocks, a.clean)), baseline: ci(wilson(b.falseAlarms - b.falseBlocks, b.clean)) },
             ...cats.map((cat) => ({
               label: `Caught: ${cat}`,
               product: ci(wilson(a.perCategory[cat]?.caught ?? 0, a.perCategory[cat]?.n ?? 0)),

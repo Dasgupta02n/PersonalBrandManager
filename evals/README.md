@@ -17,7 +17,7 @@ write for the same model. This harness measures that.
 | `extract` (wins from a note) | 200 notes | Win count, invented metrics, confidential flag, names kept out, follow-up questions; blind grading |
 | `ideas` | 60 records | Grounding, formats, rule breaches; blind grading |
 | `draft` | 300 ideas | Rule breaches, invented figures, length, first line, clichés; blind grading |
-| `check` (safety) | 100 risky + 40 clean posts | Catch rate per risk type, false alarms on clean posts |
+| `check` (safety) | 100 risky + 40 clean posts | Catch rate per risk type; false alarms on clean posts, split into flags that would stop or rewrite the post and notes (grounding, credit) |
 | `reads` (how it reads) | 60 labelled posts | Verdict accuracy, per verdict |
 | `revision` | 60 revisions | Did what was asked, invented figures; blind grading |
 | `comments` | 60 posts | Empty praise, length; blind grading |
@@ -48,7 +48,13 @@ EVAL_ESTIMATE=1 npm run eval                         # print the cost estimate o
 EVAL_DRY_RUN=1 npm run eval                          # stand-in answers: checks the harness, costs nothing
 EVAL_LABEL=notebook-v2 EVAL_SEED=1 npm run eval      # name a run; keep the seed to compare runs
 EVAL_BUDGET=19 EVAL_LIMITS=check=60,draft=30 npm run eval   # hard cap in dollars; per-function sizes
+EVAL_REUSE=evals/out/<run> EVAL_REUSE_PRODUCT=check npm run eval  # pay only for what changed
 ```
+
+With `EVAL_REUSE`, outputs from that run are used again for every case whose content and persona
+are unchanged: baseline outputs while the baseline prompts and schemas are unchanged, and product
+outputs only for the functions named in `EVAL_REUSE_PRODUCT` (say so only when that function's
+pipeline is unchanged). Grading always runs again. Keep the seed, so the same cases are sampled.
 
 With `EVAL_BUDGET`, the safety check runs first, then drafting, then the rest, and no new case or
 grading starts once the cap is reached. The report shows what was skipped.
