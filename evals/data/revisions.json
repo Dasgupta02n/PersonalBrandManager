@@ -1,0 +1,1962 @@
+[
+  {
+    "id": "revision-001",
+    "personaId": "p01",
+    "mode": "shorter",
+    "post": "I wanted to take a moment to share something that has been on my mind for a while, because I think it holds a lesson that goes well beyond our own team and our own industry.\n\nOver the past year, our area managers in the western region have been running short training sessions for ward staff at the hospitals we supply. These are not sales presentations. They are practical, hands-on sessions, usually about twenty minutes long, on how to use our disinfectant and hand-hygiene products correctly and in the right quantities on a busy ward.\n\nThe reason we started was simple. Hospitals had been telling us that our products ran out faster than expected, and they assumed the problem was quality or price. When our area managers actually went to the wards and watched, they found it was usage. Staff had never been shown the right dilution or the right amount, so they used too much.\n\nAfter the sessions, consumption per bed came down by roughly 15%, which you might think is bad for a supplier. In fact, complaints fell sharply, and every one of the eleven hospitals in the programme renewed their contracts this year. Several also asked us to run the sessions at their other sites.\n\nI am very grateful to the area managers who gave up their time to do this, often on night shifts, because that is when many of the newest staff work.\n\nWhat is one thing your customers might be doing wrong that nobody has shown them how to fix?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-04",
+        "summary": "Western region area managers began 20-minute ward-staff training sessions on correct dilution and quantity of disinfectant and hand-hygiene products, including on night shifts",
+        "impact": "Hospitals had complained products ran out too fast and blamed quality or price; ward visits showed the cause was over-use by untrained staff",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-18",
+        "summary": "Consumption per bed fell by roughly 15% at hospitals in the training programme, and complaints fell sharply",
+        "impact": "Fixed the real cause of the run-out complaints",
+        "metric": "Consumption per bed down ~15%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-22",
+        "summary": "All eleven hospitals in the training programme renewed their contracts; several asked for the sessions at their other sites",
+        "impact": "Retention and referral to new sites",
+        "metric": "11 of 11 renewed",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "revision-002",
+    "personaId": "p09",
+    "mode": "humbler",
+    "post": "I just delivered the most successful property launch campaign I've ever run, and honestly one of the best this market has seen in years.\n\nWhen the developer brought me in, their previous launch had cost them over AED 1,400 per qualified lead and taken four months to sell half the units. I knew immediately what was wrong. I rewrote the positioning myself, I personally chose the three buyer segments to focus on, and I insisted that we cut the brochure from forty pages to eight.\n\nThe result? I brought cost per qualified lead down to around AED 600, and the new tower sold 70% of its units in the first six weeks. I've never seen a fractional engagement deliver numbers like that.\n\nI also completely transformed the way their sales team works. I introduced a weekly review between marketing and sales, which I led, and I made sure every lead was followed up within a day.\n\nThe developer's in-house marketing manager and the sales director were great to work with and supported my approach throughout.\n\nIf there's one lesson here, it's that I've learned to trust my instincts. When you know a market as well as I do, you can move faster than anyone else.\n\nWhat's the best launch you've ever been part of?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-12",
+        "summary": "Repositioned a property developer's tower launch around three buyer segments and cut the brochure from 40 pages to 8, working with the developer's in-house marketing manager",
+        "impact": "Sharper message for the right buyers",
+        "metric": "Brochure 40 → 8 pages",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-07",
+        "summary": "Cost per qualified lead fell from over AED 1,400 on the previous launch to around AED 600; the new tower sold 70% of units in the first six weeks, against half the units in four months last time",
+        "impact": "Faster, cheaper sales",
+        "metric": "CPL ~AED 1,400 → ~AED 600; 70% sold in 6 weeks",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-03-05",
+        "summary": "Set up a weekly marketing and sales review with the developer's sales director; every lead followed up within a day",
+        "impact": "Marketing and sales working from the same pipeline",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "revision-003",
+    "personaId": "p05",
+    "mode": "stronger_opening",
+    "post": "I've been meaning to post something for a while, so here goes.\n\nLast spring our theatre teams at North Pennine Health Partnership were cancelling around 9% of planned operations on the day. Each one meant a patient who had fasted, arranged time off and often travelled a long way, being sent home.\n\nWhen we looked into it with the theatre coordinators, the main cause wasn't beds or staff. It was information. Pre-operative assessments, blood results and equipment requests lived in three different places, and gaps were often only spotted on the morning of surgery.\n\nSo we built a simple scheduling view that pulls all three together and flags any missing item five days before the operation, while there's still time to fix it. The theatre coordinators designed most of it on paper before we wrote a line of code.\n\nSix months in, on-the-day cancellations are down from 9.1% to 5.2%. That's 412 operations that went ahead as planned.\n\nI'm grateful to the theatre coordinators and the anaesthetic pre-assessment team, who changed how they work to make this possible.\n\nWhat's the piece of information that arrives too late in your service?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-09",
+        "summary": "Theatre coordinators and the anaesthetic pre-assessment team co-designed a scheduling view that combines pre-operative assessments, blood results and equipment requests and flags missing items five days before surgery",
+        "impact": "Gaps found while there is still time to fix them",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-16",
+        "summary": "On-the-day theatre cancellations fell from 9.1% to 5.2% over six months; 412 operations went ahead as planned",
+        "impact": "Fewer patients sent home on the day of surgery",
+        "metric": "9.1% → 5.2%; 412 operations",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      }
+    ]
+  },
+  {
+    "id": "revision-004",
+    "personaId": "p02",
+    "mode": "shorter",
+    "post": "This is going to be a slightly longer post than usual, because I think the context matters and I want to explain properly how we got here rather than just sharing a number.\n\nLast year at Tessellate Cloud we had a problem that I suspect a lot of engineering teams will recognise. We were having incidents, writing postmortems, assigning action items, and then having more or less the same incidents again a few months later.\n\nWhen we looked closely, we found that the postmortems themselves were not the issue. They were thorough. The issue was what happened afterwards. Action items went into the general backlog, where they competed with feature work and almost always lost. Nobody was really accountable for closing them, and nobody was checking.\n\nSo we made two changes. First, every postmortem action item now has a named owner and a due date, and it goes on a separate board that I review with the team leads every two weeks. Second, any action item that is still open after 30 days is raised in our monthly engineering review, in front of everyone.\n\nThe results have been clear. Repeat incidents, meaning incidents with the same root cause as one in the previous six months, went from 14 in the first half of last year to 4 in the first half of this year. Action item closure within 30 days went from 38% to 91%.\n\nNone of this was technically difficult; it was about follow-through.\n\nHow does your team make sure postmortem actions actually get done?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-20",
+        "summary": "Every postmortem action item now has a named owner and due date on a separate board reviewed fortnightly with team leads; items open past 30 days are raised in the monthly engineering review",
+        "impact": "Action items had been lost in the general backlog behind feature work",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-08",
+        "summary": "Repeat incidents (same root cause as one in the previous six months) fell from 14 in H1 last year to 4 in H1 this year",
+        "impact": "Fewer recurring outages",
+        "metric": "14 → 4 repeat incidents",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-08",
+        "summary": "Postmortem action items closed within 30 days rose from 38% to 91%",
+        "impact": "Follow-through on incident learning",
+        "metric": "38% → 91%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      }
+    ]
+  },
+  {
+    "id": "revision-005",
+    "personaId": "p10",
+    "mode": "humbler",
+    "post": "This summer I achieved something I am extremely proud of on our projects.\n\nEvery year, the summer months bring a serious risk of heat stress on site. I decided this year that the usual approach was not good enough. I personally redesigned the working schedule so that heavy manual work moved to the early morning and evening, I introduced mandatory cooling breaks every hour during the hottest period, and I insisted that every site have shaded rest areas with chilled water within a short walk of every work front.\n\nI also introduced a buddy system that I designed myself, in which every worker checks on a colleague during each shift.\n\nThe results speak for themselves. Heat-related incidents fell sharply compared with last summer, and we had no serious heat illness cases on any of my sites. Productivity during the summer months was barely affected, which many people told me would be impossible. I believe this is the best heat-safety performance in the region.\n\nI am grateful to the site supervisors and the health and safety team for implementing my plan so faithfully.\n\nI believe this shows what strong leadership can achieve when it refuses to accept the status quo.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-20",
+        "summary": "Summer heat plan agreed with site supervisors and the health and safety team: heavy manual work moved to early morning and evening, hourly cooling breaks in the hottest period, shaded rest areas with chilled water near every work front",
+        "impact": "Reduces heat-stress risk without stopping work",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-02",
+        "summary": "Health and safety team introduced a buddy system in which every worker checks on a colleague each shift",
+        "impact": "Early detection of heat illness",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-24",
+        "summary": "Heat-related incidents fell sharply versus last summer; no serious heat illness cases on any site; summer productivity barely affected",
+        "impact": "Safer summer with little cost to programme",
+        "metric": "Heat incidents sharply down",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "revision-006",
+    "personaId": "p06",
+    "mode": "stronger_opening",
+    "post": "There are lots of things I could talk about today, but I'll start with this.\n\nFor years, I met with families to discuss their plans, and separately, their estate attorneys met with them to draft documents. We would send each other summaries. Inevitably, something got lost between the two conversations.\n\nThis year, I started inviting each family's estate attorney to join our annual planning meeting. Not every attorney agreed, but most did. We now review the plan and the documents together, in one room, with the family present.\n\nThe difference has been noticeable. Questions that used to take weeks of back-and-forth are answered in the meeting. Families tell me they finally understand how the pieces fit. And on several occasions, we found that documents drafted years ago no longer matched what the family actually wanted.\n\nThe attorneys have taught me a great deal about how families think about control and fairness, topics I thought I already understood.\n\nGood planning rarely happens in separate rooms.\n\nWhich professional do you wish you worked with more closely?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-15",
+        "summary": "Began inviting each family's estate attorney to the annual planning meeting; most agreed; plan and documents now reviewed together with the family present",
+        "impact": "Removes the gap between planning and drafting conversations",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-28",
+        "summary": "Questions that took weeks of back-and-forth now answered in the meeting; families say they understand how the pieces fit; several families found older documents no longer matched their wishes",
+        "impact": "Clearer plans and corrected documents",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      }
+    ]
+  },
+  {
+    "id": "revision-007",
+    "personaId": "p03",
+    "mode": "shorter",
+    "post": "I have been meaning to write about this for some time, and I want to set out the background properly, because I think the reasons behind a change are often more interesting than the change itself.\n\nFor as long as anyone on the team could remember, our plant managers received their monthly results in the second week of the following month. By then, most of them had already moved on to the next set of problems, and the numbers felt like history rather than something they could act on. In our monthly reviews, we spent more time explaining the past than deciding what to do.\n\nEarlier this year, our team began producing a short flash report for each plant on the third working day of the month. It uses some estimates for accruals and a few items are adjusted later. But it is accurate enough to show the plant managers where they stand on material costs, scrap and overtime while there is still time to respond.\n\nThe plant managers have used it more than we expected. Two of the four plants changed their overtime planning within the first few months, and overtime costs across the plants have come down noticeably since. The full close still happens as before, and the differences between the flash report and the final numbers have been small.\n\nThe credit belongs to the plant accountants, who agreed to work to an earlier deadline, and to the plant managers, who were willing to trust estimates.\n\nHow early do your operations teams see their numbers?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-05",
+        "summary": "Introduced a day-3 flash report for each of the four plants covering material costs, scrap and overtime, using some accrual estimates; previously plant results arrived in the second week of the month",
+        "impact": "Plant managers see their numbers while they can still act; plant accountants agreed to an earlier deadline",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-12",
+        "summary": "Two of the four plants changed overtime planning within the first few months of the flash report; overtime costs across plants came down noticeably",
+        "impact": "Earlier numbers led to operational decisions",
+        "metric": "Overtime costs noticeably lower",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-06-12",
+        "summary": "Differences between the flash report and the final close have been small; full close unchanged",
+        "impact": "Estimates proved reliable enough to trust",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      }
+    ]
+  },
+  {
+    "id": "revision-008",
+    "personaId": "p11",
+    "mode": "humbler",
+    "post": "I'm thrilled to share that the frontline leadership programme I created has now trained more than 300 warehouse supervisors across five countries, and I believe it is the most successful leadership programme our company has ever run.\n\nI designed the programme from scratch last year after I realised that our supervisors were being promoted without any real preparation. I wrote the core modules myself, focusing on the conversations supervisors find hardest: giving feedback, handling conflict and talking to someone about their performance. I also insisted that every session be run in the local language, which no one else had thought to do.\n\nThe impact has been extraordinary. Engagement scores among teams led by trained supervisors are up by around ten points, and first-year attrition among new hires in those teams has fallen by roughly a fifth. I've had country managers tell me it's the best investment the region has made in years.\n\nI'd like to thank our country HR managers and the site trainers who delivered the sessions I designed.\n\nI've always believed that great HR leaders don't wait for permission. They see what's needed and they build it.\n\nWhat's the most impactful programme you've built?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-14",
+        "summary": "Frontline leadership programme has trained 300+ warehouse supervisors in five countries, with modules on feedback, conflict and performance conversations, delivered in local languages by country HR managers and site trainers",
+        "impact": "Supervisors prepared for the hardest conversations of the role",
+        "metric": "300+ supervisors, 5 countries",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-15",
+        "summary": "Teams led by trained supervisors show engagement up around ten points and first-year attrition among new hires down roughly a fifth",
+        "impact": "Better retention and engagement on the floor",
+        "metric": "Engagement ~+10 pts; attrition ~-20%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "revision-009",
+    "personaId": "p07",
+    "mode": "stronger_opening",
+    "post": "Some thoughts on a recent project, and a few things I've been reflecting on.\n\nWhen a consumer goods client asked us to run their transportation tender this year, we suggested something different: their team would run it, and we would coach.\n\nIt was slower at first. Their logistics analysts had never built a bid package or evaluated carrier proposals at this scale. Our team spent the first month teaching rather than doing, and there were days when I wondered whether we'd made the right call.\n\nBut the analysts learned fast. They built the lane-by-lane bid package, ran two rounds with 30 carriers and led the negotiations themselves, with us in the room as backup. The tender delivered about $4 million in annual savings, close to what we had estimated we could achieve running it ourselves.\n\nThe bigger result came six months later, when the client ran a mid-year re-bid for their West Coast lanes without calling us at all.\n\nI think the measure of good consulting is how much capability stays behind when you leave.\n\nWhen did you last coach a client to do something instead of doing it for them?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-11",
+        "summary": "Client's logistics analysts ran their own transportation tender with coaching from the team: lane-by-lane bid package, two rounds with 30 carriers, negotiations led by the analysts",
+        "impact": "Builds the client's own procurement capability",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-26",
+        "summary": "Transportation tender delivered about $4M in annual savings, close to the estimate for a consultant-run tender",
+        "impact": "Savings without dependence on consultants",
+        "metric": "~$4M annual savings",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-24",
+        "summary": "Six months later the client ran a mid-year re-bid for its West Coast lanes without outside help",
+        "impact": "Capability stayed after the engagement",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "revision-010",
+    "personaId": "p04",
+    "mode": "shorter",
+    "post": "There is a lot I could say about this, and I am going to try to say most of it, because I think the way we got here is as important as where we ended up.\n\nOpening a current account in one of our branches used to take around 40 minutes. The process had grown over many years, with each new requirement added on top of the last, and nobody had ever stepped back to look at the whole thing from the colleague's or the customer's point of view. Colleagues were switching between four different systems, re-keying the same details, and printing forms that were then scanned back in.\n\nRather than design a new tool in head office and roll it out, we asked eight branch colleagues to design it with us. They spent two days a week with our digital team for three months. They told us which screens were pointless, which checks could happen in the background, and which questions customers found confusing.\n\nThe new tool went live in all branches in the spring. Account opening now takes around 15 minutes on average, and colleagues no longer print anything. Customer satisfaction scores for the account-opening experience have improved as well, though I would not want to put too much weight on one survey.\n\nMy thanks go to those eight colleagues, who took on this work alongside their day jobs, and to the digital team, who listened to them.\n\nHow much of your own change work is designed by the people who will use it?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-10",
+        "summary": "Eight branch colleagues co-designed a new account-opening tool with the digital team, two days a week for three months",
+        "impact": "Replaced a process spanning four systems with re-keying and printed forms that were scanned back in",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-28",
+        "summary": "New account-opening tool live in all branches; average time to open a current account fell from around 40 to around 15 minutes, with no printing",
+        "impact": "Faster, simpler branch experience for customers and colleagues",
+        "metric": "~40 → ~15 minutes",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-15",
+        "summary": "Customer satisfaction scores for account opening improved in the latest survey",
+        "impact": "Early sign customers notice the change",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      }
+    ]
+  },
+  {
+    "id": "revision-011",
+    "personaId": "p12",
+    "mode": "humbler",
+    "post": "I am proud to say that I have transformed transaction monitoring at Lumen Pay, delivering what I believe is one of the most efficient monitoring frameworks in the payments industry.\n\nWhen I reviewed our monitoring rules last year, I found that the vast majority of alerts were false positives. My analysts were spending most of their day clearing alerts that never needed to be raised. I knew we could do far better, so I personally led a complete redesign of the rule set, retiring outdated rules and recalibrating the thresholds of the rest based on our actual customer behaviour.\n\nUnder my direction, false positives have fallen by around 40%, while the number of cases escalated for investigation has stayed steady. My team now spends far more of its time on genuinely suspicious activity, and our average time to review an alert has nearly halved.\n\nI also introduced a quarterly review of every rule's effectiveness, which I chair, so that the framework keeps improving.\n\nI would like to thank the data team for their technical support and my analysts for adapting so quickly to my new approach.\n\nStrong compliance leadership is about having the vision to see a better way and the determination to deliver it.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-09",
+        "summary": "Compliance analysts and the data team redesigned the transaction monitoring rule set: outdated rules retired and remaining thresholds recalibrated on actual customer behaviour",
+        "impact": "Most alerts had been false positives",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-30",
+        "summary": "False positives down around 40% with escalated cases steady; average alert review time nearly halved",
+        "impact": "Analyst time moved to genuinely suspicious activity",
+        "metric": "False positives ~-40%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-14",
+        "summary": "Quarterly review of every monitoring rule's effectiveness introduced",
+        "impact": "Keeps the framework calibrated",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "revision-012",
+    "personaId": "p08",
+    "mode": "stronger_opening",
+    "post": "So, product stuff. Here's a thing that happened.\n\nWe spent most of last year building a population health dashboard at Cadence Health. Twelve charts, filters for everything, beautiful design. Clinic managers told us in every interview they wanted it.\n\nThen we looked at the usage data. Fewer than one in ten clinic managers opened it more than once a month. When we asked why, the answer was simple: they didn't have time to go looking for problems. They needed the problems to come to them.\n\nSo we retired the dashboard and replaced it with three alerts: patients overdue for a follow-up, patients whose readings crossed a threshold, and appointment gaps in the coming week. Each one goes straight to the person who can act on it.\n\nWithin two months, the share of overdue follow-ups that were booked within a week roughly doubled. And clinic managers stopped asking us for more charts.\n\nCredit to our data team and to the clinic manager in our advisory group who said out loud what everyone else was thinking.\n\nWhat have you built that people said they wanted but didn't use?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-21",
+        "summary": "Usage data showed fewer than one in ten clinic managers opened the twelve-chart population health dashboard more than once a month",
+        "impact": "Evidence that the dashboard was not used",
+        "metric": "<1 in 10 monthly users",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-01-13",
+        "summary": "Dashboard retired and replaced by three alerts (overdue follow-ups, readings over threshold, appointment gaps next week) routed to the person who can act; built by the data team after an advisory-group clinic manager raised the issue",
+        "impact": "Problems come to clinic staff instead of waiting to be found",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-03-17",
+        "summary": "Within two months of the alerts, the share of overdue follow-ups booked within a week roughly doubled",
+        "impact": "More patients followed up on time",
+        "metric": "~2x follow-ups booked within a week",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "revision-013",
+    "personaId": "p05",
+    "mode": "shorter",
+    "post": "Okay, I'm going to share something that I'm really excited about, and I'm going to try to explain the whole story, because I think the journey matters just as much as the result, and I've learned so much along the way that I want to pass on.\n\nAt North Pennine Health Partnership, missed outpatient appointments have been a stubborn problem for years. Every missed appointment is a slot another patient could have used, and when you add them all up across a year it's a huge amount of clinical time. We knew that, everyone knew that, and yet nothing we tried seemed to make much difference.\n\nIn January we started sending text reminders seven days and two days before each appointment, with a simple option to reply and cancel or rebook. Honestly, it doesn't sound like much, and I'll admit I was sceptical at first. But the outpatients team insisted that the reply option was what mattered, and they were right.\n\nOur first version got the wording wrong. It was too formal and some patients thought it was a scam. The patient panel helped us rewrite it in plain English, and replies went up straight away.\n\nEight months on, our missed appointment rate has fallen from 11.2% to 7.9%. That's around 6,300 appointments in that period that were either attended or given to someone else.\n\nHuge thanks to the outpatients team and our patient panel, who made this so much better than my first idea.\n\nWhat's the smallest change that's made the biggest difference in your service?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-12",
+        "summary": "Started text reminders seven days and two days before each outpatient appointment, with reply options to cancel or rebook; the outpatients team insisted on the reply option",
+        "impact": "Lets patients free up slots they cannot use",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-02-20",
+        "summary": "First reminder wording was too formal and some patients thought it was a scam; the patient panel rewrote it in plain English and replies rose straight away",
+        "impact": "Lesson: test patient messages with patients",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-10",
+        "summary": "Missed outpatient appointment rate fell from 11.2% to 7.9% over eight months, around 6,300 appointments attended or reallocated",
+        "impact": "Clinical time recovered for other patients",
+        "metric": "11.2% → 7.9%; ~6,300 appointments",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      }
+    ]
+  },
+  {
+    "id": "revision-014",
+    "personaId": "p01",
+    "mode": "humbler",
+    "post": "I am delighted to share that the pricing framework I introduced this year has transformed our institutional business.\n\nWhen I took a hard look at our pricing last year, I found that the same product was being sold at very different prices in different regions, sometimes to hospitals in the same city. I knew this was unsustainable. I designed a single national price list with three clear tiers based on volume and contract length, and I personally presented it to every regional team.\n\nMany people doubted it would work. I was confident it would. Within nine months, our gross margin improved by roughly two percentage points, and the gap between our highest and lowest prices for the same product narrowed from around 30% to under 10%. We did not lose a single major account in the process, which I believe is a testament to the strength of the framework I built.\n\nI would also like to acknowledge the regional heads for rolling out my framework, and the finance team for the analysis.\n\nPricing discipline starts at the top. When the leader sets a clear standard, the whole organisation follows.\n\nHow do you keep pricing consistent across regions?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-16",
+        "summary": "Finance team analysis showed the same product sold at very different prices across regions; a single national price list with three tiers by volume and contract length was introduced and rolled out by the regional heads",
+        "impact": "Consistent pricing to hospitals",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-01",
+        "summary": "Within nine months gross margin up roughly two points; price gap for the same product narrowed from around 30% to under 10%; no major account lost",
+        "impact": "Higher margin without losing customers",
+        "metric": "Margin ~+2 pts; gap ~30% → <10%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Pricing discipline"
+      }
+    ]
+  },
+  {
+    "id": "revision-015",
+    "personaId": "p09",
+    "mode": "stronger_opening",
+    "post": "I've worked with a lot of businesses over the years, and every one teaches me something.\n\nLast year, a restaurant group in Dubai asked me to help them launch a points-based loyalty app. Their competitors all had one, and the founder felt they were falling behind.\n\nBefore building anything, we spoke to forty of their regular guests. Almost none of them wanted points. What they valued was being recognised: a table they liked, a server who remembered their order, a heads-up when a new dish arrived.\n\nSo instead of an app, the group trained floor managers to note regulars' preferences in the reservation system and gave each restaurant a small monthly budget to surprise regular guests. The total cost was a fraction of the app's quote.\n\nNine months on, the share of guests who visit three or more times a quarter has risen from around 18% to around 27%. The operations director, who ran the rollout, now reviews regulars' feedback weekly with every restaurant manager.\n\nSometimes the most useful thing a marketer can do is talk the client out of the obvious answer.\n\nWhat does loyalty actually look like for your customers?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-08",
+        "summary": "Interviewed 40 regular guests of a restaurant group before building a loyalty app; almost none wanted points, they valued being recognised",
+        "impact": "Avoided building the wrong loyalty programme",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-01-19",
+        "summary": "Instead of a points app, floor managers record regulars' preferences in the reservation system and each restaurant has a small monthly budget to surprise regulars, at a fraction of the app's quoted cost; rollout run by the operations director",
+        "impact": "Recognition-based loyalty at low cost",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-10-06",
+        "summary": "Nine months on, guests visiting three or more times a quarter rose from around 18% to around 27%",
+        "impact": "More frequent repeat visits",
+        "metric": "~18% → ~27%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "revision-016",
+    "personaId": "p06",
+    "mode": "shorter",
+    "post": "I want to share an idea that has worked well in my practice, and I want to take the time to explain where it came from and why I think it works, because I believe the reasoning is as useful as the idea itself.\n\nAnyone who has advised families for long enough knows that the most dangerous moments are not the ones you plan for. They are the moments when headlines are frightening and a client calls wanting to change everything at once. In those moments, it is very hard for anyone, advisor or client, to think clearly. Emotions take over, and decisions made in a hurry can undo years of careful planning.\n\nA couple of years ago, I started asking families to write a short letter to themselves during a calm period. The letter answers three questions: what are we investing for, what would we be tempted to do when things feel uncertain, and what do we want our future selves to remember. We keep the letter in their file, and when they call during a difficult week, we read it together before discussing any changes.\n\nThe effect has been noticeable. The number of urgent calls asking to make major changes during volatile periods has fallen considerably among the families who wrote letters, compared with before. More importantly, the conversations we do have are calmer and more thoughtful.\n\nTwo of the junior advisors I work with have now adopted the practice with their own clients.\n\nWhat do you do to help clients make decisions they won't regret?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-14",
+        "summary": "Families write a letter to themselves in a calm period answering three questions (what we are investing for, what we would be tempted to do when uncertain, what our future selves should remember); it is read together before any changes in a difficult week",
+        "impact": "Helps families avoid hurried decisions that undo long-term plans",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-21",
+        "summary": "Urgent calls requesting major changes during volatile periods fell considerably among families who wrote letters; conversations are calmer",
+        "impact": "Fewer reactive decisions",
+        "metric": "Considerably fewer urgent change requests",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Behavioral finance"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-06",
+        "summary": "Two junior advisors adopted the calm-period letter with their own clients",
+        "impact": "Practice spreading across the team",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      }
+    ]
+  },
+  {
+    "id": "revision-017",
+    "personaId": "p02",
+    "mode": "humbler",
+    "post": "I'm proud to share that I led one of the most complex database upgrades in Tessellate Cloud's history, and we did it with zero downtime.\n\nOur primary database was running a major version that was about to reach end of life. It held 1.2 TB of customer data and served every request on the platform. Most teams would have scheduled a maintenance window. I refused to accept that. I designed an approach using logical replication to a new cluster, I personally wrote the cut-over runbook, and I ran three full rehearsals to make sure nothing would go wrong.\n\nOn the night, the cut-over took 4 minutes of read-only time and zero minutes of downtime. Not a single customer noticed. p99 query latency actually improved by 18% on the new version.\n\nI think it's the cleanest migration I've ever seen, and I've seen a lot of them. Several engineering leaders have already asked me to share the playbook I created.\n\nThanks to the database team for executing my plan, and to the SREs who were on the call with me.\n\nIf you're facing a similar upgrade, my advice is simple: don't settle for a maintenance window. With the right leadership, zero downtime is achievable.\n\nWhat's the hardest migration your team has pulled off?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-19",
+        "summary": "Primary database (1.2 TB, serving every request) upgraded from an end-of-life major version using logical replication to a new cluster; the database team and SREs wrote the cut-over runbook and ran three full rehearsals",
+        "impact": "Avoided a customer-facing maintenance window",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-28",
+        "summary": "Cut-over completed with 4 minutes of read-only time and zero downtime; no customer impact; p99 query latency improved 18%",
+        "impact": "Seamless upgrade with a performance gain",
+        "metric": "0 min downtime; p99 -18%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Reliability"
+      }
+    ]
+  },
+  {
+    "id": "revision-018",
+    "personaId": "p10",
+    "mode": "stronger_opening",
+    "post": "There are a number of topics I could write about this month, and I have chosen one of them.\n\nOn one of our current projects, design queries from site were taking far too long to resolve. Each query passed between the contractor, the designer and the client's engineers, often several times, and there was no single record of who was waiting for whom.\n\nEarlier this year, the site engineering team set up a shared decision log. Every query is entered once, with an owner and a target date, and the log is reviewed jointly for fifteen minutes at the start of each weekly progress meeting. Anything overdue is escalated the same day to a named senior person on each side.\n\nThe average time to close a design query has fallen to well under half what it was. More importantly, work fronts are no longer left idle while the site waits for an answer, and the relationship with the designer has become noticeably more constructive.\n\nThe idea came from a section engineer who had grown tired of chasing the same questions by email. I am grateful to him, and to the design team, who agreed to be measured on the same log as us.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-09",
+        "summary": "Site engineering team set up a shared design-query decision log proposed by a section engineer: one entry per query with owner and target date, 15-minute joint review at each weekly progress meeting, same-day escalation of overdue items to named senior people; design team agreed to be measured on it",
+        "impact": "Single record of who is waiting for whom",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-06",
+        "summary": "Average time to close a design query fell to well under half; work fronts no longer idle waiting for answers; relationship with the designer more constructive",
+        "impact": "Fewer delays on site",
+        "metric": "Query close time well under half",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "revision-019",
+    "personaId": "p07",
+    "mode": "shorter",
+    "post": "I've been reflecting on a project we recently finished, and I want to walk through it in some detail, because I think it illustrates something that applies well beyond this particular client and this particular category of spend.\n\nOur client, a mid-sized consumer goods company, was buying corrugated packaging from fourteen different suppliers across its plants. Each plant had built its own relationships over the years, and each one had good reasons for its choices. On the surface, everything looked fine. Prices were broadly in line with the market, and service was acceptable.\n\nWhen our team pulled together the full picture, though, it became clear that the company was paying for its fragmentation. They were using more than 300 box specifications, many of them differing only slightly, and none of the suppliers was large enough in their business to offer meaningful volume pricing.\n\nWe worked with the plant managers and the procurement team to cut the specifications to around 90, and then ran a competitive process that consolidated the spend with four suppliers. The expected annual savings are about $6 million, and the first plants to switch have seen no change in service levels.\n\nA senior associate on our team led the specification work, which involved hundreds of conversations with plant staff about why each box existed. That was the hard part, and she did it with real patience.\n\nI think the lesson is that sometimes the biggest savings come not from negotiating harder but from simplifying first.\n\nWhere is complexity quietly costing your organization money?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-17",
+        "summary": "Client bought corrugated packaging from 14 suppliers using 300+ box specifications; a senior associate led work with plant managers and procurement to cut specifications to around 90",
+        "impact": "Simplification made volume pricing possible",
+        "metric": "300+ → ~90 specifications",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-25",
+        "summary": "Competitive process consolidated packaging spend with four suppliers; expected annual savings about $6M; first plants switched with no change in service levels",
+        "impact": "Savings without service loss",
+        "metric": "~$6M expected annual savings",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "revision-020",
+    "personaId": "p03",
+    "mode": "humbler",
+    "post": "I am pleased to report that the inventory control programme I designed has delivered the strongest results I have seen in my career.\n\nWhen I reviewed our year-end inventory adjustments last year, I saw immediately that our annual stock count was not working. Write-offs were significant and kept rising. I decided to replace the annual count with a rolling cycle count, in which every plant counts a small portion of its stock every week, with high-value items counted most often. I designed the counting schedule myself and personally set the accuracy targets for each plant.\n\nThe improvement has been remarkable. Inventory write-offs have fallen by more than half compared with last year, and stock accuracy at every plant is now well above the target I set. For the first time, our year-end count required almost no adjustments, and the plants no longer need to stop production for two days to count stock.\n\nI would like to thank the plant stores teams for carrying out the counts according to my schedule.\n\nIn my experience, the quality of a control reflects the rigour of the person who designs it.\n\nHow do you approach inventory control in your organisation?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-27",
+        "summary": "Annual stock count replaced with a weekly rolling cycle count at every plant, high-value items counted most often; counting schedule and accuracy targets agreed with the plant stores teams, who carry out the counts",
+        "impact": "Continuous control instead of a once-a-year count",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Closing the books faster"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-30",
+        "summary": "Inventory write-offs fell by more than half versus last year; stock accuracy above target at every plant; year-end count needed almost no adjustments; no more two-day production stop to count stock",
+        "impact": "Lower write-offs and no lost production days",
+        "metric": "Write-offs down more than half",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working capital"
+      }
+    ]
+  },
+  {
+    "id": "revision-021",
+    "personaId": "p11",
+    "mode": "stronger_opening",
+    "post": "Hybrid work continues to be an interesting topic for many of us.\n\nLast year our regional office staff told us, through the engagement survey, that their biggest frustration was not where they worked but how fragmented their days had become. Many said they spent most of their time in meetings and did their actual work in the evenings.\n\nSo we tried something simple. From March, no internal meetings are scheduled before 11am on any day, anywhere in the region. Managers agreed to hold the line, including for their own meetings, and the leadership team went first.\n\nSix months later, the share of staff who say they have enough focused time to do their job well has risen from around 40% to around 70%. Average weekly meeting hours have fallen by roughly a quarter. And, to our surprise, the number of meetings people describe as useful has gone up.\n\nIt was not a perfect fit everywhere. Two teams that work closely with customers in other time zones needed exceptions, and we gave them.\n\nCredit to the managers who protected the mornings when it would have been easier not to.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-02",
+        "summary": "From March, no internal meetings before 11am anywhere in the region for office staff, after the engagement survey showed fragmented days; leadership team went first; two customer-facing teams in other time zones given exceptions",
+        "impact": "Protected focus time",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-07",
+        "summary": "Six months on, staff saying they have enough focused time rose from around 40% to around 70%; weekly meeting hours down roughly a quarter; more meetings rated useful",
+        "impact": "More focused work and better meetings",
+        "metric": "~40% → ~70%; meeting hours ~-25%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "revision-022",
+    "personaId": "p08",
+    "mode": "shorter",
+    "post": "Okay, so this one's a bit of a long story, but stick with me, because I think there's a really important lesson in here for anyone who builds software in a regulated space.\n\nWhen I joined Cadence Health, every release went through about three weeks of manual validation before it could reach clinics. Our QA team would work through hundreds of test scripts by hand, documenting every step with screenshots, because that's what our quality system required. It was careful, thorough work, and it was also the reason we could only ship about once a quarter.\n\nWe'd always assumed this was just the cost of being in healthcare. But when our QA lead sat down with our regulatory consultant and read the requirements line by line, it turned out that nothing in them said the testing had to be manual. What mattered was that it was documented, repeatable and traceable.\n\nSo over about six months, the QA team automated most of the test scripts and built a system that generates the validation evidence automatically from each run. They did it while still running the manual process in parallel, which meant a lot of very long weeks for them.\n\nValidation now takes about four days instead of three weeks. We've gone from quarterly releases to monthly ones, and our last two audits found nothing related to the change.\n\nMassive credit to our QA lead and the whole QA team. They deserve all of it.\n\nWhat 'rule' in your organization turned out not to be a rule at all?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-06",
+        "summary": "QA lead and regulatory consultant reviewed the quality requirements line by line and found testing must be documented, repeatable and traceable, not necessarily manual",
+        "impact": "Removed the assumption behind three weeks of manual validation",
+        "metric": null,
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-14",
+        "summary": "QA team automated most test scripts and built automatic validation evidence generation over about six months, while running the manual process in parallel",
+        "impact": "Validation evidence produced from each run",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-03",
+        "summary": "Release validation cut from about three weeks to about four days; releases moved from quarterly to monthly; last two audits found nothing related to the change",
+        "impact": "Faster delivery to clinics without compliance cost",
+        "metric": "~3 weeks → ~4 days",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "revision-023",
+    "personaId": "p04",
+    "mode": "humbler",
+    "post": "I'm incredibly proud to share that, under my leadership, our online banking service has gone from one of the least accessible in the industry to what I believe is now one of the very best.\n\nLast year, I commissioned an accessibility audit and was frankly shocked by the results. Customers using screen readers could not complete basic tasks such as setting up a payee. I immediately made accessibility my personal priority. I set up a dedicated squad, I personally signed off every fix, and I made sure that accessibility testing became mandatory before any release.\n\nIn twelve months, we fixed more than 400 accessibility issues. Complaints from customers with visual impairments have fallen by around 70%, and every core journey now meets the recognised accessibility standard. I've been told by several industry colleagues that no other bank has moved this fast.\n\nI want to thank the squad for delivering against my vision, and the disabled customers who tested the service with us.\n\nI believe accessibility is a leadership issue. When a leader makes it a priority, everything changes.\n\nWhat has your organisation done to make its services accessible to everyone?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-13",
+        "summary": "Accessibility audit found screen-reader users could not complete basic online banking tasks such as setting up a payee; a dedicated accessibility squad was set up and accessibility testing made mandatory before every release",
+        "impact": "Fixing a basic barrier for disabled customers",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-10-08",
+        "summary": "In twelve months the squad fixed 400+ accessibility issues, tested with disabled customers; complaints from visually impaired customers down around 70%; every core journey meets the recognised accessibility standard",
+        "impact": "Online banking usable by more customers",
+        "metric": "400+ issues fixed; complaints ~-70%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      }
+    ]
+  },
+  {
+    "id": "revision-024",
+    "personaId": "p12",
+    "mode": "stronger_opening",
+    "post": "Compliance teams are often asked to do a lot of different things.\n\nWhen Lumen Pay prepared to launch in a new market this year, our compliance team joined the product squad from the first planning session rather than reviewing the finished design.\n\nThat meant our analysts were in the room when the onboarding flow, transaction limits and customer communications were first sketched. Questions about local requirements were raised and answered while they were still cheap to change. Two features were redesigned early because they would not have met local rules, and the product team made those changes in days rather than weeks.\n\nThe launch went ahead on the planned date with no compliance findings raised late in the process. On our previous market launch, late findings had delayed go-live by around two months.\n\nThe product managers have since asked for the same arrangement on two other projects, and our analysts say they understand the product far better as a result.\n\nCredit to the compliance analysts who embedded with the squad, and to the product lead who made space for them.\n\nThe earlier compliance is in the room, the less it costs everyone.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-03",
+        "summary": "Compliance analysts embedded in the product squad from the first planning session for a new-market launch, with the product lead's support; two features redesigned early to meet local rules",
+        "impact": "Requirements answered while cheap to change",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-15",
+        "summary": "New-market launch went live on the planned date with no late compliance findings; the previous market launch had been delayed around two months by late findings",
+        "impact": "On-time launch",
+        "metric": "0 late findings vs ~2-month delay previously",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-24",
+        "summary": "Product managers asked for embedded compliance analysts on two more projects",
+        "impact": "Product teams value early compliance input",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "revision-025",
+    "personaId": "p09",
+    "mode": "shorter",
+    "post": "I'd like to share a recent piece of work in some detail, because I think the process is worth describing properly and many founders in the region face the same question.\n\nEarlier this year, the founder of a skincare brand asked me to help with what she described as an awareness problem. Sales had flattened after two strong years, and the instinct was to spend more on advertising and influencers. Her team had already drafted a plan to double the media budget.\n\nBefore agreeing to anything, I asked if we could talk to customers first. Her team set up twenty-five interviews with people who had bought at least three times, and a further ten with people who had bought once and never returned. I sat in on most of them, but the brand manager led them, and she was excellent.\n\nWhat came out was very clear. The loyal customers almost all had sensitive skin, and they had found the brand because it was the only one that did not irritate it. The website, meanwhile, talked about glow, radiance and luxury, which meant nothing to them.\n\nWe rewrote the website and packaging copy around sensitive skin, and the founder held the media budget flat rather than doubling it. In the four months since, the website's conversion rate has risen by about 40%, and repeat purchases are up by roughly a quarter.\n\nI think the lesson is that a lot of awareness problems are really message problems.\n\nWhen did you last talk to the customers who stopped buying?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-26",
+        "summary": "Brand manager led 25 interviews with repeat buyers (3+ purchases) and 10 with one-time buyers at a skincare client; found loyal customers mostly had sensitive skin",
+        "impact": "Revealed the real reason customers stayed",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-09",
+        "summary": "Website and packaging copy rewritten around sensitive skin instead of glow and luxury; founder held media budget flat rather than doubling it",
+        "impact": "Message fixed before spending more",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-13",
+        "summary": "Four months after the rewrite, website conversion rate up about 40% and repeat purchases up roughly a quarter",
+        "impact": "Growth without extra media spend",
+        "metric": "Conversion ~+40%; repeat purchases ~+25%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "revision-026",
+    "personaId": "p05",
+    "mode": "humbler",
+    "post": "I'm absolutely over the moon to share that the patient portal I've been leading at North Pennine Health Partnership has registered 18,400 patients in just four months, which is beyond anything I dared to hope for!\n\nWhen I took on this project, I was determined to do it differently. I personally insisted on testing every screen with patients before launch, I fought for a simple sign-up that took less than three minutes, and I made the call to launch with just three features, appointments, letters and test results, rather than waiting for everything.\n\nI'm so proud of what I've achieved. Outpatient letters sent by post have already dropped by 31%, saving thousands of pounds in postage, and calls to our appointments line are down 22%.\n\nHonestly, I think this is the best thing I've done in my career, and I'm thrilled that people across the health service are already asking me how I did it.\n\nA quick thank you to the digital team and our patient panel for their help along the way.\n\nIf you're thinking about launching a patient portal, my biggest piece of advice is to trust your instincts and be brave!\n\nWhat's the best launch you've been part of?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-01",
+        "summary": "Patient portal launched by the digital team with three features (appointments, letters, test results); every screen tested with the patient panel; sign-up takes under three minutes",
+        "impact": "Simple launch patients could actually use",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-03",
+        "summary": "Patient portal registered 18,400 patients in its first four months",
+        "impact": "Rapid uptake",
+        "metric": "18,400 patients in 4 months",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-03",
+        "summary": "Posted outpatient letters down 31%, saving thousands of pounds in postage; calls to the appointments line down 22%",
+        "impact": "Lower cost and less phone demand",
+        "metric": "Letters -31%; calls -22%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      }
+    ]
+  },
+  {
+    "id": "revision-027",
+    "personaId": "p01",
+    "mode": "stronger_opening",
+    "post": "Forecasting is something every sales leader thinks about.\n\nAt the start of the year our quarterly forecast was routinely off by 20% or more, usually on the optimistic side. Every quarter ended with a scramble, and our operations team never knew how much stock to hold.\n\nWe changed one thing. Instead of asking area managers how likely each deal was to close, we asked what the hospital had actually done: completed a ward trial, issued a purchase requisition, scheduled a meeting with procurement. Each step carries a fixed weighting, and opinions no longer move the number.\n\nThe area managers found it uncomfortable at first, because it exposed deals that had been 'nearly closed' for months. Our regional heads worked through every pipeline with them, account by account.\n\nFor the last two quarters, our forecast has been within about 5% of actual sales. Our operations team now plans stock on our numbers rather than adding their own buffer, which has reduced emergency shipments to hospitals noticeably.\n\nHow do you take optimism out of your team's forecast?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-07",
+        "summary": "Sales forecast changed from area managers' probability judgements to fixed weightings for observable hospital actions (ward trial completed, purchase requisition issued, procurement meeting scheduled); regional heads reviewed every pipeline account by account",
+        "impact": "Removes optimism from the forecast",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-10-02",
+        "summary": "Forecast error down from 20% or more to within about 5% for the last two quarters; operations now plans stock on the sales forecast without its own buffer; emergency shipments to hospitals down noticeably",
+        "impact": "Reliable forecast for stock planning",
+        "metric": "Error 20%+ → ~5%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      }
+    ]
+  },
+  {
+    "id": "revision-028",
+    "personaId": "p10",
+    "mode": "shorter",
+    "post": "I would like to share some reflections on a programme that has been running on our projects for the past two years, and I hope readers will forgive the length, as I believe the background is important for understanding why it has worked.\n\nIn our industry, young engineers often spend their first years in a single discipline, usually in a design office or on one part of a site. They become capable specialists, but by the time they are asked to lead a site team, many of them have never seen how the different parts of a project fit together. They learn this the hard way, and some of them leave the industry as a result.\n\nTwo years ago, our site leadership team introduced a rotation for graduate engineers. Each graduate now spends six months each in planning, commercial, site supervision and safety before choosing a specialism. Every graduate is paired with a senior site manager who meets them every fortnight. The site managers designed the rotation themselves and gave up much of their own time to make it work.\n\nThe results so far have been encouraging. Most of the first group have stayed with the company, a noticeably higher proportion than in previous years, and several have already taken on section engineer roles earlier than their predecessors. Site managers report that the graduates ask better questions and escalate problems sooner.\n\nI am grateful to the site managers who made this possible, and to the graduates themselves, who accepted a slower start in exchange for a broader one.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-25",
+        "summary": "Site leadership team runs a graduate engineer rotation: six months each in planning, commercial, site supervision and safety, with fortnightly meetings with a senior site manager; site managers designed it",
+        "impact": "Graduates see how a whole project fits together before specialising",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-29",
+        "summary": "Most of the first rotation cohort retained, a noticeably higher proportion than previous years; several took section engineer roles earlier than predecessors; site managers report better questions and earlier escalation",
+        "impact": "Stronger pipeline of site leaders",
+        "metric": "Retention noticeably higher than previous cohorts",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "revision-029",
+    "personaId": "p06",
+    "mode": "humbler",
+    "post": "I'm proud to share that the family succession workshop series I created this year has been the most successful client initiative I've ever led.\n\nI noticed that many of the business owners I advise were avoiding succession conversations entirely. So I designed a series of four evening workshops for families, covering governance, communication, estate planning basics and the role of the next generation. I personally recruited an estate attorney and a family business psychologist to speak, and I facilitated every session myself.\n\nThe response exceeded all expectations. Most of the families I invited attended at least three of the four sessions, and many brought their adult children, something I had worked hard to encourage. Several families have since started formal succession planning with me, and I've had other advisors ask if they can copy my format.\n\nI believe that very few advisors in this business would have had the vision to bring these families together in this way.\n\nThanks to the speakers and to our client service team for handling the logistics.\n\nWhat have you done to help families start difficult conversations?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-24",
+        "summary": "Ran a four-evening succession workshop series for business-owning families (governance, communication, estate planning basics, the next generation's role) with an estate attorney and a family business psychologist as speakers; client service team handled logistics",
+        "impact": "Gives families a low-pressure way to start succession conversations",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-28",
+        "summary": "Most invited families attended at least three of four workshops, many with adult children; several families began formal succession planning; other advisors asked to use the format",
+        "impact": "Conversations families had been avoiding are now under way",
+        "metric": "Most families attended 3 of 4 sessions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      }
+    ]
+  },
+  {
+    "id": "revision-030",
+    "personaId": "p02",
+    "mode": "stronger_opening",
+    "post": "I've been thinking about on-call a lot recently, among other things.\n\nUntil this year, every engineer on our core platform team at Tessellate Cloud was on call around the clock for a week at a time. Most pages arrived between midnight and 6am Bengaluru time, because that's when our largest customers in the US are busiest.\n\nIn April we set up a follow-the-sun rotation with our new team in Lisbon. Bengaluru covers 8am to 8pm IST, Lisbon covers the rest. Both teams own the same services, share the same runbooks, and hand over through a written summary at each shift change.\n\nThe results after six months: pages outside an engineer's local working hours went from 46 a month to 13. Mean time to acknowledge a page dropped from 11 minutes to 4, because the person paged is awake. And for the first time in two years, nobody on the platform team has asked to move teams because of on-call.\n\nIt took real work to get here. The Lisbon engineers spent their first six weeks shadowing in Bengaluru, and both teams rewrote 40 runbooks together.\n\nWhat would change for your team if nobody was paged at night?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-06",
+        "summary": "Follow-the-sun on-call rotation set up with the Lisbon team: Bengaluru covers 8am-8pm IST, Lisbon the rest, shared services and runbooks, written handover at each shift change; Lisbon engineers shadowed in Bengaluru for six weeks and both teams rewrote 40 runbooks",
+        "impact": "Ends round-the-clock on-call for one team",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Reliability"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-10-05",
+        "summary": "After six months, pages outside local working hours fell from 46 to 13 a month; mean time to acknowledge fell from 11 to 4 minutes; no on-call-related requests to move teams",
+        "impact": "Healthier on-call and faster response",
+        "metric": "46 → 13 pages/month; MTTA 11 → 4 min",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      }
+    ]
+  },
+  {
+    "id": "revision-031",
+    "personaId": "p11",
+    "mode": "shorter",
+    "post": "I have been thinking about how to write this for a few weeks, and I have decided to explain it fully rather than try to fit it into a few lines, because fairness in performance reviews is a subject I care about a great deal, and I think the detail matters.\n\nLast year, when we analysed performance ratings across our warehouses in the region, we found a pattern that made us uncomfortable. Night-shift employees were noticeably less likely to receive the top two ratings than day-shift employees doing the same jobs, even when their productivity and safety records were similar. Nobody had intended this. It seemed to come down to visibility: managers simply saw day-shift staff more often.\n\nThis year, we introduced calibration sessions at every site. Before ratings are finalised, the managers at each site meet for an hour to review them together, looking at productivity and safety data alongside their own impressions. A manager from the night shift is always in the room. HR facilitates, but the managers make the decisions.\n\nThe gap between night-shift and day-shift ratings has narrowed considerably, to the point where it is now within a few percentage points. Managers have also told us that the sessions helped them give clearer feedback, because they had to explain their ratings to their peers.\n\nMy thanks go to the site managers, many of whom were sceptical at first but gave the sessions a fair try.\n\nFair performance conversations do not happen by accident. What has helped make them fairer in your organisation?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-18",
+        "summary": "Ratings analysis showed night-shift warehouse staff were noticeably less likely to receive the top two ratings than day-shift staff with similar productivity and safety records",
+        "impact": "Identified an unintended visibility bias",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-03",
+        "summary": "One-hour calibration sessions introduced at every site before ratings are final; managers review productivity and safety data together, a night-shift manager always attends, HR facilitates",
+        "impact": "Managers decide together using data",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-27",
+        "summary": "Gap between night-shift and day-shift ratings narrowed to within a few percentage points; managers say feedback is clearer",
+        "impact": "Fairer ratings across shifts",
+        "metric": "Gap within a few percentage points",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "revision-032",
+    "personaId": "p07",
+    "mode": "humbler",
+    "post": "I'm thrilled to share that I just delivered one of the most impactful operations projects of my career, and honestly one of the best results our practice has achieved this year.\n\nMy client, a regional distributor, was spending heavily on overtime in its three warehouses, and nobody could explain why. I quickly identified the root cause: shift schedules were built around average daily volume, but the real volume spiked on Mondays and after holidays. I redesigned the labor model from the ground up, matching staffing to hourly demand, and I personally convinced the client's VP of operations to pilot it.\n\nThe results have been outstanding. Overtime hours are down by about a third, on-time shipping has improved from 91% to 97%, and the client expects to save around $2 million a year. I've been told my model is now being rolled out to their other sites.\n\nI also want to thank my team for their support with the data work.\n\nI think this project shows what happens when you combine deep analytical skill with the confidence to challenge the way things have always been done. Not every consultant can do both.\n\nWhat's the most impactful project you've worked on this year?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-10",
+        "summary": "An associate and an analyst on the team found the distributor's three warehouses scheduled shifts around average daily volume while volume spiked on Mondays and after holidays; the labor model was rebuilt to match hourly demand and the client's VP of operations agreed to a pilot",
+        "impact": "Explained the unexplained overtime",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-18",
+        "summary": "Warehouse overtime hours down about a third; on-time shipping up from 91% to 97%; client expects around $2M annual savings and is rolling the model out to other sites",
+        "impact": "Lower cost and better service",
+        "metric": "Overtime ~-33%; OTS 91% → 97%; ~$2M/yr",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "revision-033",
+    "personaId": "p03",
+    "mode": "stronger_opening",
+    "post": "This is a post about capital expenditure, which I appreciate may not be everyone's favourite subject.\n\nFor years, our capital approval process was thorough at the front and silent at the back. Every proposal came with a detailed business case, but once a project was approved and built, nobody went back to check whether the expected savings or capacity had actually materialised.\n\nLast year we introduced a simple post-investment review. Twelve months after any project above a set threshold is commissioned, the plant team and finance compare the actual results with the original business case, and present the findings to the same committee that approved it.\n\nThe first round was uncomfortable. Several projects had delivered well below what their business cases promised, mostly because ramp-up took longer than assumed. One had exceeded its case comfortably.\n\nThe effect on new proposals has been the most valuable part. Business cases are now noticeably more conservative, ramp-up assumptions are explicit, and the plant teams have started using the review findings to plan their next projects.\n\nI am grateful to the plant engineering leads, who presented their own shortfalls openly.\n\nWhat does your organisation learn from its past investments?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-28",
+        "summary": "Post-investment reviews introduced: twelve months after commissioning, projects above a set threshold are compared with their business case by the plant team and finance and presented to the approving committee",
+        "impact": "Closes the loop on capital decisions",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-22",
+        "summary": "First review round: several projects delivered well below their business cases, mainly due to slower ramp-up; one exceeded its case comfortably; plant engineering leads presented shortfalls openly",
+        "impact": "Honest view of past investments",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-09",
+        "summary": "New capital business cases are noticeably more conservative with explicit ramp-up assumptions; plant teams use review findings to plan new projects",
+        "impact": "Better capital decisions",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working capital"
+      }
+    ]
+  },
+  {
+    "id": "revision-034",
+    "personaId": "p12",
+    "mode": "shorter",
+    "post": "I would like to share a piece of work our team completed recently, and I would ask for a little patience, because I think the reasons behind it are worth setting out in full before getting to the outcome.\n\nLike many payment companies that have grown quickly, Lumen Pay had accumulated a set of compliance policies that made sense individually but had become difficult to use as a whole. Our anti-money laundering policy, in particular, had grown to around 80 pages over several years, as new requirements and lessons were added without anything being removed. Colleagues in operations and customer support told us, politely but repeatedly, that they could not find what they needed in it.\n\nSo this year, two of our compliance analysts rewrote it from first principles. They started not with the regulations but with the questions frontline colleagues actually asked, and worked backwards to the requirements. They tested every section with people from operations and support, and rewrote anything that could not be understood on first reading.\n\nThe new policy is around 25 pages. It covers every requirement the old one did, and our internal audit team reviewed it against the regulatory obligations before it was approved. Since it was published, the number of policy questions coming to the compliance team from operations has fallen by about half.\n\nI am grateful to the two analysts who did this work, and to the colleagues in operations and support who gave up their time to test it.\n\nA policy that people cannot use is not really a control.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-24",
+        "summary": "Two compliance analysts rewrote the AML policy from around 80 pages to around 25, starting from frontline colleagues' questions and testing every section with operations and support",
+        "impact": "Policy usable by the people who apply it",
+        "metric": "~80 → ~25 pages",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-16",
+        "summary": "Internal audit reviewed the new AML policy against regulatory obligations before approval; it covers every requirement of the old policy",
+        "impact": "No loss of coverage",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-09-08",
+        "summary": "Policy questions from operations to compliance fell by about half since the new AML policy was published",
+        "impact": "Less compliance time on routine queries",
+        "metric": "~50% fewer questions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "revision-035",
+    "personaId": "p08",
+    "mode": "humbler",
+    "post": "I'm so proud of what I've built this year. Our new medication reconciliation feature at Cadence Health is now used in about 70% of our clinics, and it's honestly the best thing I've ever shipped. 🙌\n\nI came up with the concept after a single clinic visit, where I watched a nurse spend 20 minutes comparing a patient's medication list across three different printouts. I knew right away that I could fix this. I sketched the first version myself that night, I pushed it onto the roadmap over a lot of objections, and I personally ran every one of the early user tests.\n\nThe results are incredible. Average reconciliation time has dropped from around 20 minutes to around 6, and clinics using it have seen a big drop in medication discrepancies flagged at follow-up visits. I genuinely believe it's the most impactful feature in healthtech this year.\n\nShout-out to the design and engineering teams for bringing my vision to life, and to the clinical advisory group for their input.\n\nIf there's a lesson here, it's that great product leaders don't wait for permission. They see the problem and they go after it.\n\nWhat's a feature you're proudest of building?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-03",
+        "summary": "Medication reconciliation feature started after a clinic visit where a nurse spent about 20 minutes comparing a patient's medication list across three printouts; built by the design and engineering teams with input from the clinical advisory group and early user tests",
+        "impact": "Addresses a slow, error-prone clinical task",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-09",
+        "summary": "Medication reconciliation feature used in about 70% of clinics; average reconciliation time down from about 20 to about 6 minutes; clinics using it see a big drop in medication discrepancies flagged at follow-up",
+        "impact": "Time back for nurses and safer medication lists",
+        "metric": "~70% of clinics; ~20 → ~6 min",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "revision-036",
+    "personaId": "p04",
+    "mode": "stronger_opening",
+    "post": "Planning is a topic that comes up in almost every organisation I speak to.\n\nA year ago, our quarterly planning cycle across the transformation portfolio took about six weeks. By the time the plan was agreed, a third of the quarter had gone, and teams had often started work on the previous plan's priorities anyway.\n\nWe made three changes. Every team now brings a one-page plan rather than a slide pack. Dependencies between teams are agreed in a single half-day session with everyone in the same room, instead of weeks of bilateral meetings. And the executive committee commits to a decision on priorities within a week of that session, in writing.\n\nPlanning now takes about two weeks. More useful, the share of committed work delivered in the quarter has risen from around 55% to around 75%, largely because teams spend less time waiting on each other.\n\nNone of this required new tooling. It did require the executive committee to accept a shorter, less polished plan, and I am grateful to them for doing so.\n\nCredit also to our portfolio office, who designed the one-page format and ran the first sessions.\n\nWhat does your planning cycle cost you?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-01",
+        "summary": "Quarterly planning changed: one-page team plans, a single half-day dependency session, and an executive committee decision on priorities in writing within a week; portfolio office designed the format and ran the first sessions",
+        "impact": "Plans agreed before the quarter is half gone",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Making change stick"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-01",
+        "summary": "Quarterly planning cycle cut from about six weeks to about two; committed work delivered in the quarter up from around 55% to around 75%",
+        "impact": "More delivery, less waiting between teams",
+        "metric": "~6 → ~2 weeks; ~55% → ~75%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Making change stick"
+      }
+    ]
+  },
+  {
+    "id": "revision-037",
+    "personaId": "p01",
+    "mode": "shorter",
+    "post": "Over the past year we have been trying something a little different in how we hire for our field sales team, and I wanted to share it at some length, because I know many sales leaders in healthcare face the same difficulty we did.\n\nFor many years, we hired area managers mostly from other consumables companies or from pharmaceutical sales. They knew how to sell, but many of them took a long time to earn credibility with infection-control nurses and ward sisters, who could tell very quickly when someone did not understand how a ward actually runs. It often took a new area manager the better part of a year before hospitals took them seriously.\n\nLast year, we began recruiting some area managers from nursing backgrounds, particularly nurses with infection-control experience who were interested in a change of career. We paired each of them with an experienced sales colleague for their first three months, so they could learn the commercial side while bringing their clinical knowledge to every conversation.\n\nSo far, we have hired six area managers this way. On average, they reached their first-year targets in around seven months, compared with roughly eleven months for our other recent hires. Hospitals have responded particularly well to them, and two infection-control committees have invited them to present at their meetings.\n\nMy thanks go to the experienced area managers who mentored them, and to our HR team, who rewrote the job description to make this possible.\n\nWhere else might the best candidates for a sales role be hiding?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-11",
+        "summary": "Began recruiting area managers from nursing backgrounds with infection-control experience; each paired with an experienced sales colleague for three months; HR rewrote the job description",
+        "impact": "Clinical credibility with infection-control nurses and ward sisters from day one",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-30",
+        "summary": "Six area managers hired from nursing backgrounds reached first-year targets in about seven months on average, versus about eleven months for other recent hires",
+        "impact": "Faster ramp-up",
+        "metric": "~7 vs ~11 months to target",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building sales teams"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-19",
+        "summary": "Two hospital infection-control committees invited the nurse-background area managers to present at their meetings",
+        "impact": "Recognition from clinical buyers",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "revision-038",
+    "personaId": "p09",
+    "mode": "humbler",
+    "post": "Six months ago, I took on a fractional CMO role with a fast-growing hospitality group, and I can honestly say I've transformed their marketing function.\n\nWhen I arrived, they were working with five different agencies, spending around AED 180,000 a month, and nobody internally owned the strategy. It was chaos. I immediately restructured everything. I cut the agencies from five to two, I wrote the brief for their first-ever head of marketing, and I personally ran the hiring process until we found the perfect candidate.\n\nSince then, monthly agency spend is down to around AED 110,000, and the brand finally has a single clear voice across every channel. I've built a team and a structure that will serve them for years.\n\nI'm especially proud of the hire. I think I have an unusual eye for marketing talent, and the new head of marketing is already proving me right.\n\nThank you to the founder for trusting me with the keys to the kingdom.\n\nIf you're a founder wondering whether you need a fractional CMO, this is exactly the kind of impact I can deliver.\n\nWhat's the best hire you've ever made?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-19",
+        "summary": "Hospitality group's agency roster cut from five to two with the founder; monthly agency spend down from around AED 180,000 to around AED 110,000",
+        "impact": "Lower spend and clearer accountability",
+        "metric": "5 → 2 agencies; ~AED 180k → ~AED 110k/month",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-23",
+        "summary": "Hospitality group hired its first head of marketing; Layla wrote the brief and ran the hiring process with the founder; brand now has one consistent voice across channels",
+        "impact": "In-house ownership of the strategy",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "revision-039",
+    "personaId": "p05",
+    "mode": "stronger_opening",
+    "post": "Today I want to talk about something that's been on my mind.\n\nLast year we spent four months building a bed management dashboard for one of our hospitals at North Pennine Health Partnership. It was beautiful, real-time and full of data. Within six weeks of launch, the site team had stopped looking at it.\n\nWhen I asked the bed managers why, they were kind but honest. The dashboard answered questions they didn't have. What they needed at the 8am huddle was a single list: which patients were medically fit to go home today, and what was stopping each one.\n\nSo we scrapped most of the dashboard and built a one-page huddle sheet with them, printed and on a screen. It took three weeks.\n\nSince then, the average time from a patient being declared medically fit to actually leaving has fallen from 31 hours to 19. That's the number the bed managers care about, and now it's the one we track too.\n\nI'm a bit embarrassed it took four months of the wrong thing to get us there. Thank you to the bed management team for their patience and their candour.\n\nWhen did the people using your tool last tell you it wasn't helping?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-17",
+        "summary": "Bed management dashboard built over four months; the site team stopped using it within six weeks of launch",
+        "impact": "Lesson: build for the questions users actually have",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-01-26",
+        "summary": "Replaced the dashboard with a one-page huddle sheet listing patients medically fit to go home today and what is stopping each, co-designed with bed managers in three weeks, printed and on screen",
+        "impact": "Tool used at the 8am huddle",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-13",
+        "summary": "Average time from medically fit to leaving hospital fell from 31 to 19 hours",
+        "impact": "Patients get home sooner; beds freed",
+        "metric": "31 → 19 hours",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Patient-centred design"
+      }
+    ]
+  },
+  {
+    "id": "revision-040",
+    "personaId": "p02",
+    "mode": "shorter",
+    "post": "I want to talk about how we have been growing senior engineers at Tessellate Cloud, and I'm going to go into more detail than I normally would, because I think the specifics are what make it useful.\n\nFor a long time, our promotion process to staff engineer was a bit of a black box. Senior engineers knew they needed to show 'broader impact', but nobody could explain what that looked like in practice. As a result, promotions tended to go to the people whose work happened to be visible to leadership, which is not the same thing as the people doing the most important work.\n\nEighteen months ago, we introduced a simple practice. Every senior engineer who wants to be considered for staff writes at least two design documents a year for problems that cross team boundaries, and presents them at our open architecture review, which any engineer can attend. The documents are kept in a shared library so the promotion committee can see exactly what each person has contributed.\n\nSince then, 5 senior engineers have been promoted to staff, compared with 1 in the previous 18 months. Four of the five were people whose work had previously been largely invisible outside their own team. The architecture review now averages around 40 attendees a session, many of them junior engineers.\n\nNone of this was my idea originally. It came from two of our existing staff engineers, who proposed it and still run the review every fortnight.\n\nHow do you make senior engineers' judgement visible in your organisation?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-03",
+        "summary": "Senior engineers seeking staff promotion write at least two cross-team design documents a year and present them at the open fortnightly architecture review; documents kept in a shared library; proposed and run by two staff engineers",
+        "impact": "Makes senior engineers' judgement visible to the promotion committee",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-06",
+        "summary": "5 senior engineers promoted to staff in 18 months versus 1 in the previous 18; four of the five had low visibility outside their team before",
+        "impact": "Promotions follow the work, not visibility",
+        "metric": "5 vs 1 promotions",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Growing senior engineers"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-05-06",
+        "summary": "Architecture review averages around 40 attendees a session, many of them junior engineers",
+        "impact": "Learning forum for the wider team",
+        "metric": "~40 attendees per session",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      }
+    ]
+  },
+  {
+    "id": "revision-041",
+    "personaId": "p10",
+    "mode": "humbler",
+    "post": "I am proud to announce that the tunnel I have been responsible for achieved breakthrough this week, comfortably ahead of programme and with an exemplary safety record.\n\nThis was an extremely challenging drive through variable ground. Early on, I recognised that the original excavation sequence would expose us to delays whenever we met weaker ground. I personally led a revision of the sequence and introduced a system of advance probing ahead of the face, which I insisted be carried out on every shift.\n\nI also made the decision to bring forward a second shift of segment erectors, a call many considered unnecessary at the time. It proved decisive.\n\nUnder my leadership, the drive was completed several weeks ahead of the baseline, with no lost-time incidents across the entire tunnelling operation. I believe this is one of the finest tunnelling performances in the region in recent years.\n\nI would like to acknowledge the tunnelling team and the geotechnical engineers for their contribution.\n\nThis achievement is a clear demonstration of what decisive leadership can deliver.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-12",
+        "summary": "Tunnel breakthrough achieved several weeks ahead of baseline through variable ground, with no lost-time incidents across the tunnelling operation",
+        "impact": "Major programme milestone delivered early and safely",
+        "metric": "Several weeks ahead of baseline",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-02-16",
+        "summary": "Geotechnical engineers and the tunnelling team revised the excavation sequence and introduced advance probing ahead of the face on every shift",
+        "impact": "Reduced delays in weaker ground",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-04-07",
+        "summary": "Second shift of segment erectors brought forward",
+        "impact": "Kept ring build pace with excavation",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "revision-042",
+    "personaId": "p06",
+    "mode": "stronger_opening",
+    "post": "I've been in this business a long time, and I've learned a lot of things along the way.\n\nFor years, many of my planning meetings were with one spouse, usually whoever had built the business or managed the family's finances. The other spouse received a summary afterward, if at all.\n\nThen a widow I had known for over a decade told me, kindly, that she had never really understood her family's plan until after her husband died, and that she wished someone had insisted she be in the room.\n\nSince then, I have asked every couple I work with to attend planning meetings together, at least once a year. Most have agreed. The conversations are longer and sometimes harder, because priorities that went unspoken come to the surface.\n\nBut the plans are better for it. Several couples have changed significant decisions after discovering they did not agree. And when difficult moments come, as they always do, both people know where things stand.\n\nI wish I had started doing this much earlier in my career.\n\nWho isn't in the room when your most important decisions get made?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-15",
+        "summary": "After a long-time widowed client said she had not understood her family's plan until her husband died, began asking every couple to attend planning meetings together at least once a year; most agreed",
+        "impact": "Both spouses understand the plan",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-09",
+        "summary": "Several couples changed significant planning decisions after discovering in joint meetings that they did not agree",
+        "impact": "Plans reflect both spouses' priorities",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Planning conversations with families"
+      }
+    ]
+  },
+  {
+    "id": "revision-043",
+    "personaId": "p03",
+    "mode": "shorter",
+    "post": "I would like to share some thoughts on a piece of work that our treasury team finished recently. It is not the kind of thing that usually gets written about, so I want to describe it properly.\n\nWhen I joined, the group operated well over a hundred bank accounts across its plants, subsidiaries and banking partners. Many had been opened for good reasons at the time: a new plant, a local supplier who wanted to be paid from a nearby bank, a project that has long since finished. Very few had ever been closed. Each plant also kept its own cash buffer, so on any given day a meaningful amount of cash sat idle in one account while another part of the group was drawing on a short-term credit line.\n\nOver the past year, our treasury manager led a review of every account. With the plant finance leads, the team closed a little over half of them and set up a daily sweep that moves surplus balances to a central account.\n\nAverage idle balances have fallen by roughly two thirds, and our use of short-term borrowing has dropped considerably, which has reduced interest costs. Bank charges are also lower, and month-end reconciliation is simpler because there are far fewer accounts to reconcile.\n\nThe credit belongs to the treasury manager, who spent months on the detail, and to the plant finance leads, who gave up a degree of local control that they valued.\n\nHow many bank accounts does your organisation have that nobody has looked at in years?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-22",
+        "summary": "Treasury manager led a review of well over a hundred group bank accounts; with plant finance leads the team closed a little over half and set up a daily sweep of surplus balances to a central account",
+        "impact": "Idle plant cash buffers no longer sit unused while the group borrows short term",
+        "metric": "A little over half of accounts closed",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Working capital"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "Average idle balances fell by roughly two thirds; short-term borrowing and interest costs dropped considerably; bank charges lower; month-end reconciliation simpler",
+        "impact": "Lower financing cost and simpler close",
+        "metric": "Idle balances down ~two thirds",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working capital"
+      }
+    ]
+  },
+  {
+    "id": "revision-044",
+    "personaId": "p11",
+    "mode": "humbler",
+    "post": "I'm proud to say that the stay interview programme I launched this year has been one of the most effective retention initiatives our region has ever seen.\n\nFor years, we relied on exit interviews to understand why people left. I realised this was far too late. So I introduced stay interviews: short, structured conversations in which managers ask their team members what keeps them, what might make them leave and what would make their work better. I designed the question set myself and personally trained the first group of managers.\n\nThe results have been outstanding. In the three countries where I rolled it out first, voluntary attrition among warehouse staff has fallen by around 15% compared with last year. Managers have used what they heard to fix issues ranging from shift patterns to broken equipment in rest areas.\n\nI'd like to thank the managers who carried out the interviews and the country HR teams who supported my rollout.\n\nI've always believed that great retention starts with leaders who are willing to listen, and I'm proud to have shown the region how it's done.\n\nWhat has worked best for retention in your organisation?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-20",
+        "summary": "Stay interviews introduced in three countries: short structured conversations in which managers ask team members what keeps them, what might make them leave and what would make work better; carried out by managers with country HR team support",
+        "impact": "Hears retention risks before people resign",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-03",
+        "summary": "Voluntary attrition among warehouse staff in the three stay-interview countries down around 15% versus last year; managers fixed issues from shift patterns to broken rest-area equipment",
+        "impact": "Better retention through acting on what staff said",
+        "metric": "Attrition ~-15%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "revision-045",
+    "personaId": "p07",
+    "mode": "stronger_opening",
+    "post": "Developing people is one of the most important parts of the job, as many of you know.\n\nLast month, a first-year consultant on our team led a full-day workshop with a client's plant managers. It was her idea, her agenda and her facilitation. I sat at the back and said almost nothing.\n\nThe workshop was about a maintenance backlog that had been growing for two years. Rather than presenting our analysis, she asked each plant manager to rank the backlog items by the risk they posed to production, then compared their rankings with the data. The gaps between the two started the most useful discussion of the whole project.\n\nBy the end of the day, the plant managers had agreed a priority list of about 40 items, and they cleared roughly a quarter of the backlog in the following two months.\n\nI'll admit I was nervous about handing it over. She had never facilitated a session with executives before. But she had spent more time on the shop floor than anyone else on our team, and the plant managers knew it.\n\nWhat's the last thing you handed over that someone did better than you would have?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-22",
+        "summary": "A first-year consultant designed and led a full-day workshop with the client's plant managers on a two-year maintenance backlog, asking them to rank items by production risk and comparing rankings with the data",
+        "impact": "Junior consultant leading executive-level work",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-25",
+        "summary": "Plant managers agreed a priority list of about 40 backlog items and cleared roughly a quarter of the maintenance backlog in the following two months",
+        "impact": "Backlog finally moving",
+        "metric": "~40 priorities; ~25% of backlog cleared",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "revision-046",
+    "personaId": "p04",
+    "mode": "shorter",
+    "post": "I want to share some reflections on a part of our transformation work that rarely gets attention, because I think it's one of the most important things a transformation team can do, and one of the least glamorous.\n\nLarge banks accumulate technology the way old houses accumulate furniture. Every system was bought or built for a reason, and few are ever switched off, because switching off a system means finding every process, report and colleague that quietly depends on it. Nobody wants to be responsible for discovering the one thing that breaks.\n\nOver the past eighteen months, a small team from technology, operations and risk has worked through our application estate system by system. For each one, they asked three questions: who uses it, what would break if it disappeared, and where else that need could be met. They interviewed users, traced data flows and, where it was unclear, switched systems off for a weekend to see who noticed.\n\nSo far, they have decommissioned 14 applications. Together, these saved around £3 million a year in licences, hosting and support, and removed several systems that our risk team had flagged as hard to keep secure. Not a single customer-facing service was affected.\n\nI am grateful to the team, and particularly to our colleagues in risk, who were partners in this rather than gatekeepers.\n\nTransformation is often described in terms of what we build. I think it should be measured just as much by what we are brave enough to switch off. What would you switch off first?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-02",
+        "summary": "Team from technology, operations and risk reviewed the application estate system by system using three questions (who uses it, what breaks, where else the need can be met), with user interviews, data-flow tracing and weekend switch-off tests",
+        "impact": "Safe way to retire legacy systems",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-04",
+        "summary": "14 applications decommissioned, saving around £3m a year in licences, hosting and support and removing several systems risk had flagged as hard to secure; no customer-facing service affected",
+        "impact": "Lower cost and risk from the legacy estate",
+        "metric": "14 apps; ~£3m a year",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Working with legacy technology"
+      }
+    ]
+  },
+  {
+    "id": "revision-047",
+    "personaId": "p12",
+    "mode": "humbler",
+    "post": "I'm delighted to share that the compliance training programme I redesigned this year at Lumen Pay has achieved the best results I have seen in my career.\n\nWhen I reviewed our old training, I found it was a long slide deck that colleagues clicked through as quickly as possible. I knew I could do better. I personally rewrote the programme as a series of short, scenario-based modules built around real situations our colleagues face, from unusual customer requests to suspicious refund patterns. I also made the decision to replace the annual session with quarterly fifteen-minute modules.\n\nThe results have been exceptional. Completion on time has risen from around 70% to 98%, and average assessment scores have improved by about 20 points. Most importantly, internal reports of suspicious activity from frontline teams have increased by roughly a third, which shows that my training is working.\n\nI would like to thank the learning team for producing the modules to my specification.\n\nExceptional compliance training starts with a leader who refuses to accept box-ticking.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-27",
+        "summary": "Annual slide-deck compliance training replaced with quarterly 15-minute scenario-based modules on real situations such as unusual customer requests and suspicious refund patterns, written by the compliance team with the learning team",
+        "impact": "Training colleagues actually engage with",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-11",
+        "summary": "On-time training completion up from around 70% to 98%; average assessment scores up about 20 points",
+        "impact": "Better coverage and understanding",
+        "metric": "Completion ~70% → 98%; scores ~+20 pts",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-11",
+        "summary": "Internal suspicious-activity reports from frontline teams up roughly a third",
+        "impact": "Frontline teams spotting and escalating more",
+        "metric": "Reports ~+33%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "revision-048",
+    "personaId": "p08",
+    "mode": "stronger_opening",
+    "post": "Lots going on at Cadence Health lately, so where to start?\n\nLast quarter we were about to roll out our new e-prescribing integration to every clinic at once. The testing was solid, the team was confident, and the date was on everyone's calendar.\n\nAt the last minute, our clinical safety lead asked for a two-week pilot with five clinics first. I'll be honest, I pushed back. It felt like caution for the sake of caution.\n\nOn day three of the pilot, a pharmacist at one of the clinics noticed that a small number of prescriptions with free-text dosing instructions were being truncated when they reached the pharmacy system. It hadn't shown up in testing, because our test data didn't include long free-text instructions.\n\nWe fixed it in four days, re-ran the pilot and then rolled out to all clinics. No patient was affected.\n\nI was wrong, and our clinical safety lead was right. Every major rollout now starts with a pilot in real clinics, no exceptions.\n\nWhat's a safeguard you once thought was unnecessary?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-01",
+        "summary": "Clinical safety lead asked for a two-week, five-clinic pilot before the full e-prescribing integration rollout; Marcus initially pushed back",
+        "impact": "Safeguard before a full rollout",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-04",
+        "summary": "On day three of the pilot a clinic pharmacist found some prescriptions with long free-text dosing instructions truncated in the pharmacy system; testing missed it because test data lacked long free text",
+        "impact": "Caught a patient-safety defect before full rollout",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-06-22",
+        "summary": "Truncation fixed in four days, pilot re-run, integration rolled out to all clinics with no patient affected; major rollouts now always start with a real-clinic pilot",
+        "impact": "Safe rollout and a new standard practice",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "revision-049",
+    "personaId": "p05",
+    "mode": "shorter",
+    "post": "I've been wanting to write about our digital champions for months, and I've finally got round to it, so please bear with me, because there's quite a lot to say.\n\nWhen we started rolling out new digital tools across North Pennine Health Partnership, we made the same mistake a lot of programmes make. We relied on a central training team and a helpdesk. The trouble is that the people who need help most are usually on a ward at 3am, nowhere near a training room, and not about to sit on hold to a helpdesk while a patient needs them.\n\nSo last autumn we asked for volunteers. We were hoping for maybe twenty. In the end, 63 nurses, healthcare assistants and allied health professionals signed up to be digital champions on their own wards. Each of them got two days of extra training, a direct line to our developers, and protected time of two hours a week to help colleagues and feed back problems.\n\nThe difference has been enormous. Calls to the IT helpdesk about our clinical systems have fallen by 38% since the champions started. More importantly, the champions have raised 212 improvement ideas, and we've already built 74 of them.\n\nThank you, thank you, thank you to every single one of our champions. You've made this programme so much better than it would have been without you, and I've learned more from you than from any training course.\n\nWho are the champions in your organisation, and do they know how much they matter?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-07",
+        "summary": "63 nurses, healthcare assistants and allied health professionals volunteered as ward digital champions, each with two days of extra training, a direct line to developers and two hours a week of protected time",
+        "impact": "Help available on the ward, at any hour, instead of a central helpdesk",
+        "metric": "63 champions",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-21",
+        "summary": "IT helpdesk calls about clinical systems fell 38% since the digital champions started",
+        "impact": "Less waiting for help, less helpdesk load",
+        "metric": "-38% helpdesk calls",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Digital services clinicians actually use"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-07-21",
+        "summary": "Digital champions raised 212 improvement ideas; 74 already built",
+        "impact": "Frontline staff shaping the tools",
+        "metric": "212 ideas; 74 built",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Leading through change"
+      }
+    ]
+  },
+  {
+    "id": "revision-050",
+    "personaId": "p01",
+    "mode": "humbler",
+    "post": "I am very proud to share that I have won one of the most significant accounts in our company's history: a supply agreement covering all 18 hospitals in a leading private hospital group.\n\nThis was a deal that many people said could not be won. The group had worked with the same supplier for over a decade. I knew that price alone would never move them, so I proposed a twelve-week infection-control trial across three of their hospitals, and I personally oversaw every stage of it.\n\nI made sure the trial measured what mattered to them: hand-hygiene compliance on the wards and the time nurses spent on cleaning tasks. By the end, hand-hygiene compliance on the trial wards had risen from around 60% to over 80%. When I presented the results to the group's leadership, they agreed to move all 18 hospitals to us.\n\nI believe this win shows the value of senior leadership being directly involved in strategic accounts.\n\nMy thanks to our area manager and the clinical specialist who supported me throughout the trial.\n\nHow do you persuade a customer to move away from a long-standing supplier?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-16",
+        "summary": "Won a supply agreement covering all 18 hospitals in a private hospital group that had used the same supplier for over a decade",
+        "impact": "Large multi-site account won from an incumbent",
+        "metric": "18 hospitals",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-26",
+        "summary": "Twelve-week infection-control trial across three of the group's hospitals, run by the area manager and a clinical specialist, measured hand-hygiene compliance and nurse time on cleaning; compliance on trial wards rose from around 60% to over 80%",
+        "impact": "Evidence that won the account",
+        "metric": "Hand hygiene ~60% → 80%+",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Selling to hospitals"
+      }
+    ]
+  },
+  {
+    "id": "revision-051",
+    "personaId": "p09",
+    "mode": "stronger_opening",
+    "post": "I have had a busy few months with clients, and there is a lot to share.\n\nA boutique fitness studio I advise had a problem that looked like pricing. Plenty of people booked the free trial class, but only about one in eight went on to buy a membership. The founder's instinct was to cut the membership price.\n\nInstead, we listened to recordings of the front-desk conversations after trial classes. The studio team noticed the pattern first: staff were leading with the price and the contract length, before asking the person how the class had felt or what they wanted to achieve.\n\nSo the studio manager rewrote the conversation. Staff now ask two questions about the person's goals, suggest a plan based on the answers, and mention the price last. Nothing about the price itself changed.\n\nThree months later, about one in four trial guests now becomes a member. The founder kept her prices, and her margins.\n\nCredit to the studio manager and the front-desk team, who changed a habit they had practised for years.\n\nWhat are your customers hearing before they hear why you are worth it?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-20",
+        "summary": "At a boutique fitness studio where about one in eight free-trial guests bought a membership, reviewing front-desk conversations showed staff led with price and contract length; the studio team spotted the pattern",
+        "impact": "Found the real cause of low conversion",
+        "metric": "~1 in 8 conversion",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-04",
+        "summary": "Studio manager rewrote the post-trial conversation: two questions about goals, a suggested plan, price mentioned last; prices unchanged",
+        "impact": "Sells value before price",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-08-10",
+        "summary": "Three months later about one in four trial guests became members, with prices and margins kept",
+        "impact": "Conversion doubled without discounting",
+        "metric": "~1 in 8 → ~1 in 4",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "revision-052",
+    "personaId": "p06",
+    "mode": "shorter",
+    "post": "I want to share some thoughts about how we develop young advisors, and I hope you'll forgive me for writing at greater length than usual, because I think this is a subject that deserves more care than it usually gets in our industry.\n\nWhen I started out, the standard approach to training new advisors was to let them sit silently in client meetings for a year or two and hope they absorbed something along the way. Some did. Many didn't. And the families we served rarely got to know the younger advisors, which meant that when a senior advisor retired, the relationship often went with them.\n\nTwo years ago, I began a different approach with the junior advisors on our team. Each of them now prepares the agenda for one family meeting a month, leads at least one section of it, and writes the follow-up letter, which I review before it goes out. After every meeting, we spend fifteen minutes discussing what went well and what they would do differently.\n\nIt has taken more of my time than the old way, and it has occasionally made meetings a little less polished. But the results have been worth it. Families now ask for the junior advisors by name, and several have told me they are relieved to know who will look after them in the future. Two of the advisors now lead full meetings on their own.\n\nI have learned a great deal from them in return.\n\nHow did the person who trained you help you find your own voice?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-19",
+        "summary": "Junior advisors each prepare the agenda for one family meeting a month, lead at least one section and write the follow-up letter (reviewed by Daniel), followed by a 15-minute debrief",
+        "impact": "Juniors build relationships with families instead of observing silently",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-24",
+        "summary": "Families now ask for junior advisors by name and several said they are relieved to know who will look after them; two junior advisors now lead full meetings on their own",
+        "impact": "Continuity for families and faster development",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing young advisors"
+      }
+    ]
+  },
+  {
+    "id": "revision-053",
+    "personaId": "p02",
+    "mode": "humbler",
+    "post": "I completely transformed how Tessellate Cloud hires engineers this year, and I'm proud to say our hiring process is now the best I've seen at any company I've worked for.\n\nWhen I looked at our numbers in January, our average time to hire was 61 days and we were losing strong candidates to faster offers. I knew exactly what needed to change. I personally designed a new structured interview loop with four focused stages instead of seven, I wrote every scoring rubric myself, and I introduced a rule that every candidate gets a decision within 48 hours of their final interview.\n\nThe impact has been dramatic. Our average time to hire is now 34 days. Offer acceptance has risen from 64% to 81%. And because every interviewer uses my rubrics, our hiring decisions are far more consistent.\n\nI'd also like to thank our recruiters and the engineers who served as interviewers for adopting my process so quickly.\n\nHonestly, I think most engineering leaders underestimate how much hiring is a leadership problem. If you own it personally, as I did, the results follow.\n\nWhat's the biggest change you've made to how your team hires?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-21",
+        "summary": "Engineering interview loop cut from seven stages to four with scoring rubrics, built with the recruiters and engineer interviewers; every candidate gets a decision within 48 hours of the final interview",
+        "impact": "Faster, more consistent hiring decisions",
+        "metric": "7 → 4 stages",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-20",
+        "summary": "Average time to hire down from 61 to 34 days; offer acceptance up from 64% to 81%",
+        "impact": "Fewer strong candidates lost to faster offers",
+        "metric": "61 → 34 days; 64% → 81%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Engineering leadership"
+      }
+    ]
+  },
+  {
+    "id": "revision-054",
+    "personaId": "p10",
+    "mode": "stronger_opening",
+    "post": "The construction industry faces many challenges, and payment is one of them.\n\nOn our projects, smaller subcontractors were often waiting far longer than their contracts allowed to be paid. The delays were rarely deliberate. Valuations sat in inboxes waiting for a signature, and queries on a single line could hold up an entire invoice.\n\nThis year our commercial team changed the process. Valuations are now reviewed jointly on site with the subcontractor each month, so disagreements are settled before the invoice is raised. Undisputed amounts are paid on time even when one line is still under discussion.\n\nThe average time to pay smaller subcontractors has fallen to roughly half what it was. Formal payment disputes have become rare, and several subcontractors have told our site managers that they now prioritise our projects when allocating their best crews.\n\nI am grateful to our commercial manager, who designed the process, and to the finance team, who changed their own procedures to support it.\n\nOn a construction site, prompt payment is not a courtesy. It is part of how safe, steady work gets done.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-23",
+        "summary": "Commercial manager designed monthly joint on-site valuation reviews with subcontractors, settling disagreements before invoicing; undisputed amounts paid on time even if one line is disputed; finance team changed its procedures to match",
+        "impact": "Removes the main causes of late payment",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-31",
+        "summary": "Average time to pay smaller subcontractors roughly halved; formal payment disputes rare; several subcontractors told site managers they now prioritise these projects with their best crews",
+        "impact": "Better subcontractor performance on site",
+        "metric": "Payment time roughly halved",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "revision-055",
+    "personaId": "p07",
+    "mode": "shorter",
+    "post": "I've been thinking about steering committee meetings a lot lately, and I want to share some thoughts, because I suspect most people who work in or with consulting will recognize the situation I'm about to describe.\n\nOn many of our projects, the team used to spend the two days before every steering committee building a deck of 50 or 60 slides. The slides were well researched and beautifully formatted. They were also, for the most part, never discussed. The meeting would run out of time somewhere around slide 15, the client executives would ask for the deck to be sent over, and the decisions we actually needed would slip to the next meeting, two weeks later.\n\nOn our last two engagements, we tried something different. Instead of a deck, the team prepared a single page for each steering committee listing the decisions we needed, the options for each, our recommendation and what would happen if the decision waited. The supporting analysis was still available, but only if someone asked for it.\n\nThe difference was striking. Across the two engagements, the average time from a decision being raised to a decision being made fell from about five weeks to under two. The teams also got back most of those two days of slide-building before each meeting, which they spent on analysis instead.\n\nThe idea came from a senior associate who was tired of building slides nobody read. She deserves the credit for it.\n\nWhat would happen if your next steering committee had only one page?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-29",
+        "summary": "On two engagements, replaced 50-60 slide steering committee decks with a one-page sheet of decisions needed, options, recommendation and cost of waiting; idea from a senior associate",
+        "impact": "Steering committees spend their time deciding",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-02",
+        "summary": "Average time from decision raised to decision made fell from about five weeks to under two; teams regained most of the two days of slide-building before each meeting",
+        "impact": "Faster client decisions and more analysis time",
+        "metric": "~5 weeks → under 2 weeks",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "revision-056",
+    "personaId": "p03",
+    "mode": "humbler",
+    "post": "I am proud to say that I have built one of the strongest finance teams in our industry over the past two years.\n\nWhen I joined, our analysts spent almost all of their time producing reports, with very little contact with the operations teams they were meant to support. I decided this had to change. I created a rotation programme in which each analyst spends a quarter working alongside a plant management team, and I personally selected and coached every participant.\n\nThe results have exceeded my expectations. Two of my analysts have now moved into plant finance business partner roles, a step that would previously have taken them several more years. Plant managers report that finance support is far more useful than before, and the time spent preparing the monthly plant review packs has fallen by around a third because my analysts now understand what the plants actually need.\n\nI would like to thank the plant managers for hosting my analysts.\n\nI have always believed that a finance team reflects the ambition of its leader, and I am proud of what I have built.\n\nHow do you develop analysts into business partners?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-24",
+        "summary": "Analyst rotation started: each finance analyst spends a quarter working alongside a plant management team, hosted by the plant managers",
+        "impact": "Analysts learn how the plants actually run",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-21",
+        "summary": "Two analysts moved into plant finance business partner roles; plant managers report more useful finance support; time preparing monthly plant review packs down around a third",
+        "impact": "Faster development and less reporting effort",
+        "metric": "Pack preparation time ~-33%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Finance teams that partner with operations"
+      }
+    ]
+  },
+  {
+    "id": "revision-057",
+    "personaId": "p11",
+    "mode": "stronger_opening",
+    "post": "Graduate programmes are something many organisations invest in, and we are no exception.\n\nUntil last year, our management graduates spent most of their two-year programme in regional office roles: finance, HR, commercial. They rarely spent more than a few days in a warehouse, and many left within three years, often saying they never really understood the business.\n\nWe redesigned the programme with our site operations managers. Graduates now spend their first six months working shifts in a warehouse, including nights, and lead a small team for at least three of those months before rotating into office roles.\n\nIt was a hard sell. Applications fell slightly in the first year, and some graduates found the shifts tough. But the ones who stayed are noticeably different. Site managers say they understand operations from the inside, and office teams say they ask better questions.\n\nRetention after the first year of the new programme is around 90%, compared with roughly 70% for the previous cohorts. Three graduates have already been asked to stay on as shift managers.\n\nSometimes the fastest way to develop a leader is to put them where the work happens.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-10",
+        "summary": "Management graduate programme redesigned with site operations managers: first six months on warehouse shifts including nights, leading a small team for at least three months, then office rotations",
+        "impact": "Graduates learn operations from the inside",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-12",
+        "summary": "Graduate applications fell slightly in the first year of the redesigned programme; some graduates found the shifts tough",
+        "impact": "Known cost of the change",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      },
+      {
+        "id": "w003",
+        "occurredOn": "2026-10-01",
+        "summary": "First-year retention in the new graduate programme around 90% versus roughly 70% for previous cohorts; three graduates asked to stay on as shift managers",
+        "impact": "Stronger leadership pipeline",
+        "metric": "~90% vs ~70% retention",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "revision-058",
+    "personaId": "p08",
+    "mode": "shorter",
+    "post": "Okay, I want to share something we started doing on the product team at Cadence Health this year, and I'm going to go into it properly, because a few people have asked me about it, so this is going to be a longer one.\n\nLike a lot of product teams, we had a support team that heard from customers every single day and a product team that heard about customers mostly through tickets, dashboards and the occasional escalation. Information got filtered and summarized on the way, and by the time a problem reached a product manager, it often looked like a minor issue affecting a handful of users.\n\nSo starting in January, every product manager now spends one full week each quarter working inside the support team. They answer real tickets, join real calls with clinic staff and sit alongside the support specialists. No product work that week. No roadmap meetings. Just support.\n\nThe results have surprised me. In the first two quarters, product managers turned what they learned into 23 fixes, most of them small. Ticket volume for the areas they worked on is down by about a quarter. And our support specialists say they finally feel like product actually listens to them, which matters a lot to me.\n\nBig thanks to our head of support, who agreed to this when it would have been easier to say no, and to the support specialists who patiently trained a group of very slow new hires.\n\nHow close are your product managers to the people answering your customers' calls?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-08",
+        "summary": "From January every product manager spends one full week per quarter working in the support team, answering tickets and joining calls with clinic staff; head of support agreed and support specialists trained them",
+        "impact": "Product hears customer problems unfiltered",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product team culture"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-09",
+        "summary": "In the first two quarters PMs turned support-week learning into 23 fixes; ticket volume in those areas down about a quarter; support specialists say product listens",
+        "impact": "Fewer tickets and a closer product-support relationship",
+        "metric": "23 fixes; tickets ~-25%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "revision-059",
+    "personaId": "p04",
+    "mode": "humbler",
+    "post": "I'm proud to share that I have delivered what I believe is the most effective scam-prevention journey in UK retail banking.\n\nEarlier this year, I made scam prevention my top priority. I saw that our existing warnings were generic and customers had learned to click straight past them. I personally led a complete redesign of the payment journey. Warnings are now specific to what the customer tells us the payment is for, and for higher-risk payments, I introduced a short pause with a call-back option to speak to a specialist.\n\nThe impact has been exceptional. Reported scam payments through our mobile app have fallen by around a fifth since launch, and the number of customers who stop a payment after seeing a warning has more than doubled. I have had several industry colleagues tell me they are studying what I have done.\n\nMy thanks to the fraud operations team and the designers who helped bring my vision to life.\n\nI believe this shows what happens when a senior leader takes personal ownership of a problem rather than delegating it.\n\nWhat has worked best in your organisation to protect customers from scams?",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-31",
+        "summary": "Payment journey redesigned with the fraud operations team and designers: warnings specific to the stated payment purpose, and a short pause with a call-back option to a specialist for higher-risk payments",
+        "impact": "Replaces generic warnings customers clicked past",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-14",
+        "summary": "Reported scam payments through the mobile app down around a fifth since launch; customers stopping a payment after a warning more than doubled",
+        "impact": "Fewer customers lose money to scams",
+        "metric": "Scam payments ~-20%; stopped payments x2+",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer journeys"
+      }
+    ]
+  },
+  {
+    "id": "revision-060",
+    "personaId": "p12",
+    "mode": "stronger_opening",
+    "post": "Building a compliance team involves many considerations.\n\nTwo years ago, Lumen Pay's compliance team hired almost exclusively from banks and other regulated firms. The candidates knew the rules well, but many took months to understand how our products actually worked and how customers used them.\n\nLast year we started recruiting analysts from our own customer support team. We look for people who are curious about why a case looks unusual, and we give them a structured six-month training programme in financial crime, with a senior analyst as mentor.\n\nFive support colleagues have joined the team this way. They have brought something we lacked: an instinct for what normal customer behaviour looks like. The quality of their case reviews, measured by our second-line quality checks, has matched that of experienced hires within about nine months. Two of them now train new joiners on how our products work.\n\nThe rest of the team has learned as much from them as they have from us.\n\nCredit to the senior analysts who mentored them, and to the head of customer support, who let us recruit some of her best people.\n\nExpertise in the rules can be taught. Curiosity about customers is harder to find.",
+    "facts": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-26",
+        "summary": "Began recruiting compliance analysts from customer support, with a structured six-month financial crime training programme and a senior analyst mentor; head of customer support agreed",
+        "impact": "Brings product and customer knowledge into compliance",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-08-26",
+        "summary": "Five support colleagues joined compliance; their case review quality matched experienced hires within about nine months on second-line quality checks; two now train new joiners on the products",
+        "impact": "Strong analysts from an unexpected pool",
+        "metric": "5 hires; parity in ~9 months",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  }
+]
