@@ -47,7 +47,9 @@ export type AiTask = keyof typeof TASK_SETTINGS;
  * fits the plan allowance (src/lib/billing/pricing.ts). The quality bar can switch them on with
  * EVAL_QUALITY.
  * - draftCandidates: 3 since 2026-10-20 (86% against the baseline, evals/reports/2026-10-20-quality-steps.md).
- * - verifyWins, verifyIdeas: not yet measured on enough cases.
+ * - verifyWins: 63% (16 cases; faithful 69%), up from 48% without it, but below the gate. Off.
+ * - verifyIdeas: 50% (10 cases; grounded but flat), no better than the grounded prompt alone. Off.
+ *   (evals/reports/2026-10-20-fact-checkers.md)
  */
 export const QUALITY_STEPS = { verifyWins: false, verifyIdeas: false, draftCandidates: 3 };
 export type QualitySteps = typeof QUALITY_STEPS;

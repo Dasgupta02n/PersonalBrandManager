@@ -160,7 +160,8 @@ note is still saved and the AI step is skipped with a calm message.
 
 Extra pipeline steps are switched on in `QUALITY_STEPS` (`src/lib/ai/models.ts`) only once the
 quality bar shows they beat the baseline and their cost fits the plan allowance. Three drafts with
-an editor's pick are on; the fact-checkers for wins and ideas are built and off until measured.
+an editor's pick are on; the fact-checkers for wins and ideas are built and off: they improved
+faithfulness but have not yet beaten the baseline.
 
 `npm run eval` runs it with real model calls. `npm test` includes a free dry run that keeps the
 harness working. Baselines and the grader call the model through `runWithModel` in
