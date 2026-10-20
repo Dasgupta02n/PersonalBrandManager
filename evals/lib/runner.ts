@@ -88,6 +88,8 @@ export interface FunctionReport {
   criteria: Record<string, WinRate>;
   gate: { rule: string; passed: boolean } | null;
   pairs: PairRecord[];
+  /** Every case's raw output from both sides, for diagnosing results. */
+  outputs: { caseId: string; product: unknown; baseline: unknown }[];
 }
 
 // ---------------------------------------------------------------------------
@@ -225,6 +227,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
     criteria,
     gate: null,
     pairs,
+    outputs: rows.map((r) => ({ caseId: r.c.id, product: r.product, baseline: r.baseline })),
   };
   report.gate = spec.gate ? spec.gate(report, ok) : rate ? { rule: "Wins at least 60% against the baseline, interval above 50%", passed: beatsBaseline(rate) } : null;
   return report;
