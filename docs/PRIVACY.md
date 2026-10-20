@@ -9,7 +9,7 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 | Data | Where | Who can read it | Retention |
 |---|---|---|---|
 | Account (email address only; sign-in by one-time code or link, no password) | Supabase Auth, Mumbai | The user; service role | Until account deletion |
-| Sign-in emails (address, one-time code and link) | Sent from hello@c7xai.in through Hostinger's mail servers | The recipient; mailbox operators (sent folder) | Codes expire within an hour; clear the sent folder regularly |
+| Sign-in emails (address, one-time code and link) | Sent from hello@c7xai.in through Hostinger's mail servers | The recipient | Codes and links expire within an hour |
 | Settings, rules, topics, voice samples | Supabase Postgres, Mumbai | The user (row-level security) | Until changed or deleted |
 | Notes and wins | Supabase Postgres, Mumbai | The user | Until deleted |
 | Style notebook (style notes, edit counts, single removed words) | Supabase Postgres, Mumbai | The user | Until cleared or the account is deleted |
