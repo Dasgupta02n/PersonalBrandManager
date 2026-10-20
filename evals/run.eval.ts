@@ -14,7 +14,7 @@ import { stubFor } from "./lib/stub";
 //   EVAL_ESTIMATE=1              print the cost estimate and stop
 //   EVAL_DRY_RUN=1               stand-in model answers; checks the harness, costs nothing
 //   EVAL_LABEL=baseline-v1       a name for the run
-//   EVAL_REUSE=evals/out/<run>   reuse that run's outputs for unchanged cases (baseline only while
+//   EVAL_REUSE=evals/out/<run>   reuse that run's outputs for unchanged cases; several runs, comma-separated, oldest first (baseline only while
 //                                the baseline prompts are unchanged); grading always runs again
 //   EVAL_REUSE_PRODUCT=check     also reuse product outputs for functions whose pipeline is unchanged
 //   EVAL_QUALITY=verifyWins,verifyIdeas,draftCandidates=3   switch on quality steps under test
@@ -55,7 +55,7 @@ test("quality bar", async () => {
     budget: env.EVAL_BUDGET ? Number(env.EVAL_BUDGET) : undefined,
     reuse: env.EVAL_REUSE
       ? loadReuse(
-          JSON.parse(readFileSync(join(env.EVAL_REUSE, "results.json"), "utf8")),
+          env.EVAL_REUSE.split(",").flatMap((dir) => JSON.parse(readFileSync(join(dir.trim(), "results.json"), "utf8"))),
           (env.EVAL_REUSE_PRODUCT?.split(",").map((s) => s.trim()).filter(Boolean) ?? []) as (typeof FUNCTIONS)[number][],
         )
       : undefined,

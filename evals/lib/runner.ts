@@ -94,22 +94,28 @@ export interface Reuse {
   product: FunctionName[];
 }
 
-/** Earlier outputs and gradings from a run's results.json. */
+/**
+ * Earlier outputs and gradings from one or more runs' results.json, oldest first: a later run's
+ * output for a case replaces an earlier one. Product outputs come only from the newest run, the
+ * one made with the pipeline being tested. Runs made with different baseline prompts or grader
+ * aren't mixed: the newest run's fingerprints win and the others' entries are left out.
+ */
 export function loadReuse(reports: Pick<FunctionReport, "fn" | "baselineSource" | "judgeSource" | "outputs" | "pairs">[], product: FunctionName[]): Reuse {
-  return {
-    product,
-    previous: Object.fromEntries(
-      reports.map((r) => [
-        r.fn,
-        {
-          baselineSource: r.baselineSource,
-          judgeSource: r.judgeSource,
-          outputs: new Map(r.outputs.map((o) => [o.caseId, o])),
-          pairs: new Map((r.pairs ?? []).filter((p) => p.result).map((p) => [p.caseId, p])),
-        },
-      ]),
-    ),
-  };
+  const previous: Reuse["previous"] = {};
+  const newest = new Set(reports.filter((r) => r === reports.findLast((x) => x.fn === r.fn)));
+  for (const r of [...reports].reverse()) {
+    const into = (previous[r.fn] ??= { baselineSource: r.baselineSource, judgeSource: r.judgeSource, outputs: new Map(), pairs: new Map() });
+    const sameBaseline = into.baselineSource === r.baselineSource;
+    for (const o of r.outputs) {
+      const product = newest.has(r) ? o.product : null;
+      const baseline = sameBaseline ? o.baseline : null;
+      const have = into.outputs.get(o.caseId);
+      if (!have) into.outputs.set(o.caseId, { caseHash: o.caseHash, product, baseline });
+      else if (have.caseHash === o.caseHash) have.baseline ??= baseline;
+    }
+    if (into.judgeSource === r.judgeSource) for (const p of r.pairs ?? []) if (p.result && !into.pairs.has(p.caseId)) into.pairs.set(p.caseId, p);
+  }
+  return { product, previous };
 }
 
 /** Where a capped budget goes first: the promise, then the core writing, then the rest. */

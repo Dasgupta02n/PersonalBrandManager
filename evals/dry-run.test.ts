@@ -52,6 +52,23 @@ describe("the quality-bar harness (dry run)", () => {
     expect(again.cost.product + again.cost.baseline + again.cost.judge).toBe(0);
   });
 
+  it("merges several runs: product outputs only from the newest, baselines from any", () => {
+    const older = {
+      fn: "ideas" as const,
+      baselineSource: "b",
+      judgeSource: "j",
+      outputs: [
+        { caseId: "c1", caseHash: "h1", product: "old product", baseline: "baseline 1" },
+        { caseId: "c2", caseHash: "h2", product: "old product", baseline: "baseline 2" },
+      ],
+      pairs: [],
+    };
+    const newer = { ...older, outputs: [{ caseId: "c1", caseHash: "h1", product: "new product", baseline: null }] };
+    const { previous } = loadReuse([older, newer], ["ideas"]);
+    expect(previous.ideas?.outputs.get("c1")).toMatchObject({ product: "new product", baseline: "baseline 1" });
+    expect(previous.ideas?.outputs.get("c2")).toMatchObject({ product: null, baseline: "baseline 2" });
+  });
+
   // Last: running out of credit stops the rest of the process's run.
   it.skipIf(!ready.length)("starts nothing new once OpenRouter refuses a call for lack of credit", async () => {
     state.refuse = true;
