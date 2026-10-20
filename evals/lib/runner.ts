@@ -236,7 +236,8 @@ interface Spec<C extends { id: string; personaId: string }> {
   product: Side<C>["run"];
   baseline: Side<C>["run"];
   judge?: { rubric: RubricName; context: (c: C, p: Persona) => string; render: (out: never) => string };
-  metrics: (rows: { c: C; p: Persona; product: unknown; baseline: unknown }[]) => Metric[] | Promise<Metric[]>;
+  /** Plain-code metrics; any grading calls they make are charged to `onUsage`. */
+  metrics: (rows: { c: C; p: Persona; product: unknown; baseline: unknown }[], onUsage: UsageRecorder) => Metric[] | Promise<Metric[]>;
   gate?: (report: FunctionReport, rows: { c: C; p: Persona; product: unknown; baseline: unknown }[]) => { rule: string; passed: boolean };
 }
 
@@ -325,7 +326,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
     judgeSource: JUDGE_SOURCE,
     errors,
     cost: { product: costs.product.total(), baseline: costs.baseline.total(), judge: costs.judge.total() },
-    metrics: await spec.metrics(ok),
+    metrics: await spec.metrics(ok, costs.judge.record),
     rate,
     criteria,
     gate: null,
@@ -550,10 +551,10 @@ function specs(): { [K in FunctionName]: () => Spec<never> } {
             `Sample posts:\n${p.samplePosts.join("\n---\n")}\n\n${c.pairs.map((x, i) => `Pair ${i + 1}\nDrafted:\n${x.drafted}\nPosted:\n${x.posted}`).join("\n\n")}`,
           render: (o: { summary: string; notes: string[] }) => `${o.summary}\n${o.notes.map((n) => `- ${n}`).join("\n")}`,
         },
-        metrics: async (rows: { c: import("./schema").VoiceCase; p: Persona; product: unknown; baseline: unknown }[]) => {
+        metrics: async (rows: { c: import("./schema").VoiceCase; p: Persona; product: unknown; baseline: unknown }[], onUsage: UsageRecorder) => {
           const leaks = (side: "product" | "baseline") => rows.map((r) => m.voiceLeaks((r[side] as { notes: string[] }).notes, r.p.rules));
           const coverage = async (side: "product" | "baseline") =>
-            Promise.all(rows.map((r) => traitCoverage({ traits: r.c.expectedTraits, notes: (r[side] as { notes: string[] }).notes }).catch(() => 0)));
+            Promise.all(rows.map((r) => traitCoverage({ traits: r.c.expectedTraits, notes: (r[side] as { notes: string[] }).notes, onUsage }).catch(() => 0)));
           const [ca, cb] = await Promise.all([coverage("product"), coverage("baseline")]);
           return [
             { label: "Expected traits captured", product: pct(mean(ca)), baseline: pct(mean(cb)) },
