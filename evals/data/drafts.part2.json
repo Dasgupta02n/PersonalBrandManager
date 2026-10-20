@@ -1,0 +1,3082 @@
+[
+  {
+    "id": "draft-151",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "Cutting the long tail of SKUs can cost more than it saves when tail items are what keep the biggest retail accounts ordering.",
+    "hook": "The client wanted to cut 30% of their products. The data said 12%.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-14",
+        "summary": "Sarah's team analyzed a mid-size snack maker's long-tail SKUs and found that about 40% of the tail was ordered alongside top sellers by its three largest retail accounts; she recommended cutting 12% of SKUs instead of the 30% the CFO had targeted.",
+        "impact": "Protected roughly $18M in attached revenue while still freeing about a fifth of warehouse pick slots.",
+        "metric": "12% of SKUs cut vs 30% target",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-152",
+    "personaId": "p07",
+    "format": "decision",
+    "angle": "Paying more per unit in peak season can be the right supply chain call when it keeps capital free and the decision reversible.",
+    "hook": "We told a PE-backed client not to build the warehouse they had already picked a site for.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-20",
+        "summary": "Sarah recommended that a PE-backed home goods company handle peak-season overflow through a 3PL contract instead of building a fourth distribution center, accepting about 8% higher per-unit fulfillment cost in Q4.",
+        "impact": "Avoided an estimated $42M capital outlay and kept the option to build in three years if volume holds.",
+        "metric": "$42M capex avoided",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-02-03",
+        "summary": "The operating partner at the PE firm told Sarah it was the first recommendation in years that came with a clear trigger for revisiting it.",
+        "impact": "Showed the reversible framing landed with the investor, not just the management team.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-153",
+    "personaId": "p07",
+    "format": "credit",
+    "angle": "The most useful model on the project came from a first-year analyst who spent two night shifts on the dock before opening a spreadsheet.",
+    "hook": "Our most-used deliverable this quarter was built by a first-year analyst after two night shifts.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-09",
+        "summary": "A first-year analyst on Sarah's team spent two night shifts at a client's main distribution center, then built a simple dock-door scheduling tool in a spreadsheet that the night supervisors now use to plan inbound trucks.",
+        "impact": "Average truck dwell time at the dock fell from about 3 hours to under 2 within six weeks.",
+        "metric": "dwell time 3h to 1h50m",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      }
+    ]
+  },
+  {
+    "id": "draft-154",
+    "personaId": "p07",
+    "format": "how_to",
+    "angle": "Writing a one-page memo before building the deck forces a consulting team to know exactly what it is recommending and what would change its mind.",
+    "hook": "Before my teams build a single slide, they write one page.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-11",
+        "summary": "Sarah introduced a rule on her teams that every final recommendation starts as a one-page memo covering the recommendation, its cost, the main risks and what would change the team's mind, before any slides are built.",
+        "impact": "Steering committee meetings on her last two projects ended with a decision in the room rather than a request for more analysis.",
+        "metric": "2 of 2 steering committees decided in the room",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-155",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "A recommendation is not finished at handover; it is finished when the planners making daily calls trust it enough to stop overriding it.",
+    "hook": "Two months after handover, the client's planners were overriding our model on most products.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-18",
+        "summary": "Two months after Sarah's team handed over a new safety stock policy at a beverage client, planners were overriding the system on about 60% of SKUs and fill rate had not moved.",
+        "impact": "Showed that the handover had skipped the people who make the daily replenishment calls.",
+        "metric": "60% override rate",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-07",
+        "summary": "Sarah went back for three unbilled days, sat with the planners, and added an override reason field plus a weekly review of the top 20 overrides.",
+        "impact": "Override rate fell to about 15% and fill rate rose from 91% to 96% over the next quarter.",
+        "metric": "fill rate 91% to 96%",
+        "kind": "unblocked",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-156",
+    "personaId": "p07",
+    "format": "decision",
+    "angle": "Network consolidation decisions move faster when you lead with the service level the client keeps, not only the cost it saves.",
+    "hook": "Most network studies lead with savings. Ours led with the on-time rate the client would keep.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-12",
+        "summary": "For Calder Logistics, Sarah's team recommended closing two of five regional cross-dock terminals in the Midwest after modeling showed on-time delivery held at 98% with three; the board votes on the plan in November and staff have not been told.",
+        "impact": "Projected annual savings of about $11.5M.",
+        "metric": "$11.5M projected annual savings",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-157",
+    "personaId": "p07",
+    "format": "credit",
+    "angle": "Letting a senior associate run a difficult client workshop alone is how she becomes a manager, and staying quiet is the principal's hardest job.",
+    "hook": "I said nothing for three hours in a client workshop this week. It was deliberate.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-02",
+        "summary": "A senior associate on Sarah's team ran a client's S&OP redesign workshop with its sales and operations leads on her own for the first time, while Sarah stayed silent at the back of the room.",
+        "impact": "The associate handled two heated disagreements between sales and supply without stepping out of the facilitator role.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-05",
+        "summary": "The client's COO emailed Sarah afterwards to say it was the first S&OP meeting where sales and supply left agreeing on one forecast number.",
+        "impact": "Gave the client a single demand number to plan production against for the next quarter.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-158",
+    "personaId": "p07",
+    "format": "how_to",
+    "angle": "A 30-minute pre-mortem on why the client will not act is a better use of a project's last week than another round of polishing the analysis.",
+    "hook": "In the last week of every project, we ask one question: why won't they do this?",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-15",
+        "summary": "Sarah added a 30-minute implementation pre-mortem to the final week of every project: the team lists the three most likely reasons the client will not act on the recommendation and designs one fix for each.",
+        "impact": "On a recent freight procurement project it surfaced that the client's carrier manager had no authority to sign new contracts; the sign-off rule was changed before handover.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-159",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "Asking plant managers for their own improvement lists before starting a diagnostic saves weeks and creates owners from day one.",
+    "hook": "Four plant managers already knew about 70% of what our diagnostic would find.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-25",
+        "summary": "During a 100-day plan for a PE-acquired pet food maker, Sarah asked each of the four plant managers for their own improvement lists before her team started its diagnostic; their lists covered about 70% of the opportunities the team later quantified.",
+        "impact": "The team cut the diagnostic from six weeks to four, and the plant managers owned most of the initiatives from the start.",
+        "metric": "diagnostic shortened from 6 weeks to 4",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-160",
+    "personaId": "p07",
+    "format": "decision",
+    "angle": "Telling a client they need their own planning lead rather than more consultants costs fees in the short term and builds the kind of trust that brings you back.",
+    "hook": "We talked a client out of extending our work, and they hired us again anyway.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-20",
+        "summary": "Sarah advised a logistics client against a six-month extension of her team's transport planning work, recommending they hire an internal planning lead and offering a two-week handover; the extension was worth about $1.2M in fees to her firm.",
+        "impact": "The client hired a planning lead within two months and later asked the firm back for a separate warehouse automation study.",
+        "metric": "$1.2M extension declined",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-161",
+    "personaId": "p07",
+    "format": "credit",
+    "angle": "The unglamorous data reconciliation was the part of the freight project that paid for itself, and the specialist who did it deserves the credit.",
+    "hook": "The most valuable work on our freight project happened before anyone built a chart.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-08",
+        "summary": "A data specialist on Sarah's team reconciled three years of shipment records from two ERP systems after a client's merger and found that about 14% of freight invoices were coded to the wrong lane.",
+        "impact": "Made lane-level cost analysis possible and surfaced roughly $2M in recoverable carrier overbilling.",
+        "metric": "$2M recoverable overbilling",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-162",
+    "personaId": "p07",
+    "format": "how_to",
+    "angle": "Presenting operations analysis in the units the floor already uses gets it adopted faster than presenting it against an external benchmark.",
+    "hook": "A plant manager does not think in percentage of benchmark. He thinks in cases per hour.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-22",
+        "summary": "Sarah coached a second-year consultant to rebuild a labor productivity readout in cases per labor hour by shift, the unit the plant already tracked, instead of percentage of an industry benchmark.",
+        "impact": "The consultant's next readout took ten minutes instead of an hour of debate about the benchmark.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-29",
+        "summary": "The plant's general manager adopted the consultant's shift-level chart for his own weekly operations meeting.",
+        "impact": "The analysis became part of the plant's routine instead of a one-off report.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-163",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "Expedited freight is often a symptom of a sales-to-supply handoff problem rather than a logistics problem.",
+    "hook": "Most of the client's expedited freight bill was caused by a calendar nobody shared.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-03",
+        "summary": "At Brightline Foods, Sarah's team traced about two-thirds of expedited freight spend to promotions that sales had committed to retailers without telling supply planning.",
+        "impact": "Led to a shared promotions calendar with a four-week lock; expedited freight fell by about 35% the following quarter.",
+        "metric": "expedited freight down 35%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-164",
+    "personaId": "p07",
+    "format": "decision",
+    "angle": "A simple replenishment rule the client can maintain beats a better optimization model that nobody at the client can run.",
+    "hook": "We built an optimization model and then recommended the client not use it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-27",
+        "summary": "Sarah chose to hand a regional distributor a three-rule replenishment heuristic instead of the optimization model her team had built, because the client had no one who could maintain the model.",
+        "impact": "Captured about 80% of the modeled inventory reduction; inventory fell by roughly $6M within two quarters.",
+        "metric": "$6M inventory reduction",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-165",
+    "personaId": "p07",
+    "format": "credit",
+    "angle": "The slotting analysis was ours, but the result belongs to the warehouse supervisors who re-slotted thousands of SKUs over three weekends.",
+    "hook": "Our slotting analysis took two weeks. The client's supervisors did the hard part in three weekends.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-09",
+        "summary": "Warehouse supervisors at a client's Ohio distribution center re-slotted about 4,000 SKUs over three weekends using the velocity analysis from Sarah's team, without an overtime budget.",
+        "impact": "Picker travel distance dropped by about a quarter and lines picked per hour rose from 95 to 118.",
+        "metric": "lines per hour 95 to 118",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-166",
+    "personaId": "p07",
+    "format": "how_to",
+    "angle": "A supplier risk review can be done in a week if you rank suppliers by exposure and pick up the phone instead of sending surveys.",
+    "hook": "Twenty phone calls told us more about supplier risk than a 200-question survey.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-16",
+        "summary": "Sarah ran a one-week supplier risk review for a consumer goods client by ranking suppliers on spend and single-source exposure and calling the top 20 directly rather than sending questionnaires.",
+        "impact": "Found three single-source packaging suppliers with less than two weeks of resin on hand; the client qualified backups before the spring peak.",
+        "metric": "3 critical single-source risks found",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-167",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "Exiting a product line well is an operations project that deserves the same rigor as a launch.",
+    "hook": "We spend a lot of energy planning launches. Exits deserve the same care.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-08",
+        "summary": "Sarah's team built the operational exit plan for Pinecrest Beverages' frozen line, which the client plans to sell in early 2027 and has not announced; the plan sequences co-packer transitions over nine months.",
+        "impact": "All three affected plants stayed within service targets during planning, and the CEO asked Sarah to stay on for the transition.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-168",
+    "personaId": "p07",
+    "format": "credit",
+    "angle": "The consultant I mentored was promoted because clients trusted how she explained trade-offs to their teams, not because of her slides.",
+    "hook": "Three different clients mentioned the same thing in a colleague's promotion review this month.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-30",
+        "summary": "A consultant Sarah has mentored for two years was promoted to engagement manager; in her promotion review, three clients separately mentioned how clearly she explained trade-offs to their teams.",
+        "impact": "Sarah's mentee now leads her own engagement and has asked to mentor two incoming analysts.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      }
+    ]
+  },
+  {
+    "id": "draft-169",
+    "personaId": "p07",
+    "format": "how_to",
+    "angle": "An action register with named client owners and 14-day first steps does more to change a business than a long diagnostic report.",
+    "hook": "Our 120-page diagnostic mattered less than the one-page list that came with it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-25",
+        "summary": "Sarah's team turned a 120-page diagnostic into a ten-item action register for a frozen foods client, each item with a named client owner, a first step due within 14 days and a monthly check-in.",
+        "impact": "Eight of ten actions had started within a month, where the client's past consulting reports had sat unread.",
+        "metric": "8 of 10 actions started in 30 days",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-170",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "Cutting scope with the client is a better way to protect the quality of a team's work than asking people to work later.",
+    "hook": "The quality of our models was slipping, and the cause was 1 a.m. emails.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-07",
+        "summary": "During a tight eight-week project, Sarah noticed two associates were sending files after 1 a.m. most nights and errors were creeping into their models.",
+        "impact": "Recognized that the team's workload, not its skill, was the quality risk.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2025-11-19",
+        "summary": "Sarah agreed with the client to drop two lower-value analyses from scope and set a no-email-after-10-p.m. rule for the team.",
+        "impact": "The team finished on time and the client called the final recommendation the clearest it had received.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      }
+    ]
+  },
+  {
+    "id": "draft-171",
+    "personaId": "p07",
+    "format": "decision",
+    "angle": "Paying a higher landed cost for much shorter lead times can be cheaper overall once you count the inventory you no longer have to hold.",
+    "hook": "We recommended a client pay 6% more per unit, and it should save them money.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-05",
+        "summary": "Sarah recommended that a housewares client move about 25% of its volume from Asian suppliers to a Mexican contract manufacturer, accepting roughly 6% higher landed cost in exchange for lead times falling from 75 days to 20.",
+        "impact": "Gave the client a fast lane for its top 50 SKUs and is expected to cut forecast-driven inventory by about $9M.",
+        "metric": "lead time 75 to 20 days",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-172",
+    "personaId": "p07",
+    "format": "how_to",
+    "angle": "Asking frontline staff to walk through what happened last Tuesday reveals the work that process maps leave out.",
+    "hook": "We stopped asking how the process works. We ask what happened last Tuesday.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-29",
+        "summary": "Sarah trained her team to ask frontline staff to walk through 'last Tuesday' step by step instead of asking how a process normally works.",
+        "impact": "In a distribution center diagnostic, the method surfaced a manual re-labeling step that took about 9 labor hours a day and appeared in no process map.",
+        "metric": "9 labor hours/day uncovered",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      }
+    ]
+  },
+  {
+    "id": "draft-173",
+    "personaId": "p07",
+    "format": "credit",
+    "angle": "Almost half the savings on our latest procurement project came from the packaging category, and the senior associate who ran it deserves the credit.",
+    "hook": "Almost half of the savings on our last procurement project came from one category and one associate.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-24",
+        "summary": "Sarah's team's procurement work at Marlow Pet Nutrition, a portfolio company of a PE client, delivered $4.8M in annualized savings, which the operating partner cited in the fund's private investor letter.",
+        "impact": "The operating partner asked for the same team on a second portfolio company.",
+        "metric": "$4.8M annualized savings",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Supply chain decisions"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-26",
+        "summary": "A senior associate on Sarah's team led the packaging category, consolidating eleven suppliers to four and delivering almost half of the project's savings.",
+        "impact": "Gave the client a simpler supplier base with better terms and fewer quality escapes.",
+        "metric": "11 packaging suppliers to 4",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing consultants"
+      }
+    ]
+  },
+  {
+    "id": "draft-174",
+    "personaId": "p07",
+    "format": "lesson",
+    "angle": "Presenting savings as a range with clear drivers earns more trust from a CFO than a precise single number.",
+    "hook": "The CFO approved the project because we gave him a range instead of a number.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-01",
+        "summary": "Sarah presented a network savings estimate as a range of $3M to $5M, with the assumptions behind each end, instead of a single number; the CFO used the low end in the budget and approved the project.",
+        "impact": "Approval came in one meeting, where earlier point-estimate proposals at the client had stalled in finance review.",
+        "metric": "$3M-$5M savings range",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Turning analysis into action"
+      }
+    ]
+  },
+  {
+    "id": "draft-175",
+    "personaId": "p07",
+    "format": "decision",
+    "angle": "Delaying a system go-live past peak season is cheaper than a failed launch in the middle of it.",
+    "hook": "We recommended a six-week delay on a system go-live that everyone wanted done.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-14",
+        "summary": "Sarah advised Brightline Foods to delay the go-live of a new warehouse management system at its largest distribution center by six weeks after a test week showed pick accuracy falling to 97.2% from 99.5%.",
+        "impact": "Go-live moved past the summer peak; accuracy was above 99.6% at launch and no retailer shipments were missed.",
+        "metric": "pick accuracy 97.2% in test, 99.6% at launch",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Supply chain decisions"
+      }
+    ]
+  },
+  {
+    "id": "draft-176",
+    "personaId": "p08",
+    "format": "lesson",
+    "angle": "Watching a full shift showed us the paper step in medication reconciliation was part of the workflow, not a problem to design away.",
+    "hook": "We were about to build a tablet workflow for something nurses do on paper for good reasons.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-12",
+        "summary": "Marcus and two product managers shadowed a full day shift in a cardiology clinic and found nurses reconciled medications on a printed list at the bedside, then typed the changes in later.",
+        "impact": "The team scrapped a planned tablet workflow and shipped a printable reconciliation sheet with a scan-back step; it was used in 70% of visits within a month.",
+        "metric": "70% of visits in first month",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-177",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "Delaying a launch for proper usability testing in a clinical product is a safety decision, even when sales pays the cost.",
+    "hook": "We pushed a launch back five weeks because nurses misread one color under clinic lighting.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-14",
+        "summary": "Marcus delayed the launch of Cadence Health's remote monitoring alerts dashboard by five weeks to run a usability study with 15 nurses, after early testing showed alert colors were misread under clinic lighting.",
+        "impact": "Two sales deals slipped a quarter; the redesigned alert hierarchy had no misread alerts in the follow-up test.",
+        "metric": "5-week delay; 15 nurses tested",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-178",
+    "personaId": "p08",
+    "format": "credit",
+    "angle": "Our senior designer's clinician panel cut rework in half by moving clinical feedback to the sketch stage.",
+    "hook": "Our best process change this year was built by one designer and ten clinicians.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-10",
+        "summary": "A senior product designer at Cadence Health set up a clinician advisory panel of eight nurses and two physicians who now review every major feature at the sketch stage.",
+        "impact": "Rework after beta fell by about half over two quarters.",
+        "metric": "post-beta rework down ~50%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-179",
+    "personaId": "p08",
+    "format": "how_to",
+    "angle": "A clinic visit only produces discovery if the team goes in with a simple structure for what to write down and how to debrief.",
+    "hook": "Here's the one-page guide our product team uses every time we visit a clinic.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-19",
+        "summary": "Marcus wrote a one-page clinic visit guide for Cadence Health's product team: no laptops, one observer per role, write down every workaround, and debrief within 24 hours using three set questions.",
+        "impact": "The team logged 41 workarounds across four clinic visits in a quarter; six became roadmap items.",
+        "metric": "41 workarounds, 6 roadmap items",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-180",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "A feature that is right 29 times out of 30 is not ready for clinical use when the 30th error is a missed medication change.",
+    "hook": "We cut our most exciting feature from the next release because its error rate was too high for clinics.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-08",
+        "summary": "Marcus cut the AI-generated visit summary from the Halo v2 release after a clinician review found it omitted medication changes in about 1 in 30 test summaries; Halo v2 has not been announced.",
+        "impact": "The release date held; the summary feature moved to a later release pending a clinical validation plan.",
+        "metric": "1 in 30 summaries missed medication changes",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-181",
+    "personaId": "p08",
+    "format": "lesson",
+    "angle": "We wrote automated patient messages without asking the front-desk staff who take the calls when those messages confuse people.",
+    "hook": "Our automated patient replies made the morning phone queue longer, not shorter.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-06",
+        "summary": "Two weeks after launch, Marcus's team found that automated after-hours replies in Cadence Health's patient messaging were prompting patients to call the clinic anyway, adding about 20% more morning calls at pilot sites.",
+        "impact": "Showed the replies had been written without input from the staff who handle the follow-up calls.",
+        "metric": "morning calls up 20%",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-28",
+        "summary": "The team rewrote the replies with front-desk staff so each one states when a nurse will respond and what to do if the issue is urgent.",
+        "impact": "Morning call volume dropped to about 10% below pre-launch levels.",
+        "metric": "morning calls 10% below baseline",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-182",
+    "personaId": "p08",
+    "format": "credit",
+    "angle": "A quality engineer made release documentation a by-product of the work instead of a two-week scramble before every release.",
+    "hook": "Release paperwork used to take two weeks. One quality engineer got it down to two days.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-17",
+        "summary": "A quality engineer on Marcus's team automated the links between user stories, tests and risk controls, so the traceability report for each release is generated rather than assembled by hand.",
+        "impact": "Release documentation time fell from about two weeks to two days.",
+        "metric": "2 weeks to 2 days",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-183",
+    "personaId": "p08",
+    "format": "how_to",
+    "angle": "Putting a one-line clinical risk statement in every user story moves safety thinking to the start of the sprint instead of the end.",
+    "hook": "Every user story on our team now has one extra line, and it changed how we ship.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-01",
+        "summary": "Marcus changed Cadence Health's story template so every user story includes a one-line clinical risk statement and the name of its reviewer, written by the product manager before refinement.",
+        "impact": "Clinical safety comments raised late in sprints fell from about 12 per release to 3.",
+        "metric": "late safety comments 12 to 3 per release",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-184",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "Turning down a large customer's custom clinical rule and building a configurable option instead kept one validated product for every customer.",
+    "hook": "Our largest customer asked for a custom feature. We said no and built something different.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-24",
+        "summary": "Marcus declined St. Brendan Medical's request for a custom triage scoring rule in Cadence Health's nurse inbox, because each custom clinical rule would need its own validation, and offered a configurable threshold that every customer could use.",
+        "impact": "Kept a single product version; three other health systems adopted the configurable threshold within a quarter and the requesting customer renewed.",
+        "metric": "3 health systems adopted the threshold",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-185",
+    "personaId": "p08",
+    "format": "lesson",
+    "angle": "A blameless incident review only works if the person closest to the mistake feels safe enough to present the findings herself.",
+    "hook": "The engineer whose change caused our worst bug this year presented the review herself.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-04",
+        "summary": "After a data sync bug delayed lab results in Cadence Health's clinician view by up to four hours one afternoon, Marcus ran a blameless review with engineering, support and the clinical safety lead.",
+        "impact": "The review produced two monitoring checks and a clinician notification rule, and the engineer who shipped the change presented the findings.",
+        "metric": "results delayed up to 4 hours",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-186",
+    "personaId": "p08",
+    "format": "credit",
+    "angle": "A nurse manager's comment about her message backlog is the best review our triage inbox team could get, and the credit is theirs.",
+    "hook": "A nurse manager told me her after-lunch backlog went from about 90 messages to 25.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-21",
+        "summary": "A nurse manager at a pilot clinic told Marcus that Cadence Health's triage inbox cut her team's after-lunch message backlog from about 90 messages to 25.",
+        "impact": "Gave her nurses time back in the busiest part of the day.",
+        "metric": "backlog 90 to 25 messages",
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-22",
+        "summary": "The triage inbox was designed and built by two engineers, a designer and a product manager who spent three weeks rotating through the clinic's front desk before writing a line of code.",
+        "impact": "Showed the value of discovery time spent in the clinic before building.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-187",
+    "personaId": "p08",
+    "format": "how_to",
+    "angle": "Ten-minute paper prototype tests during clinic lulls can replace a two-week build-and-test cycle.",
+    "hook": "We tested five designs with 12 nurses in one afternoon, using paper.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-20",
+        "summary": "Marcus's team tested five paper prototypes of a discharge instruction screen with 12 nurses during lulls in a clinic shift, spending about 10 minutes with each nurse.",
+        "impact": "The team chose a design in one day instead of running a two-week build-and-test cycle.",
+        "metric": "1 day vs 2-week cycle",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-188",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "Organizing product squads around clinical outcomes cost us a slow quarter and gave us teams that own results instead of features.",
+    "hook": "We reorganized our product teams around three clinical numbers instead of three product areas.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-03",
+        "summary": "Marcus reorganized Cadence Health's three product squads around clinical outcomes (time to triage, missed follow-ups, documentation time) instead of product areas, accepting a quarter of slower delivery while ownership shifted.",
+        "impact": "Two quarters later each squad reports one outcome metric weekly, and median time to triage at pilot clinics has fallen by about 30%.",
+        "metric": "time to triage down 30%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-189",
+    "personaId": "p08",
+    "format": "lesson",
+    "angle": "Onboarding is part of the product, and treating it as someone else's job cost us a customer.",
+    "hook": "We lost a customer this year, and the product itself was not the reason.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-22",
+        "summary": "A 30-clinic pilot customer did not renew after onboarding took four months instead of six weeks, costing Cadence Health about $900K in annual recurring revenue; the loss has not been shared beyond the leadership team.",
+        "impact": "Marcus moved onboarding into the product team's scope with a six-week target and a weekly clinic-readiness checklist.",
+        "metric": "$900K ARR lost",
+        "kind": "lesson",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "draft-190",
+    "personaId": "p08",
+    "format": "credit",
+    "angle": "Hiring clinicians into product roles works when you give them room to lead, and our newest senior product manager proves it.",
+    "hook": "Two years ago she was an ICU nurse. Today she's a senior product manager on our team.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-12",
+        "summary": "A product manager Marcus hired as an associate two years ago, a former ICU nurse, was promoted to senior product manager after leading Cadence Health's medication reconciliation launch.",
+        "impact": "She now runs the clinician advisory panel and mentors two new product managers.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-191",
+    "personaId": "p08",
+    "format": "how_to",
+    "angle": "A 48-hour, one-table impact review turns a new regulation into a scoped plan before anxiety takes over the team.",
+    "hook": "When a new rule lands, we give ourselves 48 hours and one shared table.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-02",
+        "summary": "When a new federal rule on patient data access was published, Marcus ran a 48-hour impact review in which product, engineering, legal and clinical safety each listed affected features in one shared table with an owner and a deadline.",
+        "impact": "All required changes were scoped in two days and shipped six weeks ahead of the compliance date.",
+        "metric": "shipped 6 weeks before the deadline",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-192",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "Retiring an app some patients liked was the right call when a simpler channel worked far better for the patients who needed it most.",
+    "hook": "We retired our patient app, and check-in completion went up.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-16",
+        "summary": "Marcus decided to retire Cadence Health's legacy patient mobile app and move patients to text-message check-ins, after research showed patients over 65 completed text check-ins at twice the rate.",
+        "impact": "About 8% of active users lost features they used; check-in completion across all patients rose from 48% to 71%.",
+        "metric": "check-in completion 48% to 71%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-193",
+    "personaId": "p08",
+    "format": "lesson",
+    "angle": "Clinicians asked for more detail in alerts, but watching them work showed they needed less on the first screen.",
+    "hook": "Clinicians told us they wanted more detail in alerts. Watching them showed the opposite.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-28",
+        "summary": "In 20 clinician interviews, most asked Marcus's team for more detail in alerts; observation in clinics showed they read only the first line of each alert before deciding what to do.",
+        "impact": "The team shortened alerts to one decision-ready line with detail one tap away; time to act on alerts fell by about 40%.",
+        "metric": "time to act on alerts down 40%",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-194",
+    "personaId": "p08",
+    "format": "credit",
+    "angle": "Our support lead's six weeks of careful ticket tagging did more product discovery than a quarter of interviews.",
+    "hook": "Some of our best product discovery this year came from the support queue.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-17",
+        "summary": "A customer support lead at Cadence Health tagged every ticket for six weeks by the clinical task the user was trying to complete and shared the results with the product team.",
+        "impact": "Showed about a third of tickets came from one confusing referral screen; the fix cut referral-related tickets by about 60%.",
+        "metric": "referral tickets down 60%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-195",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "Fixing the product for current customers before chasing a new market rarely feels exciting, but it is usually the right call.",
+    "hook": "I argued to delay our next big expansion, and leadership agreed.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-26",
+        "summary": "Marcus recommended that Cadence Health's leadership delay a planned move into behavioral health clinics by two quarters to fix documentation workflows for existing primary care customers; the expansion plan has not been announced.",
+        "impact": "Leadership agreed and six engineers were redirected to the documentation backlog.",
+        "metric": "6 engineers redirected",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "draft-196",
+    "personaId": "p08",
+    "format": "how_to",
+    "angle": "Opening every sprint review with a two-minute clinician story keeps the people we build for in the room.",
+    "hook": "Every sprint review on our team starts with two minutes from a clinic.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-07",
+        "summary": "Marcus started each sprint review with a two-minute clinician story, a recorded quote or a photo of a workaround (shared with consent and no patient details), tied to the work being shown.",
+        "impact": "Engineers began asking to join clinic visits; 14 of 22 engineers attended one during the quarter.",
+        "metric": "14 of 22 engineers visited a clinic",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-197",
+    "personaId": "p08",
+    "format": "lesson",
+    "angle": "Committing to fewer initiatives got more shipped, and admitting the overcommitment to the team was the first step.",
+    "hook": "We committed to nine initiatives last quarter and finished three. That's on me.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-24",
+        "summary": "Marcus admitted at quarterly planning that he had committed the product team to nine initiatives in Q2, including the Halo v2 rebuild, and the team finished three.",
+        "impact": "For Q3 he capped the roadmap at four initiatives; all four shipped and the clinician satisfaction score rose from 6.8 to 7.9.",
+        "metric": "4 of 4 shipped; CSAT 6.8 to 7.9",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Product team culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-198",
+    "personaId": "p08",
+    "format": "credit",
+    "angle": "The pilot clinic nurses who co-designed our referral tracking view deserve the credit for cutting missed follow-ups by two-thirds.",
+    "hook": "Six weekly sessions with pilot clinic nurses produced our best feature this year.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-26",
+        "summary": "Nurses at St. Brendan Medical's two pilot clinics co-designed Cadence Health's new referral tracking view over six weekly sessions; the pilot is under NDA.",
+        "impact": "Referral follow-ups missed past 14 days fell from about 18% to 6% at the pilot clinics.",
+        "metric": "missed follow-ups 18% to 6%",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Product discovery with clinicians"
+      }
+    ]
+  },
+  {
+    "id": "draft-199",
+    "personaId": "p08",
+    "format": "how_to",
+    "angle": "A fixed release train with a mid-cycle clinical safety gate lets a regulated product ship often without cutting corners.",
+    "hook": "We've shipped 12 releases on time in a row. The trick is a gate on day eight.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-30",
+        "summary": "Marcus set up a fixed two-week release train with a clinical safety gate on day 8, so any feature not cleared by then moves to the next train instead of delaying the release.",
+        "impact": "Cadence Health went from monthly, often-late releases to 12 on-time releases in a row.",
+        "metric": "12 consecutive on-time releases",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-200",
+    "personaId": "p08",
+    "format": "decision",
+    "angle": "Spending our only new headcount on a clinical safety officer instead of another product manager made the whole team faster.",
+    "hook": "I had one new hire this half, and I didn't hire a product manager.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-07",
+        "summary": "Marcus used his only new headcount of the half-year to hire a clinical safety officer instead of a fourth product manager.",
+        "impact": "Clinical safety reviews moved from an outside contractor with a two-week wait to same-week reviews inside the team.",
+        "metric": "review wait 2 weeks to under 1 week",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Shipping in regulated spaces"
+      }
+    ]
+  },
+  {
+    "id": "draft-201",
+    "personaId": "p09",
+    "format": "lesson",
+    "angle": "A brand's strongest positioning is often the word its regular customers already use about it.",
+    "hook": "The client called themselves premium. Their regulars called them 'my local'.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-18",
+        "summary": "Layla led 25 customer interviews for a specialty coffee chain with 14 branches in Dubai and found regulars described it as 'my local', not premium; she repositioned the brand around neighbourhood rather than bean origin stories.",
+        "impact": "Repeat visits per loyalty member rose by about 18% over the following quarter.",
+        "metric": "repeat visits up 18%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-202",
+    "personaId": "p09",
+    "format": "decision",
+    "angle": "Moving budget from acquisition to retention costs a visible dip in new customers before it pays back in repeat revenue.",
+    "hook": "I cut a client's paid social budget by almost half. New customers dipped. Revenue didn't.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-12",
+        "summary": "Layla moved AED 180,000 of a skincare brand's quarterly paid social budget into a CRM programme and customer interviews, accepting a short-term dip in new customer numbers.",
+        "impact": "New customers fell by about 10% for a month; repeat purchase rate rose from 22% to 31% over the quarter and total revenue grew.",
+        "metric": "repeat purchase rate 22% to 31%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-203",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "The in-house marketer who did 30 home visits with parents did the research that changed the brand, and the credit is hers.",
+    "hook": "The best customer research on my last project was done by the client's own marketing manager.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-09",
+        "summary": "The in-house marketing manager at a children's furniture brand ran 30 home visits with parents in Dubai and Abu Dhabi after Layla trained her in interview basics.",
+        "impact": "Her finding that parents cared about storage more than style became the core of the new message; online conversion rose from 1.4% to 2.1%.",
+        "metric": "conversion 1.4% to 2.1%",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-204",
+    "personaId": "p09",
+    "format": "how_to",
+    "angle": "A positioning workshop built from verbatim guest quotes gets a leadership team to agreement faster than rounds of agency concepts.",
+    "hook": "The hotel group spent three months on agency concepts. A box of guest quotes settled it in an afternoon.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-02",
+        "summary": "Layla ran a half-day positioning workshop for a boutique hotel group's leadership using only verbatim guest review quotes printed on cards, which the team sorted into themes before drafting a one-sentence promise.",
+        "impact": "The leadership team agreed a positioning statement in one session after three months of stalled agency rounds.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-205",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "Property buyers trust a developer's delivery record more than its amenities, and the head of sales who rebuilt the pitch made that finding count.",
+    "hook": "Off-plan buyers told us they cared less about the pool and more about the keys arriving on time.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-15",
+        "summary": "For Oasis Living, Layla's research with 40 recent buyers showed off-plan buyers chose the developer for its handover track record rather than the amenities in its brochures; the new campaign launches in Q4 and is not yet public.",
+        "impact": "Site visit-to-reservation rate rose from 9% to 14% in a soft-launch test.",
+        "metric": "visit-to-reservation 9% to 14%",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-20",
+        "summary": "The developer's head of sales coached her 12-person team to open every site visit with the handover timeline before showing the show apartment.",
+        "impact": "Turned a research finding into a change in how every visit is run.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "draft-206",
+    "personaId": "p09",
+    "format": "lesson",
+    "angle": "Changing a brand name without testing it on existing customers taught me that loyalty attaches to names more than to logos.",
+    "hook": "A rebrand I recommended doubled a client's cancellations in its first month.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-04",
+        "summary": "A rebrand Layla recommended for a meal-kit startup, including a new name, confused existing subscribers; about 6% cancelled in the first month, double the usual rate.",
+        "impact": "Showed that the rebrand had been tested on prospects but not on current subscribers.",
+        "metric": "monthly cancellations doubled to 6%",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-05-25",
+        "summary": "Layla advised restoring the original name alongside the new identity and emailing every subscriber a plain explanation of the change.",
+        "impact": "Cancellations returned to normal within six weeks.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-207",
+    "personaId": "p09",
+    "format": "decision",
+    "angle": "A scale-up's first senior marketing hire should match where its customers already come from, not the title investors expect.",
+    "hook": "The founder wanted a head of growth. The data said hire a content lead first.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-08",
+        "summary": "Layla advised a Riyadh-based fitness studio chain to hire an in-house content lead before a head of growth, because about 70% of new members came from referrals and social content rather than paid ads.",
+        "impact": "The content lead was hired in five weeks; referral sign-ups rose by about a quarter over the next quarter while paid spend stayed flat.",
+        "metric": "referral sign-ups up 25%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "draft-208",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "The best sign a fractional CMO engagement worked is a team that no longer needs you, and that credit belongs to the team.",
+    "hook": "My favourite end-of-engagement note said the team doesn't need me anymore.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-10",
+        "summary": "A pet food brand's three-person marketing team built and ran its own quarterly plan for the first time, with Layla only reviewing the final version.",
+        "impact": "The team now plans without outside help.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-14",
+        "summary": "The founder of the pet food brand, whom Layla had advised for nine months, wrote in her end-of-engagement note that the marketing team now ran quarterly planning without outside help.",
+        "impact": "Confirms the engagement built the team's capability rather than dependence on an advisor.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "draft-209",
+    "personaId": "p09",
+    "format": "how_to",
+    "angle": "Twenty good customer interviews need a short script and a loyalty list, not a research agency budget.",
+    "hook": "Twenty customer interviews in two weeks cost my client about AED 6,000 in dinner vouchers.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-03",
+        "summary": "Layla ran 20 customer interviews in two weeks for a hospitality client with no research budget by recruiting through its loyalty programme, offering a dinner voucher and using a five-question script.",
+        "impact": "Total cost was about AED 6,000 in vouchers, and the findings reshaped the brand's weekday offer.",
+        "metric": "20 interviews for about AED 6,000",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-210",
+    "personaId": "p09",
+    "format": "lesson",
+    "angle": "The customers who would be most disappointed if your brand disappeared tell you who it is really for.",
+    "hook": "One survey question told a fragrance brand it was really a gifting brand.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-01",
+        "summary": "Layla surveyed 600 customers of a home fragrance brand with the question 'how would you feel if you could no longer buy from us?' and found the 'very disappointed' group were almost all gift buyers.",
+        "impact": "The brand refocused its message on gifting; average order value rose by about 20% in the next two months.",
+        "metric": "average order value up 20%",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-211",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "The junior marketer who ran her first customer advisory group earned her promotion by listening more carefully than the rest of us.",
+    "hook": "A marketing executive I've been mentoring was promoted this month. Here is what she did differently.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-05",
+        "summary": "A marketing executive Layla mentored at a skincare brand was promoted to marketing manager after running the brand's first customer advisory group on her own.",
+        "impact": "The advisory group now meets quarterly and feeds every product launch brief.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "draft-212",
+    "personaId": "p09",
+    "format": "decision",
+    "angle": "Dropping a segment that brings most of your leads but little revenue is one of the hardest and most useful positioning calls.",
+    "hook": "Most of the client's leads came from customers who barely paid the bills.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-23",
+        "summary": "Layla recommended that Falcon Logistics stop marketing to small e-commerce sellers and focus on mid-size retailers, after analysis showed small sellers made up about 60% of leads but under 15% of revenue; the change has not yet been announced to its sales team.",
+        "impact": "Projected to cut cost per qualified lead by about 40%.",
+        "metric": "small sellers 60% of leads, under 15% of revenue",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-213",
+    "personaId": "p09",
+    "format": "how_to",
+    "angle": "A one-page messaging hierarchy built from customers' own words keeps every channel saying the same thing.",
+    "hook": "Every scale-up I work with gets the same one-page document in month one.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-23",
+        "summary": "Layla gave a home services booking app's marketing team a one-page messaging hierarchy: one promise, three proofs, and the exact words customers used for each, taken from interviews.",
+        "impact": "Ad, app store and website copy were aligned within a month; app store conversion rose from 28% to 35%.",
+        "metric": "app store conversion 28% to 35%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-214",
+    "personaId": "p09",
+    "format": "lesson",
+    "angle": "A campaign that works in Dubai cannot be copied to Riyadh without first talking to customers there.",
+    "hook": "What worked in Dubai would have failed in Riyadh. Fifteen interviews told us why.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-27",
+        "summary": "Before a skincare brand's launch in Riyadh, Layla ran 15 interviews with Saudi customers and found they trusted dermatologist recommendations far more than the influencer content that had worked in Dubai.",
+        "impact": "Half the influencer budget moved to clinic partnerships; first-quarter sales came in about 30% ahead of plan.",
+        "metric": "Q1 sales 30% ahead of plan",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-215",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "A CEO who sits in on customer interviews makes better decisions faster than any research report can help him make.",
+    "hook": "The CEO said he had no time for customer interviews. He sat in on eight.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-18",
+        "summary": "The CEO of a boutique hotel group sat in on eight guest interviews Layla ran, after first saying he did not have time.",
+        "impact": "The following week he changed the loyalty offer, dropping points in favour of guaranteed late checkout, the perk guests said they actually wanted.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-216",
+    "personaId": "p09",
+    "format": "decision",
+    "angle": "Turning down work that skips customer research protects the quality of the work I do take on.",
+    "hook": "I turned down a well-paid engagement this month. The client didn't want to talk to customers.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-22",
+        "summary": "Layla turned down a fractional CMO engagement with a consumer electronics retailer because the founder wanted brand work without agreeing to any customer research, and referred them to a performance agency instead.",
+        "impact": "Kept her capacity for two clients with research built into the scope.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-217",
+    "personaId": "p09",
+    "format": "lesson",
+    "angle": "At scale-up size, a marketing team organised by customer segment moves faster than one organised by channel.",
+    "hook": "Six marketers, organised by channel, took five weeks to launch a campaign. We reorganised.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-27",
+        "summary": "Layla restructured a meal-kit company's six-person marketing team from channel specialists into two cross-functional pods, each owning one customer segment end to end.",
+        "impact": "Campaign launch time fell from about five weeks to two, and the team's own engagement score rose.",
+        "metric": "launch time 5 weeks to 2",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "draft-218",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "The design studio did its best work when we gave them guest interview recordings instead of a written brief.",
+    "hook": "We skipped the written brief and gave the design studio the guest interview recordings.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-17",
+        "summary": "A small Dubai design studio delivered a hospitality client's new identity in six weeks after Layla gave them direct access to guest interview recordings instead of a written brief.",
+        "impact": "The identity was approved at first presentation, which the client said had never happened with an agency before.",
+        "metric": "delivered in 6 weeks",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-219",
+    "personaId": "p09",
+    "format": "how_to",
+    "angle": "Four board-level marketing numbers lead to better board decisions than a dashboard of thirty.",
+    "hook": "The board was looking at 30 marketing metrics. We cut it to four.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-14",
+        "summary": "Layla replaced a consumer brand's 30-metric marketing dashboard with four board-level numbers: new customers, repeat rate, cost per new customer and brand search volume.",
+        "impact": "Board marketing discussions went from 40 minutes of metric questions to 15 minutes on decisions.",
+        "metric": "30 metrics to 4",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Marketing teams for scale-ups"
+      }
+    ]
+  },
+  {
+    "id": "draft-220",
+    "personaId": "p09",
+    "format": "decision",
+    "angle": "A price rise paired with a benefit loyal customers value can protect margin without losing regulars.",
+    "hook": "Raising prices at a neighbourhood café feels risky. Pairing it with something regulars value changed that.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-08",
+        "summary": "Layla recommended that a specialty coffee chain raise prices by about 8% while adding a free refill for loyalty members, after its gross margin fell to 58% from 66%; the margin figures are internal.",
+        "impact": "Early weeks show visit frequency unchanged and margin recovering towards 63%.",
+        "metric": "gross margin 58% to 63% (early)",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      }
+    ]
+  },
+  {
+    "id": "draft-221",
+    "personaId": "p09",
+    "format": "how_to",
+    "angle": "Asking for a customer interview at the moment a customer is happiest gets far more yeses than a cold call.",
+    "hook": "We got a 60% yes rate for customer interviews by asking at the right moment.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-26",
+        "summary": "Layla recruited 18 recent Oasis Living buyers for interviews by asking the handover team to invite them at key collection, rather than cold-calling from the CRM.",
+        "impact": "About 60% of those asked agreed, against under 10% for earlier cold-call attempts.",
+        "metric": "60% acceptance vs under 10%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-222",
+    "personaId": "p09",
+    "format": "credit",
+    "angle": "Testing names with real customers, using quick mock-ups from a junior designer, beat the founder's instinct.",
+    "hook": "The founder's favourite name came third with customers, and he went with the winner.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-30",
+        "summary": "Layla's naming research with 200 target customers helped a children's furniture brand choose the name for a premium sub-brand launching in 2027, which the client has not announced.",
+        "impact": "The chosen name scored highest on trust and was the founder's third choice.",
+        "metric": null,
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Brand positioning"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-31",
+        "summary": "The client's junior designer built the low-cost packaging and web mock-ups used in the naming research in two days.",
+        "impact": "Let customers react to names in context rather than as words on a list.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-223",
+    "personaId": "p09",
+    "format": "lesson",
+    "angle": "Research summaries are most useful when they include what customers dislike, even when it is uncomfortable to present.",
+    "hook": "A CEO thanked me for the part of my research report I almost left out.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-01",
+        "summary": "A property developer's CEO told Layla her research summary was the first he had received that included what buyers disliked, including three complaints about the sales gallery visit.",
+        "impact": "Gave leadership a list of fixable problems instead of only reassurance.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Customer research"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-15",
+        "summary": "The developer redesigned its sales gallery visit around the complaints, cutting average visit time from 90 minutes to 50.",
+        "impact": "Buyers spent less time waiting and more time with sales consultants.",
+        "metric": "visit time 90 to 50 minutes",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-224",
+    "personaId": "p09",
+    "format": "decision",
+    "angle": "A series of small breakfast briefings with the right buyers can beat an expensive trade show stand on qualified meetings.",
+    "hook": "We skipped the big trade show this year and hosted twelve breakfasts instead.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-31",
+        "summary": "Layla advised Falcon Logistics to skip its usual regional trade show stand, worth about AED 250,000, and fund 12 customer case studies and small breakfast briefings for target retailers.",
+        "impact": "The breakfasts produced 19 qualified meetings in a quarter against 11 from the previous year's trade show.",
+        "metric": "19 vs 11 qualified meetings",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "draft-225",
+    "personaId": "p09",
+    "format": "how_to",
+    "angle": "In the first two weeks with a new client, reading reviews and listening to calls teaches more than any brief.",
+    "hook": "Before I propose anything to a new client, I read 300 reviews and listen to 20 calls.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-28",
+        "summary": "In her first two weeks with a new hospitality client, Layla read the last 300 guest reviews, spent a day with the reservations team and listened to 20 recorded calls before proposing any plan.",
+        "impact": "Her first-month plan named three priorities drawn directly from guests and reservation agents, and the team adopted it without changes.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Customer research"
+      }
+    ]
+  },
+  {
+    "id": "draft-226",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "A 15-minute daily look-ahead in which every foreman names tomorrow's blocker prevents more idle time than any weekly programme review.",
+    "hook": "Every morning at 6:15, each foreman on site answers one question about tomorrow.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-20",
+        "summary": "Omar introduced a 15-minute daily look-ahead at the interchange site in which each subcontractor foreman names tomorrow's work fronts and the one thing that could stop them.",
+        "impact": "Idle crew hours logged by subcontractors fell by about 30% over two months.",
+        "metric": "idle crew hours down 30%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-227",
+    "personaId": "p10",
+    "format": "lesson",
+    "angle": "A rejected pour taught the team that summer concreting needs its own plan, not the same plan run in hotter conditions.",
+    "hook": "One rejected slab pour in July cost the project eleven days and changed how we work in summer.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-10",
+        "summary": "A deck slab pour on the viaduct was rejected after core tests showed thermal cracking from a midday pour in 46°C heat, costing 11 days of rework.",
+        "impact": "Exposed that the summer concreting method had not been adapted for peak temperatures.",
+        "metric": "11 days of rework",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-07-02",
+        "summary": "Omar moved all major summer pours to night shifts with chilled mix water and ice, and agreed a temperature hold point with the testing laboratory.",
+        "impact": "No further pours were rejected that summer and the lost days were recovered by September.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-228",
+    "personaId": "p10",
+    "format": "credit",
+    "angle": "A junior HSE supervisor's simple heat stress checks protected more workers this summer than our formal programme.",
+    "hook": "Our best heat safety measure this summer cost almost nothing and came from a junior supervisor.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-14",
+        "summary": "A junior HSE supervisor on Omar's project proposed hydration colour charts and a buddy check at every water station during the hottest months.",
+        "impact": "Heat-related first aid cases fell from 23 the previous summer to 9.",
+        "metric": "heat first-aid cases 23 to 9",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-229",
+    "personaId": "p10",
+    "format": "decision",
+    "angle": "Paying more for traffic management to open lanes early was the right trade-off for the people who use the road every day.",
+    "hook": "We spent more to open two lanes four months early. It was the right decision.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-12",
+        "summary": "Omar agreed with the Authority to resequence the interchange works so two lanes of the main carriageway opened four months early, accepting about AED 3.2 million in additional traffic management costs.",
+        "impact": "Reduced congestion complaints and gave the team a cleaner work zone for the final phase.",
+        "metric": "lanes open 4 months early; AED 3.2M extra traffic management",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-230",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "Stop-work authority only becomes real when stopping the work is visibly thanked and quickly followed up.",
+    "hook": "Stop-work authority existed on paper. It became real when we started thanking people for using it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-22",
+        "summary": "Omar began publicly thanking, at the weekly toolbox talk, every worker who had used stop-work authority that week, and his team followed up each stop within 24 hours.",
+        "impact": "Stop-work calls rose from about two a month to more than ten, and the recordable incident rate fell by about 40% over six months.",
+        "metric": "stop-work calls 2 to 10+ a month; TRIR down 40%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-231",
+    "personaId": "p10",
+    "format": "credit",
+    "angle": "Our tunnel breakthrough belongs to the section engineer and crew who have grown together on this project.",
+    "hook": "The tunnel boring machine broke through this week, ahead of programme.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-18",
+        "summary": "The utility tunnel's boring machine reached its reception shaft 12 days ahead of programme, under a section engineer who had joined the company as a graduate four years earlier.",
+        "impact": "The early breakthrough freed the shaft for mechanical fit-out ahead of schedule.",
+        "metric": "12 days ahead of programme",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-232",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "A short shadowing rotation before new site managers take charge prevents the early failures we used to accept as normal.",
+    "hook": "New site managers on our projects now spend their first week on someone else's site.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-09",
+        "summary": "Omar set up a two-week rotation in which newly promoted site managers spend a week shadowing an experienced construction manager on a different package before taking charge of their own.",
+        "impact": "All five site managers who completed it are still in post after six months; two of the previous cohort of five had to be replaced.",
+        "metric": "5 of 5 retained vs 3 of 5 before",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-233",
+    "personaId": "p10",
+    "format": "lesson",
+    "angle": "Joint clash reviews between design disciplines months before excavation are the cheapest risk control on a project.",
+    "hook": "The cheapest problem to fix is the one you find on a drawing three months before you dig.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-19",
+        "summary": "On the Al Reem Corniche package, Omar's team found a clash between the drainage design and the district cooling corridor three months before excavation, avoiding an estimated AED 9 million in rework; the package value and clash details are commercially sensitive.",
+        "impact": "The joint design review method has since been adopted on two other packages.",
+        "metric": "AED 9M rework avoided",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-234",
+    "personaId": "p10",
+    "format": "decision",
+    "angle": "Stopping every crane for a day after a near miss costs less than the incident it prevents, and the team notices when a director puts safety ahead of a delivery.",
+    "hook": "After a near miss, we stopped every crane on site for a day.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-03",
+        "summary": "After a near miss in which a load swung close to a scaffold during high winds, Omar stopped all crane lifts on site for a full day for a lifting plan review, despite a critical steel delivery.",
+        "impact": "The review introduced a lower wind speed limit and a dedicated lift supervisor role; the lost day was recovered within two weeks.",
+        "metric": "1-day stoppage, recovered in 2 weeks",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-235",
+    "personaId": "p10",
+    "format": "decision",
+    "angle": "Reading out every overdue design query in the client meeting, with the designer present, felt uncomfortable and closed them far faster than any tracker.",
+    "hook": "Overdue design queries were quietly costing us float, so we started reading them out.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-08",
+        "summary": "Omar decided that every technical query older than five working days would be raised by name in the weekly client meeting with the designer present, despite concern it would strain the design relationship.",
+        "impact": "Average query close-out time fell from about 19 days to 7.",
+        "metric": "query close-out 19 to 7 days",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-236",
+    "personaId": "p10",
+    "format": "credit",
+    "angle": "A tidy site is a safer site, and the logistics team and crews who keep it that way earned the client's praise.",
+    "hook": "A client representative called our port site the best-kept he had inspected this year.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-20",
+        "summary": "The port expansion's site logistics team introduced fixed laydown zones and a 15-minute end-of-shift clean-up for every crew.",
+        "impact": "Trip and handling incidents on the site fell noticeably over the following quarter.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-02-26",
+        "summary": "The client's project representative wrote to Omar that the port expansion was the best-kept site he had inspected that year.",
+        "impact": "Recognition for the site teams from the client's side.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-237",
+    "personaId": "p10",
+    "format": "lesson",
+    "angle": "Waiting politely for a third-party approval cost three weeks of programme; escalating at ten days is now the rule.",
+    "hook": "We waited six weeks to escalate an approval. It cost us three weeks of programme.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-05",
+        "summary": "Omar's team waited six weeks for a utility owner's approval of a water main diversion before escalating, which pushed the critical path back by about three weeks.",
+        "impact": "Omar introduced a rule that any third-party approval outstanding for more than ten days comes to his desk.",
+        "metric": "3 weeks of critical path lost",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-238",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "Asking workers what the most dangerous task of their day is produces better safety improvements than a director's checklist.",
+    "hook": "On my weekly safety walk I no longer carry a checklist. I ask one question.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-23",
+        "summary": "Omar replaced his weekly safety inspection checklist with a walk in which he asks three workers on each work front what the most dangerous thing they will do today is and what would make it safer.",
+        "impact": "The walks produced 17 improvements in the first month, including a redesigned access ladder for the pier caps.",
+        "metric": "17 improvements in a month",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-239",
+    "personaId": "p10",
+    "format": "decision",
+    "angle": "Paying more for precast to take work at height away from live traffic was a safety decision that also saved time.",
+    "hook": "We chose the more expensive method for the viaduct parapets, and took people off the edge.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-28",
+        "summary": "Omar approved switching the viaduct parapets from cast-in-situ to precast segments, adding about AED 4 million in casting yard costs but removing work at height over live traffic.",
+        "impact": "Work-at-height hours on the viaduct fell by about 60% and parapet installation finished five weeks sooner.",
+        "metric": "work at height down 60%; 5 weeks saved",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-240",
+    "personaId": "p10",
+    "format": "credit",
+    "angle": "The planning engineer who rebuilt our programme with every subcontractor earned the client's first-time acceptance.",
+    "hook": "Our revised programme was accepted at first submission. That credit belongs to one planning engineer.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-24",
+        "summary": "A planning engineer on Omar's team rebuilt the district cooling programme for the Al Reem Corniche package from scratch after a design change, confirming every activity duration with the subcontractor who would do the work.",
+        "impact": "The re-baselined programme was accepted by the client at first submission, which had not happened before on the project.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-241",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "Asking graduate engineers to present their own site decisions builds judgement faster than technical training alone.",
+    "hook": "Once a month, one of our graduate engineers explains a decision they made on site.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-16",
+        "summary": "Omar holds a monthly hour with the project's graduate engineers in which one of them presents a real site decision they made, what they considered and what they would change.",
+        "impact": "Two graduates were promoted to section engineer this year, ahead of the usual track.",
+        "metric": "2 early promotions",
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-242",
+    "personaId": "p10",
+    "format": "lesson",
+    "angle": "Longer shifts did not recover the programme; a second crew did, and the workforce was safer for it.",
+    "hook": "We tried twelve-hour night shifts to catch up. The last two hours undid much of the gain.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-06",
+        "summary": "Omar's team trialled extending night shifts from 10 to 12 hours to recover programme on the pipeline package and found productivity per hour fell by about 20% in the last two hours, with more rework.",
+        "impact": "The project returned to 10-hour shifts and added a second crew instead; the recovery target was met.",
+        "metric": "productivity down 20% in final 2 hours",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-243",
+    "personaId": "p10",
+    "format": "credit",
+    "angle": "A strong delivery and safety record is the result of every site team member's daily work, and it is the best business development we have.",
+    "hook": "Over two million hours on the interchange without a lost-time incident. The credit sits with the site.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-10",
+        "summary": "The interchange site team completed the final bridge deck with no lost-time incidents across 2.1 million hours worked.",
+        "impact": "Closed out the structural works safely and on programme.",
+        "metric": "2.1M hours without a lost-time incident",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-09-17",
+        "summary": "The client told Omar privately that the interchange team's delivery record was the main reason Gulfstone was invited to negotiate the next phase, worth around AED 1.4 billion; the award has not been announced.",
+        "impact": "Positions the company for the follow-on phase.",
+        "metric": "AED 1.4B next phase",
+        "kind": "praise",
+        "confidential": true,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-244",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "An induction delivered in workers' own languages with a practical test protects new starters better than a written quiz.",
+    "hook": "Most incidents on our sites involve people in their first month. We changed the induction.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-04",
+        "summary": "Omar's HSE team rebuilt the site induction as a 90-minute pictorial session delivered in Hindi, Urdu, Bengali, Tagalog and Arabic, ending with a practical test instead of a written quiz.",
+        "impact": "Incidents involving workers in their first 30 days on site fell by about half over the next quarter.",
+        "metric": "first-30-day incidents down 50%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Safety culture"
+      }
+    ]
+  },
+  {
+    "id": "draft-245",
+    "personaId": "p10",
+    "format": "decision",
+    "angle": "Replacing an underperforming subcontractor early costs weeks; waiting would have cost months.",
+    "hook": "Replacing a subcontractor mid-project is never easy. Waiting longer would have been worse.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-01",
+        "summary": "Omar decided to terminate the MEP subcontractor on the pumping station after three months of missed milestones and bring in a replacement, accepting a four-week mobilisation gap.",
+        "impact": "The replacement recovered two of the four weeks within two months and quality non-conformances fell from about 14 a month to 3.",
+        "metric": "NCRs 14 to 3 a month",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-246",
+    "personaId": "p10",
+    "format": "lesson",
+    "angle": "Bringing constructability input before a scope change is designed saves months later in the project.",
+    "hook": "The best time for a contractor to comment on a design is before it exists.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-30",
+        "summary": "The Authority told Omar it intends to add a pedestrian bridge to the Al Reem Corniche package, which has not been made public; his team prepared a constructability review in ten days.",
+        "impact": "Gave the client an early view of cost and programme impact before tender documents were drafted.",
+        "metric": "constructability review in 10 days",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-247",
+    "personaId": "p10",
+    "format": "how_to",
+    "angle": "Lessons learned only help if they are read at the start of the next phase, not filed at the end of the last.",
+    "hook": "Our lessons-learned reports were thorough and unread. Now we use a single card.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-05",
+        "summary": "Omar replaced the project's end-of-phase lessons learned report with a one-page card of five lessons that is read aloud at the kick-off of the next similar phase.",
+        "impact": "On the second viaduct span the team avoided the formwork sequencing problems that had cost time on the first.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-248",
+    "personaId": "p10",
+    "format": "credit",
+    "angle": "The steel fixing foreman who taught younger crew to read drawings did more for quality than our inspection regime.",
+    "hook": "A foreman on our site has been running his own training sessions. Nobody asked him to.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-15",
+        "summary": "A steel fixing foreman with 20 years on Gulf projects trained six younger fixers to read rebar drawings on site during quiet periods, without being asked.",
+        "impact": "Rebar inspection rejections on his section fell to almost zero.",
+        "metric": "rebar rejections near zero",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-249",
+    "personaId": "p10",
+    "format": "lesson",
+    "angle": "Settling a claim through a joint review of records can be worth more than the amount left on the table.",
+    "hook": "We could have taken a claim to arbitration. We sat down with the records instead.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-30",
+        "summary": "Omar's commercial team settled a long-running variation claim with the client for about 70% of its value, AED 22 million, after he chose a joint review of records over arbitration; the settlement terms are confidential.",
+        "impact": "Avoided an estimated 18 months of dispute and kept the working relationship intact for the remaining phases.",
+        "metric": "AED 22M settled",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Delivering complex projects"
+      }
+    ]
+  },
+  {
+    "id": "draft-250",
+    "personaId": "p10",
+    "format": "decision",
+    "angle": "Promoting a capable young engineer with a mentor, rather than hiring an outsider, built a leader and kept the team intact.",
+    "hook": "We had an experienced external candidate for site manager. We promoted from within.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-12",
+        "summary": "Omar appointed a 31-year-old section engineer as site manager for the pumping station package instead of recruiting an experienced external candidate, pairing her with a senior mentor for the first three months.",
+        "impact": "The package reached its first two milestones on time and the engineer kept the full original team.",
+        "metric": "2 of 2 milestones on time",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing site leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-251",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "Promoting the best operators to supervisor without support for managing former peers sets them up to fail.",
+    "hook": "Four in ten of our newly promoted supervisors were leaving or stepping back within a year.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-11",
+        "summary": "Wei Ling found that about 40% of warehouse staff promoted to supervisor across the region left or stepped back within a year, most citing a lack of support in managing former peers.",
+        "impact": "Led her to design a 90-day new supervisor programme with a peer buddy and fortnightly check-ins.",
+        "metric": "40% first-year supervisor attrition",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-252",
+    "personaId": "p11",
+    "format": "decision",
+    "angle": "Letting teams set their own anchor days filled the office on the days that mattered better than a region-wide rule did.",
+    "hook": "We dropped our region-wide office-days rule. Attendance on the days that mattered went up.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-19",
+        "summary": "Wei Ling replaced a region-wide three-days-in-office rule for about 600 office staff with team charters in which each team agreed and published its own anchor days.",
+        "impact": "Office occupancy on anchor days rose to about 85%, and the engagement score for flexibility rose by 12 points.",
+        "metric": "anchor-day occupancy 85%; flexibility +12 pts",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "draft-253",
+    "personaId": "p11",
+    "format": "credit",
+    "angle": "A Penang warehouse supervisor's ten-minute handover huddle spread to other sites because it worked, not because HR mandated it.",
+    "hook": "The best idea in our Malaysian warehouses this year came from a supervisor's ten-minute huddle.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-03",
+        "summary": "Siti Rahmah, a warehouse supervisor in Penang, started a ten-minute shift handover huddle that supervisors at three other sites have since copied.",
+        "impact": "Handover errors on her site fell by roughly half, and the huddle is now standard practice in Malaysia.",
+        "metric": "handover errors down ~50%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-254",
+    "personaId": "p11",
+    "format": "how_to",
+    "angle": "Requiring two concrete examples for any rating away from the middle makes calibration fairer and reduces appeals.",
+    "hook": "In our calibration meetings, a rating without two examples goes back to 'meets'.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-09",
+        "summary": "Wei Ling introduced evidence cards for calibration meetings: managers bring two specific examples for every rating above or below 'meets', or the rating defaults to 'meets'.",
+        "impact": "Rating changes in calibration fell by about a third, and year-end appeals dropped from 46 to 19 across the region.",
+        "metric": "appeals 46 to 19",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-255",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "Before changing how a team works, map the informal work that keeps things running, because it rarely appears in any job description.",
+    "hook": "We found 23 processes our HR teams run that appear in no job description.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-14",
+        "summary": "For Project Monsoon, Wei Ling's team mapped every HR process across five country teams ahead of a planned consolidation of shared services into one hub, which has not been announced to staff.",
+        "impact": "Found 23 locally invented processes that appear in no job description, including driver visa renewals handled informally by one coordinator.",
+        "metric": "23 undocumented processes",
+        "kind": "result",
+        "confidential": true,
+        "pillar": null
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-28",
+        "summary": "Wei Ling ran workshops with each country HR team in which the teams wrote up their own informal processes in their own words.",
+        "impact": "The teams' knowledge is now documented and owned by them rather than held by single individuals.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "draft-256",
+    "personaId": "p11",
+    "format": "decision",
+    "angle": "Short sessions on site reach far more frontline supervisors than a flagship classroom course, even if it means giving the course up.",
+    "hook": "We retired our flagship two-day supervisor course. Four times as many supervisors are now trained.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-11",
+        "summary": "Wei Ling moved frontline supervisor training from two-day classroom courses in Singapore to 20-minute on-site sessions during shift overlap, delivered by trained site managers.",
+        "impact": "Training reach rose from about 120 supervisors a year to more than 400, though the regional L&D team gave up its flagship course.",
+        "metric": "120 to 400+ supervisors trained a year",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-257",
+    "personaId": "p11",
+    "format": "credit",
+    "angle": "An HR partner's stay interviews showed drivers were leaving over unpredictable rosters, and fixing that cut attrition.",
+    "hook": "Drivers told our HR partner why they were leaving. It wasn't the reason we assumed.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-02",
+        "summary": "An HR business partner in Ho Chi Minh City ran stay interviews with 80 drivers and found that unpredictable shift rosters, not pay, were the main reason drivers left.",
+        "impact": "The site moved to rosters published two weeks ahead; annualised driver attrition fell from about 38% to 27%.",
+        "metric": "driver attrition 38% to 27%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-258",
+    "personaId": "p11",
+    "format": "how_to",
+    "angle": "If one person joins remotely, everyone joins from their own laptop; it is a small rule that makes hybrid meetings fairer.",
+    "hook": "Our hybrid meetings changed when we adopted one rule about laptops.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-06",
+        "summary": "Wei Ling set a rule for her regional HR team that if anyone joins a meeting remotely, everyone joins from their own laptop, and the chair asks remote participants first.",
+        "impact": "In the team's pulse survey, the share of remote staff who felt heard in meetings rose from 52% to 81%.",
+        "metric": "felt heard 52% to 81%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "draft-259",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "People who work when managers are not around get rated lower, and calibration has to correct for that visibility bias.",
+    "hook": "Night-shift staff were rated lower than day-shift staff with the same productivity.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-10",
+        "summary": "Wei Ling's analysis of year-end ratings found night-shift warehouse staff were rated 'exceeds' at less than half the rate of day-shift staff with similar productivity, largely because managers rarely saw them work.",
+        "impact": "Calibration now requires a night-shift lead's input on every night-shift rating.",
+        "metric": "'exceeds' rate under half that of day shift",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-260",
+    "personaId": "p11",
+    "format": "decision",
+    "angle": "Asking future team members for structured input before choosing a supervisor slows the decision and makes it far more likely to stick.",
+    "hook": "We made supervisor appointments two weeks slower on purpose.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-07",
+        "summary": "Wei Ling added a structured peer input step to frontline supervisor selection in Thailand and Indonesia, which slowed appointments by about two weeks.",
+        "impact": "Six-month retention of new supervisors rose from about 70% to 90% in those countries.",
+        "metric": "6-month retention 70% to 90%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-261",
+    "personaId": "p11",
+    "format": "credit",
+    "angle": "Our L&D manager's short phone videos in four languages turned the supervisor programme into something people actually finish.",
+    "hook": "Completion of our supervisor programme jumped once it fitted on a phone screen.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-06",
+        "summary": "Mei Chen, the regional L&D manager, rebuilt the new supervisor programme as short videos in Bahasa, Thai, Vietnamese and English that supervisors watch on their phones.",
+        "impact": "Programme completion rose from about 55% to 88%.",
+        "metric": "completion 55% to 88%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-262",
+    "personaId": "p11",
+    "format": "how_to",
+    "angle": "A 15-minute rehearsal of the first two sentences makes difficult performance conversations fairer and calmer.",
+    "hook": "Before a difficult performance conversation, our managers now rehearse two sentences.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-12-08",
+        "summary": "Wei Ling began offering managers a 15-minute rehearsal with an HR partner before any conversation about underperformance, practising the first two sentences they planned to say.",
+        "impact": "Grievances raised after performance improvement conversations fell from 14 to 5 year on year.",
+        "metric": "grievances 14 to 5",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-263",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "Hot-desking failed because it treated people as individuals when their work depends on sitting with their team.",
+    "hook": "Our hot-desking pilot made it harder for teams to sit together, and people stopped coming in.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-16",
+        "summary": "A hot-desking pilot Wei Ling sponsored at the Singapore head office left finance and customer service staff unable to sit together on peak days; complaints rose and occupancy fell by about 15%.",
+        "impact": "Showed the pilot had been designed around desks rather than around how teams work.",
+        "metric": "occupancy down 15%",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-30",
+        "summary": "Wei Ling replaced the pilot with team neighbourhoods booked by team rather than by individual, designed with the floor's team leads.",
+        "impact": "Occupancy recovered and complaints fell to near zero within two months.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "draft-264",
+    "personaId": "p11",
+    "format": "decision",
+    "angle": "Moving development budget to frontline supervisors, where turnover hurts most, was worth postponing the senior leadership programme.",
+    "hook": "We postponed our senior leadership programme to put the money where the turnover was.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-15",
+        "summary": "Wei Ling redirected SGD 400,000 of the regional training budget from a senior manager leadership programme to frontline supervisor development, after internal data showed supervisor attrition at 31% against 9% for managers; the figures are internal.",
+        "impact": "The senior programme was postponed a year; early supervisor cohorts show markedly lower first-year attrition.",
+        "metric": "supervisor attrition 31% vs 9% for managers",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-265",
+    "personaId": "p11",
+    "format": "credit",
+    "angle": "Our CEO's comment about the hybrid team charters belongs to the two HR partners who ran 48 team sessions.",
+    "hook": "Our CEO said it was the first hybrid policy he hadn't received complaints about.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-02",
+        "summary": "Two HR business partners facilitated team charter sessions with 48 teams in six weeks.",
+        "impact": "Every office team had a published charter before the new approach took effect.",
+        "metric": "48 teams in 6 weeks",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-04-06",
+        "summary": "The regional CEO told the leadership team that the team charter approach was the first hybrid policy he had not received complaints about.",
+        "impact": "Senior endorsement for team-level hybrid arrangements.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "draft-266",
+    "personaId": "p11",
+    "format": "how_to",
+    "angle": "One-to-ones work on a warehouse floor when they happen while walking the floor, not in a meeting room nobody has time for.",
+    "hook": "Warehouse supervisors don't have time for meeting-room one-to-ones. So we took them onto the floor.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-25",
+        "summary": "Wei Ling introduced 'walking one-to-ones' for warehouse supervisors: a 15-minute monthly conversation with each team member during a walk of the floor, guided by three prompt cards.",
+        "impact": "The share of warehouse staff reporting a regular conversation with their supervisor rose from 34% to 72% in the engagement survey.",
+        "metric": "34% to 72%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-267",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "New managers learn to hold fair performance conversations by having them with support, not by attending a course.",
+    "hook": "A new manager I coached this year now coaches two others.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-20",
+        "summary": "Wei Ling coached Rizal Hakim, a newly promoted operations manager in Jakarta, through his first year-end review cycle, including two difficult conversations about underperformance.",
+        "impact": "Both team members improved to 'meets' within six months, and Rizal now coaches two other new managers.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-268",
+    "personaId": "p11",
+    "format": "decision",
+    "angle": "Flexibility is not only for office workers; letting warehouse staff swap shifts themselves cut unplanned absence.",
+    "hook": "Hybrid work is an office conversation. Our warehouse staff wanted a different kind of flexibility.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-24",
+        "summary": "Wei Ling approved a self-service shift-swap system for warehouse staff in Singapore and Malaysia, giving up central roster control despite operations leaders' worries about coverage.",
+        "impact": "Unplanned absence fell by about 20%, and supervisors spent fewer hours rearranging rosters.",
+        "metric": "unplanned absence down 20%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "draft-269",
+    "personaId": "p11",
+    "format": "credit",
+    "angle": "The Bangkok HR team showed what frontline leadership development can do for safety on the warehouse floor.",
+    "hook": "Supervisors who went through our Bangkok pilot ran safer teams. The credit belongs to the local HR team.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-21",
+        "summary": "The Bangkok HR team piloted a frontline leadership academy with 30 supervisors; leadership plans to roll it out across the region in 2027 but has not announced it.",
+        "impact": "Teams led by pilot participants had about a quarter fewer safety incidents than comparable teams.",
+        "metric": "25% fewer safety incidents",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-270",
+    "personaId": "p11",
+    "format": "how_to",
+    "angle": "Structured promotion panels with the same questions and an outside panel member make frontline promotions fairer, and the results show it.",
+    "hook": "We changed how frontline promotions are decided, and the people being promoted changed too.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-12",
+        "summary": "Wei Ling introduced structured promotion panels for frontline roles in five countries: the same four questions, a scoring guide, and at least one panel member from another site.",
+        "impact": "Women's share of warehouse supervisor appointments rose from 12% to 26% in a year.",
+        "metric": "women's share of appointments 12% to 26%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-271",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "Teams in different countries often solve the same problem twice, and a simple monthly swap saves both the effort.",
+    "hook": "Two of our country HR teams had built the same checklist without knowing it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-16",
+        "summary": "During a Project Monsoon workshop, Wei Ling noticed that the country HR managers in Manila and Hanoi had each built the same onboarding checklist separately.",
+        "impact": "She set up a monthly regional HR practice swap; four shared templates now replace eleven local versions.",
+        "metric": "11 templates to 4",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": null
+      }
+    ]
+  },
+  {
+    "id": "draft-272",
+    "personaId": "p11",
+    "format": "credit",
+    "angle": "A supervisor who asked her pickers how to fix break times cut overtime more than any top-down plan could have.",
+    "hook": "A supervisor in Thailand cut her team's overtime by asking her pickers one question.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-04",
+        "summary": "A warehouse supervisor in Laem Chabang who had completed the 90-day programme cut overtime on her team by reorganising break times with input from her pickers.",
+        "impact": "Overtime hours fell by about 30% over two months while throughput held steady.",
+        "metric": "overtime down 30%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Developing frontline leaders"
+      }
+    ]
+  },
+  {
+    "id": "draft-273",
+    "personaId": "p11",
+    "format": "how_to",
+    "angle": "New joiners in hybrid teams settle faster when their first two weeks are in the office with a buddy and a list of people to meet.",
+    "hook": "In a hybrid team, a new joiner's first two weeks matter more than any policy.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-31",
+        "summary": "Wei Ling set a standard for hybrid teams that new joiners spend their first two weeks fully in the office with a named buddy and a list of ten people to meet.",
+        "impact": "New joiners' 90-day engagement scores rose from 68 to 79, and early leavers fell.",
+        "metric": "90-day engagement 68 to 79",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Hybrid work that works"
+      }
+    ]
+  },
+  {
+    "id": "draft-274",
+    "personaId": "p11",
+    "format": "lesson",
+    "angle": "Forced ranking curves push managers to fit ratings to a shape rather than to the evidence.",
+    "hook": "Four in ten of our managers admitted adjusting ratings to fit the curve.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-27",
+        "summary": "Wei Ling persuaded the regional leadership team to drop forced ranking curves for the 2026 review cycle after a survey showed 40% of managers had adjusted ratings to fit the curve rather than the evidence.",
+        "impact": "Managers reported more honest conversations, and ratings still spread across all levels without a quota.",
+        "metric": "40% of managers adjusted ratings to the curve",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-275",
+    "personaId": "p11",
+    "format": "decision",
+    "angle": "Taking HR out of routine performance conversations made managers own them, and made the conversations more honest.",
+    "hook": "Our HR partners no longer sit in on routine performance conversations. That was deliberate.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-13",
+        "summary": "Wei Ling stopped HR business partners sitting in on routine performance conversations in the Australian business, coaching operations managers to run them alone and keeping HR for formal cases.",
+        "impact": "HR partner time on routine reviews fell by about 60%, and managers' confidence scores rose in the post-cycle survey.",
+        "metric": "HR time on routine reviews down 60%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Fair performance conversations"
+      }
+    ]
+  },
+  {
+    "id": "draft-276",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Removing onboarding steps is safe when a stronger control replaces them, and compliance should be the team proposing it.",
+    "hook": "Compliance proposed removing three onboarding steps. The product team was surprised.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2025-11-17",
+        "summary": "Arjun agreed with Lumen Pay's product team to drop three manual document fields from merchant onboarding in exchange for an automated company registry check, after a risk review showed no loss of control.",
+        "impact": "Median merchant onboarding time fell from about 4 days to 1.5 days, with the same rate of escalation to enhanced due diligence.",
+        "metric": "onboarding 4 days to 1.5 days",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-277",
+    "personaId": "p12",
+    "format": "lesson",
+    "angle": "A policy staff can follow without asking is a stronger control than a comprehensive one nobody reads.",
+    "hook": "Our AML policy went from 80 pages to 25, and people now follow it more closely.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-13",
+        "summary": "Arjun's team rewrote Lumen Pay's 80-page AML/CFT policy as a 25-page core policy plus role-specific procedures, testing each procedure with the staff who use it.",
+        "impact": "Internal audit's annual review found procedure deviations down from 17 to 4.",
+        "metric": "deviations 17 to 4",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "draft-278",
+    "personaId": "p12",
+    "format": "credit",
+    "angle": "The analyst who retired monitoring rules that never found anything made our monitoring sharper, not weaker.",
+    "hook": "One analyst retired 14 monitoring rules this year, and our monitoring got better.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-10",
+        "summary": "A senior analyst in Arjun's team retuned Lumen Pay's transaction monitoring rules using two years of alert outcomes, retiring 14 rules that had never led to a suspicious transaction report.",
+        "impact": "False positive alerts fell by about 45% while the number of cases escalated for investigation stayed level.",
+        "metric": "false positives down 45%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-279",
+    "personaId": "p12",
+    "format": "how_to",
+    "angle": "Short office hours for half-formed ideas catch compliance questions while they are still cheap to answer.",
+    "hook": "Twice a week, any product manager can bring me a half-formed idea for 20 minutes.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-03",
+        "summary": "Arjun started twice-weekly compliance office hours where any product manager or engineer at Lumen Pay can bring a half-formed idea for a 20-minute conversation, with a written note of the advice sent the same day.",
+        "impact": "Product teams brought 60 ideas in the first quarter; formal compliance reviews needing rework fell from about a third to under 10%.",
+        "metric": "rework rate ~33% to under 10%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-280",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Delaying a launch to test screening on transliterated names is the kind of decision that goes unnoticed when it works.",
+    "hook": "We delayed a launch by a quarter to test how our screening handled names in two scripts.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-07",
+        "summary": "Arjun recommended that Lumen Pay delay a cross-border payout corridor with its partner Kite Bank by one quarter until sanctions screening of beneficiary names was tested in both scripts used in the destination market; the corridor has not been announced.",
+        "impact": "Testing found screening gaps on transliterated names, which were fixed before launch.",
+        "metric": "1-quarter delay",
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-281",
+    "personaId": "p12",
+    "format": "lesson",
+    "angle": "A control customers do not understand creates complaints and delays, so explaining the reason is part of the control.",
+    "hook": "We tightened one check and complaints tripled. The check was right; the explanation was missing.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-12",
+        "summary": "After Lumen Pay tightened source-of-funds checks on large top-ups, customer complaints rose about threefold in a month because the request emails did not explain why documents were needed.",
+        "impact": "Showed the control had been designed without the customer-facing explanation.",
+        "metric": "complaints up about 3x",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Clear policies"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-02",
+        "summary": "Arjun's team rewrote the request messages with customer support, explaining the reason, the documents accepted and the expected review time.",
+        "impact": "Complaints returned to near baseline and document submission within 48 hours rose from 40% to 75%.",
+        "metric": "48-hour submission 40% to 75%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "draft-282",
+    "personaId": "p12",
+    "format": "credit",
+    "angle": "A compliance engineer turned a four-day monthly scramble into an audited half-day process.",
+    "hook": "Our monthly regulatory returns used to take two people four days.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-16",
+        "summary": "A compliance engineer in Arjun's team automated Lumen Pay's monthly regulatory returns from the payments ledger, replacing a spreadsheet process that took two people four days.",
+        "impact": "Returns are now produced in half a day with a full audit trail, and no manual adjustments were needed in the last six submissions.",
+        "metric": "4 days to half a day",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-283",
+    "personaId": "p12",
+    "format": "how_to",
+    "angle": "Policies that start with the decision the reader faces get used; policies that start with definitions get skipped.",
+    "hook": "Every policy we write now starts with one question: what decision does the reader need to make?",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-07",
+        "summary": "Arjun introduced a policy template at Lumen Pay that opens with the decisions a reader must make, who makes them and the escalation route, before any background or definitions.",
+        "impact": "Average policy length fell by about 40%, and staff questions to compliance about what policies mean fell by about half.",
+        "metric": "policy length down 40%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "draft-284",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Hiring someone from product operations into compliance cost a learning curve and made the team a better product partner.",
+    "hook": "My best hire this year had never worked in compliance.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-04",
+        "summary": "Arjun hired a former product operations lead with no compliance background into his team, accepting a six-month learning curve, to strengthen the link between compliance and product delivery.",
+        "impact": "She now leads compliance input for four product squads and has cut the time to a compliance view on new features from 10 days to 3.",
+        "metric": "10 days to 3",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-285",
+    "personaId": "p12",
+    "format": "lesson",
+    "angle": "Stopping a campaign late is a sign compliance arrived too late, and a shared list of approved phrases fixes the timing.",
+    "hook": "We stopped a campaign two days before launch. The real problem was that we saw it so late.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-02-24",
+        "summary": "Arjun's team stopped a Lumen Pay marketing campaign two days before launch because it described customer balances as 'fully protected' and 'as safe as a bank deposit', claims the company's licence does not support.",
+        "impact": "Marketing and compliance agreed a shared list of approved phrases about safeguarding; campaign review turnaround fell from five days to two.",
+        "metric": "campaign review 5 days to 2",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-286",
+    "personaId": "p12",
+    "format": "credit",
+    "angle": "The two analysts who embedded with the cards squad earned the head of product's comment that compliance is now the first call.",
+    "hook": "The head of product said compliance is now the first team product managers call.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-10",
+        "summary": "Two compliance analysts embedded with Lumen Pay's cards squad for a quarter, attending stand-ups and writing acceptance criteria for regulatory requirements.",
+        "impact": "Regulatory requirements were built into stories instead of being raised at release review.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-03-17",
+        "summary": "Lumen Pay's head of product told Arjun at the quarterly review that compliance was now the first team product managers call, not the last.",
+        "impact": "Recognition from product leadership of the embedded model.",
+        "metric": null,
+        "kind": "praise",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-287",
+    "personaId": "p12",
+    "format": "how_to",
+    "angle": "Mapping the money flow on a whiteboard with product and engineering is the fastest way to find the compliance risks in a new feature.",
+    "hook": "Our one-hour risk workshop starts with a whiteboard and a single question: where does the money go?",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-04-21",
+        "summary": "Arjun's team created a one-hour risk workshop for new Lumen Pay features: map the money flow on a whiteboard, list who could misuse it, and agree controls and owners before the meeting ends.",
+        "impact": "Used on 18 features this year; none needed a late-stage compliance redesign.",
+        "metric": "18 features, 0 late redesigns",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-288",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Walking away from a growing merchant segment is sometimes the clearest risk decision a compliance lead can make.",
+    "hook": "We stopped onboarding a whole merchant segment this year, and gave up growth to do it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-26",
+        "summary": "Arjun recommended that Lumen Pay stop onboarding new merchants selling online gaming top-ups after chargeback and fraud referral rates in the segment ran at about five times the portfolio average.",
+        "impact": "The company gave up an estimated 6% of planned new merchant volume; fraud losses fell by about a third over the next two quarters.",
+        "metric": "fraud losses down ~33%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-289",
+    "personaId": "p12",
+    "format": "lesson",
+    "angle": "Treating remediation as a project with named owners and weekly tracking turns a stressful process into a routine one.",
+    "hook": "Remediation work rarely gets talked about, but how you run it says a lot about a team.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-07-21",
+        "summary": "Arjun's team closed all nine findings from the regulator's recent inspection of Lumen Pay three weeks ahead of the agreed deadline; the findings and their content are confidential.",
+        "impact": "The board risk committee asked for the remediation tracker to become the standard way of managing all audit actions.",
+        "metric": "9 findings closed 3 weeks early",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-290",
+    "personaId": "p12",
+    "format": "credit",
+    "angle": "A graduate hire who led our merchant risk framework review shows what happens when junior people are given real ownership.",
+    "hook": "Three years ago she joined us as a graduate. This month she became a compliance manager.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-18",
+        "summary": "A compliance analyst Arjun hired as a graduate three years ago was promoted to compliance manager after leading Lumen Pay's first end-to-end review of its merchant risk framework.",
+        "impact": "She now manages two analysts and owns the merchant risk framework.",
+        "metric": null,
+        "kind": "helped",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-291",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Saying yes with conditions is often a better compliance answer than saying no until everything is perfect.",
+    "hook": "Product wanted to launch instant transfers for new users. Compliance said yes, with two conditions.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-08",
+        "summary": "Arjun approved Lumen Pay's instant peer-to-peer transfers for new users with two conditions, a lower first-month limit and a 24-hour hold on first transfers to new recipients, instead of blocking the feature until behavioural monitoring was built.",
+        "impact": "The feature launched on time, and scam reports among new users stayed at about pre-launch levels.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-292",
+    "personaId": "p12",
+    "format": "lesson",
+    "angle": "A regulatory deadline met through weekend work is a planning failure, and losing a good analyst was the cost.",
+    "hook": "We met a major regulatory deadline this year. We also lost a good analyst to burnout.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-27",
+        "summary": "During Lumen Pay's licence variation application, Arjun's five-person team worked most weekends for six weeks, and one analyst resigned shortly afterwards citing burnout.",
+        "impact": "Showed the submission had been resourced on goodwill rather than a plan.",
+        "metric": null,
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-02-17",
+        "summary": "Arjun introduced a capacity plan for regulatory submissions with a named backup for each workstream and a rule that weekend work needs his approval.",
+        "impact": "The next submission was delivered on time with no weekend work.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-293",
+    "personaId": "p12",
+    "format": "how_to",
+    "angle": "A compliance objection that names the risk, the rule and an alternative is far less likely to be escalated.",
+    "hook": "We stopped saying 'no' to product without offering an alternative.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-03-31",
+        "summary": "Arjun asked his team to give every compliance objection to product in three parts: the specific risk, the rule behind it, and at least one alternative that would work.",
+        "impact": "Escalations of compliance decisions to the CEO fell from about one a month to none in two quarters.",
+        "metric": "CEO escalations ~1 a month to 0",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-294",
+    "personaId": "p12",
+    "format": "credit",
+    "angle": "The senior investigator who built a shared playbook with a partner bank cut suspicious payment decision times by two-thirds.",
+    "hook": "Suspicious payment decisions used to take three days between two teams. Now they take one.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-06-24",
+        "summary": "A senior investigator in Arjun's team wrote a shared escalation playbook for suspicious payments and ran joint case reviews every two weeks with the partner bank's team.",
+        "impact": "Gave both teams one agreed process for hold-or-release decisions.",
+        "metric": null,
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      },
+      {
+        "id": "w002",
+        "occurredOn": "2026-06-30",
+        "summary": "Arjun's team and Kite Bank's financial crime team jointly redesigned the escalation process for suspicious payments on Lumen Pay's virtual account service; the partnership terms are confidential.",
+        "impact": "Average time to agree a hold-or-release decision fell from about three days to one.",
+        "metric": "3 days to 1",
+        "kind": "result",
+        "confidential": true,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-295",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Fewer, clearer policies get read and followed, and retiring documents the board had just approved was worth the awkward conversation.",
+    "hook": "We cut our compliance policies from 41 to 12, including two the board had just approved.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-06",
+        "summary": "Arjun decided to consolidate Lumen Pay's 41 compliance policies into 12, retiring overlapping documents even though two had recently been approved by the board.",
+        "impact": "Board approval came in one cycle, and annual policy attestation completion rose from 82% to 97%.",
+        "metric": "41 to 12 policies; attestation 82% to 97%",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "draft-296",
+    "personaId": "p12",
+    "format": "lesson",
+    "angle": "Clear fee disclosure is a compliance requirement that also cuts complaints when it is written for the customer, not the regulator.",
+    "hook": "Most of our fee complaints were not about the fee. They were about not understanding it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-09-22",
+        "summary": "Arjun's team worked with product to replace Lumen Pay's foreign exchange fee wording with a plain table showing the rate source and markup before every transfer.",
+        "impact": "Fee-related complaints fell by about 60% in two months.",
+        "metric": "fee complaints down 60%",
+        "kind": "lesson",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "draft-297",
+    "personaId": "p12",
+    "format": "how_to",
+    "angle": "A simple skills matrix with paired learning removes single points of failure in a small compliance team.",
+    "hook": "In a small compliance team, one person's leave can stop a whole workstream.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-05-05",
+        "summary": "Arjun built a skills matrix for his eight-person team covering 12 areas, from sanctions to data protection, and paired each person with a colleague to learn their weakest area over six months.",
+        "impact": "Single points of failure in the team fell from five areas to one.",
+        "metric": "single points of failure 5 to 1",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Building compliance teams"
+      }
+    ]
+  },
+  {
+    "id": "draft-298",
+    "personaId": "p12",
+    "format": "credit",
+    "angle": "Customer support wrote a clearer explanation of account restrictions than compliance ever had, and they deserve the credit.",
+    "hook": "Customer support wrote a better explanation of our account restrictions than we did.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-08-25",
+        "summary": "Lumen Pay's customer support team rewrote the script for explaining account restrictions to customers, with Arjun's team checking each line for accuracy.",
+        "impact": "Calls about restrictions became shorter and repeat contacts fell by about a third.",
+        "metric": "repeat contacts down 33%",
+        "kind": "result",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  },
+  {
+    "id": "draft-299",
+    "personaId": "p12",
+    "format": "decision",
+    "angle": "Bringing compliance into the discovery phase of a new financial product is cheaper than stopping it at launch.",
+    "hook": "The best time to ask whether a new product is allowed is before anyone builds it.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-10-14",
+        "summary": "Arjun advised Lumen Pay's leadership not to launch a planned buy-now-pay-later feature in 2027 until consumer credit obligations had been assessed with external counsel; the feature plan is not public.",
+        "impact": "Leadership moved the feature into a discovery phase with a compliance lead assigned from the start.",
+        "metric": null,
+        "kind": "decision",
+        "confidential": true,
+        "pillar": "Compliance as a product partner"
+      }
+    ]
+  },
+  {
+    "id": "draft-300",
+    "personaId": "p12",
+    "format": "how_to",
+    "angle": "A two-page board summary with top risks and the decisions needed leads to better board discussion than a thick pack.",
+    "hook": "Our quarterly compliance board pack went from 30 pages to two.",
+    "wins": [
+      {
+        "id": "w001",
+        "occurredOn": "2026-01-06",
+        "summary": "Arjun replaced Lumen Pay's 30-page quarterly compliance board pack with a two-page summary of the five top risks with trend arrows and the decisions needed; Kite Bank's annual partner due diligence questionnaire was answered from the same summary.",
+        "impact": "Board risk committee time on compliance shifted from reading the pack to deciding on two open risks each quarter.",
+        "metric": "30 pages to 2",
+        "kind": "decision",
+        "confidential": false,
+        "pillar": "Clear policies"
+      }
+    ]
+  }
+]
