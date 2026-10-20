@@ -8,7 +8,7 @@ export const APP_PROMISE = "Nothing you'll regret posting.";
 export const APP_TAGLINE = "Be known for the work you already do.";
 
 /** Version of the privacy notice users consent to. Bump it when the notice changes materially. */
-export const PRIVACY_NOTICE_VERSION = "2026-10-19";
+export const PRIVACY_NOTICE_VERSION = "2026-10-20";
 
 /** Where privacy requests and grievances go (DPDP grievance contact, GDPR requests). */
 export const PRIVACY_EMAIL = "privacy@c7xai.in";

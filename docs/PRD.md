@@ -99,8 +99,9 @@ A five-step wizard, one question per screen:
 Settings reuse the same fields in sections (about, topics, safety, fit, voice, rhythm). Imports
 (LinkedIn PDF/export, CV) and voice learning from past posts follow in later milestones.
 
-Sign-up: email magic link, Google, Microsoft; "Sign in with LinkedIn" (OpenID Connect) for name,
-email and photo only.
+Sign-up: email only, with a one-time code and link in one email. No password, and no Google,
+Microsoft or LinkedIn sign-in, so nothing ties the account to an employer's systems; the sign-in
+page suggests a personal email.
 
 ### 5.2 Daily capture
 

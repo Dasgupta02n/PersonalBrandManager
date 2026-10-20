@@ -5,7 +5,7 @@
 | Layer | Choice | Notes |
 |---|---|---|
 | Web app | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 | Mobile-first, installable PWA. `proxy.ts` replaces `middleware.ts` in Next 16. Cache Components is off: app pages are per-user and rendered on request. |
-| Auth | Supabase Auth | Email magic link, Google, Microsoft, LinkedIn (OIDC, sign-in only). |
+| Auth | Supabase Auth | Email only: one-time code or link, no password. Sent through Hostinger SMTP from hello@c7xai.in. |
 | Database | Supabase Postgres with row-level security | Every user-owned table has `user_id` and RLS `user_id = auth.uid()`. |
 | File storage | Supabase Storage (private buckets) | CV versions, uploaded exports, screenshots. |
 | AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. |

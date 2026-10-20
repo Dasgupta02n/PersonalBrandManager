@@ -3,7 +3,8 @@
 ## Milestone 1 — foundation and first slice (done)
 
 - Product spec, architecture, schema with row-level security (verified: signup trigger, per-user isolation)
-- Sign-in: email magic link; Google, Microsoft and LinkedIn buttons (providers must be enabled in Supabase)
+- Sign-in: email only. One email holds a one-time code (type it on any device) and a link that works in
+  any browser (`/auth/confirm`); no password and no social sign-in. Sent from hello@c7xai.in.
 - Onboarding: name, role, topic pillars, audience, confidentiality rules, voice samples, prompt time
 - Today: log a win → AI extracts structured wins, fact-checked against the note (+ optional
   follow-up question) → 3 post ideas when the user asks

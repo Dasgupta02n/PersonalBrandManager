@@ -19,10 +19,20 @@ pbm-app ──> Supabase (managed Postgres + Auth), OpenRouter (Claude models)
 
 1. **Supabase (done):** project `personalbrandmanager` (ref `xvjlpqkfhtyzbceyvpkc`, ap-south-1,
    free plan), URL `https://xvjlpqkfhtyzbceyvpkc.supabase.co`. All of `supabase/migrations/` is
-   applied. Still to do in the dashboard: Authentication → URL configuration, set Site URL
-   `https://c7xai.in` and add redirect URL `https://c7xai.in/auth/callback`. Enable the Google,
-   Azure (Microsoft) and LinkedIn (OIDC) providers when ready. Supabase's built-in email sender
-   only delivers to members of the Supabase team, so set up custom SMTP before inviting beta users.
+   applied. Sign-in is email only (a one-time code and a link in one email). Still to do in the
+   dashboard, under Authentication:
+   - **URL Configuration:** Site URL `https://c7xai.in`; Redirect URLs `https://c7xai.in/**`.
+   - **Emails → SMTP Settings** (Supabase's own sender only reaches members of the Supabase team):
+     enable custom SMTP; sender email `hello@c7xai.in`; sender name `c7xai`; host
+     `smtp.hostinger.com`; port `465`; username `hello@c7xai.in`; password: the mailbox password,
+     typed there and nowhere else. The domain's SPF, DKIM and DMARC records already cover
+     Hostinger mail.
+   - **Emails → Templates:** for both "Magic link" and "Confirm sign up", subject
+     `Your sign-in code` and the body in `supabase/templates/sign-in.html`. Its link goes to
+     `/auth/confirm`, which works in any browser; the code works on any device.
+   - **Rate Limits:** emails per hour, raise from the default to about 100 for the beta. Hostinger
+     mailboxes also have a daily sending limit; check it in hPanel before larger invites.
+   - **Sign In / Providers:** Email on; Google, Azure and LinkedIn stay off. Email OTP length 6.
 2. **Image access on the VPS:** either make the GHCR package public, or run once in the hPanel
    browser terminal: `docker login ghcr.io -u <github-username>` with a token that has only
    `read:packages`.

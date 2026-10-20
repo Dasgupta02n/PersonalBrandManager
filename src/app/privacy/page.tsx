@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const SUBPROCESSORS = [
   { name: "Supabase", role: "Database and sign-in", where: "Mumbai, India (AWS ap-south-1)" },
-  { name: "Hostinger", role: "Runs the app", where: "Mumbai, India" },
+  { name: "Hostinger", role: "Runs the app and sends sign-in emails", where: "Mumbai, India (app); Hostinger email servers (sign-in emails)" },
   { name: "OpenRouter", role: "Routes AI requests to the model host", where: "Zero data retention" },
   { name: "Google Cloud Vertex AI", role: "Runs the Claude model that reads your notes", where: "Zero data retention; may be outside India" },
   { name: "Paddle", role: "Payments and sales tax, when billing opens", where: "Card details never reach us" },
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
 
       <Section title="What we collect, and why">
         <p>
-          <strong>Your account:</strong> email address, and your name and photo if you sign in with Google, Microsoft or LinkedIn.
+          <strong>Your account:</strong> your email address. Sign-in is by a one-time code or link sent to it; there is no password.
           To sign you in.
         </p>
         <p>
