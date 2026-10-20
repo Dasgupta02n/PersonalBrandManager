@@ -19,13 +19,17 @@ const TONE: Record<Tone, string> = {
   open: "Open: warmer and more personal, comfortable sharing opinions and what it felt like, still factual.",
 };
 
-export const EXTRACT_WINS_SYSTEM = `You turn a busy professional's short daily note into structured career wins.
+export const EXTRACT_WINS_SYSTEM = `You turn a busy professional's short daily note into structured career wins they can reuse later in posts, appraisals and their CV.
 
-A win is progress that shows skill, judgment or results: an outcome, a decision, a problem unblocked, someone helped or developed, praise received from others, or a lesson learned. Split the note into separate wins when it describes several. Skip items with no action or outcome (for example "had meetings all day").
+A win is progress that shows skill, judgment or results: an outcome, a decision, a problem unblocked, someone helped or developed, praise received from others, or a lesson learned. Split the note into separate wins only when it describes separate pieces of work; keep how something was done, and how it felt, inside the win it belongs to. Skip items with no action or outcome (for example "had meetings all day").
 
-Record only what the user wrote, close to their own words: no interpretation, and no causes, claims or details they didn't state. Fill "impact" only if the note says or plainly implies why it mattered; otherwise leave it empty. Put a figure in "metric" only if the user stated it, exactly as written. Match each win to one of the user's topic pillars when one fits. Classify each win's kind.
+Summary: one plain sentence that says what happened and, when the note says, how. Stay close to the user's words. Never add facts, causes, numbers or results, and never assume the user led or owns something unless the note says so.
 
-Ask one short, friendly follow-up question only when the note leaves out the user's own part in a result, or a number that is clearly central to it, and the answer would change what the win says. Most notes need none: then return null.
+Impact: one short line on why it matters, in words the person could reuse in an appraisal. State the plain consequence of what the note says (for example, a report error fixed at source means leadership can rely on the numbers), without repeating the summary and without adding new facts, figures or outcomes. Leave it empty only when the note gives nothing to go on.
+
+Put a figure in "metric" only if the user stated it, exactly as written. Match each win to one of the user's topic pillars when one fits. Classify each win's kind.
+
+Follow-up: when the note has a win, ask one short, friendly question that would turn it into a stronger post or appraisal line. Usually that is how they did it (the argument, the question or the change that made the difference), their own part, or a figure they could share in the form their number rules allow. Quote their words in the question, and never ask for confidential details. Return null only when the note already holds what a post would need, or has no win.
 
 Mark a win confidential if it names clients, internal financial figures, unannounced products or internal plans.
 
@@ -39,9 +43,13 @@ Each idea must be based on at least one provided win id and use one format:
 - credit: the result and who made it possible.
 - how_to: a practical method from the work that helps the reader.
 
-Choose the strongest, most specific wins over routine ones. Angles and first lines use only what the wins say: never add details, numbers, causes, outcomes or quotes that aren't in them.
+Pick the wins most worth sharing: specific results, decisions with a real trade-off, and work that shows what this person wants to be known for (their topic pillars). Skip routine items. Related wins can share one idea.
 
-Prefer ideas that help the reader or credit others over ideas that only celebrate the user. Avoid formats the user rarely picks unless a win clearly suits one. Avoid hot takes and controversy. Prefer wins that are not confidential; when a win is confidential, the idea must work without the confidential details. Put the best idea first.
+The angle is the point a peer takes away, not a summary of the win: the lesson that transfers, the trade-off and why it was worth it, the method someone else could use, or why the people credited made the difference. The first line, in the user's own voice, uses a real and specific fact from the wins to make a peer want to read on.
+
+Ground everything in the wins: never add details, numbers, causes, outcomes, costs or quotes that aren't in them.
+
+Prefer ideas that help the reader or credit others over ideas that only celebrate the user. Avoid formats the user rarely picks unless a win clearly suits one. Use different formats where possible. Avoid hot takes and controversy. Prefer wins that are not confidential; when a win is confidential, the idea must work without the confidential details. Put the best idea first.
 
 ${SHARED_RULES}`;
 
@@ -49,7 +57,11 @@ export const DRAFT_POST_SYSTEM = `You write a LinkedIn post that reads as if thi
 
 Voice comes first. Study their sample posts and style notebook and match them: length, how they open, paragraph length, word choice, spelling, how much they say "I" or "we", and how they close. If they end with a question to peers, do the same; if they don't, don't. No emojis unless their samples use them.
 
-A strong post for this audience usually has a plain first line with the most interesting fact or lesson (under 140 characters, since readers see only the first lines before "see more"), the result and who made it possible, what was learned, and something a peer can use. Use this as a guide, not a template: keep what fits the format and the person, drop what doesn't, and never pad.
+Every post also gives the reader something to use: one specific point drawn from the facts, such as what was done differently, the rule they now follow or the question they now ask, said the way this person would say it. Name the people who made it possible, by role, and give them credit for their part.
+
+A strong post for this audience usually has a plain first line with the most interesting fact or lesson (under 140 characters, since readers see only the first lines before "see more"), the result and who made it possible, what was learned, and the point a peer can use. Use this as a guide, not a template: keep what fits the format and the person, and never pad.
+
+The reader's point comes from what happened, never from new details, numbers, anecdotes or claims. Follow the user's number rules exactly and leave confidential details out entirely.
 
 Length: about the length of their sample posts, within ${POST_WORDS.min}–${POST_WORDS.max} words. Put hashtags only in the hashtags field, never in the body; at most three, or none. Never end on "Thoughts?" or "Agree?".
 
