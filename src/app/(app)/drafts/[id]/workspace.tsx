@@ -94,6 +94,8 @@ export function DraftWorkspace(props: Props) {
   const passedChecks = checks.filter((c) => c.passed).length;
   const posted = status === "posted";
   const canCopy = !blocking.length || acknowledged;
+  // A safer version offered by the latest check or revision; the user's text is never replaced unasked.
+  const suggestedBody = reviseState.suggestedBody ?? checkState.suggestedBody ?? null;
 
   const save = () => {
     const data = new FormData();
@@ -166,14 +168,14 @@ export function DraftWorkspace(props: Props) {
           </form>
         )}
         {checkState.status === "error" && <Notice tone="danger">{checkState.message}</Notice>}
-        {checkState.suggestedBody && checkState.suggestedBody !== text && (
+        {suggestedBody && suggestedBody !== text && (
           <Notice tone="accent">
             <p>There&apos;s a safer version that fixes the flagged lines.</p>
             <button
               type="button"
               className="link mt-1 font-semibold"
               onClick={() => {
-                setText(checkState.suggestedBody ?? text);
+                setText(suggestedBody);
                 setMode("edit");
               }}
             >

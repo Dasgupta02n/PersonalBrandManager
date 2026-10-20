@@ -27,14 +27,14 @@ const DATASET: Record<FunctionName, DatasetName> = {
   voice: "voices",
 };
 
-/** Rough cost per case (product + baseline + grading), for the estimate printed before a run. */
+/** Cost per case (product + baseline + grading), from the first real run (2026-10-20) where measured. */
 export const COST_PER_CASE: Record<FunctionName, number> = {
-  extract: 0.06,
-  ideas: 0.13,
-  draft: 0.2,
-  check: 0.07,
-  reads: 0.06,
-  revision: 0.2,
+  extract: 0.08,
+  ideas: 0.12,
+  draft: 0.19,
+  check: 0.05,
+  reads: 0.07,
+  revision: 0.17,
   comments: 0.13,
   profile: 0.22,
   voice: 0.15,

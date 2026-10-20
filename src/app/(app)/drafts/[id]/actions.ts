@@ -136,7 +136,7 @@ export async function reviseDraft(draftId: string, _prev: CheckState, formData: 
       .eq("user_id", session.user.id);
     await recordRevision(session.supabase, session.user.id, mode.data);
     refresh(draftId);
-    return { status: "done" };
+    return { status: "done", suggestedBody: result.suggestedBody };
   } catch (error) {
     return { status: "error", message: friendlyAiError(error) };
   }

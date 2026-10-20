@@ -216,7 +216,8 @@ ${input.body}
 
   const noGo = check.no_go_topic_hits.map((t) => t.trim()).filter(Boolean);
   const aiFailed = !check.grounded || !check.confidentiality_ok || check.job_search_signal || noGo.length > 0;
-  const needsFix = aiFailed || !first.passed || Boolean(check.hierarchy_risk);
+  // A hierarchy risk is a note for the user, never a reason to rewrite their post.
+  const needsFix = aiFailed || !first.passed;
   const fix = needsFix && check.revised_body?.trim() ? check.revised_body.trim() : null;
   const applied = applyFix ? fix : null;
   const finalBody = applied ?? input.body;
@@ -282,11 +283,14 @@ function normalizeHashtags(tags: string[]): string[] {
   return [...new Set(cleaned)].slice(0, 3);
 }
 
-/** Checks a post and predicts how it reads: the full "nothing you'll regret posting" pass. */
-async function reviewPost(input: { body: string; facts: Win[]; ctx: UserContext; onUsage?: UsageRecorder }) {
+/**
+ * Checks a post and predicts how it reads: the full "nothing you'll regret posting" pass.
+ * With applyFix false the post is kept as written and any fix comes back as a suggestion.
+ */
+async function reviewPost(input: { body: string; facts: Win[]; ctx: UserContext; applyFix?: boolean; onUsage?: UsageRecorder }) {
   const reviewed = await reviewDraft({ ...input, kind: "post" });
   const howItReads = await readAsAudience({ body: reviewed.body, ctx: input.ctx, onUsage: input.onUsage });
-  return { body: reviewed.body, report: { ...reviewed.report, howItReads } satisfies GuardrailReport };
+  return { body: reviewed.body, suggestedBody: reviewed.suggestedBody, report: { ...reviewed.report, howItReads } satisfies GuardrailReport };
 }
 
 /** Writes a full post for an idea, then checks it and predicts how it reads. */
@@ -320,14 +324,17 @@ Suggested first line: ${input.idea.hook}`,
   };
 }
 
-/** One-tap revision (shorter, humbler, stronger opening), then the full review again. */
+/**
+ * One-tap revision (shorter, humbler, stronger opening), then the full review. The revision is
+ * kept as made: a safety fix comes back as a suggestion, so nothing changes beyond what was asked.
+ */
 export async function revisePost(input: {
   body: string;
   mode: RevisionMode;
   facts: Win[];
   ctx: UserContext;
   onUsage?: UsageRecorder;
-}): Promise<{ body: string; report: GuardrailReport }> {
+}): Promise<{ body: string; suggestedBody: string | null; report: GuardrailReport }> {
   const revision = await runStructured({
     task: "revise_draft",
     system: REVISE_POST_SYSTEM,
@@ -344,7 +351,7 @@ Post:
 ${input.body}
 </draft>`,
   });
-  return reviewPost({ body: revision.body.trim() || input.body, facts: input.facts, ctx: input.ctx, onUsage: input.onUsage });
+  return reviewPost({ body: revision.body.trim() || input.body, facts: input.facts, ctx: input.ctx, applyFix: false, onUsage: input.onUsage });
 }
 
 /** Re-checks the user's own edits without rewriting them; any fix comes back as a suggestion. */

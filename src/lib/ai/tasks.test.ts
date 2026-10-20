@@ -8,7 +8,7 @@ vi.mock("./client", () => ({
   runStructured: vi.fn(async ({ task }: { task: string }) => outputs[task]),
 }));
 
-const { extractWins, learnVoice, readAsAudience, recheckPost, reviewDraft, suggestProfile } = await import("./tasks");
+const { extractWins, learnVoice, readAsAudience, recheckPost, revisePost, reviewDraft, suggestProfile } = await import("./tasks");
 
 const ctx: UserContext = {
   fullName: "Priya",
@@ -71,6 +71,22 @@ describe("review pipeline", () => {
     const result = await reviewDraft({ body, kind: "post", facts: [], ctx, applyFix: false });
     expect(result.report.hierarchyRisk).toBe("Takes sole credit for a team launch.");
     expect(result.report.passed).toBe(true);
+  });
+
+  it("never rewrites a draft for a hierarchy risk alone", async () => {
+    outputs.check_draft = { ...cleanCheck, hierarchy_risk: "Takes sole credit for a team launch.", revised_body: "Rewritten" };
+    const result = await reviewDraft({ body, kind: "post", facts: [], ctx });
+    expect(result.body).toBe(body);
+    expect(result.report.revised).toBe(false);
+  });
+
+  it("keeps a revision as made and offers any safety fix as a suggestion", async () => {
+    outputs.revise_draft = { body: `${body} Shorter.` };
+    outputs.check_draft = { ...cleanCheck, confidentiality_ok: false, revised_body: "Safer version" };
+    outputs.how_it_reads = howItReads;
+    const result = await revisePost({ body, mode: "shorter", facts: [], ctx });
+    expect(result.body).toBe(`${body} Shorter.`);
+    expect(result.suggestedBody).toBe("Safer version");
   });
 
   it("keeps only quoted lines that appear in the post, and hides voice match without samples", async () => {
