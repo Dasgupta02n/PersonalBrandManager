@@ -11,7 +11,7 @@ export function markdown(reports: FunctionReport[], opts: RunOptions & { label: 
     `# Quality bar: ${opts.label}`,
     "",
     opts.dryRun ? "> **Dry run.** Stand-in model answers; these numbers check the harness and mean nothing about quality.\n" : "",
-    `Run ${opts.startedAt} · seed ${opts.seed} · up to ${opts.limit || "all"} cases per function · Claude Opus 5.5 via OpenRouter for the product, the baseline and the grader · total cost ${money(reports.reduce((s, r) => s + total(r), 0))}`,
+    `Run ${opts.startedAt} · seed ${opts.seed} · Claude Opus 5.5 via OpenRouter for the product, the baseline and the grader · total cost ${money(reports.reduce((s, r) => s + total(r), 0))}${opts.budget !== undefined ? ` (cap $${opts.budget})` : ""}`,
     "",
     "Product = the full pipeline (prompts, checks, style notebook). Baseline = the strongest single prompt on the same model with the same facts. Win rates are from blind comparisons in both orders; a win needs both orders to agree.",
     "",
@@ -19,7 +19,10 @@ export function markdown(reports: FunctionReport[], opts: RunOptions & { label: 
     "",
     "| Function | Cases | Win rate vs baseline | Gate | Errors | Cost |",
     "|---|---|---|---|---|---|",
-    ...reports.map((r) => `| ${r.fn} | ${r.cases} | ${r.rate ? ci(r.rate) : "–"} | ${r.gate ? (r.gate.passed ? "Pass" : "**Fail**") : "–"} | ${r.errors.length} | ${money(total(r))} |`),
+    ...reports.map(
+      (r) =>
+        `| ${r.fn} | ${r.cases}${r.skippedForBudget ? ` (+${r.skippedForBudget} skipped: budget)` : ""} | ${r.rate ? ci(r.rate) : "–"} | ${r.gate ? (r.gate.passed ? "Pass" : "**Fail**") : "–"} | ${r.errors.length} | ${money(total(r))} |`,
+    ),
     "",
   ];
   for (const r of reports) {

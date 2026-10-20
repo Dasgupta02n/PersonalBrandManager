@@ -47,7 +47,11 @@ EVAL_LIMIT=0 npm run eval                            # every case (about $122)
 EVAL_ESTIMATE=1 npm run eval                         # print the cost estimate only
 EVAL_DRY_RUN=1 npm run eval                          # stand-in answers: checks the harness, costs nothing
 EVAL_LABEL=notebook-v2 EVAL_SEED=1 npm run eval      # name a run; keep the seed to compare runs
+EVAL_BUDGET=19 EVAL_LIMITS=check=60,draft=30 npm run eval   # hard cap in dollars; per-function sizes
 ```
+
+With `EVAL_BUDGET`, the safety check runs first, then drafting, then the rest, and no new case or
+grading starts once the cap is reached. The report shows what was skipped.
 
 Each run writes `evals/out/<date>-<label>/`:
 - `report.md`: summary, pass or fail per function, win rates per criterion, metrics, costs;

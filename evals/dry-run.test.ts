@@ -31,4 +31,10 @@ describe("the quality-bar harness (dry run)", () => {
     const kit = humanReviewKit(reports.flatMap((r) => r.pairs), 1);
     expect(Object.keys(kit.key).length).toBe(reports.flatMap((r) => r.pairs).length);
   });
+
+  it.skipIf(!ready.length)("stops starting cases once the budget is reached", async () => {
+    const [report] = await runAll({ functions: [ready[0]], limit: 3, seed: 1, concurrency: 1, judge: true, budget: 0 });
+    expect(report.cases).toBe(0);
+    expect(report.skippedForBudget).toBe(3);
+  });
 });

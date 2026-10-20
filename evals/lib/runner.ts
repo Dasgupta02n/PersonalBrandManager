@@ -43,10 +43,23 @@ export const COST_PER_CASE: Record<FunctionName, number> = {
 export interface RunOptions {
   functions: FunctionName[];
   limit: number;
+  /** Per-function overrides of `limit`. */
+  limits?: Partial<Record<FunctionName, number>>;
   seed: number;
   concurrency: number;
   judge: boolean;
+  /** Hard cap in US dollars across the whole run: no new case or grading starts once it is reached. */
+  budget?: number;
 }
+
+/** Where a capped budget goes first: the promise, then the core writing, then the rest. */
+export const PRIORITY: FunctionName[] = ["check", "draft", "reads", "extract", "ideas", "revision", "comments", "profile", "voice"];
+
+/** Spend so far in this process, across every function and side. */
+let spent = 0;
+export const spentSoFar = () => spent;
+
+const casesFor = (fn: FunctionName, opts: Pick<RunOptions, "limit" | "limits">) => opts.limits?.[fn] ?? opts.limit;
 
 export interface Metric {
   label: string;
@@ -66,6 +79,8 @@ export interface PairRecord {
 export interface FunctionReport {
   fn: FunctionName;
   cases: number;
+  /** Cases not run, or not graded, because the budget ran out. */
+  skippedForBudget: number;
   errors: { side: "product" | "baseline" | "judge"; caseId: string; message: string }[];
   cost: { product: number; baseline: number; judge: number };
   metrics: Metric[];
@@ -116,9 +131,11 @@ function meter(): { record: UsageRecorder; total: () => number } {
   let total = 0;
   return {
     record: (u: AiUsage) => {
-      total +=
+      const cost =
         u.costUsd ??
         estimateCallCost(u.model, { input: u.inputTokens, output: u.outputTokens, cacheRead: u.cacheReadTokens, cacheWrite: u.cacheWriteTokens });
+      total += cost;
+      spent += cost;
     },
     total: () => total,
   };
@@ -145,11 +162,18 @@ interface Spec<C extends { id: string; personaId: string }> {
 
 async function evaluate<C extends { id: string; personaId: string }>(fn: FunctionName, spec: Spec<C>, opts: RunOptions): Promise<FunctionReport> {
   const personas = new Map(load("personas").map((p) => [p.id, p]));
-  const cases = sample(load(DATASET[fn]) as unknown as C[], opts.limit, opts.seed);
+  const cases = sample(load(DATASET[fn]) as unknown as C[], casesFor(fn, opts), opts.seed);
   const costs = { product: meter(), baseline: meter(), judge: meter() };
   const errors: FunctionReport["errors"] = [];
+  let skippedForBudget = 0;
+  // Leave room for the calls already in flight, so the cap holds.
+  const affordable = (next: number) => opts.budget === undefined || spent + next * opts.concurrency <= opts.budget;
 
-  const rows = await pool(cases, opts.concurrency, async (c) => {
+  const ran = await pool(cases, opts.concurrency, async (c) => {
+    if (!affordable(COST_PER_CASE[fn])) {
+      skippedForBudget += 1;
+      return null;
+    }
     const p = personas.get(c.personaId)!;
     const [prod, baseOut] = await Promise.all([
       spec.product(c, p, costs.product.record).catch((e) => (errors.push({ side: "product", caseId: c.id, message: message(e) }), null)),
@@ -157,6 +181,7 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
     ]);
     return { c, p, product: prod, baseline: baseOut };
   });
+  const rows = ran.filter((r) => r !== null);
   const ok = rows.filter((r) => r.product !== null && r.baseline !== null);
 
   const pairs: PairRecord[] = [];
@@ -171,7 +196,9 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
         baseline: judge.render(r.baseline as never),
         result: null,
       };
-      if (opts.judge) {
+      if (opts.judge && !affordable(0.07)) {
+        skippedForBudget += 1;
+      } else if (opts.judge) {
         record.result = await comparePair({ rubric: judge.rubric, context: record.context, product: record.product, baseline: record.baseline, onUsage: costs.judge.record }).catch(
           (e) => (errors.push({ side: "judge", caseId: r.c.id, message: message(e) }), null),
         );
@@ -189,7 +216,8 @@ async function evaluate<C extends { id: string; personaId: string }>(fn: Functio
 
   const report: FunctionReport = {
     fn,
-    cases: cases.length,
+    cases: rows.length,
+    skippedForBudget,
     errors,
     cost: { product: costs.product.total(), baseline: costs.baseline.total(), judge: costs.judge.total() },
     metrics: await spec.metrics(ok),
@@ -431,14 +459,18 @@ function specs(): { [K in FunctionName]: () => Spec<never> } {
 export async function runAll(opts: RunOptions): Promise<FunctionReport[]> {
   const all = specs();
   const reports: FunctionReport[] = [];
-  for (const fn of opts.functions) {
+  const ordered = opts.budget === undefined ? opts.functions : PRIORITY.filter((fn) => opts.functions.includes(fn));
+  for (const fn of ordered) {
     reports.push(await evaluate(fn, all[fn]() as Spec<{ id: string; personaId: string }>, opts));
   }
   return reports;
 }
 
-export function estimateCost(opts: Pick<RunOptions, "functions" | "limit">, sizes: Partial<Record<FunctionName, number>>): number {
-  return opts.functions.reduce((sum, fn) => sum + COST_PER_CASE[fn] * Math.min(opts.limit > 0 ? opts.limit : Infinity, sizes[fn] ?? 0), 0);
+export function estimateCost(opts: Pick<RunOptions, "functions" | "limit" | "limits">, sizes: Partial<Record<FunctionName, number>>): number {
+  return opts.functions.reduce((sum, fn) => {
+    const limit = casesFor(fn, opts);
+    return sum + COST_PER_CASE[fn] * Math.min(limit > 0 ? limit : Infinity, sizes[fn] ?? 0);
+  }, 0);
 }
 
 export function datasetFor(fn: FunctionName): DatasetName {

@@ -5,6 +5,8 @@ import { stubFor } from "./lib/stub";
 // The quality bar: `npm run eval`. Options come from the environment:
 //   EVAL_FUNCTIONS=draft,check   which functions (default: all)
 //   EVAL_LIMIT=40                cases per function, sampled with a fixed seed (0 = all)
+//   EVAL_LIMITS=draft=25,check=60  per-function overrides of EVAL_LIMIT
+//   EVAL_BUDGET=20               hard cap in US dollars; spends on the most important functions first
 //   EVAL_SEED=1                  sampling seed; keep it fixed to compare runs
 //   EVAL_CONCURRENCY=4           parallel cases
 //   EVAL_JUDGE=0                 skip pairwise grading (plain-code metrics only)
@@ -37,10 +39,20 @@ test("quality bar", async () => {
     seed: Number(env.EVAL_SEED ?? 1),
     concurrency: Number(env.EVAL_CONCURRENCY ?? 4),
     judge: env.EVAL_JUDGE !== "0",
+    limits: Object.fromEntries(
+      (env.EVAL_LIMITS ?? "")
+        .split(",")
+        .map((pair) => pair.split("=").map((s) => s.trim()))
+        .filter(([fn, n]) => fn && n)
+        .map(([fn, n]) => [fn, Number(n)]),
+    ),
+    budget: env.EVAL_BUDGET ? Number(env.EVAL_BUDGET) : undefined,
   };
+  for (const fn of Object.keys(opts.limits)) expect(FUNCTIONS, `unknown function in EVAL_LIMITS: ${fn}`).toContain(fn);
 
   const sizes = Object.fromEntries(functions.map((fn) => [fn, loadRaw(datasetFor(fn))?.length ?? 0]));
-  console.log(`Estimated cost: about $${estimateCost(opts, sizes).toFixed(0)} for ${functions.join(", ")} (${opts.limit || "all"} cases each).`);
+  const estimate = estimateCost(opts, sizes);
+  console.log(`Estimated cost: about $${estimate.toFixed(0)} for ${functions.join(", ")}${opts.budget !== undefined ? `, capped at $${opts.budget}` : ""}.`);
   if (env.EVAL_ESTIMATE === "1") return;
   if (!dryRun && !env.OPENROUTER_API_KEY) throw new Error("Set OPENROUTER_API_KEY in the environment, or use EVAL_DRY_RUN=1 to check the harness.");
 
