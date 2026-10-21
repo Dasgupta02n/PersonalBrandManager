@@ -5,11 +5,11 @@
 | Layer | Choice | Notes |
 |---|---|---|
 | Web app | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 | Mobile-first, installable PWA. `proxy.ts` replaces `middleware.ts` in Next 16. Cache Components is off: app pages are per-user and rendered on request. |
-| Auth | Supabase Auth | Email only: one-time code or link, no password. Sent through Hostinger SMTP from hello@c7xai.in. |
-| Database | Supabase Postgres with row-level security | Every user-owned table has `user_id` and RLS `user_id = auth.uid()`. |
-| File storage | Supabase Storage (private buckets) | CV versions, uploaded exports, screenshots. |
+| Auth | Our own (`src/lib/auth`) | Email only: a 6-digit code and a link in one email, no password, sent through Hostinger SMTP from hello@c7xai.in. Codes, links and session tokens are stored only as HMAC hashes; sessions are an httpOnly cookie, 180 days, extended with use. |
+| Database | PostgreSQL 17 on our VPS, with row-level security | The app's login has no privileges; each query switches to `pbm_user` (RLS `user_id = app_user_id()`) or `pbm_service` (trusted server code). Nightly encrypted backups to the server and Google Drive. |
+| File storage | A private volume on the VPS | Not built yet: CV versions, uploaded exports, screenshots. |
 | AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. |
-| Scheduling | `/api/cron/tick` every 15 minutes (Supabase `pg_cron` + `pg_net`, or any external cron) | Finds users whose local prompt time falls in the window; enqueues work. |
+| Scheduling | `/api/cron/tick` every 15 minutes (a cron job on the VPS) | Finds users whose local prompt time falls in the window; enqueues work. |
 | Messaging | WhatsApp Business Platform (Meta Cloud API), email (inbound + outbound), web push | Channel adapters behind one interface. |
 | Payments | Paddle as merchant of record | Not built yet. Plans and allowances are; see `docs/PRICING.md`. |
 | Monitoring | Sentry, uptime checks, AI usage table | Not in the first slice. |
@@ -21,7 +21,8 @@ src/
   app/                 Routes (pages, layouts, route handlers, server actions)
   lib/
     config/            Environment parsing, app constants
-    supabase/          Server and browser clients, proxy session refresh
+    db/                PostgreSQL client, role switching, query builder
+    auth/              Email sign-in (codes, links, rate limits), sessions, sign-in email
     ai/                AI client (OpenRouter), model per function, prompts, AI tasks
     billing/           Global price and split, plan allowances, allowance check
     guardrails/        Deterministic checks (confidentiality, clichés, job-search signals), tiers
@@ -29,8 +30,11 @@ src/
     schedule/          Time-zone prompt windows, forgiving workday consistency
     domain/            Shared types
   components/          UI primitives (ui.tsx), client widgets, brand mark, navigation
+db/
+  migrations/          SQL migrations (schema, roles, RLS, grants), applied by scripts/migrate.mjs
+deploy/                Compose files for the VPS; backup container
 supabase/
-  migrations/          SQL migrations (schema, RLS, grants)
+  migrations/          Earlier Supabase migrations, kept for history (consolidated into db/)
 docs/                  PRD, architecture, design system, research
 evals/                 Quality bar: synthetic test sets, single-prompt baselines, blind grader, runner
 ```

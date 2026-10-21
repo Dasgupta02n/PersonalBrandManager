@@ -37,9 +37,9 @@ surcharge + 4% cess = 25.168%. Marketing and input costs are deductible, so pre-
 **Payment fees.** Paddle as merchant of record: 5% + $0.50 per charge. It also collects and files
 UK VAT, EU VAT, UAE VAT, Singapore GST and India's GST on foreign digital services.
 
-**Platform costs.** About $60 a month of fixed costs (VPS $10, Supabase Pro $25, email $20,
-domain $1, other $4) shared by 200 paying users, plus about $0.01 of reminder emails each:
-**$0.31 per user per month**. Below about 200 payers, fixed costs take a larger share whatever
+**Platform costs.** About $60 a month of fixed costs (VPS $10, a larger VPS or a separate
+database server as we grow $25, email $20, domain $1, other $4) shared by 200 paying users, plus
+about $0.01 of reminder emails each: **$0.31 per user per month**. Below about 200 payers, fixed costs take a larger share whatever
 the price.
 
 ## Where each dollar goes, at the full allowance

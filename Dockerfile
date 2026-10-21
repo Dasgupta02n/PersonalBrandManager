@@ -24,6 +24,11 @@ RUN addgroup -S app && adduser -S app -G app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
 COPY --from=build --chown=app:app /app/public ./public
+# The one-off "migrate" service runs `node scripts/migrate.mjs` from this image. The app bundles
+# its own copy of postgres, so the script gets the package (it has no dependencies) separately.
+COPY --from=build --chown=app:app /app/scripts/migrate.mjs ./scripts/migrate.mjs
+COPY --from=build --chown=app:app /app/db/migrations ./db/migrations
+COPY --from=deps --chown=app:app /app/node_modules/postgres ./node_modules/postgres
 USER app
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \

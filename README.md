@@ -17,12 +17,14 @@ user approves everything; the product never posts, comments or edits LinkedIn on
 ## Local setup
 
 ```bash
-cp .env.example .env.local   # fill in Supabase and OpenRouter keys
+cp .env.example .env.local   # database URL, AUTH_SECRET, OpenRouter key
 npm install
+npm run db:migrate           # needs a local PostgreSQL 16 or 17
 npm run dev
 ```
 
-Apply the database schema from `supabase/migrations/` to your Supabase project. Deployment: [docs/DEPLOY.md](docs/DEPLOY.md).
+Without a mailbox password, sign-in codes are printed in the server log. Details and
+deployment: [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ## Checks
 

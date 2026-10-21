@@ -94,14 +94,15 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
 
 ## Needed to run end to end
 
-See `docs/DEPLOY.md`. Done: Supabase project in Mumbai with the schema applied and checked
-(security advisor clean apart from the intentional service-role-only `ai_usage`); VPS firewall.
-Open:
-- Supabase auth URL configuration (Site URL and redirect URL)
-- Image access on the VPS (public GHCR package, or a one-time `docker login ghcr.io`); the `edge` update is done
-- `pbm` project on the VPS, with `OPENROUTER_API_KEY` added in Docker Manager
-- Custom SMTP for sign-in emails before inviting beta users
-- `SUPABASE_SECRET_KEY` on the server: allowance checks and account deletion need it
+See `docs/DEPLOY.md`. Everything now runs on our own VPS: PostgreSQL 17, our own email sign-in
+and sessions, and nightly encrypted backups to the server and Google Drive (backup and restore
+tested). Supabase is no longer used. Done: VPS firewall; `edge` update; hello@c7xai.in mailbox
+and the privacy@c7xai.in alias. Open:
+- Image access on the VPS (public GHCR packages, or a one-time `docker login ghcr.io`)
+- `pbm` project on the VPS with its secrets in Docker Manager, then Google Drive for backups
+- Delete the old Supabase project (test data only)
+- Hostinger's weekly VPS snapshots are stored outside India (most likely Malaysia) and not
+  encrypted by us: keep them (and confirm their retention) or switch them off
 - Privacy notice: legal entity name and address, and legal review. (`privacy@c7xai.in` is an alias
   delivering to hello@c7xai.in.)
 
@@ -124,5 +125,5 @@ Open:
 - Re-saving settings replaces topic pillars, which unlinks existing wins from their pillar.
 - "Sounds like you" stays unknown until the user adds sample posts (voice profile comes later).
 - Voice capture uses the browser's speech recognition where available (Chrome, Edge, Safari).
-- The Supabase free tier pauses after a week without activity; restore it from the dashboard
-  (or upgrade) before beta users arrive.
+- One small VPS runs the app, the database and two other sites: fine for the beta; move the
+  database to its own server (or a bigger plan) before it gets busy.

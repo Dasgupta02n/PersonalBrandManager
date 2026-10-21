@@ -9,8 +9,12 @@ export const metadata: Metadata = {
 };
 
 const SUBPROCESSORS = [
-  { name: "Supabase", role: "Database and sign-in", where: "Mumbai, India (AWS ap-south-1)" },
-  { name: "Hostinger", role: "Runs the app and sends sign-in emails", where: "Mumbai, India (app); Hostinger email servers (sign-in emails)" },
+  {
+    name: "Hostinger",
+    role: "Runs our server (the app and its database) and sends sign-in emails",
+    where: "Mumbai, India. Hostinger's weekly server backups are kept outside India (Malaysia)",
+  },
+  { name: "Google Drive", role: "Keeps encrypted copies of our nightly backups", where: "Encrypted before upload: Google can't read them" },
   { name: "OpenRouter", role: "Routes AI requests to the model host", where: "Zero data retention" },
   { name: "Google Cloud Vertex AI", role: "Runs the Claude model that reads your notes", where: "Zero data retention; may be outside India" },
   { name: "Paddle", role: "Payments and sales tax, when billing opens", where: "Card details never reach us" },
@@ -90,7 +94,7 @@ export default function PrivacyPage() {
 
       <Section title="Where your data is, and who helps us">
         <p>
-          Your data is stored in Mumbai, India. To read a note or write a draft, the text is sent to an AI model host under
+          Your data is stored on our own server in Mumbai, India, with encrypted nightly backups. To read a note or write a draft, the text is sent to an AI model host under
           zero-data-retention terms: it is processed and not kept. That host may be outside your country.
         </p>
         <div className="overflow-x-auto">

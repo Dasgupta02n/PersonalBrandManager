@@ -8,18 +8,21 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 
 | Data | Where | Who can read it | Retention |
 |---|---|---|---|
-| Account (email address only; sign-in by one-time code or link, no password) | Supabase Auth, Mumbai | The user; service role | Until account deletion |
-| Sign-in emails (address, one-time code and link) | Sent from hello@c7xai.in through Hostinger's mail servers | The recipient | Codes and links expire within an hour |
-| Settings, rules, topics, voice samples | Supabase Postgres, Mumbai | The user (row-level security) | Until changed or deleted |
-| Notes and wins | Supabase Postgres, Mumbai | The user | Until deleted |
-| Style notebook (style notes, edit counts, single removed words) | Supabase Postgres, Mumbai | The user | Until cleared or the account is deleted |
-| Drafts, opportunities, profile suggestions | Supabase Postgres, Mumbai | The user | Until deleted |
-| AI usage (task, model, tokens, cost; no content) | Supabase Postgres, Mumbai | Service role only | Kept without the user id after deletion |
+| Account (email address only; sign-in by one-time code or link, no password) | Our PostgreSQL on the VPS, Mumbai | Server code only | Until account deletion |
+| Sign-in codes and sessions (keyed hashes only, plus a keyed hash of the IP address for rate limits) | Our PostgreSQL, Mumbai | Server code only | Codes: expire in 15 minutes, deleted after a day. Sessions: until sign-out, 180 days unused, or deletion |
+| Sign-in emails (address, one-time code and link) | Sent from hello@c7xai.in through Hostinger's mail servers | The recipient | Codes and links expire in 15 minutes |
+| Settings, rules, topics, voice samples | Our PostgreSQL, Mumbai | The user (row-level security) | Until changed or deleted |
+| Notes and wins | Our PostgreSQL, Mumbai | The user | Until deleted |
+| Style notebook (style notes, edit counts, single removed words) | Our PostgreSQL, Mumbai | The user | Until cleared or the account is deleted |
+| Drafts, opportunities, profile suggestions | Our PostgreSQL, Mumbai | The user | Until deleted |
+| AI usage (task, model, tokens, cost; no content) | Our PostgreSQL, Mumbai | Server code only | Kept without the user id after deletion |
 | Text sent to AI | OpenRouter → Google Vertex AI | Processed only | Zero data retention |
 | App logs | Hostinger VPS, Mumbai | Operators | Never log note or draft content |
+| Database backups (everything above), encrypted with our passphrase (AES-256) | The VPS, Mumbai; Google Drive | Operators with the passphrase; Google sees only encrypted files | 14 days on the server, 30 days on Google Drive |
+| Weekly snapshots of the whole VPS (not encrypted by us) | Hostinger backup servers, most likely Kuala Lumpur, Malaysia | Hostinger, operators | Hostinger's retention (to confirm) |
 
-Sub-processors: Supabase, Hostinger, OpenRouter, Google Cloud Vertex AI, and Paddle once billing
-opens. Add any new one to the notice before it receives data, and bump the notice version if
+Sub-processors: Hostinger, Google (Drive for encrypted backups; Cloud Vertex AI for the model),
+OpenRouter, and Paddle once billing opens. Add any new one to the notice before it receives data, and bump the notice version if
 the change is material (users are asked to agree again).
 
 ## How the product learns
@@ -45,8 +48,9 @@ again on their next visit.
 
 ## If there is a breach
 
-1. **Contain** (first hour): revoke exposed keys (Supabase secret key, OpenRouter key), rotate
-   them in Hostinger Docker Manager, block the access path, preserve logs.
+1. **Contain** (first hour): revoke exposed keys (OpenRouter key, database passwords, `AUTH_SECRET`,
+   the mailbox password), rotate them in Hostinger Docker Manager (a new `AUTH_SECRET` signs
+   everyone out), block the access path, preserve logs.
 2. **Assess** (same day): what data, whose, how many people, which countries. Notes and drafts
    count as sensitive: they name colleagues and clients.
 3. **Notify**, as each law requires:

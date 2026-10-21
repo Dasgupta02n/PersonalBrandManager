@@ -1,25 +1,95 @@
 # Docker Compose project "pbm" on the Hostinger VPS (Docker Manager).
 # The shared "web" network is created by the "edge" project (deploy/edge.compose.yml),
-# whose Caddy server terminates HTTPS for c7xai.in and forwards to this container.
-# Variables come from the project's environment settings in Docker Manager (see .env.example).
+# whose Caddy server terminates HTTPS for c7xai.in and forwards to the app container.
+# Variables come from the project's environment settings in Docker Manager (see .env.example
+# and docs/DEPLOY.md). Nothing here is a secret.
+#
+#   db       PostgreSQL 17. Reachable only on the private "data" network: no published port,
+#            no internet access.
+#   migrate  runs once on every deploy: applies new migrations and sets the app login's password.
+#   app      the Next.js server. Starts after migrate succeeds.
+#   backup   encrypted nightly backups to the server and to Google Drive.
 
 services:
+  db:
+    image: postgres:17-alpine
+    container_name: pbm-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: pbm
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d pbm"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+  migrate:
+    image: ghcr.io/dasgupta02n/personalbrandmanager:latest
+    container_name: pbm-migrate
+    command: ["node", "scripts/migrate.mjs"]
+    restart: "no"
+    environment:
+      DATABASE_ADMIN_URL: postgres://postgres:${POSTGRES_PASSWORD}@db:5432/pbm
+      PBM_APP_PASSWORD: ${PBM_APP_PASSWORD}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - data
+
   app:
     image: ghcr.io/dasgupta02n/personalbrandmanager:latest
     container_name: pbm-app
     restart: unless-stopped
     environment:
       APP_URL: ${APP_URL}
-      SUPABASE_URL: ${SUPABASE_URL}
-      SUPABASE_PUBLISHABLE_KEY: ${SUPABASE_PUBLISHABLE_KEY}
-      SUPABASE_SECRET_KEY: ${SUPABASE_SECRET_KEY}
+      DATABASE_URL: postgres://pbm_app:${PBM_APP_PASSWORD}@db:5432/pbm
+      AUTH_SECRET: ${AUTH_SECRET}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      MAIL_FROM: ${MAIL_FROM}
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
       CRON_SECRET: ${CRON_SECRET}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
     expose:
       - "3000"
     networks:
       - web
+      - data
+
+  backup:
+    image: ghcr.io/dasgupta02n/personalbrandmanager-backup:latest
+    container_name: pbm-backup
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      BACKUP_PASSPHRASE: ${BACKUP_PASSPHRASE}
+      BACKUP_DRIVE_FOLDER: ${BACKUP_DRIVE_FOLDER}
+    volumes:
+      - backups:/backups
+      - backup-config:/config/rclone
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - data
+      - outbound
+
+volumes:
+  db-data:
+  backups:
+  backup-config:
 
 networks:
   web:
     external: true
+  data:
+    internal: true
+  outbound:

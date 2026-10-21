@@ -23,9 +23,12 @@ Read before working:
 
 - Next.js 16: `proxy.ts` (not `middleware.ts`); `cookies()`, `headers()`, `params` and
   `searchParams` are async. Check `node_modules/next/dist/docs/` before using an unfamiliar API.
-- Database changes go in a new file under `supabase/migrations/`; every user-owned table gets RLS.
-  Every new table also needs explicit grants in the same migration (Supabase no longer grants new
-  tables to the API roles): usually `select, insert, update, delete` to `authenticated` and
-  `service_role`, nothing to `anon`. See `20261020000000_explicit_api_grants.sql`.
+- Our own PostgreSQL (no Supabase). Database changes go in a new file `db/migrations/NNNN_name.sql`
+  (applied by `npm run db:migrate`). Every user-owned table gets RLS with the `own_rows` policy
+  (`user_id = app_user_id()`) and explicit grants in the same migration: `select, insert, update,
+  delete` to `pbm_user` and `pbm_service`. See `db/migrations/0001_schema.sql`.
+- Queries go through `src/lib/db/client.ts`: `userDb(userId)` for a signed-in user's data (RLS
+  applies), `serviceDb()` / `asService()` only for trusted server code. Never query as the bare login.
+- Sign-in and sessions are ours (`src/lib/auth`); never store codes, links or tokens unhashed.
 - AI calls go through `src/lib/ai/client.ts`; never call the SDK directly from routes.
 - Never add code that logs in to, scrapes or automates LinkedIn.
