@@ -1,5 +1,5 @@
-/** Product name shown in the UI and messages. Working name until the brand is decided. */
-export const APP_NAME = "Brand Manager";
+/** Product name shown in the UI and messages. */
+export const APP_NAME = "Winwall";
 
 /** The headline promise: the biggest reason senior professionals stay quiet is fear of regret. */
 export const APP_PROMISE = "Nothing you'll regret posting.";

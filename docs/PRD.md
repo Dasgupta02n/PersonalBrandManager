@@ -1,4 +1,4 @@
-# Product Requirements — Personal Brand Manager (Beta)
+# Product Requirements — Winwall (Beta)
 
 Working name. The product name is set in one place (`APP_NAME`) so it can change without code edits.
 

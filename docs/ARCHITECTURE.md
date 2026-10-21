@@ -1,4 +1,4 @@
-# Architecture — Personal Brand Manager (Beta)
+# Architecture — Winwall (Beta)
 
 ## Stack
 

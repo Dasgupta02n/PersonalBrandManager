@@ -1,16 +1,44 @@
 # Docker Compose project "pbm" on the Hostinger VPS (Docker Manager).
 # The shared "web" network is created by the "edge" project (deploy/edge.compose.yml),
 # whose Caddy server terminates HTTPS for c7xai.in and forwards to the app container.
-# Variables come from the project's environment settings in Docker Manager (see .env.example
-# and docs/DEPLOY.md). Nothing here is a secret.
 #
+#   secrets  runs first: creates the internal passwords (database, sessions, cron) on the server,
+#            once, in the "secrets" volume. Nobody types or sees them.
 #   db       PostgreSQL 17. Reachable only on the private "data" network: no published port,
 #            no internet access.
-#   migrate  runs once on every deploy: applies new migrations and sets the app login's password.
+#   migrate  runs on every deploy: applies new migrations and sets the app login's password.
 #   app      the Next.js server. Starts after migrate succeeds.
 #   backup   encrypted nightly backups to the server and to Google Drive.
+#
+# Project environment (Docker Manager), none of it needed to start:
+#   APP_URL             https://c7xai.in
+#   SMTP_PASSWORD       the hello@c7xai.in mailbox password (sign-in emails)
+#   OPENROUTER_API_KEY  AI features
+#   BACKUP_PASSPHRASE   encrypts backups; keep a copy in a password manager
+#   MAIL_FROM, BACKUP_DRIVE_FOLDER  optional
+# Don't delete the "secrets" volume: the database's own password lives there.
 
 services:
+  secrets:
+    image: postgres:17-alpine
+    container_name: pbm-secrets
+    restart: "no"
+    network_mode: none
+    entrypoint: ["sh", "-c"]
+    command:
+      - |
+        set -eu
+        cd /pbm-secrets
+        for name in postgres_password app_password auth_secret cron_secret; do
+          if [ ! -s "$$name" ]; then
+            head -c 24 /dev/urandom | od -An -tx1 | tr -d ' \n' > "$$name"
+            echo "created $$name"
+          fi
+        done
+        chmod 444 postgres_password app_password auth_secret cron_secret
+    volumes:
+      - secrets:/pbm-secrets
+
   db:
     image: postgres:17-alpine
     container_name: pbm-db
@@ -18,9 +46,13 @@ services:
     environment:
       POSTGRES_DB: pbm
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_PASSWORD_FILE: /pbm-secrets/postgres_password
     volumes:
       - db-data:/var/lib/postgresql/data
+      - secrets:/pbm-secrets:ro
+    depends_on:
+      secrets:
+        condition: service_completed_successfully
     networks:
       - data
     healthcheck:
@@ -30,13 +62,17 @@ services:
       retries: 6
 
   migrate:
-    image: ghcr.io/dasgupta02n/personalbrandmanager:latest
+    image: ghcr.io/dasgupta02n/winwall:latest
     container_name: pbm-migrate
-    command: ["node", "scripts/migrate.mjs"]
     restart: "no"
-    environment:
-      DATABASE_ADMIN_URL: postgres://postgres:${POSTGRES_PASSWORD}@db:5432/pbm
-      PBM_APP_PASSWORD: ${PBM_APP_PASSWORD}
+    entrypoint: ["sh", "-c"]
+    command:
+      - >-
+        export DATABASE_ADMIN_URL="postgres://postgres:$$(cat /pbm-secrets/postgres_password)@db:5432/pbm"
+        PBM_APP_PASSWORD="$$(cat /pbm-secrets/app_password)";
+        exec node scripts/migrate.mjs
+    volumes:
+      - secrets:/pbm-secrets:ro
     depends_on:
       db:
         condition: service_healthy
@@ -44,17 +80,23 @@ services:
       - data
 
   app:
-    image: ghcr.io/dasgupta02n/personalbrandmanager:latest
+    image: ghcr.io/dasgupta02n/winwall:latest
     container_name: pbm-app
     restart: unless-stopped
+    entrypoint: ["sh", "-c"]
+    command:
+      - >-
+        export DATABASE_URL="postgres://pbm_app:$$(cat /pbm-secrets/app_password)@db:5432/pbm"
+        AUTH_SECRET="$$(cat /pbm-secrets/auth_secret)"
+        CRON_SECRET="$$(cat /pbm-secrets/cron_secret)";
+        exec node server.js
     environment:
-      APP_URL: ${APP_URL}
-      DATABASE_URL: postgres://pbm_app:${PBM_APP_PASSWORD}@db:5432/pbm
-      AUTH_SECRET: ${AUTH_SECRET}
-      SMTP_PASSWORD: ${SMTP_PASSWORD}
-      MAIL_FROM: ${MAIL_FROM}
-      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
-      CRON_SECRET: ${CRON_SECRET}
+      APP_URL: ${APP_URL:-https://c7xai.in}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+    volumes:
+      - secrets:/pbm-secrets:ro
     depends_on:
       migrate:
         condition: service_completed_successfully
@@ -65,16 +107,17 @@ services:
       - data
 
   backup:
-    image: ghcr.io/dasgupta02n/personalbrandmanager-backup:latest
+    image: ghcr.io/dasgupta02n/winwall-backup:latest
     container_name: pbm-backup
     restart: unless-stopped
     environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      BACKUP_PASSPHRASE: ${BACKUP_PASSPHRASE}
-      BACKUP_DRIVE_FOLDER: ${BACKUP_DRIVE_FOLDER}
+      POSTGRES_PASSWORD_FILE: /pbm-secrets/postgres_password
+      BACKUP_PASSPHRASE: ${BACKUP_PASSPHRASE:-}
+      BACKUP_DRIVE_FOLDER: ${BACKUP_DRIVE_FOLDER:-}
     volumes:
       - backups:/backups
       - backup-config:/config/rclone
+      - secrets:/pbm-secrets:ro
     depends_on:
       db:
         condition: service_healthy
@@ -83,6 +126,7 @@ services:
       - outbound
 
 volumes:
+  secrets:
   db-data:
   backups:
   backup-config:

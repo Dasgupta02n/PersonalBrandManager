@@ -1,5 +1,5 @@
 # Nightly encrypted database backups: pg_dump, encrypted with gpg, kept 14 days on the server and
-# copied to Google Drive with rclone. Published as ghcr.io/dasgupta02n/personalbrandmanager-backup.
+# copied to Google Drive with rclone. Published as ghcr.io/dasgupta02n/winwall-backup.
 FROM postgres:17-alpine
 RUN apk add --no-cache gnupg rclone
 COPY --chmod=755 backup.sh entrypoint.sh /usr/local/bin/

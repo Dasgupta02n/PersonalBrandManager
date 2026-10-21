@@ -1,10 +1,10 @@
 @AGENTS.md
 
-# Personal Brand Manager
+# Winwall
 
 Personal brand manager for busy professionals: log wins daily, get LinkedIn post/comment drafts,
-weekly profile and CV refresh, weekly scorecard. Working name; the product name lives in
-`APP_NAME` (`src/lib/config/app.ts`).
+weekly profile and CV refresh, weekly scorecard. The product name lives in `APP_NAME`
+(`src/lib/config/app.ts`).
 
 Read before working:
 - `docs/PRD.md` — beta scope and product principles (approval for everything, no LinkedIn

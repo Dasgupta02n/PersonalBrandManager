@@ -8,6 +8,7 @@ Internet ──HTTPS──> edge-caddy (project "edge", ports 80/443)
                       └── c7xai.in     ──> pbm-app:3000 (project "pbm", network "web")
 
 Project "pbm" (deploy/app.compose.yml):
+  pbm-secrets  runs first: creates the internal passwords on the server, once (volume "secrets")
   pbm-app ──> pbm-db (PostgreSQL 17, private "data" network: no published port, no internet)
           ──> OpenRouter (Claude models), smtp.hostinger.com (sign-in emails)
   pbm-migrate  runs once per deploy: applies db/migrations, sets the app login's password
@@ -22,8 +23,10 @@ mail servers (sign-in emails) and Google Drive (encrypted backup copies).
   HTTPS certificates automatically. `www` redirects to the apex. SPF, DKIM and DMARC cover
   Hostinger mail.
 - Images are built by GitHub Actions on every push to `main` and published to
-  `ghcr.io/dasgupta02n/personalbrandmanager` and `ghcr.io/dasgupta02n/personalbrandmanager-backup`
-  (`latest` and the commit SHA).
+  `ghcr.io/dasgupta02n/winwall` and `ghcr.io/dasgupta02n/winwall-backup` (`latest` and the commit
+  SHA). Both packages are public, like the repository, so the VPS pulls them without a login. If
+  the repository is ever made private, make the packages private too and run
+  `docker login ghcr.io` once on the VPS with a `read:packages` token.
 
 ## Database access model
 
@@ -35,43 +38,31 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
 
 ## One-time setup
 
-1. **Image access on the VPS:** either make both GHCR packages public, or run once in the hPanel
-   browser terminal: `docker login ghcr.io -u <github-username>` with a token that has only
-   `read:packages`.
-2. **Edge project:** done on 2026-10-11 from commit `bd10d4b` (adds the `web` network and the
+1. **Edge project:** done on 2026-10-11 from commit `bd10d4b` (adds the `web` network and the
    c7xai.in site). Hostinger's API rejects `deploy/edge.compose.yml` sent inline (403, most likely
    because of the shell commands in the `hanumat` service), so pass it as a commit-pinned raw
    GitHub URL or paste it in hPanel → Docker Manager. Any recreate of the `hanumat` container
    re-downloads about 3 GB of site archives: hanumat.life returned 502 for about 7 minutes.
-3. **Secrets.** In the hPanel browser terminal, run this once; it prints the five random values:
-
-   ```sh
-   for n in POSTGRES_PASSWORD PBM_APP_PASSWORD AUTH_SECRET CRON_SECRET BACKUP_PASSPHRASE; do echo "$n=$(openssl rand -hex 24)"; done
-   ```
-
-   Hex (letters and numbers only) matters: the two database passwords go inside connection URLs,
-   where characters like `/` or `+` would break them. Paste each value straight into Docker
-   Manager (step 4). Never paste them into chat, email or a commit. **Save `BACKUP_PASSPHRASE` in your password manager too:** if the server is lost, the
-   backups on Google Drive can only be opened with it.
-4. **App project:** create project `pbm` from `deploy/app.compose.yml` with these environment
-   variables in Docker Manager:
+2. **App project:** create project `pbm` from `deploy/app.compose.yml` (Docker Manager, or the
+   Hostinger API). It starts with no settings at all: `pbm-secrets` creates the database
+   passwords, `AUTH_SECRET` and `CRON_SECRET` on the server (random, hex, in the `secrets` volume;
+   nobody types or sees them), `pbm-db` becomes healthy, `pbm-migrate` applies the schema and
+   exits, then `pbm-app` starts. Don't delete the `secrets` volume: the database's own password
+   is there.
+3. **Settings only you have**, in Docker Manager → project `pbm` → environment, then redeploy:
 
    | Variable | Value |
    |---|---|
-   | `APP_URL` | `https://c7xai.in` |
-   | `POSTGRES_PASSWORD` | random (step 3). The database superuser; used by migrate and backup |
-   | `PBM_APP_PASSWORD` | random (step 3). The app's own login |
-   | `AUTH_SECRET` | random (step 3). Changing it signs everyone out |
-   | `SMTP_PASSWORD` | the hello@c7xai.in mailbox password |
-   | `MAIL_FROM` | optional, e.g. `"Product name" <hello@c7xai.in>`; defaults to the product name |
-   | `OPENROUTER_API_KEY` | the OpenRouter key; give it a credit limit in OpenRouter |
-   | `CRON_SECRET` | random (step 3) |
-   | `BACKUP_PASSPHRASE` | random (step 3), also kept in your password manager |
+   | `SMTP_PASSWORD` | the hello@c7xai.in mailbox password. Without it nobody can sign in |
+   | `OPENROUTER_API_KEY` | an OpenRouter key with a monthly credit limit. Without it the AI features fail |
+   | `BACKUP_PASSPHRASE` | a long passphrase you choose, also saved in your password manager. Without it `pbm-backup` waits and shows unhealthy |
+   | `APP_URL` | optional; defaults to `https://c7xai.in` |
+   | `MAIL_FROM` | optional; defaults to `"Winwall" <hello@c7xai.in>` |
    | `BACKUP_DRIVE_FOLDER` | optional; Google Drive folder, default `pbm-backups` |
 
-   Empty values count as unset. On start, `pbm-db` becomes healthy, `pbm-migrate` applies the
-   schema and exits, then `pbm-app` starts and `pbm-backup` takes a first backup.
-5. **Google Drive for backups** (once, about five minutes; the token stays on the server):
+   Never paste these into chat, email or a commit. If the server is lost, the backups on Google
+   Drive can only be opened with `BACKUP_PASSPHRASE`.
+4. **Google Drive for backups** (once, about five minutes; the token stays on the server):
    1. On your laptop, install rclone (rclone.org/downloads).
    2. In the hPanel browser terminal, run
       `docker exec -it pbm-backup rclone config --config /config/rclone/rclone.conf` and answer:
@@ -89,7 +80,7 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
 
    Until this is done, backups stay on the server only and Docker Manager shows `pbm-backup` as
    unhealthy.
-6. **Leave Supabase:** once the app runs here, delete the Supabase project (it has only test data).
+5. **Leave Supabase:** later, delete the Supabase project (it has only test data); kept for now by decision.
 
 ## Releasing
 
@@ -115,8 +106,8 @@ row-level security with the `own_rows` policy and grants to `pbm_user` and `pbm_
 
   ```sh
   docker exec -it pbm-backup sh -c 'ls /backups'          # pick a file
-  docker exec -it pbm-backup sh -c 'gpg -d /backups/FILE | pg_restore --clean --if-exists \
-    --host=db --username=postgres --dbname=pbm'           # asks for the passphrase
+  docker exec -it pbm-backup sh -c 'gpg -d /backups/FILE | PGPASSWORD=$(cat /pbm-secrets/postgres_password) \
+    pg_restore --clean --if-exists --host=db --username=postgres --dbname=pbm'   # asks for the passphrase
   ```
 
   From Google Drive on a new server: download the file, then the same `gpg -d … | pg_restore`.

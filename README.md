@@ -1,4 +1,4 @@
-# Personal Brand Manager (working name)
+# Winwall
 
 **Nothing you'll regret posting.** A pre-post check and a private record of real work for
 employed professionals on LinkedIn. Note what moved forward in a minute a day. Every draft is

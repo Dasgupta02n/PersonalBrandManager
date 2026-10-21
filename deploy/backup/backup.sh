@@ -1,7 +1,7 @@
 #!/bin/sh
 # One encrypted backup of the database: on the server for 14 days, on Google Drive for 30.
 #
-#   POSTGRES_PASSWORD    the database superuser's password
+#   POSTGRES_PASSWORD    the database superuser's password (or POSTGRES_PASSWORD_FILE: a file holding it)
 #   BACKUP_PASSPHRASE    encrypts the backup (AES-256). Keep a copy off the server: without it,
 #                        no backup can be restored.
 #   BACKUP_DRIVE_FOLDER  folder on Google Drive (default: pbm-backups)
@@ -10,6 +10,12 @@
 # Google Drive is used once rclone is configured with a remote named "gdrive" (docs/DEPLOY.md).
 # Restore: gpg -d FILE | pg_restore --clean --if-exists -d DATABASE_URL
 set -eu -o pipefail
+
+if [ -z "${POSTGRES_PASSWORD:-}" ] && [ -n "${POSTGRES_PASSWORD_FILE:-}" ]; then
+  POSTGRES_PASSWORD=$(cat "$POSTGRES_PASSWORD_FILE")
+fi
+: "${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD or POSTGRES_PASSWORD_FILE}"
+: "${BACKUP_PASSPHRASE:?BACKUP_PASSPHRASE is required}"
 
 stamp=$(date -u +%Y-%m-%dT%H%MZ)
 file="/backups/pbm-$stamp.dump.gpg"
