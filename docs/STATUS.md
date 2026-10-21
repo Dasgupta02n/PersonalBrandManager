@@ -94,15 +94,15 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
 
 ## Needed to run end to end
 
-See `docs/DEPLOY.md`. Everything now runs on our own VPS: PostgreSQL 17, our own email sign-in
-and sessions, and nightly encrypted backups to the server and Google Drive (backup and restore
-tested). Supabase is no longer used. Done: VPS firewall; `edge` update; hello@c7xai.in mailbox
-and the privacy@c7xai.in alias. Open:
-- Image access on the VPS (public GHCR packages, or a one-time `docker login ghcr.io`)
-- `pbm` project on the VPS with its secrets in Docker Manager, then Google Drive for backups
-- Delete the old Supabase project (test data only)
-- Hostinger's weekly VPS snapshots are stored outside India (most likely Malaysia) and not
-  encrypted by us: keep them (and confirm their retention) or switch them off
+See `docs/DEPLOY.md`. Live at https://c7xai.in since 2026-10-21 as **Winwall**, all on our own
+VPS: PostgreSQL 17, our own email sign-in and sessions, internal passwords created on the server,
+and nightly encrypted backups (backup and restore tested). Supabase is no longer used (the old
+project is kept for now, by decision). Hostinger's weekly VPS snapshots stay on, by decision; they
+are stored outside India (most likely Malaysia) and not encrypted by us. Open:
+- In Docker Manager, project `pbm`: `SMTP_PASSWORD` (until then nobody can sign in),
+  `OPENROUTER_API_KEY` and `BACKUP_PASSPHRASE`
+- Google Drive for backups (rclone, `drive.file` scope)
+- A product domain (winwall.app is free; winwall.in needs identity verification at Hostinger)
 - Privacy notice: legal entity name and address, and legal review. (`privacy@c7xai.in` is an alias
   delivering to hello@c7xai.in.)
 

@@ -43,8 +43,9 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
    because of the shell commands in the `hanumat` service), so pass it as a commit-pinned raw
    GitHub URL or paste it in hPanel → Docker Manager. Any recreate of the `hanumat` container
    re-downloads about 3 GB of site archives: hanumat.life returned 502 for about 7 minutes.
-2. **App project:** create project `pbm` from `deploy/app.compose.yml` (Docker Manager, or the
-   Hostinger API). It starts with no settings at all: `pbm-secrets` creates the database
+2. **App project:** done on 2026-10-21 through the Hostinger API (`vps_docker_create`, the compose
+   file sent inline: a raw GitHub URL left the project with an empty file). Created from
+   `deploy/app.compose.yml` at commit `bf066c3`. It starts with no settings at all: `pbm-secrets` creates the database
    passwords, `AUTH_SECRET` and `CRON_SECRET` on the server (random, hex, in the `secrets` volume;
    nobody types or sees them), `pbm-db` becomes healthy, `pbm-migrate` applies the schema and
    exits, then `pbm-app` starts. Don't delete the `secrets` volume: the database's own password
