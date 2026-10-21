@@ -28,10 +28,10 @@ function usageWords(used: number) {
 }
 
 export default async function AccountPage() {
-  const { supabase, user } = await requireUser({ allowMissingConsent: true });
+  const { db, user } = await requireUser({ allowMissingConsent: true });
   const [allowance, consent] = await Promise.all([
     loadAllowance(user.id),
-    supabase.from("profiles").select("privacy_consent_at, privacy_notice_version").eq("id", user.id).maybeSingle(),
+    db.from("profiles").select("privacy_consent_at, privacy_notice_version").eq("id", user.id).maybeSingle(),
   ]);
 
   return (

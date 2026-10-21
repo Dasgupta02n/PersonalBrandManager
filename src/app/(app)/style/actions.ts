@@ -15,7 +15,7 @@ export interface StyleState {
 
 async function loadNotebookRow() {
   const session = await requireUser();
-  const { data } = await session.supabase
+  const { data } = await session.db
     .from("voice_profiles")
     .select("notes, muted")
     .eq("user_id", session.user.id)
@@ -29,9 +29,9 @@ const NoteSchema = z.string().trim().min(3, "Write a few words.").max(120, "Keep
 export async function addNote(_prev: StyleState, formData: FormData): Promise<StyleState> {
   const text = NoteSchema.safeParse(formData.get("note"));
   if (!text.success) return { status: "error", message: text.error.issues[0]?.message };
-  const { supabase, user, notes } = await loadNotebookRow();
+  const { db, user, notes } = await loadNotebookRow();
   if (notes.filter((n) => n.source === "you").length >= 20) return { status: "error", message: "That's the most notes you can add." };
-  const { error } = await supabase
+  const { error } = await db
     .from("voice_profiles")
     .upsert({ user_id: user.id, notes: [...notes, { key: `you:${randomUUID()}`, text: text.data, source: "you" }] });
   if (error) return { status: "error", message: "Couldn't save it. Please try again." };
@@ -43,19 +43,19 @@ export async function addNote(_prev: StyleState, formData: FormData): Promise<St
 export async function removeNote(formData: FormData) {
   const key = z.string().min(3).max(200).safeParse(formData.get("key"));
   if (!key.success) return;
-  const { supabase, user, notes, muted } = await loadNotebookRow();
+  const { db, user, notes, muted } = await loadNotebookRow();
   const patch = key.data.startsWith("you:")
     ? { notes: notes.filter((n) => n.key !== key.data) }
     : { notes: notes.filter((n) => n.key !== key.data), muted: [...new Set([...muted, key.data])] };
-  await supabase.from("voice_profiles").upsert({ user_id: user.id, ...patch });
+  await db.from("voice_profiles").upsert({ user_id: user.id, ...patch });
   revalidatePath("/style");
 }
 
 /** Reads the samples and recent edits again. Uses the plan's allowance. */
 export async function learnAgain(): Promise<StyleState> {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   try {
-    const { learned } = await refreshNotebook(supabase, user.id);
+    const { learned } = await refreshNotebook(db, user.id);
     revalidatePath("/style");
     return learned
       ? { status: "done", message: `Updated: ${learned} ${learned === 1 ? "observation" : "observations"} from your writing.` }
@@ -67,8 +67,8 @@ export async function learnAgain(): Promise<StyleState> {
 
 /** Forgets everything learned. Keeps the user's own notes and sample posts. */
 export async function clearLearned() {
-  const { supabase, user, notes } = await loadNotebookRow();
-  await supabase.from("voice_profiles").upsert({
+  const { db, user, notes } = await loadNotebookRow();
+  await db.from("voice_profiles").upsert({
     user_id: user.id,
     summary: "",
     notes: notes.filter((n) => n.source === "you"),

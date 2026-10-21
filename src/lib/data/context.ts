@@ -1,5 +1,5 @@
 import "server-only";
-import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Db } from "@/lib/db/query";
 import { buildNotebook } from "@/lib/voice/notebook";
 import { DEFAULT_RULES, type PromptChannel, type Tone, type UserContext, type Win, type WinKind } from "@/lib/domain/types";
 
@@ -48,8 +48,8 @@ export function toWin(row: WinRow): Win {
   };
 }
 
-export async function loadProfile(supabase: SupabaseClient, userId: string): Promise<ProfileRow | null> {
-  const { data, error } = await supabase
+export async function loadProfile(db: Db, userId: string): Promise<ProfileRow | null> {
+  const { data, error } = await db
     .from("profiles")
     .select(
       "id, full_name, headline, timezone, prompt_time, prompt_channel, posts_per_week, tone, routine_cue, " +
@@ -73,12 +73,12 @@ function voiceFrom(row: { summary: string; sample_posts: string[]; notes: unknow
 }
 
 /** Everything the AI needs to write in the user's voice and respect their settings. */
-export async function loadUserContext(supabase: SupabaseClient, userId: string): Promise<UserContext> {
+export async function loadUserContext(db: Db, userId: string): Promise<UserContext> {
   const [profile, pillars, voice, rules] = await Promise.all([
-    loadProfile(supabase, userId),
-    supabase.from("pillars").select("id, name, description").eq("user_id", userId).order("position"),
-    supabase.from("voice_profiles").select("summary, sample_posts, notes, muted, edit_stats").eq("user_id", userId).maybeSingle(),
-    supabase
+    loadProfile(db, userId),
+    db.from("pillars").select("id, name, description").eq("user_id", userId).order("position"),
+    db.from("voice_profiles").select("summary, sample_posts, notes, muted, edit_stats").eq("user_id", userId).maybeSingle(),
+    db
       .from("confidentiality_rules")
       .select("employer_name, employer_policy, never_mention, number_policy, no_go_topics, regulated, mask_names")
       .eq("user_id", userId)
@@ -112,11 +112,11 @@ export async function loadUserContext(supabase: SupabaseClient, userId: string):
 }
 
 export async function loadRecentWins(
-  supabase: SupabaseClient,
+  db: Db,
   userId: string,
   options: { sinceDate?: string; limit?: number } = {},
 ): Promise<Win[]> {
-  let query = supabase
+  let query = db
     .from("wins")
     .select(WIN_COLUMNS)
     .eq("user_id", userId)

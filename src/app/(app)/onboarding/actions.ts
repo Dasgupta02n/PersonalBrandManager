@@ -49,7 +49,7 @@ export interface OnboardingState {
  */
 export async function saveOnboarding(_prev: OnboardingState, formData: FormData): Promise<OnboardingState> {
   const session = await requireUser({ allowIncompleteOnboarding: true, allowMissingConsent: true });
-  const { supabase, user, profile: current } = session;
+  const { db, user, profile: current } = session;
 
   const parsed = OnboardingSchema.safeParse({
     fullName: formData.get("fullName"),
@@ -83,7 +83,7 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
     return { error: "Please agree to the privacy notice to continue." };
   }
 
-  const profileUpdate = await supabase
+  const profileUpdate = await db
     .from("profiles")
     .update({
       full_name: v.fullName,
@@ -104,7 +104,7 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
     .eq("id", user.id);
   if (profileUpdate.error) return { error: "Couldn't save your profile. Please try again." };
 
-  const rules = await supabase.from("confidentiality_rules").upsert({
+  const rules = await db.from("confidentiality_rules").upsert({
     user_id: user.id,
     employer_name: v.employerName || null,
     employer_policy: v.employerPolicy,
@@ -117,19 +117,19 @@ export async function saveOnboarding(_prev: OnboardingState, formData: FormData)
   if (rules.error) return { error: "Couldn't save your confidentiality settings." };
 
   if (formData.has("samplePosts")) {
-    const { data: before } = await supabase.from("voice_profiles").select("sample_posts").eq("user_id", user.id).maybeSingle();
-    const voice = await supabase.from("voice_profiles").upsert({ user_id: user.id, sample_posts: v.samplePosts });
+    const { data: before } = await db.from("voice_profiles").select("sample_posts").eq("user_id", user.id).maybeSingle();
+    const voice = await db.from("voice_profiles").upsert({ user_id: user.id, sample_posts: v.samplePosts });
     if (voice.error) return { error: "Couldn't save your sample posts." };
     // New samples: refresh the style notebook after the response, without making the user wait.
     if (v.samplePosts.length && JSON.stringify(before?.sample_posts ?? []) !== JSON.stringify(v.samplePosts)) {
-      after(() => refreshQuietly(supabase, user.id));
+      after(() => refreshQuietly(db, user.id));
     }
   }
 
   // Replace pillars with the submitted list, keeping their order.
-  const removed = await supabase.from("pillars").delete().eq("user_id", user.id);
+  const removed = await db.from("pillars").delete().eq("user_id", user.id);
   if (removed.error) return { error: "Couldn't save your topics." };
-  const inserted = await supabase
+  const inserted = await db
     .from("pillars")
     .insert(v.pillars.map((name, position) => ({ user_id: user.id, name, position })));
   if (inserted.error) return { error: "Couldn't save your topics." };

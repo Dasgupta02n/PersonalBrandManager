@@ -1,6 +1,5 @@
 import "server-only";
-import { serverEnv } from "@/lib/config/env";
-import { createAdminClient } from "@/lib/supabase/server";
+import { serviceDb } from "@/lib/db/client";
 import { allowancePeriod, allowanceStatus, exhaustedMessage, isExhausted, type AllowanceStatus } from "./allowance-period";
 import { estimateCallCost, type PlanKind } from "./pricing";
 
@@ -33,11 +32,10 @@ function rowCost(row: UsageRow): number {
 
 /**
  * The user's plan and how much of its AI allowance is used, from the real cost of each call
- * recorded in `ai_usage`. Null when the service key isn't configured (local development).
+ * recorded in `ai_usage`.
  */
-export async function loadAllowance(userId: string, now: Date = new Date()): Promise<AllowanceStatus | null> {
-  if (!serverEnv().SUPABASE_SECRET_KEY) return null;
-  const admin = createAdminClient();
+export async function loadAllowance(userId: string, now: Date = new Date()): Promise<AllowanceStatus> {
+  const admin = serviceDb();
 
   const { data: sub, error: subError } = await admin
     .from("subscriptions")
@@ -62,8 +60,8 @@ export async function loadAllowance(userId: string, now: Date = new Date()): Pro
 }
 
 /** Call before any AI step. Throws when the plan's allowance is used up. */
-export async function requireAllowance(userId: string): Promise<AllowanceStatus | null> {
+export async function requireAllowance(userId: string): Promise<AllowanceStatus> {
   const status = await loadAllowance(userId);
-  if (status && isExhausted(status)) throw new AllowanceExhaustedError(status);
+  if (isExhausted(status)) throw new AllowanceExhaustedError(status);
   return status;
 }

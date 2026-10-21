@@ -41,7 +41,7 @@ export function LoginForm({ next }: { next: string }) {
             name="token"
             inputMode="numeric"
             autoComplete="one-time-code"
-            maxLength={12}
+            maxLength={7}
             required
             autoFocus
             placeholder="123456"

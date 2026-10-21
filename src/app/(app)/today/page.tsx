@@ -23,26 +23,26 @@ function greeting(minutes: number) {
 }
 
 export default async function TodayPage() {
-  const { supabase, user, profile } = await requireUser();
+  const { db, user, profile } = await requireUser();
   const now = localParts(new Date(), profile.timezone);
   const today = now.date;
   const monthStart = `${today.slice(0, 8)}01`;
 
   const [entries, todaysWins, monthWins, ideas, recentWins, allowance, ctx] = await Promise.all([
-    supabase
+    db
       .from("journal_entries")
       .select("id, entry_date, follow_up_question, created_at")
       .eq("user_id", user.id)
       .gte("entry_date", addDays(today, -60))
       .order("created_at", { ascending: false }),
-    supabase
+    db
       .from("wins")
       .select("id, summary, metric, confidential, kind, created_at")
       .eq("user_id", user.id)
       .eq("occurred_on", today)
       .order("created_at", { ascending: false }),
-    supabase.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", monthStart),
-    supabase
+    db.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", monthStart),
+    db
       .from("drafts")
       .select("id, angle, hook, post_format, created_at")
       .eq("user_id", user.id)
@@ -50,9 +50,9 @@ export default async function TodayPage() {
       .eq("status", "idea")
       .order("created_at", { ascending: true })
       .limit(3),
-    supabase.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", addDays(today, -30)),
+    db.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", addDays(today, -30)),
     loadAllowance(user.id),
-    loadUserContext(supabase, user.id),
+    loadUserContext(db, user.id),
   ]);
 
   const entryRows = entries.data ?? [];

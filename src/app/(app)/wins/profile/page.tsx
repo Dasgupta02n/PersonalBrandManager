@@ -32,16 +32,16 @@ interface SuggestionRow {
 }
 
 export default async function ProfilePage() {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const [latest, ctx] = await Promise.all([
-    supabase
+    db
       .from("profile_suggestions")
       .select("id, section, current_text, proposed_text, reason, status, week_start")
       .eq("user_id", user.id)
       .order("week_start", { ascending: false })
       .order("created_at", { ascending: false })
       .limit(10),
-    loadUserContext(supabase, user.id),
+    loadUserContext(db, user.id),
   ]);
 
   const rows = (latest.data ?? []) as SuggestionRow[];

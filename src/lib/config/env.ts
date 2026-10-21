@@ -3,9 +3,17 @@ import { z } from "zod";
 
 const serverEnvSchema = z.object({
   APP_URL: z.url().default("http://localhost:3000"),
-  SUPABASE_URL: z.url(),
-  SUPABASE_PUBLISHABLE_KEY: z.string().min(1),
-  SUPABASE_SECRET_KEY: z.string().min(1).optional(),
+  /** The app's login (pbm_app) on our own PostgreSQL. */
+  DATABASE_URL: z.string().regex(/^postgres(ql)?:\/\//, "must be a postgres:// URL"),
+  /** Keys the hashes of sign-in codes, links and session tokens. 32 characters or more. */
+  AUTH_SECRET: z.string().min(32),
+  /** Sign-in emails. Without SMTP_PASSWORD, development prints the code to the server log. */
+  SMTP_HOST: z.string().min(1).default("smtp.hostinger.com"),
+  SMTP_PORT: z.coerce.number().int().positive().default(465),
+  SMTP_USER: z.string().min(1).default("hello@c7xai.in"),
+  SMTP_PASSWORD: z.string().min(1).optional(),
+  /** Sender shown in the inbox; defaults to the product name and SMTP_USER. */
+  MAIL_FROM: z.string().min(1).optional(),
   OPENROUTER_API_KEY: z.string().min(1).optional(),
   CRON_SECRET: z.string().min(16).optional(),
 });

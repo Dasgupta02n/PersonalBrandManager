@@ -1,5 +1,5 @@
 import "server-only";
-import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Db } from "@/lib/db/query";
 import { learnVoice } from "@/lib/ai/tasks";
 import { requireAllowance } from "@/lib/billing/allowance";
 import { loadUserContext } from "@/lib/data/context";
@@ -28,8 +28,8 @@ interface VoiceRow {
 /** After this many edited posts, the AI refreshes what it has learned. */
 export const REFRESH_AFTER_EDITS = 3;
 
-async function loadRow(supabase: SupabaseClient, userId: string): Promise<VoiceRow | null> {
-  const { data } = await supabase
+async function loadRow(db: Db, userId: string): Promise<VoiceRow | null> {
+  const { data } = await db
     .from("voice_profiles")
     .select("summary, sample_posts, notes, muted, edit_stats")
     .eq("user_id", userId)
@@ -37,11 +37,11 @@ async function loadRow(supabase: SupabaseClient, userId: string): Promise<VoiceR
   return (data as VoiceRow | null) ?? null;
 }
 
-async function updateStats(supabase: SupabaseClient, userId: string, change: (stats: EditStats) => EditStats): Promise<EditStats | null> {
+async function updateStats(db: Db, userId: string, change: (stats: EditStats) => EditStats): Promise<EditStats | null> {
   try {
-    const row = await loadRow(supabase, userId);
+    const row = await loadRow(db, userId);
     const next = change(readStats(row?.edit_stats));
-    const { error } = await supabase.from("voice_profiles").upsert({ user_id: userId, edit_stats: next });
+    const { error } = await db.from("voice_profiles").upsert({ user_id: userId, edit_stats: next });
     if (error) throw new Error(error.message);
     return next;
   } catch (error) {
@@ -51,16 +51,16 @@ async function updateStats(supabase: SupabaseClient, userId: string, change: (st
 }
 
 /** Learns from what the user changed between our draft and what they posted. */
-export function recordEdit(supabase: SupabaseClient, userId: string, drafted: string, posted: string) {
-  return updateStats(supabase, userId, (stats) => learnFromEdit(stats, drafted, posted));
+export function recordEdit(db: Db, userId: string, drafted: string, posted: string) {
+  return updateStats(db, userId, (stats) => learnFromEdit(stats, drafted, posted));
 }
 
-export function recordSkippedIdea(supabase: SupabaseClient, userId: string, format: PostFormat) {
-  return updateStats(supabase, userId, (stats) => learnFromSkippedIdea(stats, format));
+export function recordSkippedIdea(db: Db, userId: string, format: PostFormat) {
+  return updateStats(db, userId, (stats) => learnFromSkippedIdea(stats, format));
 }
 
-export function recordRevision(supabase: SupabaseClient, userId: string, mode: string) {
-  return updateStats(supabase, userId, (stats) => learnFromRevision(stats, mode));
+export function recordRevision(db: Db, userId: string, mode: string) {
+  return updateStats(db, userId, (stats) => learnFromRevision(stats, mode));
 }
 
 /** A stable key for a learned observation, so a removed one is never suggested again. */
@@ -77,12 +77,12 @@ export function learnedKey(text: string): string {
  * Asks the AI what the samples and recent edits say about the user's style, and replaces the
  * learned observations with its answer. The user's own notes and removals are kept.
  */
-export async function refreshNotebook(supabase: SupabaseClient, userId: string): Promise<{ learned: number }> {
+export async function refreshNotebook(db: Db, userId: string): Promise<{ learned: number }> {
   await requireAllowance(userId);
   const [row, ctx, posted] = await Promise.all([
-    loadRow(supabase, userId),
-    loadUserContext(supabase, userId),
-    supabase
+    loadRow(db, userId),
+    loadUserContext(db, userId),
+    db
       .from("drafts")
       .select("ai_body, body")
       .eq("user_id", userId)
@@ -111,7 +111,7 @@ export async function refreshNotebook(supabase: SupabaseClient, userId: string):
   const own = (row?.notes ?? []).filter((n) => n.source === "you");
   const stats = readStats(row?.edit_stats);
 
-  const { error } = await supabase.from("voice_profiles").upsert({
+  const { error } = await db.from("voice_profiles").upsert({
     user_id: userId,
     summary: result.summary,
     notes: [...own, ...learned],
@@ -123,9 +123,9 @@ export async function refreshNotebook(supabase: SupabaseClient, userId: string):
 }
 
 /** Runs a refresh in the background and swallows failures (allowance used up, AI unavailable). */
-export async function refreshQuietly(supabase: SupabaseClient, userId: string) {
+export async function refreshQuietly(db: Db, userId: string) {
   try {
-    await refreshNotebook(supabase, userId);
+    await refreshNotebook(db, userId);
   } catch (error) {
     console.error("style notebook refresh skipped:", error instanceof Error ? error.message : error);
   }

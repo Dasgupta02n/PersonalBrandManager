@@ -2,17 +2,17 @@ import Link from "next/link";
 import { LogOut, Settings } from "lucide-react";
 import { DesktopNav, MobileTabBar } from "@/components/app-nav";
 import { Wordmark } from "@/components/brand";
-import { createClient } from "@/lib/supabase/server";
+import { currentUser } from "@/lib/auth/session";
+import { userDb } from "@/lib/db/client";
 
 /** Posts waiting for the user: drafts to review and drafts ready to post. */
 async function openDraftCount(): Promise<number> {
-  const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
-  if (!data.user) return 0;
-  const { count } = await supabase
+  const user = await currentUser();
+  if (!user) return 0;
+  const { count } = await userDb(user.id)
     .from("drafts")
     .select("id", { count: "exact", head: true })
-    .eq("user_id", data.user.id)
+    .eq("user_id", user.id)
     .eq("kind", "post")
     .in("status", ["ready", "draft"]);
   return count ?? 0;

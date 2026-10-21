@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { currentUser } from "@/lib/auth/session";
+import { userDb } from "@/lib/db/client";
 
 /** Tables keyed by user_id; profiles is keyed by id. Row-level security limits every read to the user. */
 const USER_TABLES = [
@@ -20,14 +21,14 @@ const USER_TABLES = [
 
 /** Everything the user has stored, as one JSON file (DPDP and GDPR access and portability). */
 export async function GET() {
-  const supabase = await createClient();
-  const { data } = await supabase.auth.getUser();
-  if (!data.user) return NextResponse.json({ error: "Sign in to download your data." }, { status: 401 });
-  const userId = data.user.id;
+  const user = await currentUser();
+  if (!user) return NextResponse.json({ error: "Sign in to download your data." }, { status: 401 });
+  const userId = user.id;
+  const db = userDb(userId);
 
   const [profile, ...tables] = await Promise.all([
-    supabase.from("profiles").select("*").eq("id", userId).maybeSingle(),
-    ...USER_TABLES.map((table) => supabase.from(table).select("*").eq("user_id", userId)),
+    db.from("profiles").select("*").eq("id", userId).maybeSingle(),
+    ...USER_TABLES.map((table) => db.from(table).select("*").eq("user_id", userId)),
   ]);
 
   const failed = [profile, ...tables].find((result) => result.error);
@@ -35,7 +36,7 @@ export async function GET() {
 
   const body = {
     exported_at: new Date().toISOString(),
-    account: { id: userId, email: data.user.email ?? null, created_at: data.user.created_at },
+    account: { id: userId, email: user.email, created_at: user.created_at },
     profile: profile.data,
     ...Object.fromEntries(USER_TABLES.map((table, i) => [table, tables[i].data ?? []])),
   };

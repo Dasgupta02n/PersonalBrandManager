@@ -36,7 +36,7 @@ export async function answerFollowUp(_prev: LogState, formData: FormData): Promi
   const parsed = AnswerSchema.safeParse({ entryId: formData.get("entryId"), answer: formData.get("answer") });
   if (!parsed.success) return { status: "error", message: parsed.error.issues[0]?.message };
 
-  const { data: entry } = await session.supabase
+  const { data: entry } = await session.db
     .from("journal_entries")
     .select("raw_text, follow_up_question")
     .eq("id", parsed.data.entryId)
@@ -44,15 +44,15 @@ export async function answerFollowUp(_prev: LogState, formData: FormData): Promi
     .maybeSingle();
   if (!entry?.follow_up_question) return { status: "error", message: "That question was already answered." };
 
-  await session.supabase.from("journal_entries").update({ follow_up_question: null }).eq("id", parsed.data.entryId);
+  await session.db.from("journal_entries").update({ follow_up_question: null }).eq("id", parsed.data.entryId);
   return processEntry(session, `${entry.raw_text}\n\n${entry.follow_up_question} ${parsed.data.answer}`);
 }
 
 export async function skipFollowUp(formData: FormData) {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const entryId = z.uuid().safeParse(formData.get("entryId"));
   if (!entryId.success) return;
-  await supabase.from("journal_entries").update({ follow_up_question: null }).eq("id", entryId.data).eq("user_id", user.id);
+  await db.from("journal_entries").update({ follow_up_question: null }).eq("id", entryId.data).eq("user_id", user.id);
   revalidatePath("/today");
 }
 
@@ -63,10 +63,10 @@ export interface IdeasState {
 /** Fresh post ideas from the last 30 days of wins, avoiding angles already shown. */
 export async function moreIdeas(): Promise<IdeasState> {
   const session = await requireUser();
-  const { supabase, user, profile } = session;
+  const { db, user, profile } = session;
   const today = localParts(new Date(), profile.timezone).date;
 
-  const { data: shown } = await supabase
+  const { data: shown } = await db
     .from("drafts")
     .select("angle")
     .eq("user_id", user.id)
@@ -89,11 +89,11 @@ export interface DraftState {
 }
 
 export async function writeDraftFromIdea(_prev: DraftState, formData: FormData): Promise<DraftState> {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const ideaId = z.uuid().safeParse(formData.get("ideaId"));
   if (!ideaId.success) return { error: "That idea could not be found." };
 
-  const { data: idea } = await supabase
+  const { data: idea } = await db
     .from("drafts")
     .select("id, angle, hook, source_win_ids, post_format")
     .eq("id", ideaId.data)
@@ -102,7 +102,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
     .maybeSingle();
   if (!idea) return { error: "That idea could not be found." };
 
-  const { data: winRows } = await supabase
+  const { data: winRows } = await db
     .from("wins")
     .select(WIN_COLUMNS)
     .eq("user_id", user.id)
@@ -113,7 +113,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
   let draftId: string;
   try {
     await requireAllowance(user.id);
-    const ctx = await loadUserContext(supabase, user.id);
+    const ctx = await loadUserContext(db, user.id);
     const format = (idea.post_format ?? "lesson") as PostFormat;
     const result = await draftPost({
       idea: { format, angle: idea.angle ?? "", hook: idea.hook ?? "", sourceWinIds: idea.source_win_ids },
@@ -121,7 +121,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
       ctx,
       onUsage: usageRecorderFor(user.id),
     });
-    const { data: draft, error } = await supabase
+    const { data: draft, error } = await db
       .from("drafts")
       .insert({
         user_id: user.id,
@@ -141,7 +141,7 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
       .single();
     if (error || !draft) throw new Error(`Could not save draft: ${error?.message}`);
     draftId = draft.id;
-    await supabase.from("drafts").update({ status: "draft" }).eq("id", idea.id);
+    await db.from("drafts").update({ status: "draft" }).eq("id", idea.id);
   } catch (error) {
     return { error: friendlyAiError(error) };
   }
@@ -153,16 +153,16 @@ export async function writeDraftFromIdea(_prev: DraftState, formData: FormData):
 
 /** "Not this one": retires the idea and notes which format the user passed over. */
 export async function dismissIdea(formData: FormData) {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const ideaId = z.uuid().safeParse(formData.get("ideaId"));
   if (!ideaId.success) return;
-  const { data: idea } = await supabase
+  const { data: idea } = await db
     .from("drafts")
     .update({ status: "discarded" })
     .eq("id", ideaId.data)
     .eq("user_id", user.id)
     .select("post_format")
     .maybeSingle();
-  if (idea?.post_format) await recordSkippedIdea(supabase, user.id, idea.post_format as PostFormat);
+  if (idea?.post_format) await recordSkippedIdea(db, user.id, idea.post_format as PostFormat);
   revalidatePath("/today");
 }

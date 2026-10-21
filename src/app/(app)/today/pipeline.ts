@@ -23,11 +23,11 @@ export type Session = Awaited<ReturnType<typeof requireUser>>;
  * With "keep names out" on, never-mention terms are masked before the note is stored, and the
  * stored note is replaced by the AI's version with people referred to by role.
  */
-export async function processEntry({ supabase, user, profile }: Session, text: string, { withIdeas = false } = {}): Promise<LogState> {
+export async function processEntry({ db, user, profile }: Session, text: string, { withIdeas = false } = {}): Promise<LogState> {
   const today = localParts(new Date(), profile.timezone).date;
-  const ctx = await loadUserContext(supabase, user.id);
+  const ctx = await loadUserContext(db, user.id);
   const stored = ctx.rules.maskNames ? maskTerms(text, ctx.rules.neverMention) : text;
-  const { data: entry, error: entryError } = await supabase
+  const { data: entry, error: entryError } = await db
     .from("journal_entries")
     .insert({ user_id: user.id, entry_date: today, raw_text: stored, source: "web" })
     .select("id")
@@ -40,13 +40,13 @@ export async function processEntry({ supabase, user, profile }: Session, text: s
     await requireAllowance(user.id);
     const extracted = await extractWins({ text, ctx, onUsage });
     if (extracted.maskedNote) {
-      await supabase
+      await db
         .from("journal_entries")
         .update({ raw_text: maskTerms(extracted.maskedNote, ctx.rules.neverMention) })
         .eq("id", entry.id);
     }
     if (extracted.wins.length) {
-      const { error } = await supabase.from("wins").insert(
+      const { error } = await db.from("wins").insert(
         extracted.wins.map((w) => ({
           user_id: user.id,
           journal_entry_id: entry.id,
@@ -69,7 +69,7 @@ export async function processEntry({ supabase, user, profile }: Session, text: s
       };
     }
     if (extracted.followUpQuestion) {
-      await supabase.from("journal_entries").update({ follow_up_question: extracted.followUpQuestion }).eq("id", entry.id);
+      await db.from("journal_entries").update({ follow_up_question: extracted.followUpQuestion }).eq("id", entry.id);
     }
   } catch (error) {
     revalidatePath("/today");
@@ -82,7 +82,7 @@ export async function processEntry({ supabase, user, profile }: Session, text: s
   }
 
   try {
-    await suggestIdeas({ supabase, user, profile }, today);
+    await suggestIdeas({ db, user, profile }, today);
   } catch (error) {
     revalidatePath("/today");
     return { status: "partial", message: `Your wins are saved. ${friendlyAiError(error)}` };
@@ -93,13 +93,13 @@ export async function processEntry({ supabase, user, profile }: Session, text: s
 }
 
 /** Adds fresh ideas from the last 30 days of wins and retires the ones still waiting, so Today shows the new ones. */
-export async function suggestIdeas({ supabase, user }: Session, today: string, avoidAngles: string[] = []) {
-  const ctx = await loadUserContext(supabase, user.id);
-  const recent = await loadRecentWins(supabase, user.id, { sinceDate: addDays(today, -30), limit: 15 });
+export async function suggestIdeas({ db, user }: Session, today: string, avoidAngles: string[] = []) {
+  const ctx = await loadUserContext(db, user.id);
+  const recent = await loadRecentWins(db, user.id, { sinceDate: addDays(today, -30), limit: 15 });
   const ideas = await generatePostIdeas({ wins: recent, ctx, count: 3, avoidAngles, onUsage: usageRecorderFor(user.id) });
   if (!ideas.length) return 0;
-  await supabase.from("drafts").update({ status: "discarded" }).eq("user_id", user.id).eq("kind", "post_idea").eq("status", "idea");
-  const { error } = await supabase.from("drafts").insert(
+  await db.from("drafts").update({ status: "discarded" }).eq("user_id", user.id).eq("kind", "post_idea").eq("status", "idea");
+  const { error } = await db.from("drafts").insert(
     ideas.map((idea) => ({
       user_id: user.id,
       kind: "post_idea",

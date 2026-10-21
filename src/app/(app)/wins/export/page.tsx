@@ -14,7 +14,7 @@ const shortDate = (date: string) =>
   new Date(`${date}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
 
 export default async function ExportPage({ searchParams }: PageProps<"/wins/export">) {
-  const { supabase, user, profile } = await requireUser();
+  const { db, user, profile } = await requireUser();
   const params = await searchParams;
   const period: ExportPeriod = params.period === "half" || params.period === "year" ? params.period : "quarter";
   const includeConfidential = params.confidential !== "hide";
@@ -23,22 +23,22 @@ export default async function ExportPage({ searchParams }: PageProps<"/wins/expo
   const from = addDays(today, -EXPORT_PERIODS[period].days + 1);
 
   const [wins, pillars, entries, posts, opportunities] = await Promise.all([
-    supabase
+    db
       .from("wins")
       .select("occurred_on, summary, impact, metric, pillar_id, confidential, kind")
       .eq("user_id", user.id)
       .gte("occurred_on", from)
       .lte("occurred_on", today)
       .order("occurred_on", { ascending: false }),
-    supabase.from("pillars").select("id, name").eq("user_id", user.id).order("position"),
-    supabase.from("journal_entries").select("entry_date").eq("user_id", user.id).gte("entry_date", from),
-    supabase
+    db.from("pillars").select("id, name").eq("user_id", user.id).order("position"),
+    db.from("journal_entries").select("entry_date").eq("user_id", user.id).gte("entry_date", from),
+    db
       .from("drafts")
       .select("id", { count: "exact", head: true })
       .eq("user_id", user.id)
       .eq("status", "posted")
       .gte("posted_at", `${from}T00:00:00Z`),
-    supabase.from("opportunities").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", from),
+    db.from("opportunities").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", from),
   ]);
 
   const items = (wins.data ?? []) as RecordWin[];

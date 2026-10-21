@@ -18,7 +18,7 @@ const OpportunitySchema = z.object({
 
 /** Logs something that came to the user: the outcome the weekly scorecard leads with. */
 export async function logOpportunity(_prev: OpportunityState, formData: FormData): Promise<OpportunityState> {
-  const { supabase, user, profile } = await requireUser();
+  const { db, user, profile } = await requireUser();
   const parsed = OpportunitySchema.safeParse({
     kind: formData.get("kind"),
     description: formData.get("description"),
@@ -26,7 +26,7 @@ export async function logOpportunity(_prev: OpportunityState, formData: FormData
   });
   if (!parsed.success) return { status: "error", message: parsed.error.issues[0]?.message };
 
-  const { error } = await supabase.from("opportunities").insert({
+  const { error } = await db.from("opportunities").insert({
     user_id: user.id,
     kind: parsed.data.kind,
     description: parsed.data.description,
@@ -38,9 +38,9 @@ export async function logOpportunity(_prev: OpportunityState, formData: FormData
 }
 
 export async function deleteOpportunity(formData: FormData) {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const id = z.uuid().safeParse(formData.get("id"));
   if (!id.success) return;
-  await supabase.from("opportunities").delete().eq("id", id.data).eq("user_id", user.id);
+  await db.from("opportunities").delete().eq("id", id.data).eq("user_id", user.id);
   revalidatePath("/wins/week");
 }

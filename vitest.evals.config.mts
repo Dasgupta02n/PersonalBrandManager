@@ -13,7 +13,7 @@ export default defineConfig({
     include: ["evals/**/*.eval.ts"],
     environment: "node",
     testTimeout: 6 * 60 * 60 * 1000,
-    env: { SUPABASE_URL: "https://example.supabase.co", SUPABASE_PUBLISHABLE_KEY: "eval" },
+    env: { DATABASE_URL: "postgres://eval@localhost/eval", AUTH_SECRET: "eval-only-not-a-real-secret-0000000" },
     reporters: ["verbose"],
   },
 });

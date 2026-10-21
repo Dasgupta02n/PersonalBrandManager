@@ -3,8 +3,8 @@ import { z } from "zod";
 
 vi.mock("server-only", () => ({}));
 
-process.env.SUPABASE_URL = "https://example.supabase.co";
-process.env.SUPABASE_PUBLISHABLE_KEY = "sb_publishable_test";
+process.env.DATABASE_URL = "postgres://pbm_app:secret@db:5432/pbm";
+process.env.AUTH_SECRET = "a".repeat(32);
 process.env.OPENROUTER_API_KEY = "sk-or-test";
 
 const fetchMock = vi.fn<typeof fetch>();

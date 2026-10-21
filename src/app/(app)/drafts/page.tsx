@@ -28,8 +28,8 @@ interface Row {
 }
 
 export default async function DraftsPage({ searchParams }: PageProps<"/drafts">) {
-  const { supabase, user } = await requireUser();
-  const { data } = await supabase
+  const { db, user } = await requireUser();
+  const { data } = await db
     .from("drafts")
     .select("id, hook, body, status, post_format, posted_at, guardrails")
     .eq("user_id", user.id)

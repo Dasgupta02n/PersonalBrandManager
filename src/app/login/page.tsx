@@ -17,7 +17,7 @@ const reassurances = [
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   const params = await searchParams;
   const next = typeof params.next === "string" ? params.next : "/today";
-  const failed = params.error === "callback" || params.error === "link";
+  const failed = params.error === "link";
 
   return (
     <div className="grid flex-1 md:grid-cols-2">

@@ -22,8 +22,8 @@ export interface SaveState {
 
 const BodySchema = z.string().trim().min(1, "The post is empty.").max(3000, "LinkedIn posts are limited to 3,000 characters.");
 
-async function loadDraft({ supabase, user }: Session, draftId: string) {
-  const { data } = await supabase
+async function loadDraft({ db, user }: Session, draftId: string) {
+  const { data } = await db
     .from("drafts")
     .select("id, body, status, guardrails, source_win_ids")
     .eq("id", draftId)
@@ -33,9 +33,9 @@ async function loadDraft({ supabase, user }: Session, draftId: string) {
   return data;
 }
 
-async function loadFacts({ supabase, user }: Session, winIds: string[]) {
+async function loadFacts({ db, user }: Session, winIds: string[]) {
   if (!winIds.length) return [];
-  const { data } = await supabase.from("wins").select(WIN_COLUMNS).eq("user_id", user.id).in("id", winIds);
+  const { data } = await db.from("wins").select(WIN_COLUMNS).eq("user_id", user.id).in("id", winIds);
   return ((data ?? []) as WinRow[]).map(toWin);
 }
 
@@ -58,7 +58,7 @@ export async function saveDraft(draftId: string, _prev: SaveState, formData: For
   const existing = await loadDraft(session, draftId);
   if (!existing) return { status: "error", message: "Draft not found." };
 
-  const ctx = await loadUserContext(session.supabase, session.user.id);
+  const ctx = await loadUserContext(session.db, session.user.id);
   const check = checkText(body.data, { kind: "post", rules: ctx.rules, avoidWords: ctx.voice.avoidWords });
   const previous = normalizeReport(existing.guardrails as Partial<GuardrailReport>);
   const report: GuardrailReport = {
@@ -68,7 +68,7 @@ export async function saveDraft(draftId: string, _prev: SaveState, formData: For
     aiStale: body.data !== existing.body || (previous?.aiStale ?? false),
   };
 
-  const { error } = await session.supabase
+  const { error } = await session.db
     .from("drafts")
     .update({ body: body.data, guardrails: report, status: statusFor(existing.status, report) })
     .eq("id", draftId)
@@ -93,10 +93,10 @@ export async function recheckDraft(draftId: string): Promise<CheckState> {
 
   try {
     await requireAllowance(session.user.id);
-    const ctx = await loadUserContext(session.supabase, session.user.id);
+    const ctx = await loadUserContext(session.db, session.user.id);
     const facts = await loadFacts(session, draft.source_win_ids);
     const result = await recheckPost({ body: draft.body, facts, ctx, onUsage: usageRecorderFor(session.user.id) });
-    await session.supabase
+    await session.db
       .from("drafts")
       .update({ guardrails: result.report, status: statusFor(draft.status, result.report) })
       .eq("id", draftId)
@@ -120,7 +120,7 @@ export async function reviseDraft(draftId: string, _prev: CheckState, formData: 
 
   try {
     await requireAllowance(session.user.id);
-    const ctx = await loadUserContext(session.supabase, session.user.id);
+    const ctx = await loadUserContext(session.db, session.user.id);
     const facts = await loadFacts(session, draft.source_win_ids);
     const result = await revisePost({
       body: draft.body,
@@ -129,12 +129,12 @@ export async function reviseDraft(draftId: string, _prev: CheckState, formData: 
       ctx,
       onUsage: usageRecorderFor(session.user.id),
     });
-    await session.supabase
+    await session.db
       .from("drafts")
       .update({ body: result.body, ai_body: result.body, guardrails: result.report, status: statusFor(draft.status, result.report) })
       .eq("id", draftId)
       .eq("user_id", session.user.id);
-    await recordRevision(session.supabase, session.user.id, mode.data);
+    await recordRevision(session.db, session.user.id, mode.data);
     refresh(draftId);
     return { status: "done", suggestedBody: result.suggestedBody };
   } catch (error) {
@@ -149,9 +149,9 @@ const PostUrlSchema = z
 
 /** Marks the draft posted and learns from what the user changed before posting it. */
 export async function markPosted(draftId: string, formData: FormData) {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const url = PostUrlSchema.safeParse(formData.get("postUrl") ?? "");
-  const { data: draft } = await supabase
+  const { data: draft } = await db
     .from("drafts")
     .update({ status: "posted", posted_at: new Date().toISOString(), post_url: url.success && url.data ? url.data : null })
     .eq("id", draftId)
@@ -159,8 +159,8 @@ export async function markPosted(draftId: string, formData: FormData) {
     .select("ai_body, body")
     .maybeSingle();
   if (draft?.ai_body) {
-    const stats = await recordEdit(supabase, user.id, draft.ai_body, draft.body);
-    if (stats && stats.pairsSinceRefresh >= REFRESH_AFTER_EDITS) after(() => refreshQuietly(supabase, user.id));
+    const stats = await recordEdit(db, user.id, draft.ai_body, draft.body);
+    if (stats && stats.pairsSinceRefresh >= REFRESH_AFTER_EDITS) after(() => refreshQuietly(db, user.id));
   }
   refresh(draftId);
 }
@@ -171,7 +171,7 @@ export async function unmarkPosted(draftId: string) {
   const draft = await loadDraft(session, draftId);
   if (!draft) return;
   const report = normalizeReport(draft.guardrails as Partial<GuardrailReport>);
-  await session.supabase
+  await session.db
     .from("drafts")
     .update({ status: report?.passed ? "ready" : "draft", posted_at: null, post_url: null })
     .eq("id", draftId)
@@ -180,8 +180,8 @@ export async function unmarkPosted(draftId: string) {
 }
 
 export async function discardDraft(draftId: string) {
-  const { supabase, user } = await requireUser();
-  await supabase.from("drafts").update({ status: "discarded" }).eq("id", draftId).eq("user_id", user.id);
+  const { db, user } = await requireUser();
+  await db.from("drafts").update({ status: "discarded" }).eq("id", draftId).eq("user_id", user.id);
   revalidatePath("/drafts");
   redirect("/drafts");
 }

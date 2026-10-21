@@ -30,8 +30,8 @@ function RemoveButton({ noteKey, label }: { noteKey: string; label: string }) {
 }
 
 export default async function StylePage() {
-  const { supabase, user } = await requireUser();
-  const { data } = await supabase
+  const { db, user } = await requireUser();
+  const { data } = await db
     .from("voice_profiles")
     .select("summary, sample_posts, notes, muted, edit_stats, refreshed_at")
     .eq("user_id", user.id)

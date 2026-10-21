@@ -23,7 +23,7 @@ const CurrentSchema = z.object({
 
 /** Suggests profile and CV updates from the last year of wins, replacing this week's earlier suggestions. */
 export async function refreshProfile(_prev: ProfileState, formData: FormData): Promise<ProfileState> {
-  const { supabase, user, profile } = await requireUser();
+  const { db, user, profile } = await requireUser();
   const current = CurrentSchema.safeParse({
     headline: formData.get("headline") ?? "",
     about: formData.get("about") ?? "",
@@ -33,16 +33,16 @@ export async function refreshProfile(_prev: ProfileState, formData: FormData): P
 
   const today = localParts(new Date(), profile.timezone).date;
   try {
-    const wins = await loadRecentWins(supabase, user.id, { sinceDate: addDays(today, -365), limit: 40 });
+    const wins = await loadRecentWins(db, user.id, { sinceDate: addDays(today, -365), limit: 40 });
     if (wins.length < 3) return { status: "error", message: "Log a few more wins first. Suggestions are built only from your record." };
     await requireAllowance(user.id);
-    const ctx = await loadUserContext(supabase, user.id);
+    const ctx = await loadUserContext(db, user.id);
     const suggestions = await suggestProfile({ wins, current: current.data, ctx, onUsage: usageRecorderFor(user.id) });
 
     const week = weekStart(today);
     const currentText = { headline: current.data.headline, about: current.data.about, experience: current.data.experience, cv: current.data.experience, skills: "" };
-    await supabase.from("profile_suggestions").delete().eq("user_id", user.id).eq("week_start", week).eq("status", "pending");
-    const { error } = await supabase.from("profile_suggestions").insert(
+    await db.from("profile_suggestions").delete().eq("user_id", user.id).eq("week_start", week).eq("status", "pending");
+    const { error } = await db.from("profile_suggestions").insert(
       suggestions.map((s) => ({
         user_id: user.id,
         week_start: week,
@@ -62,9 +62,9 @@ export async function refreshProfile(_prev: ProfileState, formData: FormData): P
 
 /** The user copied a suggestion into LinkedIn or their CV. */
 export async function markApplied(formData: FormData) {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const id = z.uuid().safeParse(formData.get("id"));
   if (!id.success) return;
-  await supabase.from("profile_suggestions").update({ status: "applied" }).eq("id", id.data).eq("user_id", user.id);
+  await db.from("profile_suggestions").update({ status: "applied" }).eq("id", id.data).eq("user_id", user.id);
   revalidatePath("/wins/profile");
 }

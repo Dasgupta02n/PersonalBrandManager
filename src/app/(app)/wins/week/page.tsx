@@ -18,21 +18,21 @@ const dayLabel = (date: string) =>
   new Date(`${date}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
 
 export default async function WeekPage() {
-  const { supabase, user, profile } = await requireUser();
+  const { db, user, profile } = await requireUser();
   const today = localParts(new Date(), profile.timezone).date;
   const since = addDays(weekStart(today), -7 * (WEEKS - 1));
 
   const [entries, wins, posts, opportunities, ready] = await Promise.all([
-    supabase.from("journal_entries").select("entry_date").eq("user_id", user.id).gte("entry_date", since),
-    supabase.from("wins").select("occurred_on, kind").eq("user_id", user.id).gte("occurred_on", since),
-    supabase.from("drafts").select("posted_at").eq("user_id", user.id).eq("status", "posted").gte("posted_at", `${since}T00:00:00Z`),
-    supabase
+    db.from("journal_entries").select("entry_date").eq("user_id", user.id).gte("entry_date", since),
+    db.from("wins").select("occurred_on, kind").eq("user_id", user.id).gte("occurred_on", since),
+    db.from("drafts").select("posted_at").eq("user_id", user.id).eq("status", "posted").gte("posted_at", `${since}T00:00:00Z`),
+    db
       .from("opportunities")
       .select("id, kind, description, occurred_on")
       .eq("user_id", user.id)
       .gte("occurred_on", addDays(today, -90))
       .order("occurred_on", { ascending: false }),
-    supabase.from("drafts").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("kind", "post").eq("status", "ready"),
+    db.from("drafts").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("kind", "post").eq("status", "ready"),
   ]);
 
   const opportunityRows = opportunities.data ?? [];

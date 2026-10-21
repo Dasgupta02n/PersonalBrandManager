@@ -17,13 +17,13 @@ export interface StarterState {
 const PostTextSchema = z.string().trim().min(20, "Paste the post you want to comment on.").max(6000, "That post is too long.");
 
 export async function suggestStarters(_prev: StarterState, formData: FormData): Promise<StarterState> {
-  const { supabase, user } = await requireUser();
+  const { db, user } = await requireUser();
   const postText = PostTextSchema.safeParse(formData.get("postText"));
   if (!postText.success) return { status: "error", message: postText.error.issues[0]?.message };
 
   try {
     await requireAllowance(user.id);
-    const ctx = await loadUserContext(supabase, user.id);
+    const ctx = await loadUserContext(db, user.id);
     const starters = await commentStarters({ postText: postText.data, ctx, onUsage: usageRecorderFor(user.id) });
     return {
       status: "done",

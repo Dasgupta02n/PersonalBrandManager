@@ -1,7 +1,6 @@
 import "server-only";
 import type { UsageRecorder } from "@/lib/ai/client";
-import { serverEnv } from "@/lib/config/env";
-import { createAdminClient } from "@/lib/supabase/server";
+import { serviceDb } from "@/lib/db/client";
 
 /**
  * Records AI usage per user: the model and host that served the call, tokens and cost.
@@ -9,9 +8,8 @@ import { createAdminClient } from "@/lib/supabase/server";
  */
 export function usageRecorderFor(userId: string): UsageRecorder {
   return async (usage) => {
-    if (!serverEnv().SUPABASE_SECRET_KEY) return;
     try {
-      const { error } = await createAdminClient().from("ai_usage").insert({
+      const { error } = await serviceDb().from("ai_usage").insert({
         user_id: userId,
         task: usage.task,
         model: usage.model,

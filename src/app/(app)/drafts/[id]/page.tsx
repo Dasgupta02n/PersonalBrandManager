@@ -10,8 +10,8 @@ export const metadata: Metadata = { title: "Draft" };
 
 export default async function DraftPage({ params }: PageProps<"/drafts/[id]">) {
   const { id } = await params;
-  const { supabase, user, profile } = await requireUser();
-  const { data: draft } = await supabase
+  const { db, user, profile } = await requireUser();
+  const { data: draft } = await db
     .from("drafts")
     .select("id, status, post_format, body, hashtags, guardrails, source_win_ids, posted_at, post_url")
     .eq("id", id)
@@ -22,9 +22,9 @@ export default async function DraftPage({ params }: PageProps<"/drafts/[id]">) {
 
   const [{ data: wins }, ctx] = await Promise.all([
     draft.source_win_ids.length
-      ? supabase.from("wins").select("id, summary, kind").eq("user_id", user.id).in("id", draft.source_win_ids)
+      ? db.from("wins").select("id, summary, kind").eq("user_id", user.id).in("id", draft.source_win_ids)
       : Promise.resolve({ data: [] as { id: string; summary: string; kind: string }[] }),
-    loadUserContext(supabase, user.id),
+    loadUserContext(db, user.id),
   ]);
 
   return (

@@ -29,11 +29,11 @@ const formatMonth = (date: string) =>
   new Date(`${date}T00:00:00Z`).toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
 
 export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
-  const { supabase, user, profile } = await requireUser();
+  const { db, user, profile } = await requireUser();
   const requested = (await searchParams).kind;
   const kind = WIN_KINDS.includes(requested as WinKind) ? (requested as WinKind) : null;
 
-  let query = supabase
+  let query = db
     .from("wins")
     .select("id, occurred_on, summary, impact, metric, pillar_id, confidential, kind")
     .eq("user_id", user.id)
@@ -45,8 +45,8 @@ export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
   const today = localParts(new Date(), profile.timezone).date;
   const [wins, pillars, monthCount] = await Promise.all([
     query,
-    supabase.from("pillars").select("id, name").eq("user_id", user.id),
-    supabase
+    db.from("pillars").select("id, name").eq("user_id", user.id),
+    db
       .from("wins")
       .select("id", { count: "exact", head: true })
       .eq("user_id", user.id)

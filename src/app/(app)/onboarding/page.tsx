@@ -6,8 +6,8 @@ import { OnboardingForm } from "./onboarding-form";
 export const metadata: Metadata = { title: "Settings" };
 
 export default async function OnboardingPage() {
-  const { supabase, user, profile } = await requireUser({ allowIncompleteOnboarding: true, allowMissingConsent: true });
-  const ctx = await loadUserContext(supabase, user.id);
+  const { db, user, profile } = await requireUser({ allowIncompleteOnboarding: true, allowMissingConsent: true });
+  const ctx = await loadUserContext(db, user.id);
 
   return (
     <OnboardingForm
