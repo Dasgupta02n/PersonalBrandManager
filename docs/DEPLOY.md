@@ -24,9 +24,10 @@ mail servers (sign-in emails) and Google Drive (encrypted backup copies).
   Hostinger mail.
 - Images are built by GitHub Actions on every push to `main` and published to
   `ghcr.io/dasgupta02n/winwall` and `ghcr.io/dasgupta02n/winwall-backup` (`latest` and the commit
-  SHA). Both packages are public, like the repository, so the VPS pulls them without a login. If
-  the repository is ever made private, make the packages private too and run
-  `docker login ghcr.io` once on the VPS with a `read:packages` token.
+  SHA). The repository and both packages are private (from 2026-10-21), so the VPS pulls with a
+  one-time `docker login ghcr.io -u Dasgupta02n` in the hPanel browser terminal, using a classic
+  GitHub token with only `read:packages`. Containers already running are unaffected; the login
+  is needed for each update (pull). Renew the token before it expires.
 
 ## Database access model
 
@@ -40,8 +41,8 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
 
 1. **Edge project:** done on 2026-10-11 from commit `bd10d4b` (adds the `web` network and the
    c7xai.in site). Hostinger's API rejects `deploy/edge.compose.yml` sent inline (403, most likely
-   because of the shell commands in the `hanumat` service), so pass it as a commit-pinned raw
-   GitHub URL or paste it in hPanel → Docker Manager. Any recreate of the `hanumat` container
+   because of the shell commands in the `hanumat` service), and raw GitHub URLs no longer work now
+   that the repository is private, so paste it in hPanel → Docker Manager. Any recreate of the `hanumat` container
    re-downloads about 3 GB of site archives: hanumat.life returned 502 for about 7 minutes.
 2. **App project:** done on 2026-10-21 through the Hostinger API (`vps_docker_create`, the compose
    file sent inline: a raw GitHub URL left the project with an empty file). Created from
