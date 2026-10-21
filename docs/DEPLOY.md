@@ -43,10 +43,15 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
    because of the shell commands in the `hanumat` service), so pass it as a commit-pinned raw
    GitHub URL or paste it in hPanel → Docker Manager. Any recreate of the `hanumat` container
    re-downloads about 3 GB of site archives: hanumat.life returned 502 for about 7 minutes.
-3. **Secrets.** In the hPanel browser terminal, run `openssl rand -base64 36` once for each of
-   `POSTGRES_PASSWORD`, `PBM_APP_PASSWORD`, `AUTH_SECRET`, `CRON_SECRET` and `BACKUP_PASSPHRASE`,
-   and paste each straight into Docker Manager (step 4). Never paste them into chat, email or a
-   commit. **Save `BACKUP_PASSPHRASE` in your password manager too:** if the server is lost, the
+3. **Secrets.** In the hPanel browser terminal, run this once; it prints the five random values:
+
+   ```sh
+   for n in POSTGRES_PASSWORD PBM_APP_PASSWORD AUTH_SECRET CRON_SECRET BACKUP_PASSPHRASE; do echo "$n=$(openssl rand -hex 24)"; done
+   ```
+
+   Hex (letters and numbers only) matters: the two database passwords go inside connection URLs,
+   where characters like `/` or `+` would break them. Paste each value straight into Docker
+   Manager (step 4). Never paste them into chat, email or a commit. **Save `BACKUP_PASSPHRASE` in your password manager too:** if the server is lost, the
    backups on Google Drive can only be opened with it.
 4. **App project:** create project `pbm` from `deploy/app.compose.yml` with these environment
    variables in Docker Manager:
