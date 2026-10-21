@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Free LinkedIn post check: is it OK to post this?",
   description:
     "Paste a LinkedIn draft and see what could get you in trouble at work: client names, precise figures, things not yet public, job-hunting signals and clichés. Free, no sign-up, nothing stored.",
+  alternates: { canonical: "/check" },
 };
 
 const QUESTIONS = [

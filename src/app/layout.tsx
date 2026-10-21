@@ -1,14 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
-import { APP_NAME, APP_PROMISE } from "@/lib/config/app";
+import { APP_NAME } from "@/lib/config/app";
+import { SITE_DESCRIPTION, SITE_URL } from "@/lib/config/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", axes: ["opsz", "SOFT", "WONK"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: APP_NAME, template: `%s · ${APP_NAME}` },
-  description: APP_PROMISE,
+  description: SITE_DESCRIPTION,
+  openGraph: { type: "website", siteName: APP_NAME, locale: "en_GB" },
   appleWebApp: { title: APP_NAME, statusBarStyle: "default" },
 };
 

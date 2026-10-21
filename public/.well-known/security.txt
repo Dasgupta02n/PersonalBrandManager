@@ -1,0 +1,5 @@
+Contact: mailto:hello@c7xai.in
+Expires: 2027-10-22T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://c7xai.in/.well-known/security.txt
+Policy: https://c7xai.in/security#report

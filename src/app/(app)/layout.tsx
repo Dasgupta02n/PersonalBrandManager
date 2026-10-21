@@ -1,9 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { LogOut, Settings } from "lucide-react";
 import { DesktopNav, MobileTabBar } from "@/components/app-nav";
 import { Wordmark } from "@/components/brand";
 import { currentUser } from "@/lib/auth/session";
 import { userDb } from "@/lib/db/client";
+
+// Signed-in pages: never in search results (robots.ts also keeps crawlers out).
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 /** Posts waiting for the user: drafts to review and drafts ready to post. */
 async function openDraftCount(): Promise<number> {

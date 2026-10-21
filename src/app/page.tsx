@@ -1,111 +1,115 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Ban, Check, CircleCheck, Lock, Minus, NotebookPen, ShieldCheck, Unplug } from "lucide-react";
-import { PublicFooter, PublicHeader } from "@/components/public-shell";
+import { CircleCheck, ShieldCheck } from "lucide-react";
+import { JsonLd, PublicFooter, PublicHeader } from "@/components/public-shell";
 import { Notice, buttonClass } from "@/components/ui";
 import { PRICES, TRIAL_DAYS, annualMonthsFree, formatUsd } from "@/lib/billing/pricing";
-import { APP_NAME, APP_PROMISE, APP_TAGLINE } from "@/lib/config/app";
+import { APP_NAME, APP_PROMISE } from "@/lib/config/app";
+import { CONTACT, OPERATOR, SITE_DESCRIPTION, SITE_URL, absoluteUrl } from "@/lib/config/site";
+import { ABOUT_WINWALL, HOME_FAQ_IDS } from "@/lib/content/site-faq";
 
-const QUESTIONS = [
+export const metadata: Metadata = {
+  title: { absolute: `${APP_NAME}: a private work record and LinkedIn post checker` },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+};
+
+const PROMISES = [
+  { title: "Never touches LinkedIn", body: "No extension, no LinkedIn login, no automation. You copy a draft and post it yourself." },
+  { title: "Your words never train AI", body: "Text goes to the AI model with zero data retention: processed, not kept, never used for training." },
+  { title: "Invisible at work", body: "Sign in with a personal email. No public profile, no share links, no employer dashboard." },
+  { title: "Yours to take or delete", body: "Download everything, or delete your account and all of it, in one step." },
+];
+
+const FEARS = [
+  { q: "Will I sound boastful?", a: "Every draft gets a “how it reads” check: credit shared, facts instead of adjectives, no humblebrag." },
   {
-    q: "What do I post?",
-    a: "Your one-line daily note builds a private record of real work. When you want to post, it suggests three ways to share it: a lesson, a decision explained, or credit to your team.",
+    q: "Could I leak something confidential?",
+    a: "Client names, unreleased figures and internal project names are caught, using your own never-mention list.",
   },
   {
-    q: "Will it be well received?",
-    a: "Before you post, see how a peer, your leadership and a client or recruiter would likely read it. Boastful or AI-sounding lines are flagged, with a fix.",
+    q: "Will my employer think I'm job hunting?",
+    a: "Phrases like “open to new challenges” or “excited for what's next” are flagged before they go out.",
+  },
+  { q: "Will people know I used AI?", a: "Drafts come from your notes, in your voice, and learn from your edits. Every word is yours to change." },
+  { q: "What would I even post?", a: "Your record suggests three ways to share a win: a lesson, a decision, or credit to your team." },
+];
+
+const STEPS = [
+  {
+    title: "Note a win in a minute",
+    body: "Type or say one line: “Closed the audit early; the team found the root cause.” It becomes a dated entry in your record.",
   },
   {
-    q: "Will it clash with my job, or with who I am?",
-    a: "Every draft is checked against your employer rules, your never-mention list, your no-go topics and job-hunting signals, in your own tone.",
+    title: "Ask for three ways to share it",
+    body: "Drafts are built only from what you logged, in your voice, and every specific fact is checked against your record.",
   },
   {
-    q: "How do I even write it?",
-    a: "That's the easy part. The draft is written in your voice from your own words; one tap makes it shorter or more modest. You add the final line.",
+    title: "See the checks, then post it yourself",
+    body: `Edit anything, copy the post, open LinkedIn and paste. ${APP_NAME} never posts for you, and can't: it has no access.`,
   },
 ];
 
-const PROOFS = [
-  {
-    icon: ShieldCheck,
-    title: "Checked before you see it",
-    body: "Client names, internal figures, things not yet public and job-hunting signals are caught on every draft, against your own rules.",
-  },
-  {
-    icon: NotebookPen,
-    title: "A record that keeps paying off",
-    body: "The same private record gives you your appraisal summary, a fresh CV and profile, and your year in wins, even in weeks you don't post.",
-  },
-  {
-    icon: Unplug,
-    title: "We never touch your LinkedIn account",
-    body: "No extension, no automation, no LinkedIn login. You copy the post and publish it yourself.",
-  },
+const RECORD = [
+  { title: "Self-appraisal in minutes", body: "Export three, six or twelve months of wins, grouped by topic, ready for your performance review." },
+  { title: "Profile and CV refresh", body: "Suggested headline, About and CV lines from your real results, each checked like a post." },
+  { title: "A calm weekly look back", body: "What you did, what came your way, one suggestion for next week. No streaks, no nagging." },
 ];
 
-const COMPARISON: { row: string; assistant: string | false; us: string }[] = [
-  { row: "Knows your real work", assistant: "Only what you paste in each time", us: "A private record, a minute a day" },
-  { row: "Checks for client names, figures and things not yet public", assistant: false, us: "Every draft, against your rules" },
-  { row: "Reads it as your leadership and clients would", assistant: false, us: "Every draft" },
-  { row: "Keeps job-hunting signals out", assistant: false, us: "Every draft and profile update" },
-  { row: "Appraisal, CV and profile from the same record", assistant: false, us: "Whenever you need them" },
-  { row: "Trains AI on what you write", assistant: "Depends on the product and settings", us: "Never" },
+const COMPARE: { row: string; chat: string; growth: string; us: string }[] = [
+  { row: "Remembers your work over months", chat: "Only what you paste in", growth: "No", us: "Yes, a dated private record" },
+  { row: "Checks for confidential details", chat: "If you remember to ask", growth: "No", us: "Every draft, with your rules" },
+  { row: "Checks how it reads to colleagues", chat: "If you ask", growth: "Optimises for reach", us: "Boastful, too modest or generic" },
+  { row: "Acts on your LinkedIn account", chat: "No", growth: "Often: scheduling, extensions, auto-comments", us: "Never" },
+  { row: "Built for", chat: "Everything", growth: "Creators chasing followers", us: "Employed professionals who want no regrets" },
 ];
 
-const NEVER = [
-  "Posts, comments or likes anything for you",
-  "Reads your LinkedIn or logs in to it",
-  "Signals that you're looking for a job",
-  "Sells or shares what you write",
+const DATA = [
+  { what: "Your notes, wins and drafts", where: "On our own server in Mumbai, India. Each account can only ever read its own records." },
+  { what: "AI drafting and checks", where: "Claude, via OpenRouter and Google Vertex AI, with zero data retention. Never used for training." },
+  { what: "Backups", where: "Encrypted with AES-256 every night; kept 14 days on our server and 30 days on Google Drive." },
+  { what: "Server snapshots", where: "Our host, Hostinger, also keeps weekly snapshots of the whole server, stored in Malaysia." },
+  { what: "Signing in", where: "A one-time code by email. No password to leak; codes and sessions are stored only as scrambled hashes." },
+  { what: "Tracking", where: "None. No ad pixels, no LinkedIn trackers, no analytics cookies. Only a sign-in cookie." },
 ];
 
-const PLAN_FEATURES = [
-  "A daily note that builds your private record",
-  "Checked drafts and comment starters",
-  "How it reads to peers, leadership and clients",
-  "A private notebook of how you write, so drafts sound like you",
-  "Profile and CV refresh, appraisal exports",
-  "Weekly scorecard led by what came to you",
+const PLAN = [
+  `First ${TRIAL_DAYS} days ${formatUsd(PRICES.trial.usd)}, then ${formatUsd(PRICES.monthly.usd)} a month`,
+  `Or ${formatUsd(PRICES.annual.usd)} a year: ${annualMonthsFree() === 1 ? "one month" : `${annualMonthsFree()} months`} free`,
+  "We email you before anything is charged",
+  "Cancel in one step; keep access to the end of your period",
+  "Everything included: record, drafts, checks, profile and CV refresh",
 ];
 
-/** A quiet product preview: a checked draft with its verdict and one caught confidentiality issue. */
-function DraftPreview() {
-  return (
-    <div aria-hidden className="relative mx-auto w-full max-w-sm">
-      <div className="rounded-2xl bg-surface p-4 sm:p-5">
-        <ul className="flex flex-col gap-2 text-[14px] font-medium">
-          {["Safe to post", "Reads as confident, not boastful", "Sounds like you"].map((line) => (
-            <li key={line} className="flex items-center gap-2">
-              <CircleCheck className="size-4 text-success" />
-              {line}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-3 flex items-start gap-2 rounded-xl bg-background px-3 py-2.5 text-[13px] leading-snug text-muted">
-          <Lock className="mt-0.5 size-3.5 shrink-0" />
-          <span>
-            <span className="line-through">Acme Bank</span> → <span className="text-foreground">a large bank</span>
-          </span>
-        </p>
-        <div className="mt-3 rounded-xl border border-border bg-background p-3.5 font-preview">
-          <div className="flex items-center gap-2.5">
-            <span className="flex size-9 items-center justify-center rounded-full bg-surface-2 text-[13px] font-semibold">PR</span>
-            <div>
-              <p className="text-[14px] font-semibold">Priya Rao</p>
-              <p className="text-[12px] text-muted">VP Sales, healthcare</p>
-            </div>
-          </div>
-          <p className="mt-2.5 text-[14px] leading-[1.45]">
-            The pricing change that worked wasn&apos;t ours. It came from the regional team who sat with customers for two weeks.
-          </p>
-          <p className="mt-2 text-[14px] leading-[1.45] text-muted">Here&apos;s what I learned from letting them lead…</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+const display = "font-display font-medium leading-[1.12]";
+const eyebrow = "text-[13px] font-semibold tracking-[0.06em] uppercase";
 
 export default async function Home({ searchParams }: PageProps<"/">) {
   const deleted = (await searchParams).deleted === "1";
+  const faqs = ABOUT_WINWALL.filter((f) => HOME_FAQ_IDS.includes(f.id));
+
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: APP_NAME,
+    url: absoluteUrl("/"),
+    logo: absoluteUrl("/icon.svg"),
+    description: SITE_DESCRIPTION,
+    email: CONTACT.hello,
+    ...(OPERATOR.legalName ? { legalName: OPERATOR.legalName } : {}),
+    ...(OPERATOR.founderName ? { founder: { "@type": "Person", name: OPERATOR.founderName } } : {}),
+    areaServed: ["IN", "AE", "GB", "SG", "US"],
+    contactPoint: [{ "@type": "ContactPoint", contactType: "customer support", email: CONTACT.hello }],
+  };
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: APP_NAME,
+    url: absoluteUrl("/"),
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
 
   return (
     <div className="flex flex-1 flex-col">
@@ -113,196 +117,362 @@ export default async function Home({ searchParams }: PageProps<"/">) {
 
       <main className="flex flex-1 flex-col">
         {deleted && (
-          <div className="mx-auto w-full max-w-5xl px-4">
+          <div className="mx-auto w-full max-w-6xl px-4 pt-4">
             <Notice tone="success">Your account and everything in it have been deleted.</Notice>
           </div>
         )}
 
-        <section className="mx-auto grid w-full max-w-5xl items-center gap-10 px-4 pt-8 pb-16 md:grid-cols-[1.1fr_1fr] md:pt-16 md:pb-24">
-          <div className="flex flex-col gap-6">
-            <h1 className="font-display text-display-xl font-medium text-balance">{APP_PROMISE}</h1>
-            <p className="max-w-[34rem] text-lg leading-relaxed text-muted">
-              Every post is checked for what your employer, clients and peers will see, and built only from your private record of
-              real work. A minute a day.
+        <section className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-12 px-4 pt-12 pb-16 md:pt-20">
+          <div className="flex min-w-0 flex-[1_1_460px] flex-col gap-6">
+            <p className={`${eyebrow} text-brass`}>For managers, directors and senior specialists</p>
+            <h1 className={`${display} text-[44px] text-balance md:text-[60px]`}>{APP_PROMISE}</h1>
+            <p className="max-w-xl text-lg leading-relaxed text-foreground/85 md:text-xl">
+              Note one thing you did each day. {APP_NAME} keeps a private record of your work, drafts LinkedIn posts only from your real
+              wins, and checks every line for client names, unannounced numbers, boastful phrasing and job-hunt signals. You post it
+              yourself.
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
               <Link href="/login" className={buttonClass("primary", undefined, "lg")}>
-                Join the beta
-                <ArrowRight aria-hidden />
+                Join the free beta
               </Link>
-              <Link href="/check" className={buttonClass("secondary", undefined, "lg")}>
+              <Link href="/check" className="link text-[17px] font-semibold">
                 Check a post free
               </Link>
             </div>
-            <p className="text-sm text-muted">We never touch your LinkedIn account. You approve everything.</p>
+            <p className="text-sm text-muted">Free during the beta · No card · Nothing is ever posted for you</p>
+            <p className="flex items-center gap-2 text-[15px] font-medium text-success">
+              <ShieldCheck aria-hidden className="size-[18px]" />
+              We never touch your LinkedIn account. Private by default.
+            </p>
           </div>
-          <DraftPreview />
+
+          <figure className="min-w-0 flex-[1_1_400px]">
+            <div className="flex flex-col gap-4 rounded-2xl border border-border bg-field p-5 shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className={`${eyebrow} text-muted`}>Draft · lesson</span>
+                <span className="rounded-full bg-success-soft px-2.5 py-1 text-[13px] font-semibold text-success">Ready to post</span>
+              </div>
+              <p className="leading-relaxed">
+                This quarter my team moved <del className="text-danger decoration-2">Northbank&apos;s</del>{" "}
+                <ins className="rounded bg-success-soft px-1 no-underline">a large retail bank&apos;s</ins> payments onto a new platform,
+                two weeks ahead of plan.
+              </p>
+              <p className="leading-relaxed">
+                What made the difference wasn&apos;t speed. We tested the riskiest step first, not last. Credit to Priya and the data
+                team, who found the problem before it found us.
+              </p>
+              <ul className="flex flex-col gap-2.5 border-t border-border pt-4 text-[15px]">
+                {[
+                  ["Confidential details", "1 client name replaced"],
+                  ["How it reads", "credits the team, not boastful"],
+                  ["Job-hunt signals", "none"],
+                  ["Sounds like you", "matches your style notes"],
+                ].map(([label, value]) => (
+                  <li key={label} className="flex items-start gap-2.5">
+                    <CircleCheck aria-hidden className="mt-0.5 size-5 shrink-0 text-success" />
+                    <span>
+                      <strong>{label}:</strong> {value}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <figcaption className="mt-2.5 text-[13px] text-muted">
+              An example draft screen. Built only from the person&apos;s own notes; the client name was caught before they saw it.
+            </figcaption>
+          </figure>
         </section>
 
-        <section className="border-t border-border bg-surface/60">
-          <div className="mx-auto w-full max-w-5xl px-4 py-16 md:py-20">
-            <h2 className="max-w-2xl font-display text-display-l font-medium text-balance">
-              Four questions stop most people posting. Each one is answered before you post.
-            </h2>
-            <dl className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
-              {QUESTIONS.map(({ q, a }, i) => (
-                <div key={q} className="flex gap-4">
-                  <span className="font-display text-display-m text-muted tabular-nums">{i + 1}</span>
-                  <div>
-                    <dt className="text-lg font-semibold">{q}</dt>
-                    <dd className="mt-1.5 leading-relaxed text-muted">{a}</dd>
-                  </div>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-5xl px-4 py-16 md:py-20">
-          <div className="grid gap-8 md:grid-cols-3">
-            {PROOFS.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="flex flex-col gap-2">
-                <Icon aria-hidden className="size-6" strokeWidth={1.75} />
-                <h3 className="text-lg font-semibold">{title}</h3>
-                <p className="leading-relaxed text-muted">{body}</p>
+        <section aria-labelledby="promises" className="mx-auto w-full max-w-6xl px-4 pb-16">
+          <h2 id="promises" className={`${eyebrow} mb-4 text-muted`}>
+            Four promises
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {PROMISES.map((p) => (
+              <div key={p.title} className="flex flex-col gap-2 rounded-2xl bg-surface p-5">
+                <h3 className="text-lg font-semibold">{p.title}</h3>
+                <p className="leading-relaxed text-foreground/80">{p.body}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="border-t border-border">
-          <div className="mx-auto w-full max-w-5xl px-4 py-16 md:py-20">
-            <h2 className="font-display text-display-l font-medium">Why not just ask a general AI assistant?</h2>
-            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted">
-              It will write whatever you ask. It won&apos;t keep your record, know your employer&apos;s rules, or tell you how your
-              leadership will read it.
-            </p>
-            <div className="mt-8 overflow-x-auto">
-              <table className="w-full min-w-[36rem] text-left">
-                <thead>
-                  <tr className="border-b border-border-strong text-sm">
-                    <th className="py-3 pr-4 font-medium text-muted">
-                      <span className="sr-only">Feature</span>
-                    </th>
-                    <th className="py-3 pr-4 font-semibold">A general AI assistant</th>
-                    <th className="py-3 font-semibold">{APP_NAME}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {COMPARISON.map(({ row, assistant, us }) => (
-                    <tr key={row} className="border-b border-border align-top">
-                      <th scope="row" className="py-3.5 pr-4 font-medium">
-                        {row}
-                      </th>
-                      <td className="py-3.5 pr-4 text-muted">
-                        {assistant || (
-                          <span className="inline-flex items-center gap-1.5">
-                            <Minus aria-hidden className="size-4" />
-                            No
-                          </span>
-                        )}
-                      </td>
-                      <td className="py-3.5">
-                        <span className="inline-flex items-start gap-1.5">
-                          <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-success" />
-                          {us}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        <section aria-labelledby="fears" className="bg-surface">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-16 md:py-20">
+            <div className="flex max-w-3xl flex-col gap-3">
+              <h2 id="fears" className={`${display} text-[32px] md:text-[40px]`}>
+                The five worries that keep good people quiet, answered
+              </h2>
+              <p className="text-lg leading-relaxed text-foreground/80">
+                Most experienced professionals do work worth talking about and say nothing, because one wrong line costs more than
+                silence. {APP_NAME} checks for each of these before you see a draft.
+              </p>
             </div>
-            <p className="mt-4 text-sm text-muted">Checks are a careful second read, not legal or compliance clearance.</p>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {FEARS.map((f) => (
+                <div key={f.q} className="flex flex-col gap-2 rounded-2xl bg-background p-6">
+                  <h3 className="text-[19px] font-semibold">&ldquo;{f.q}&rdquo;</h3>
+                  <p className="leading-relaxed text-foreground/80">{f.a}</p>
+                </div>
+              ))}
+              <div className="flex flex-col justify-between gap-3 rounded-2xl bg-ink p-6 text-ink-foreground">
+                <p className="font-display text-[22px] leading-snug">You approve everything. Nothing is posted, sent or shared without you.</p>
+                <Link href="/how-it-works" className="font-semibold underline underline-offset-4">
+                  See how it works
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="border-t border-border bg-surface/60">
-          <div className="mx-auto grid w-full max-w-5xl gap-10 px-4 py-16 md:grid-cols-2 md:py-20">
-            <div>
-              <h2 className="font-display text-display-l font-medium">Silence isn&apos;t modesty.</h2>
-              <p className="mt-4 max-w-[34rem] text-lg leading-relaxed text-muted">
-                When your work is invisible, it can&apos;t be considered — for the promotion, the board seat, the referral. {APP_NAME}{" "}
-                keeps a private record of what you did and helps you share the parts worth sharing, in a way you&apos;re
-                comfortable with.
+        <section aria-labelledby="how" className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-16 md:py-20">
+          <h2 id="how" className={`${display} text-[32px] md:text-[40px]`}>
+            How it works
+          </h2>
+          <ol className="grid gap-8 md:grid-cols-3">
+            {STEPS.map((s, i) => (
+              <li key={s.title} className="flex flex-col gap-2.5">
+                <span className="font-display text-4xl text-brass">{i + 1}</span>
+                <h3 className="text-xl font-semibold">{s.title}</h3>
+                <p className="leading-relaxed text-foreground/80">{s.body}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section aria-labelledby="check" className="mx-auto w-full max-w-6xl px-4 pb-16 md:pb-20">
+          <div className="flex flex-wrap items-center justify-between gap-8 rounded-3xl bg-ink p-8 text-ink-foreground md:p-12">
+            <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-3">
+              <h2 id="check" className={`${display} text-[30px] md:text-[36px]`}>
+                Is it OK to post this? Check it free.
+              </h2>
+              <p className="text-lg leading-relaxed opacity-85">
+                Paste any LinkedIn draft and see what could get you in trouble at work. No sign-up. The free check runs in your browser:
+                nothing you paste is sent to us or stored.
               </p>
             </div>
-            <div>
-              <h3 className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">What it never does</h3>
-              <ul className="mt-4 flex flex-col divide-y divide-border border-y border-border">
-                {NEVER.map((item) => (
-                  <li key={item} className="flex items-center gap-3 py-3">
-                    <Ban aria-hidden className="size-4 text-muted" />
+            <Link
+              href="/check"
+              className="inline-flex min-h-[52px] items-center rounded-xl bg-ink-foreground px-6 text-[17px] font-semibold text-ink transition hover:opacity-90"
+            >
+              Check a post free
+            </Link>
+          </div>
+        </section>
+
+        <section aria-labelledby="example" className="bg-surface">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-7 px-4 py-16 md:py-20">
+            <h2 id="example" className={`${display} text-[32px] md:text-[40px]`}>
+              What the check catches
+            </h2>
+            <div className="flex flex-wrap gap-5">
+              <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-3.5 rounded-2xl bg-background p-6">
+                <p className={`${eyebrow} text-danger`}>Before</p>
+                <p className="text-[17px] leading-relaxed">
+                  Thrilled to share that we just finished <mark className="bg-danger-soft px-1 text-foreground">Northbank&apos;s</mark>{" "}
+                  platform migration,{" "}
+                  <mark className="bg-danger-soft px-1 text-foreground">$2.1M under budget, ahead of next week&apos;s announcement</mark>!
+                  Proud of what I built here. <mark className="bg-danger-soft px-1 text-foreground">Open to new challenges</mark> as I
+                  look ahead.
+                </p>
+                <ul className="flex list-disc flex-col gap-1.5 pl-5 text-[15px] text-foreground/80">
+                  <li>
+                    Client name: <strong>Northbank</strong>
+                  </li>
+                  <li>An unannounced figure</li>
+                  <li>Reads as a job hunt, and &ldquo;I built&rdquo; takes the team&apos;s credit</li>
+                </ul>
+              </div>
+              <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-3.5 rounded-2xl bg-background p-6">
+                <p className={`${eyebrow} text-success`}>After</p>
+                <p className="text-[17px] leading-relaxed">
+                  This quarter my team moved a large retail bank onto a new platform, ahead of plan and under budget. The lesson I&apos;d
+                  pass on: test the riskiest step first, not last. Credit to Priya and the data team, who found the problem before it found
+                  us.
+                </p>
+                <p className="text-[15px] text-foreground/80">
+                  Same win. Nothing you&apos;d regret if your CEO, your client or your next employer read it.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="record" className="mx-auto flex w-full max-w-6xl flex-col gap-7 px-4 py-16 md:py-20">
+          <div className="flex max-w-3xl flex-col gap-3">
+            <h2 id="record" className={`${display} text-[32px] md:text-[40px]`}>
+              Worth it even in weeks you don&apos;t post
+            </h2>
+            <p className="text-lg leading-relaxed text-foreground/80">
+              Your record builds itself from your daily notes, so the work you did in March is still there in December.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {RECORD.map((r) => (
+              <div key={r.title} className="flex flex-col gap-2 rounded-2xl border border-border p-6">
+                <h3 className="text-[19px] font-semibold">{r.title}</h3>
+                <p className="leading-relaxed text-foreground/80">{r.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="compare" className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-16 md:pb-20">
+          <h2 id="compare" className={`${display} text-[32px] md:text-[40px]`}>
+            Why not just use ChatGPT, or a LinkedIn growth tool?
+          </h2>
+          <div className="overflow-x-auto rounded-2xl border border-border">
+            <table className="w-full min-w-[720px] border-collapse text-left">
+              <thead className="bg-surface">
+                <tr>
+                  <th scope="col" className="w-1/3 px-5 py-4">
+                    <span className="sr-only">Feature</span>
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold">
+                    A general AI chat
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold">
+                    LinkedIn growth tools
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-semibold text-accent">
+                    {APP_NAME}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {COMPARE.map((c) => (
+                  <tr key={c.row} className="border-t border-border">
+                    <th scope="row" className="px-5 py-3.5 font-medium">
+                      {c.row}
+                    </th>
+                    <td className="px-5 py-3.5 text-foreground/80">{c.chat}</td>
+                    <td className="px-5 py-3.5 text-foreground/80">{c.growth}</td>
+                    <td className="px-5 py-3.5 font-semibold">{c.us}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section aria-labelledby="proof" className="bg-surface">
+          <div className="mx-auto flex w-full max-w-6xl flex-wrap gap-6 px-4 py-16 md:py-20">
+            <div className="flex min-w-0 flex-[1_1_440px] flex-col gap-3.5">
+              <h2 id="proof" className={`${display} text-[30px] md:text-[36px]`}>
+                How we know the check works
+              </h2>
+              <p className="text-lg leading-relaxed text-foreground/85">
+                We wrote 46 test posts that each hide a risk: a client name, an unreleased figure, a hint of job hunting. The check caught
+                all 46. On 14 clean posts it raised one gentle note.
+              </p>
+              <p className="text-[15px] text-muted">
+                The test posts are fictional and the sample is small. We run every change against them before it ships.
+              </p>
+              <Link href="/how-it-works" className="link self-start font-semibold">
+                What we check, in full
+              </Link>
+            </div>
+            <div className="flex min-w-0 flex-[1_1_440px] flex-col gap-3 rounded-2xl bg-background p-6">
+              <p className="font-display text-xl leading-snug">
+                Built by {OPERATOR.founderName ?? "an independent founder"}
+                {OPERATOR.city ? ` in ${OPERATOR.city}, India` : " in India"}, for people who&apos;d rather say nothing than say the wrong
+                thing.
+              </p>
+              <p className="text-[15px] text-muted">
+                No investors to please and no ads to sell. You pay us; nobody else does.{" "}
+                <Link href="/about" className="link">
+                  About {APP_NAME}
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="data" className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-16 md:py-20">
+          <h2 id="data" className={`${display} text-[32px] md:text-[40px]`}>
+            Where your data lives
+          </h2>
+          <dl className="grid gap-x-8 md:grid-cols-2">
+            {DATA.map((d) => (
+              <div key={d.what} className="border-t border-border py-4">
+                <dt className="font-semibold">{d.what}</dt>
+                <dd className="mt-1 leading-relaxed text-foreground/80">{d.where}</dd>
+              </div>
+            ))}
+          </dl>
+          <Link href="/security" className="link self-start font-semibold">
+            Full security details
+          </Link>
+        </section>
+
+        <section id="pricing" aria-labelledby="pricing-title" className="mx-auto w-full max-w-6xl scroll-mt-4 px-4 pb-16 md:pb-20">
+          <div className="flex flex-wrap items-stretch gap-6">
+            <div className="flex min-w-0 flex-[1_1_380px] flex-col justify-center gap-3">
+              <h2 id="pricing-title" className={`${display} text-[32px] md:text-[40px]`}>
+                One plan, one price, everywhere
+              </h2>
+              <p className="text-lg leading-relaxed text-foreground/80">
+                Free during the private beta. After that, the same price in every country, in US dollars.
+              </p>
+            </div>
+            <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-4 rounded-3xl border-2 border-ink p-8">
+              <p className="flex items-baseline gap-2">
+                <span className="font-display text-[56px] leading-none font-medium">{formatUsd(PRICES.monthly.usd)}</span>
+                <span className="text-foreground/80">a month after the beta</span>
+              </p>
+              <ul className="flex flex-col gap-2">
+                {PLAN.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <CircleCheck aria-hidden className="mt-0.5 size-5 shrink-0 text-success" />
                     {item}
                   </li>
                 ))}
               </ul>
+              <p className="text-sm text-muted">
+                Prices exclude local tax, which is shown at checkout before you pay. Payments by Paddle; card details never reach us.
+              </p>
+              <Link href="/login" className={buttonClass("primary", "w-full", "lg")}>
+                Join the free beta
+              </Link>
             </div>
           </div>
         </section>
 
-        <section id="pricing" className="scroll-mt-4 border-t border-border">
-          <div className="mx-auto w-full max-w-5xl px-4 py-16 md:py-20">
-            <h2 className="font-display text-display-l font-medium">One price, everywhere</h2>
-            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted">
-              The same in every country, in US dollars. Local tax is added at checkout where it applies. The private beta is free.
-            </p>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              <div className="flex flex-col gap-3 rounded-2xl border border-border p-6">
-                <p className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Your first month</p>
-                <p className="font-display text-display-l font-medium">
-                  {formatUsd(PRICES.trial.usd)}
-                  <span className="ml-1 font-sans text-base font-normal text-muted">for {TRIAL_DAYS} days</span>
-                </p>
-                <p className="leading-relaxed text-muted">
-                  Everything in membership, with a third of the monthly allowance. Enough to build the habit and see your first
-                  checked posts.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 rounded-2xl bg-ink p-6 text-ink-foreground">
-                <p className="text-[13px] font-semibold tracking-[0.06em] uppercase opacity-80">Membership</p>
-                <p className="font-display text-display-l font-medium">
-                  {formatUsd(PRICES.monthly.usd)}
-                  <span className="ml-1 font-sans text-base font-normal opacity-80">a month</span>
-                </p>
-                <p className="opacity-80">
-                  or {formatUsd(PRICES.annual.usd)} a year, {annualMonthsFree() === 1 ? "one month" : `${annualMonthsFree()} months`} free
-                </p>
-                <ul className="mt-1 flex flex-col gap-2">
-                  {PLAN_FEATURES.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2">
-                      <Check aria-hidden className="mt-1 size-4 shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              Every plan has a fair-use allowance that covers daily logging and an active month of drafting; you&apos;ll only hear
-              about it if you get close. We email before every renewal, and you can cancel in one click.
-            </p>
-          </div>
-        </section>
-
-        <section className="bg-ink text-ink-foreground">
-          <div className="mx-auto flex w-full max-w-5xl flex-col items-start gap-6 px-4 py-16 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="font-display text-display-l font-medium">{APP_TAGLINE}</p>
-              <p className="mt-2 opacity-80">Private beta for experienced professionals.</p>
-            </div>
-            <Link
-              href="/login"
-              className="inline-flex min-h-[52px] items-center gap-2 rounded-xl bg-ink-foreground px-5 font-semibold text-ink transition hover:opacity-90"
-            >
-              Join the beta
-              <ArrowRight aria-hidden className="size-[18px]" />
+        <section id="faq" aria-labelledby="faq-title" className="bg-surface">
+          <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-16 md:py-20">
+            <h2 id="faq-title" className={`${display} mb-2 text-[32px] md:text-[40px]`}>
+              Questions people ask first
+            </h2>
+            {faqs.map((f, i) => (
+              <details key={f.id} open={i === 0} className="group rounded-2xl bg-background px-5 py-4">
+                <summary className="flex min-h-7 cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold">
+                  {f.q}
+                  <span aria-hidden className="text-muted transition group-open:rotate-90">
+                    ›
+                  </span>
+                </summary>
+                <p className="mt-2.5 leading-relaxed text-foreground/80">{f.a}</p>
+              </details>
+            ))}
+            <Link href="/faq" className="link mt-2 self-start font-semibold">
+              More questions and answers
             </Link>
           </div>
+        </section>
+
+        <section aria-labelledby="join" className="mx-auto flex w-full max-w-3xl flex-col items-center gap-5 px-4 py-20 text-center md:py-24">
+          <h2 id="join" className={`${display} text-[34px] text-balance md:text-[44px]`}>
+            Your work is worth remembering. Start the record today.
+          </h2>
+          <Link href="/login" className={buttonClass("primary", undefined, "lg")}>
+            Join the free beta
+          </Link>
+          <p className="text-sm text-muted">Free during the beta · No card · Nothing is ever posted for you</p>
         </section>
       </main>
 
       <PublicFooter />
+      <JsonLd data={[organization, website]} />
     </div>
   );
 }

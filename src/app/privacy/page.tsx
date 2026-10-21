@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { PublicPage } from "@/components/public-shell";
 import { APP_NAME, PRIVACY_EMAIL, PRIVACY_NOTICE_VERSION } from "@/lib/config/app";
+import { OPERATOR } from "@/lib/config/site";
 
 export const metadata: Metadata = {
   title: "Privacy notice",
   description: `How ${APP_NAME} handles your notes: stored in Mumbai, never sold, never used to train AI, deletable at any time.`,
+  alternates: { canonical: "/privacy" },
 };
 
 const SUBPROCESSORS = [
@@ -47,6 +49,18 @@ export default function PrivacyPage() {
           way.
         </p>
       </header>
+
+      <Section title="Who we are">
+        <p>
+          {APP_NAME} is operated {OPERATOR.legalName ? `by ${OPERATOR.legalName}` : "by its founder"}
+          {OPERATOR.address ? `, ${OPERATOR.address}` : ", in India"}. Our data protection contact, who is also our grievance officer,
+          is {OPERATOR.founderName ?? `the founder of ${APP_NAME}`}, at{" "}
+          <a href={`mailto:${PRIVACY_EMAIL}`} className="link">
+            {PRIVACY_EMAIL}
+          </a>
+          . We acknowledge every complaint within 24 hours and resolve it within 15 days.
+        </p>
+      </Section>
 
       <Section title="What we never do">
         <ul className="list-disc pl-5">
@@ -163,6 +177,9 @@ export default function PrivacyPage() {
         <p>
           {APP_NAME} is for professionals aged 18 and over. If this notice changes in a way that matters, we&apos;ll ask you to agree
           again before you continue.
+        </p>
+        <p>
+          22 October 2026: added who runs {APP_NAME} and how to reach our grievance officer. No change to how we use your data.
         </p>
       </Section>
     </PublicPage>

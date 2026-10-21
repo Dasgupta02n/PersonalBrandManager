@@ -6,7 +6,7 @@ import { Notice } from "@/components/ui";
 import { APP_PROMISE } from "@/lib/config/app";
 import { LoginForm } from "./login-form";
 
-export const metadata: Metadata = { title: "Sign in" };
+export const metadata: Metadata = { title: "Sign in", robots: { index: false } };
 
 const reassurances = [
   "Nothing is posted without you",

@@ -20,7 +20,7 @@
 src/
   app/                 Routes (pages, layouts, route handlers, server actions)
   lib/
-    config/            Environment parsing, app constants
+    config/            Environment parsing, app constants, public site facts and page list (site.ts)
     db/                PostgreSQL client, role switching, query builder
     auth/              Email sign-in (codes, links, rate limits), sessions, sign-in email
     ai/                AI client (OpenRouter), model per function, prompts, AI tasks

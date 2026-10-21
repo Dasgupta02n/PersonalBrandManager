@@ -92,6 +92,21 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
 - The harness reuses earlier outputs and gradings, caps every run at the account's credit and
   stops on the first credit refusal.
 
+## Public site
+
+Home, how it works, pricing, FAQ, security, privacy, terms, refunds, cookies, accessibility,
+about, contact (with the grievance officer) and an HTML site map, plus `robots.txt`,
+`sitemap.xml`, `llms.txt` and `/.well-known/security.txt`. Every public page is server-rendered;
+facts, prices and the page list come from `src/lib/config/site.ts` and
+`src/lib/billing/pricing.ts`, so the pages, structured data and llms.txt can't disagree.
+Research behind it: `/home/user/reports/Winwall website keywords AEO and trust.md` (outside the
+repo). Open:
+- Founder name, city, legal name and a business address in `OPERATOR` (needed for the grievance
+  officer, terms and Paddle before payments open)
+- Verify the site in Google Search Console and Bing Webmaster Tools; submit the sitemap
+- Move `SITE_URL`, contact emails and security.txt to winwall.app with 301 redirects from c7xai.in
+- Guides and free tools from the keyword map (year-end review content first)
+
 ## Needed to run end to end
 
 See `docs/DEPLOY.md`. Live at https://c7xai.in since 2026-10-21 as **Winwall**, all on our own
