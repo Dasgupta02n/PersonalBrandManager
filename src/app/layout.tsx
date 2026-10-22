@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
 import { APP_NAME } from "@/lib/config/app";
 import { SITE_DESCRIPTION, SITE_URL } from "@/lib/config/site";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", axes: ["opsz", "SOFT", "WONK"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,7 +23,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${fraunces.variable} h-full antialiased`}>
+    <html lang="en-GB" className="h-full antialiased">
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );

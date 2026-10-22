@@ -82,7 +82,9 @@
 
 /* Display type: Fraunces with its quirky axes off, so it reads editorial rather than retro. */
 @utility font-display {
-  font-family: var(--font-serif);
+  /* The font variable itself, not var(--font-serif): theme variables resolve on :root, but each
+     part of the site sets its fonts on its own wrapper (src/app/fonts.ts). */
+  font-family: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
   font-variation-settings:
     "SOFT" 0,
     "WONK" 0;
@@ -128,7 +130,8 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  /* Each part of the site sets its own font (see src/app/fonts.ts); this is the fallback. */
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 

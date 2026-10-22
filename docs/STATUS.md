@@ -26,7 +26,7 @@
   hashtag checks; hierarchy and no-go topic checks in the AI review
 - UI rebuilt: five-step setup wizard, Today with forgiving workday count and comeback, draft
   workspace with verdict, "How it reads", revisions and LinkedIn preview, Drafts segments,
-  comment starters, "Your record", new landing and sign-in pages, seal logo, light and dark themes
+  comment starters, "Your record", new landing and sign-in pages, logo, light and dark themes
 - Checks: lint, typecheck, 59 unit tests, production build; every screen screenshot-checked on
   phone and desktop
 
@@ -99,7 +99,9 @@ about, contact (with the grievance officer) and an HTML site map, plus `robots.t
 `sitemap.xml`, `llms.txt` and `/.well-known/security.txt`. Every public page is server-rendered;
 facts, prices and the page list come from `src/lib/config/site.ts` and
 `src/lib/billing/pricing.ts`, so the pages, structured data and llms.txt can't disagree.
-Research behind it: `/home/user/reports/Winwall website keywords AEO and trust.md` (outside the
+Redesigned on 2026-10-22 in a modern midnight-and-gold look with animated product pictures, a
+new tile logo and a share image (`docs/DESIGN.md`, "Public site"); the signed-in app keeps its
+paper theme. Research behind it: `/home/user/reports/Winwall website keywords AEO and trust.md` (outside the
 repo). Open:
 - Founder name, city, legal name and a business address in `OPERATOR` (needed for the grievance
   officer, terms and Paddle before payments open)

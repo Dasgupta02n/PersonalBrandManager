@@ -7,7 +7,8 @@ growth tool. Evidence and reasoning: `docs/research/personas-and-ui-psychology.m
 ## Principles
 
 1. **Calm, factual, private.** Warm paper and ink, no gradients, no confetti, no growth-hacker
-   language.
+   language. (This is the signed-in app. The public site has its own, livelier look by the
+   owner's decision; see "Public site" below.)
 2. **One primary action per screen**, within thumb reach on a phone.
 3. **Show the source.** Every draft says it was built only from the user's wins; every warning
    says what triggered it.
@@ -45,9 +46,39 @@ warning to this audience. Status is never colour alone.
 
 ## Brand mark
 
-A seal: a ring and a brass centre in an ink rounded square (`src/components/brand.tsx`). Draft
-for approval; test at 16/32/48/192px. The name is a placeholder in `APP_NAME`; avoid "brand" in
-the final name.
+A wall of four rounded tiles on a night square, one of them gold: a wall of your work, with a
+win on it (`src/components/brand.tsx`, `src/app/icon.svg`, `src/app/apple-icon.tsx`). Fixed
+colours (`#14141F` square, white tiles at 92/50/26% and `#F2B544`), so it reads the same on
+paper, on night and at favicon sizes. It replaced the earlier seal on 2026-10-22.
+
+## Public site
+
+Everything a visitor sees before signing in lives in the `src/app/(site)` route group: home,
+product and trust pages, the free post check, sign-in and the 404 page. Its look is scoped to
+`.site` in `src/app/(site)/site.css`, so the app's theme and the site's never mix. Chosen on
+2026-10-22 after the owner found the paper-and-serif site dated.
+
+- **Theme: midnight and gold.** Night bands (`#07070D`) with soft aurora light (violet, gold,
+  a little blue), faint grid lines and grain, alternating with clean white reading sections.
+  Dark mode turns the white sections night too. Gold (`#F2B544` gradient) is the main action
+  and the user's wins; indigo (`#4F46E5`, `#A5B4FC` on night) is links and focus. Text pairs
+  pass WCAG AA on their own backgrounds; the token block in site.css lists the ratios.
+- **Type:** Geist for everything, tight tracking on headings (`font-heading`), and one or two
+  words per headline in Instrument Serif italic with the gold gradient (`Accent`). Self-hosted
+  through `next/font`; loaded only on site pages (`src/app/fonts.ts`).
+- **Pictures** are drawn in HTML, SVG and CSS (`src/components/site/graphics.tsx`): the
+  animated draft in the hero, the drifting wall of example wins behind it, the "caught before
+  you see a draft" marquee, and small illustrations on each card. No stock photos, no fake
+  logos, testimonials or numbers.
+- **Motion:** the hero demo plays once and rests on its finished state; cards rise in as they
+  scroll into view (CSS scroll timelines, so no JavaScript and nothing hidden where they're
+  unsupported); a gold light follows the pointer on cards (`SiteEffects`, decorative only).
+  Under reduced motion every loop stops and every sequence shows its final state at once. All
+  text is in the server HTML, so crawlers and AI assistants read the full page.
+- **Frame:** a sticky glass header over the first night band, with a no-JavaScript menu on
+  phones; a night footer; every inner page opens with a night hero (title, intro, last
+  reviewed), then a reading column with an optional sticky "at a glance" panel.
+- **Share image:** `src/app/opengraph-image.tsx`, the headline on night with the mark.
 
 ## Layout
 
@@ -74,7 +105,7 @@ the final name.
 | How you write | Add a note | The style notebook: voice summary, notes with their source, words you remove (removable chips), "Learn from my latest writing", clear what was learned |
 | Plan, data and privacy | Download everything | Plan and a usage bar in words ("Plenty left"), never credits; delete account behind a typed confirmation |
 | Free post check (public) | Check my post | Runs in the browser; results by tier; what the full check adds |
-| Landing | Join the beta | Leads with the check and the record; comparison with a general AI assistant; one global price |
+| Landing | Join the beta | Animated draft demo; the five worries; the free check; comparison with a general AI assistant and growth tools; one global price (see "Public site") |
 
 ## Copy
 
@@ -100,4 +131,5 @@ countdown timers, amber warnings, white cards with drop shadows.
 ## To validate in beta
 
 5-second test of paper/ink vs a blue-primary variant; Fraunces vs Source Serif 4; whether brass
-reads as "earned" or "wealth" in India and the Gulf; logo legibility at small sizes.
+reads as "earned" or "wealth" in India and the Gulf; logo legibility at small sizes; whether the
+public site's midnight-and-gold look should carry into the app.

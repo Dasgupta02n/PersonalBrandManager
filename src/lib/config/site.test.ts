@@ -7,7 +7,8 @@ import { jsonLdString } from "@/components/public-shell";
 import { PRICES, TRIAL_DAYS } from "@/lib/billing/pricing";
 import { FACTS, PUBLIC_PAGES, SITE_URL, absoluteUrl } from "./site";
 
-const appDir = join(__dirname, "..", "..", "app");
+// Public pages live in the (site) route group, which doesn't appear in their URLs.
+const appDir = join(__dirname, "..", "..", "app", "(site)");
 
 describe("public site", () => {
   it("has a real page for every entry in the site map", () => {

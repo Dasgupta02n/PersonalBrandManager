@@ -4,7 +4,7 @@ import { CircleAlert, CircleCheck, Info, Sparkle, TriangleAlert } from "lucide-r
 
 export const cx = (...classes: (string | false | null | undefined)[]) => classes.filter(Boolean).join(" ");
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "gold";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const buttonStyles: Record<ButtonVariant, string> = {
@@ -12,6 +12,8 @@ const buttonStyles: Record<ButtonVariant, string> = {
   secondary: "border border-border-strong text-foreground hover:bg-surface-2",
   ghost: "text-muted hover:bg-surface-2 hover:text-foreground",
   danger: "text-danger hover:bg-danger-soft",
+  // The public site's main action (styled in src/app/(site)/site.css); only used inside the site.
+  gold: "btn-gold !rounded-full",
 };
 
 // Every size keeps a 44px+ touch target; the sticky primary bar uses lg (52px).
