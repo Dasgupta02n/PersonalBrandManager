@@ -49,7 +49,7 @@ export function DesktopNav({ draftCount }: { draftCount: number }) {
           href={href}
           aria-current={isActive(href) ? "page" : undefined}
           className={cx(
-            "flex min-h-10 items-center gap-1.5 rounded-lg px-3 text-sm font-medium transition",
+            "flex min-h-10 items-center gap-1.5 rounded-lg px-3 text-[15px] font-medium transition-colors duration-150",
             isActive(href) ? "bg-surface text-foreground" : "text-muted hover:text-foreground",
           )}
         >
@@ -68,7 +68,7 @@ export function MobileTabBar({ draftCount }: { draftCount: number }) {
   return (
     <nav
       aria-label="Main"
-      className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden print:hidden"
+      className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden print:hidden"
     >
       <ul className="mx-auto grid h-14 max-w-md grid-cols-4">
         {NAV.map(({ href, label, icon: Icon }) => {
@@ -79,8 +79,8 @@ export function MobileTabBar({ draftCount }: { draftCount: number }) {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={cx(
-                  "flex h-14 flex-col items-center justify-center gap-0.5 text-[13px] font-medium transition",
-                  active ? "text-foreground" : "text-muted",
+                  "flex h-14 flex-col items-center justify-center gap-0.5 text-[13px] transition-colors duration-150",
+                  active ? "font-semibold text-foreground" : "font-medium text-muted",
                 )}
               >
                 <span className="relative">

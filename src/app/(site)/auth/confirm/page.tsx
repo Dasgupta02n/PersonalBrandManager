@@ -16,20 +16,19 @@ export default async function ConfirmPage({ searchParams }: PageProps<"/auth/con
   if (typeof token !== "string" || !token) redirect("/login?error=link");
 
   return (
-    <main className="site-dark aurora grain flex flex-1 flex-col justify-center px-5 py-12">
-      <div className="bg-grid" />
+    <main className="flex flex-1 flex-col justify-center px-5 py-12">
       <div className="mx-auto flex w-full max-w-sm flex-col gap-8">
         <Link href="/" aria-label="Home" className="w-fit">
           <Wordmark />
         </Link>
-        <div className="card flex flex-col gap-6 p-7">
+        <div className="flex flex-col gap-6 rounded-xl border border-border p-7">
           <div className="flex flex-col gap-1.5">
-            <h1 className="font-heading text-[30px] leading-tight">Finish signing in</h1>
-            <p className="text-[15px] text-muted">This link works once.</p>
+            <h1 className="t-h3">Finish signing in</h1>
+            <p className="text-[16px] text-muted">This link works once.</p>
           </div>
           <form action={confirmSignIn}>
             <input type="hidden" name="token" value={token} />
-            <SubmitButton variant="gold" pendingLabel="Signing in…" className="w-full">
+            <SubmitButton pendingLabel="Signing in…" className="w-full">
               Sign in
             </SubmitButton>
           </form>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DatabaseBackup, EyeOff, KeyRound, MapPin, Sparkles } from "lucide-react";
+import { DatabaseBackup, EyeOff, KeyRound, LockKeyhole, MapPin } from "lucide-react";
 import { AsideCard, InfoPage, InfoSection } from "@/components/public-shell";
 import { APP_NAME } from "@/lib/config/app";
 import { CONTACT } from "@/lib/config/site";
@@ -30,7 +30,7 @@ export default function SecurityPage() {
           title="At a glance"
           items={[
             { icon: MapPin, text: "Your notes stay on our own server in Mumbai, India" },
-            { icon: Sparkles, text: "AI with zero data retention; never used for training" },
+            { icon: LockKeyhole, text: "AI with zero data retention; never used for training" },
             { icon: KeyRound, text: "No passwords: one-time codes, stored only as hashes" },
             { icon: DatabaseBackup, text: "Nightly backups encrypted with AES-256" },
             { icon: EyeOff, text: "No ad pixels, no trackers, no LinkedIn access" },
@@ -45,12 +45,12 @@ export default function SecurityPage() {
       }
     >
       <InfoSection id="where" title="Where your data is">
-        <div className="card overflow-x-auto p-0">
-          <table className="w-full min-w-[640px] border-collapse text-left text-[15px]">
-            <thead className="bg-surface">
+        <div className="overflow-x-auto">
+          <table className="table-site min-w-[640px]">
+            <thead>
               <tr>
                 {["What", "Where", "Who can read it", "How long"].map((h) => (
-                  <th key={h} scope="col" className="px-4 py-3 font-semibold">
+                  <th key={h} scope="col">
                     {h}
                   </th>
                 ))}
@@ -58,13 +58,13 @@ export default function SecurityPage() {
             </thead>
             <tbody>
               {WHERE.map((row) => (
-                <tr key={row.what} className="border-t border-border">
-                  <th scope="row" className="px-4 py-3 font-medium">
+                <tr key={row.what}>
+                  <th scope="row">
                     {row.what}
                   </th>
-                  <td className="px-4 py-3">{row.where}</td>
-                  <td className="px-4 py-3">{row.who}</td>
-                  <td className="px-4 py-3">{row.howLong}</td>
+                  <td>{row.where}</td>
+                  <td>{row.who}</td>
+                  <td>{row.howLong}</td>
                 </tr>
               ))}
             </tbody>

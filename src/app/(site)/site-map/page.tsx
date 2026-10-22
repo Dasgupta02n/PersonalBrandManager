@@ -16,15 +16,15 @@ export default function SiteMapPage() {
     <InfoPage path="/site-map" title="Site map" updated="2026-10-22" intro={<p>Every public page on this site, in one place.</p>}>
       {(["Product", "Trust", "Company"] as const).map((group) => (
         <InfoSection key={group} title={group}>
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="!list-none !pl-0 grid border-t border-border sm:grid-cols-2 sm:gap-x-10">
             {PUBLIC_PAGES.filter((p) => p.group === group).map((p) => (
-              <li key={p.path} className="!pl-0 before:!hidden">
+              <li key={p.path} className="!mt-0 border-b border-border">
                 <Link
                   href={p.path}
-                  className="card card-hover flex min-h-14 items-center justify-between gap-3 px-5 py-3 text-[16px] font-medium text-foreground"
+                  className="flex min-h-14 items-center justify-between gap-3 py-3 text-[17px] font-medium text-foreground transition-colors duration-150 hover:text-accent"
                 >
                   {p.path === "/" ? "Home" : p.title}
-                  <ArrowUpRight aria-hidden className="size-4 shrink-0 text-brass" />
+                  <ArrowUpRight aria-hidden className="size-4 shrink-0 text-subtle" />
                 </Link>
               </li>
             ))}

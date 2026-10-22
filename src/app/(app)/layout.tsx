@@ -5,7 +5,6 @@ import { DesktopNav, MobileTabBar } from "@/components/app-nav";
 import { Wordmark } from "@/components/brand";
 import { currentUser } from "@/lib/auth/session";
 import { userDb } from "@/lib/db/client";
-import { appFonts } from "../fonts";
 
 // Signed-in pages: never in search results (robots.ts also keeps crawlers out).
 export const metadata: Metadata = { robots: { index: false, follow: false } };
@@ -24,14 +23,14 @@ async function openDraftCount(): Promise<number> {
 }
 
 const iconButton =
-  "flex size-11 items-center justify-center rounded-lg text-muted transition hover:bg-surface hover:text-foreground";
+  "flex size-11 items-center justify-center rounded-lg text-muted transition-colors duration-150 hover:bg-surface hover:text-foreground";
 
 export default async function AppLayout({ children }: LayoutProps<"/">) {
   const draftCount = await openDraftCount();
 
   return (
-    <div className={`${appFonts} flex min-h-full flex-1 flex-col`}>
-      <header className="sticky top-0 z-20 border-b border-border bg-background/95 pt-[env(safe-area-inset-top)] backdrop-blur print:hidden">
+    <div className="app-shell flex min-h-full flex-1 flex-col bg-background text-foreground">
+      <header className="sticky top-0 z-20 border-b border-border bg-background pt-[env(safe-area-inset-top)] print:hidden">
         <div className="mx-auto flex h-14 w-full max-w-[640px] items-center justify-between gap-4 px-4">
           <Link href="/today" aria-label="Today">
             <Wordmark />

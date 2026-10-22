@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CircleCheck } from "lucide-react";
-import { LogoMark, Wordmark } from "@/components/brand";
-import { PromiseText } from "@/components/public-shell";
-import { Notice } from "@/components/ui";
+import { Check } from "lucide-react";
+import { Wordmark } from "@/components/brand";
+import { container } from "@/components/public-shell";
+import { Notice, cx } from "@/components/ui";
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = { title: "Sign in", robots: { index: false } };
@@ -20,48 +20,36 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
   const failed = params.error === "link";
 
   return (
-    <div className="grid flex-1 lg:grid-cols-[1.1fr_1fr]">
-      <aside className="site-dark aurora grain hidden flex-col justify-between p-12 lg:flex">
-        <div className="bg-grid" />
-        <Link href="/" aria-label="Home" className="flex w-fit items-center gap-2.5">
-          <LogoMark className="size-8" />
-          <span className="font-heading text-[19px] tracking-[-0.03em]">Winwall</span>
-        </Link>
-        <div className="flex flex-col gap-8">
-          <p className="font-heading max-w-lg text-[56px] leading-[1.02] text-balance">
-            <PromiseText />
-          </p>
-          <ul className="flex flex-col gap-3.5">
+    <div className="flex flex-1 flex-col">
+      <header className="border-b border-border">
+        <div className={cx(container, "flex h-[60px] items-center justify-between md:h-[72px]")}>
+          <Link href="/" aria-label="Winwall home" className="-m-1 rounded-md p-1">
+            <Wordmark />
+          </Link>
+          <Link href="/" className="nav-link">
+            Back to home
+          </Link>
+        </div>
+      </header>
+      <main className={cx(container, "grid flex-1 content-start gap-12 py-12 md:py-20 lg:grid-cols-12 lg:gap-8")}>
+        <div className="flex flex-col gap-5 lg:col-span-5">
+          <h1 className="t-h1">Sign in</h1>
+          <p className="t-lead">No password. New here? Signing in creates your account.</p>
+          <ul className="flex flex-col gap-3 pt-2">
             {reassurances.map((r) => (
-              <li key={r} className="flex items-center gap-3 text-[16px] text-foreground/85">
-                <span className="flex size-6 items-center justify-center rounded-full bg-success-soft">
-                  <CircleCheck aria-hidden className="size-4 text-success" />
-                </span>
+              <li key={r} className="flex items-center gap-3 text-[17px]">
+                <Check aria-hidden className="size-4 shrink-0" strokeWidth={2.25} />
                 {r}
               </li>
             ))}
           </ul>
         </div>
-        <p className="pill w-fit">
-          <span className="live-dot" aria-hidden />
-          Private beta
-        </p>
-      </aside>
-
-      <main className="relative flex flex-col justify-center px-5 py-12">
-        <div className="mx-auto flex w-full max-w-sm flex-col gap-8">
-          <Link href="/" aria-label="Home" className="lg:hidden">
-            <Wordmark />
-          </Link>
-          <div className="flex flex-col gap-2">
-            <h1 className="font-heading text-[36px] leading-tight">Sign in</h1>
-            <p className="text-[15px] text-muted">No password. New here? Signing in creates your account.</p>
-          </div>
+        <div className="flex flex-col gap-5 lg:col-span-5 lg:col-start-8">
           {failed && <Notice tone="danger">That link has expired or was already used. Ask for a new code below.</Notice>}
-          <div className="card p-6">
+          <div className="rounded-xl border border-border p-6 md:p-8">
             <LoginForm next={next} />
           </div>
-          <p className="text-[13px] leading-relaxed text-muted">
+          <p className="t-caption">
             We only ask for your email. We never post or act on LinkedIn for you. See the{" "}
             <Link href="/privacy" className="link">
               privacy notice

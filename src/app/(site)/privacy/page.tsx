@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { CalendarDays } from "lucide-react";
 import { InfoSection as Section, PublicPage } from "@/components/public-shell";
 import { APP_NAME, PRIVACY_EMAIL, PRIVACY_NOTICE_VERSION } from "@/lib/config/app";
 import { OPERATOR } from "@/lib/config/site";
@@ -36,10 +35,7 @@ export default function PrivacyPage() {
       title="Privacy notice"
       intro="You write down work that matters to you, often about people and clients who never agreed to be online. We treat it that way."
       meta={
-        <p className="pill w-fit">
-          <CalendarDays aria-hidden className="size-4 text-brass" />
-          Version of {versionDate}
-        </p>
+        <p className="t-caption">Version of {versionDate}</p>
       }
     >
 
@@ -105,20 +101,20 @@ export default function PrivacyPage() {
           zero-data-retention terms: it is processed and not kept. That host may be outside your country.
         </p>
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[30rem] text-left text-sm">
-            <thead className="text-foreground">
-              <tr className="border-b border-border">
-                <th className="py-2 pr-3 font-semibold">Service</th>
-                <th className="py-2 pr-3 font-semibold">What it does</th>
-                <th className="py-2 font-semibold">Where</th>
+          <table className="table-site min-w-[30rem]">
+            <thead>
+              <tr>
+                <th scope="col">Service</th>
+                <th scope="col">What it does</th>
+                <th scope="col">Where</th>
               </tr>
             </thead>
             <tbody>
               {SUBPROCESSORS.map((s) => (
-                <tr key={s.name} className="border-b border-border">
-                  <td className="py-2 pr-3 font-medium text-foreground">{s.name}</td>
-                  <td className="py-2 pr-3">{s.role}</td>
-                  <td className="py-2">{s.where}</td>
+                <tr key={s.name}>
+                  <th scope="row">{s.name}</th>
+                  <td>{s.role}</td>
+                  <td>{s.where}</td>
                 </tr>
               ))}
             </tbody>

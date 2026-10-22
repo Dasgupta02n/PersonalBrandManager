@@ -99,9 +99,10 @@ about, contact (with the grievance officer) and an HTML site map, plus `robots.t
 `sitemap.xml`, `llms.txt` and `/.well-known/security.txt`. Every public page is server-rendered;
 facts, prices and the page list come from `src/lib/config/site.ts` and
 `src/lib/billing/pricing.ts`, so the pages, structured data and llms.txt can't disagree.
-Redesigned on 2026-10-22 in a modern midnight-and-gold look with animated product pictures, a
-new tile logo and a share image (`docs/DESIGN.md`, "Public site"); the signed-in app keeps its
-paper theme. Research behind it: `/home/user/reports/Winwall website keywords AEO and trust.md` (outside the
+Redesigned on 2026-10-22, after research, on one white system shared with the app: Schibsted
+Grotesk, near-black ink, an ink-blue accent held in reserve, hairlines, real product screens and a
+brick-wall logo (`docs/DESIGN.md`; research and brief in
+`/home/user/reports/Upmarket white web app UI design.md`). Research behind it: `/home/user/reports/Winwall website keywords AEO and trust.md` (outside the
 repo). Open:
 - Founder name, city, legal name and a business address in `OPERATOR` (needed for the grievance
   officer, terms and Paddle before payments open)

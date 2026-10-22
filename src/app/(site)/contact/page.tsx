@@ -12,8 +12,18 @@ export const metadata: Metadata = {
 
 const CHANNELS = [
   { icon: LifeBuoy, title: "Questions and help", email: CONTACT.hello, body: "The product, the beta, billing." },
-  { icon: Lock, title: "Privacy and your data", email: CONTACT.privacy, body: "Access, correction, deletion, consent. Our data protection contact." },
-  { icon: ShieldCheck, title: "Security", email: CONTACT.security, body: "Report a vulnerability, with “Security” in the subject." },
+  {
+    icon: Lock,
+    title: "Privacy and your data",
+    email: CONTACT.privacy,
+    body: "Access, correction, deletion, consent. Our data protection contact.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security",
+    email: CONTACT.security,
+    body: "Report a vulnerability, with “Security” in the subject.",
+  },
 ];
 
 export default function ContactPage() {
@@ -22,40 +32,44 @@ export default function ContactPage() {
       path="/contact"
       title="Contact us"
       updated="2026-10-22"
-      intro={<p>Write to us and a person replies, usually within one working day. There&apos;s no chatbot and no ticket queue.</p>}
+      intro={
+        <p>Write to us and a person replies, usually within one working day. There&apos;s no chatbot and no ticket queue.</p>
+      }
     >
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid border-t border-border">
         {CHANNELS.map((c) => (
-          <div key={c.title} data-reveal className="card card-hover spotlight flex flex-col gap-2 p-6">
-            <span className="icon-chip mb-2">
-              <c.icon aria-hidden />
-            </span>
-            <h2 className="font-heading text-[18px] tracking-[-0.02em]">{c.title}</h2>
-            <a href={`mailto:${c.email}`} className="link text-[17px] font-semibold break-all">
-              {c.email}
-            </a>
-            <p className="text-[15px] text-muted">{c.body}</p>
+          <div key={c.title} className="grid gap-1 border-b border-border py-6 sm:grid-cols-[15rem_1fr] sm:gap-6">
+            <h2 className="flex items-center gap-2.5 text-[18px] font-semibold">
+              <c.icon aria-hidden className="size-[18px] shrink-0" />
+              {c.title}
+            </h2>
+            <div className="flex flex-col gap-1">
+              <a href={`mailto:${c.email}`} className="link w-fit text-[18px] font-medium break-all">
+                {c.email}
+              </a>
+              <p className="text-[16px] text-muted">{c.body}</p>
+            </div>
           </div>
         ))}
       </div>
 
       <InfoSection id="grievance" title="Grievance officer">
         <p>
-          If something has gone wrong with your data or our service, our grievance officer handles it personally. We acknowledge every
-          complaint within <strong className="text-foreground">24 hours</strong> and resolve it within{" "}
+          If something has gone wrong with your data or our service, our grievance officer handles it personally. We acknowledge
+          every complaint within <strong className="text-foreground">24 hours</strong> and resolve it within{" "}
           <strong className="text-foreground">15 days</strong>.
         </p>
-        <dl className="card grid gap-x-8 gap-y-4 p-6 sm:grid-cols-2">
+        <dl className="grid gap-x-10 gap-y-5 rounded-xl border border-border p-6 sm:grid-cols-2">
           <div>
-            <dt className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Name</dt>
+            <dt className="text-[15px] font-medium text-muted">Name</dt>
             <dd className="text-foreground">{OPERATOR.founderName ?? `The founder of ${APP_NAME}`}</dd>
           </div>
           <div>
-            <dt className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Role</dt>
+            <dt className="text-[15px] font-medium text-muted">Role</dt>
             <dd className="text-foreground">Founder and grievance officer</dd>
           </div>
           <div>
-            <dt className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Email</dt>
+            <dt className="text-[15px] font-medium text-muted">Email</dt>
             <dd>
               <a href={`mailto:${CONTACT.privacy}?subject=Grievance`} className="link">
                 {CONTACT.privacy}
@@ -64,8 +78,10 @@ export default function ContactPage() {
             </dd>
           </div>
           <div>
-            <dt className="text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Post</dt>
-            <dd className="text-foreground">{OPERATOR.address ?? "India. We'll publish a postal address before payments open."}</dd>
+            <dt className="text-[15px] font-medium text-muted">Post</dt>
+            <dd className="text-foreground">
+              {OPERATOR.address ?? "India. We'll publish a postal address before payments open."}
+            </dd>
           </div>
         </dl>
       </InfoSection>
@@ -73,8 +89,8 @@ export default function ContactPage() {
       <InfoSection id="operator" title="Who you're dealing with">
         <p>
           {APP_NAME} is operated {OPERATOR.legalName ? `by ${OPERATOR.legalName}` : "by its founder"}
-          {OPERATOR.address ? `, ${OPERATOR.address}` : ", in India"}. After the beta, payments are handled by Paddle as our merchant of
-          record.
+          {OPERATOR.address ? `, ${OPERATOR.address}` : ", in India"}. After the beta, payments are handled by Paddle as our
+          merchant of record.
         </p>
         <p>
           If you&apos;re not satisfied with our answer, you can also complain to a data protection authority: in India, the Data

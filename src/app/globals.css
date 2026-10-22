@@ -1,124 +1,146 @@
 @import "tailwindcss";
 
-/* Design tokens (see docs/DESIGN.md). Calm, factual and private: warm paper, ink actions,
-   tonal insets instead of white cards, indigo only for links and focus, brass only for the
-   user's achievements. Contrast ratios are WCAG 2.x on paper unless noted. */
+/* Design tokens (see docs/DESIGN.md). One system for the site and the app: a white canvas, cool
+   near-black ink, one quiet accent (ink blue) held in reserve, hairlines instead of shadows. Status
+   colours belong to the post checker and mean nothing else. Contrast ratios are WCAG 2.x on white
+   unless noted. */
 :root {
-  --background: #faf8f3; /* paper */
-  --surface: #f2eee6; /* tonal inset */
-  --surface-2: #ebe6dc; /* deeper inset, decorative only */
-  --field: #faf8f3; /* inputs sit on paper inside insets */
-  --border: #e3ddd2; /* hairline, decorative */
-  --border-strong: #8a857c; /* control borders, 3.46:1 */
-  --foreground: #17161a; /* ink, 16.97:1 */
-  --muted: #5b5852; /* secondary text, 6.68:1 */
-  --subtle: #75716a; /* placeholders only, 4.57:1 on paper */
-  --ink: #17161a;
-  --ink-foreground: #faf8f3;
-  --accent: #3e3a8c; /* links (always underlined) and focus, 9.04:1 */
-  --accent-soft: #e9e8f5;
-  --brass: #7a5a1c; /* achievement text and icons, 5.98:1 */
-  --brass-fill: #b08d57; /* achievement fills behind ink text only */
-  --brass-soft: #f3ead9;
-  --seal: #b08d57; /* logo centre on the ink square */
-  --success: #2e6b4e; /* 5.94:1, always with an icon and label */
-  --success-soft: #e3efe8;
-  --danger: #b3261e; /* 6.16:1, always with an icon and label */
-  --danger-soft: #f9e7e5;
+  --background: #ffffff; /* canvas */
+  --band: #f9fafc; /* alternate page bands, footer */
+  --surface: #f2f4f8; /* insets, screenshot stages, active nav, ghost hover */
+  --surface-2: #e9ecf2; /* deeper inset, decorative only */
+  --field: #ffffff; /* inputs */
+  --border: #e4e6eb; /* hairline, decorative */
+  --border-soft: #c5cad2; /* secondary button border; the label identifies the button */
+  --border-strong: #868b93; /* control borders, 3.43:1 */
+  --foreground: #111419; /* ink, 18.45:1 */
+  --muted: #51555f; /* secondary text, 7.46:1 */
+  --subtle: #6d727b; /* captions and placeholders at 14px+, 4.84:1 */
+  --ink: #111419; /* primary button fill */
+  --ink-hover: #282b33;
+  --ink-foreground: #ffffff;
+  --accent: #2d4382; /* ink blue: links (always underlined), focus, selection, progress, 9.39:1 */
+  --accent-hover: #1e3168;
+  --accent-soft: #eff3ff; /* accent on it 8.47:1 */
+  --brass: var(--accent); /* achievements read as progress, in ink blue */
+  --brass-soft: var(--accent-soft);
+  --success: #0d4a22; /* safe, 10.40:1; always with an icon and a word */
+  --success-soft: #edf8ef;
+  --caution: #ba7e15; /* icons and underlines only, never text */
+  --caution-soft: #fff7e5;
+  --danger: #bc4947; /* risk, 5.02:1; always with an icon and a word */
+  --danger-soft: #fff0ee;
+  --float-shadow: 0 0 0 1px rgb(17 20 25 / 0.08), 0 4px 8px rgb(17 20 25 / 0.06), 0 12px 24px rgb(17 20 25 / 0.06);
+}
+
+/* The signed-in app follows the system's dark mode; the public site stays light. Same hues, lifted. */
+@media (prefers-color-scheme: dark) {
+  .app-shell {
+    --background: #0f1115;
+    --band: #13161b;
+    --surface: #1a1d23;
+    --surface-2: #23272f;
+    --field: #13161b;
+    --border: #2a2e36;
+    --border-soft: #444a55;
+    --border-strong: #7b818c; /* 4.6:1 */
+    --foreground: #e9ebef; /* 16.0:1 */
+    --muted: #a8adb7; /* 8.3:1 */
+    --subtle: #8d939d; /* 5.9:1 */
+    --ink: #e9ebef;
+    --ink-hover: #ffffff;
+    --ink-foreground: #0f1115;
+    --accent: #9fb2ea; /* 9.1:1 */
+    --accent-hover: #bccaf2;
+    --accent-soft: #1b2340;
+    --success: #74cf91;
+    --success-soft: #10241a;
+    --caution: #e2b257;
+    --caution-soft: #2b2112;
+    --danger: #ef8e88;
+    --danger-soft: #34191a;
+    --float-shadow: 0 0 0 1px rgb(255 255 255 / 0.08), 0 12px 24px rgb(0 0 0 / 0.4);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #141311;
-    --surface: #1e1c19;
-    --surface-2: #26231f;
-    --field: #141311;
-    --border: #2c2925;
-    --border-strong: #77726a;
-    --foreground: #ece8e1;
-    --muted: #a6a198;
-    --subtle: #8f8a81;
-    --ink: #ece8e1;
-    --ink-foreground: #141311;
-    --accent: #acaef6;
-    --accent-soft: #26264a;
-    --brass: #d4b06a;
-    --brass-fill: #d4b06a;
-    --brass-soft: #2e2617;
-    --seal: #8c6a26; /* the square turns light in dark mode */
-    --success: #7cc4a0;
-    --success-soft: #16271e;
-    --danger: #f2a39c;
-    --danger-soft: #3a1c19;
+  body:has(.app-shell) {
+    background: #0f1115;
   }
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-band: var(--band);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-field: var(--field);
   --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
   --color-border-strong: var(--border-strong);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-subtle: var(--subtle);
   --color-ink: var(--ink);
+  --color-ink-hover: var(--ink-hover);
   --color-ink-foreground: var(--ink-foreground);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
   --color-brass: var(--brass);
-  --color-brass-fill: var(--brass-fill);
   --color-brass-soft: var(--brass-soft);
-  --color-seal: var(--seal);
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
+  --color-caution: var(--caution);
+  --color-caution-soft: var(--caution-soft);
   --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
-  --font-preview: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-preview: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --shadow-float: var(--float-shadow);
 }
 
-/* Display type: Fraunces with its quirky axes off, so it reads editorial rather than retro. */
+/* Headings: the same face at medium weight with tightened tracking. */
 @utility font-display {
-  /* The font variable itself, not var(--font-serif): theme variables resolve on :root, but each
-     part of the site sets its fonts on its own wrapper (src/app/fonts.ts). */
-  font-family: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
-  font-variation-settings:
-    "SOFT" 0,
-    "WONK" 0;
-  font-optical-sizing: auto;
-  letter-spacing: -0.01em;
+  font-family: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
-/* Type scale: ratio ~1.25 from a 16px base. */
+/* Type scale (desktop / phone): display 60/38, h1 48/34, h2 36/28, h3 26/22, title 21/19. */
 @utility text-display-xl {
-  font-size: 2.5rem;
-  line-height: 2.75rem;
-  @media (width >= 48rem) {
-    font-size: 3.5rem;
-    line-height: 3.75rem;
-  }
+  font-size: clamp(2.375rem, 1.6rem + 2.4vw, 3.75rem);
+  line-height: 1.07;
+  letter-spacing: -0.025em;
 }
 
 @utility text-display-l {
-  font-size: 2rem;
-  line-height: 2.375rem;
+  font-size: clamp(2.125rem, 1.6rem + 1.6vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.022em;
 }
 
 @utility text-display-m {
-  font-size: 1.5625rem;
-  line-height: 1.875rem;
+  font-size: clamp(1.75rem, 1.4rem + 1.1vw, 2.25rem);
+  line-height: 1.17;
+  letter-spacing: -0.02em;
 }
 
-/* Links are always underlined: indigo against ink body text is only 1.88:1. */
+@utility text-display-s {
+  font-size: clamp(1.375rem, 1.2rem + 0.6vw, 1.625rem);
+  line-height: 1.23;
+  letter-spacing: -0.015em;
+}
+
+/* Links are always underlined: ink blue against ink body text is only 1.97:1. */
 @utility link {
   color: var(--accent);
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-underline-offset: 0.18em;
+  transition: color 150ms ease;
   &:hover {
+    color: var(--accent-hover);
     text-decoration-thickness: 2px;
   }
 }
@@ -130,9 +152,19 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  /* Each part of the site sets its own font (see src/app/fonts.ts); this is the fallback. */
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-schibsted), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
   -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 ::selection {

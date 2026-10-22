@@ -23,12 +23,12 @@ export default function CookiesPage() {
       }
     >
       <InfoSection title="The one cookie">
-        <div className="card overflow-x-auto p-0">
-          <table className="w-full min-w-[560px] border-collapse text-left text-[15px]">
-            <thead className="border-b border-[var(--card-border)]">
+        <div className="overflow-x-auto">
+          <table className="table-site min-w-[560px]">
+            <thead>
               <tr>
                 {["Name", "Purpose", "Lasts", "Type"].map((h) => (
-                  <th key={h} scope="col" className="px-4 py-3 font-semibold">
+                  <th key={h} scope="col">
                     {h}
                   </th>
                 ))}
@@ -36,10 +36,10 @@ export default function CookiesPage() {
             </thead>
             <tbody>
               <tr>
-                <td className="px-4 py-3 font-mono">{SESSION_COOKIE}</td>
-                <td className="px-4 py-3">Keeps you signed in. Holds a random token; we store only a scrambled version of it.</td>
-                <td className="px-4 py-3">{SESSION_DAYS} days, renewed while you use it; deleted when you sign out</td>
-                <td className="px-4 py-3">Strictly necessary, first party</td>
+                <td className="font-mono !text-foreground">{SESSION_COOKIE}</td>
+                <td>Keeps you signed in. Holds a random token; we store only a scrambled version of it.</td>
+                <td>{SESSION_DAYS} days, renewed while you use it; deleted when you sign out</td>
+                <td>Strictly necessary, first party</td>
               </tr>
             </tbody>
           </table>

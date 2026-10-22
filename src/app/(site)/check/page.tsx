@@ -32,10 +32,10 @@ export default function CheckPage() {
       title="Is it OK to post this?"
       intro="Paste your LinkedIn draft. See what could cause trouble at work before anyone else does. Free, no sign-up, nothing stored."
       meta={
-        <ul className="flex flex-wrap gap-2">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[15px] text-muted">
           {["Runs in your browser", "Nothing is sent or stored", "No sign-up"].map((t) => (
-            <li key={t} className="pill">
-              <Check aria-hidden className="size-4 text-brass" />
+            <li key={t} className="flex items-center gap-2">
+              <Check aria-hidden className="size-4 text-foreground" strokeWidth={2.25} />
               {t}
             </li>
           ))}
@@ -44,12 +44,12 @@ export default function CheckPage() {
     >
       <PostChecker />
       <section className="flex flex-col gap-6">
-        <h2 className="font-heading text-[28px] leading-tight md:text-[34px]">Common questions</h2>
-        <dl className="grid gap-4">
+        <h2 className="t-h3">Common questions</h2>
+        <dl className="border-t border-border">
           {QUESTIONS.map(({ q, a }) => (
-            <div key={q} data-reveal className="card flex flex-col gap-2 p-6">
-              <dt className="text-[17px] font-semibold">{q}</dt>
-              <dd className="leading-relaxed text-muted">{a}</dd>
+            <div key={q} className="flex flex-col gap-1.5 border-b border-border py-5">
+              <dt className="t-title">{q}</dt>
+              <dd className="t-body text-muted">{a}</dd>
             </div>
           ))}
         </dl>

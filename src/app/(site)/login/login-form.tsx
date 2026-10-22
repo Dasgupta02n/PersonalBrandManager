@@ -22,7 +22,7 @@ export function LoginForm({ next }: { next: string }) {
           <Input id="email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" defaultValue={sent.email} />
           <Hint>Use a personal email. Your employer won&apos;t see that you use this.</Hint>
         </div>
-        <SubmitButton variant="gold" pendingLabel="Sending…">
+        <SubmitButton pendingLabel="Sending…" className="w-full">
           Email me a sign-in code
         </SubmitButton>
         {sent.status === "error" && sent.message && <Notice tone="danger">{sent.message}</Notice>}
@@ -51,7 +51,7 @@ export function LoginForm({ next }: { next: string }) {
           />
           <Hint>Or open the link in the email, on any device.</Hint>
         </div>
-        <SubmitButton variant="gold" pendingLabel="Signing in…">
+        <SubmitButton pendingLabel="Signing in…" className="w-full">
           Sign in
         </SubmitButton>
         {checked.status === "sent" && checked.message && <Notice tone="danger">{checked.message}</Notice>}

@@ -1,31 +1,29 @@
 import type { ComponentProps, ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import { CircleAlert, CircleCheck, Info, Sparkle, TriangleAlert } from "lucide-react";
+import { BadgeCheck, CircleAlert, CircleCheck, Info, TriangleAlert } from "lucide-react";
 
 export const cx = (...classes: (string | false | null | undefined)[]) => classes.filter(Boolean).join(" ");
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "gold";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
 export type ButtonSize = "sm" | "md" | "lg";
 
 const buttonStyles: Record<ButtonVariant, string> = {
-  primary: "bg-ink text-ink-foreground hover:opacity-90",
-  secondary: "border border-border-strong text-foreground hover:bg-surface-2",
-  ghost: "text-muted hover:bg-surface-2 hover:text-foreground",
+  primary: "bg-ink text-ink-foreground hover:bg-ink-hover",
+  secondary: "border border-border-soft bg-background text-foreground hover:border-border-strong hover:bg-band",
+  ghost: "text-muted hover:bg-surface hover:text-foreground",
   danger: "text-danger hover:bg-danger-soft",
-  // The public site's main action (styled in src/app/(site)/site.css); only used inside the site.
-  gold: "btn-gold !rounded-full",
 };
 
 // Every size keeps a 44px+ touch target; the sticky primary bar uses lg (52px).
 const buttonSizes: Record<ButtonSize, string> = {
-  sm: "min-h-11 px-3 text-sm",
-  md: "min-h-12 px-4 text-base",
-  lg: "min-h-[52px] px-5 text-base",
+  sm: "min-h-11 px-3.5 text-[15px]",
+  md: "min-h-12 px-5 text-base",
+  lg: "min-h-[52px] px-6 text-base",
 };
 
 export function buttonClass(variant: ButtonVariant = "primary", extra?: string, size: ButtonSize = "md") {
   return cx(
-    "inline-flex items-center justify-center gap-2 rounded-xl font-semibold whitespace-nowrap transition",
+    "inline-flex items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap transition-[background-color,border-color,color,transform] duration-150 active:scale-[0.97]",
     "disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-[18px] [&_svg]:shrink-0",
     buttonSizes[size],
     buttonStyles[variant],
@@ -95,8 +93,8 @@ export function Hint({ children, className, id }: { children: ReactNode; classNa
 }
 
 const fieldClass =
-  "mt-1.5 block w-full rounded-xl border border-border-strong bg-field px-3.5 py-3 text-base text-foreground " +
-  "transition placeholder:text-subtle focus:border-accent focus:ring-4 focus:ring-accent-soft focus:outline-none";
+  "mt-1.5 block w-full rounded-lg border border-border-strong bg-field px-3.5 py-3 text-base text-foreground " +
+  "transition-colors duration-150 placeholder:text-subtle focus:border-accent focus:outline-2 focus:outline-offset-2 focus:outline-accent";
 
 export function Input({ className, ...props }: ComponentProps<"input">) {
   return <input className={cx(fieldClass, "min-h-12", className)} {...props} />;
@@ -113,11 +111,20 @@ export function Select({ className, ...props }: ComponentProps<"select">) {
 export type Tone = "neutral" | "accent" | "brass" | "success" | "danger";
 
 const toneStyles: Record<Tone, string> = {
-  neutral: "bg-surface-2 text-foreground",
+  neutral: "bg-surface text-foreground",
   accent: "bg-accent-soft text-accent",
-  brass: "bg-brass-soft text-brass",
+  brass: "bg-accent-soft text-accent",
   success: "bg-success-soft text-success",
   danger: "bg-danger-soft text-danger",
+};
+
+// Notices keep their text in ink: colour lives in the icon and the tint only.
+const noticeStyles: Record<Tone, { box: string; icon: string }> = {
+  neutral: { box: "bg-caution-soft", icon: "text-caution" },
+  accent: { box: "bg-accent-soft", icon: "text-accent" },
+  brass: { box: "bg-accent-soft", icon: "text-accent" },
+  success: { box: "bg-success-soft", icon: "text-success" },
+  danger: { box: "bg-danger-soft", icon: "text-danger" },
 };
 
 export function Badge({ tone = "neutral", icon: Icon, children }: { tone?: Tone; icon?: LucideIcon; children: ReactNode }) {
@@ -137,7 +144,7 @@ export function Badge({ tone = "neutral", icon: Icon, children }: { tone?: Tone;
 const noticeIcons: Record<Tone, LucideIcon> = {
   neutral: TriangleAlert,
   accent: Info,
-  brass: Sparkle,
+  brass: BadgeCheck,
   success: CircleCheck,
   danger: CircleAlert,
 };
@@ -146,8 +153,11 @@ const noticeIcons: Record<Tone, LucideIcon> = {
 export function Notice({ tone = "accent", icon, children }: { tone?: Tone; icon?: LucideIcon; children: ReactNode }) {
   const Icon = icon ?? noticeIcons[tone];
   return (
-    <div role={tone === "danger" ? "alert" : "status"} className={cx("flex gap-2.5 rounded-xl px-3.5 py-3 text-sm", toneStyles[tone])}>
-      <Icon aria-hidden className="mt-0.5 size-4 shrink-0" />
+    <div
+      role={tone === "danger" ? "alert" : "status"}
+      className={cx("flex gap-2.5 rounded-lg px-3.5 py-3 text-[15px] text-foreground", noticeStyles[tone].box)}
+    >
+      <Icon aria-hidden className={cx("mt-0.5 size-[18px] shrink-0", noticeStyles[tone].icon)} />
       <div className="min-w-0 leading-relaxed">{children}</div>
     </div>
   );
@@ -165,7 +175,7 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border-strong/60 px-6 py-10 text-center">
+    <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border-soft px-6 py-10 text-center">
       <span className="flex size-11 items-center justify-center rounded-full bg-surface text-muted">
         <Icon aria-hidden className="size-5" />
       </span>

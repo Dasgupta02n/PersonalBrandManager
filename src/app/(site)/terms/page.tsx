@@ -19,7 +19,7 @@ export default function TermsPage() {
       title="Terms of service"
       updated="2026-10-22"
       intro={
-        <ul className="prose-site">
+        <ul className="flex list-disc flex-col gap-2 pl-5 marker:text-subtle">
           <li>Your notes and drafts are yours. We use them only to run the service for you.</li>
           <li>You decide what to post. Our checks are a careful second read, not legal or compliance advice.</li>
           <li>The service is free during the private beta. Paid plans will be sold by Paddle as our merchant of record.</li>
@@ -27,7 +27,7 @@ export default function TermsPage() {
         </ul>
       }
     >
-      <p className="card p-5 text-[15px] leading-relaxed text-muted">
+      <p className="rounded-lg bg-surface px-5 py-4 text-[16px] leading-relaxed">
         This is the plain-language version for the private beta. A lawyer-reviewed version will replace it before payments open, and
         we&apos;ll tell you before it takes effect.
       </p>

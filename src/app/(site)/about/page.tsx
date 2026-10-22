@@ -49,8 +49,8 @@ export default function AboutPage() {
       }
       aside={
         OPERATOR.founderName ? (
-          <div className="card flex flex-col gap-2 p-6">
-            <p className="font-heading text-xl">{OPERATOR.founderName}</p>
+          <div className="flex flex-col gap-2 rounded-xl border border-border p-6">
+            <p className="t-title">{OPERATOR.founderName}</p>
             <p className="text-muted">Founder{OPERATOR.city ? ` · ${OPERATOR.city}, India` : ""}</p>
             {OPERATOR.linkedin && (
               <a href={OPERATOR.linkedin} className="link font-semibold" rel="me">
@@ -74,10 +74,10 @@ export default function AboutPage() {
       </InfoSection>
 
       <InfoSection title="What we won't do">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid border-t border-border sm:grid-cols-2 sm:gap-x-10">
           {WONT.map((w) => (
-            <div key={w.title} className="card card-hover p-6">
-              <h3 className="font-heading mb-1.5 text-[19px] tracking-[-0.02em] text-foreground">{w.title}</h3>
+            <div key={w.title} className="!mt-0 border-b border-border py-5">
+              <h3 className="mb-1 font-semibold">{w.title}</h3>
               <p>{w.body}</p>
             </div>
           ))}
@@ -89,11 +89,11 @@ export default function AboutPage() {
       </InfoSection>
 
       <InfoSection id="facts" title={`${APP_NAME} in brief`}>
-        <dl className="grid gap-x-8 sm:grid-cols-2">
+        <dl className="grid border-t border-border sm:grid-cols-2 sm:gap-x-10">
           {FACTS.map((f) => (
-            <div key={f.label} className="border-t border-[var(--card-border)] py-3.5">
+            <div key={f.label} className="!mt-0 border-b border-border py-4">
               <dt className="font-semibold text-foreground">{f.label}</dt>
-              <dd className="mt-0.5">{f.value}</dd>
+              <dd className="mt-0.5 text-muted">{f.value}</dd>
             </div>
           ))}
         </dl>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Ban, Hand, ShieldCheck, Sparkles, Unplug } from "lucide-react";
+import { Hand, LockKeyhole, ShieldCheck, Unplug } from "lucide-react";
 import { AsideCard, InfoPage, InfoSection } from "@/components/public-shell";
 import { APP_NAME } from "@/lib/config/app";
 
@@ -57,35 +57,29 @@ export default function HowItWorksPage() {
           items={[
             { icon: Hand, text: "You approve everything; nothing goes out without you" },
             { icon: ShieldCheck, text: "Every draft's facts are checked against your record" },
-            { icon: Sparkles, text: "Claude models with zero data retention" },
+            { icon: LockKeyhole, text: "Claude models with zero data retention" },
             { icon: Unplug, text: "No access to LinkedIn, no browser extension" },
           ]}
         />
       }
       intro={
         <p>
-          You write one line a day about your work. {APP_NAME} keeps it as a private, dated record and, only when you ask, turns your
-          wins into LinkedIn drafts that are checked for confidential details, boastful phrasing and job-hunt signals. AI helps at each
-          step; you approve everything, and you post it yourself.
+          You write one line a day about your work. {APP_NAME} keeps it as a private, dated record and, only when you ask, turns
+          your wins into LinkedIn drafts that are checked for confidential details, boastful phrasing and job-hunt signals. AI
+          helps at each step; you approve everything, and you post it yourself.
         </p>
       }
     >
       <InfoSection title="Step by step">
-        <ol className="relative flex !list-none flex-col gap-5 !pl-0 before:absolute before:top-4 before:bottom-4 before:left-[21px] before:w-px before:bg-gradient-to-b before:from-[#f2b544] before:via-[#8b7dff] before:to-transparent">
+        <ol className="!list-none !pl-0 border-t border-border">
           {STEPS.map((s, i) => (
-            <li key={s.title} data-reveal className="relative flex gap-4 sm:gap-5">
-              <span className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#ffe3a0] to-[#e09a2f] text-[16px] font-bold text-[#1b1204] shadow-[0_0_24px_rgb(242_181_68/0.4)]">
-                {i + 1}
-              </span>
-              <div className="card flex min-w-0 flex-1 flex-col gap-3 p-5 sm:p-6">
-                <h3 className="font-heading text-[20px] tracking-[-0.02em] text-foreground">{s.title.replace(/^\d+\.\s*/, "")}</h3>
-                <p>{s.body}</p>
-                <p className="flex items-start gap-3 rounded-2xl border border-[#f2b544]/25 bg-brass-soft/60 px-4 py-3 text-[15px]">
-                  <Sparkles aria-hidden className="mt-1 size-4 shrink-0 text-brass" />
-                  <span>
-                    <strong>Where AI helps: </strong>
-                    {s.ai}
-                  </span>
+            <li key={s.title} className="!mt-0 grid gap-x-6 gap-y-3 border-b border-border py-7 sm:grid-cols-[2rem_1fr]">
+              <span className="tnum pt-0.5 text-[17px] font-semibold text-muted">{i + 1}</span>
+              <div className="flex min-w-0 flex-col gap-3">
+                <h3 className="t-title">{s.title.replace(/^\d+\.\s*/, "")}</h3>
+                <p className="text-muted">{s.body}</p>
+                <p className="rounded-lg bg-surface px-4 py-3 text-[16px] leading-relaxed">
+                  <strong>Where AI helps.</strong> {s.ai}
                 </p>
               </div>
             </li>
@@ -96,10 +90,13 @@ export default function HowItWorksPage() {
       <InfoSection id="models" title="Which AI, and what happens to your text">
         <ul>
           <li>
-            We use Anthropic&apos;s Claude models, reached through OpenRouter and run on Google Vertex AI. Both are used only with zero data
-            retention: your text is processed to answer and not kept.
+            We use Anthropic&apos;s Claude models, reached through OpenRouter and run on Google Vertex AI. Both are used only with
+            zero data retention: your text is processed to answer and not kept.
           </li>
-          <li>Only what a step needs is sent: the note being read, or the wins and settings behind a draft. Your email is never sent.</li>
+          <li>
+            Only what a step needs is sent: the note being read, or the wins and settings behind a draft. Your email is never
+            sent.
+          </li>
           <li>Your notes, wins, drafts and style notebook are never used to train any AI model, ours or anyone else&apos;s.</li>
           <li>
             The free post check on this site uses rules only, runs in your browser and sends nothing anywhere.{" "}
@@ -113,19 +110,16 @@ export default function HowItWorksPage() {
 
       <InfoSection id="limits" title="What AI can get wrong">
         <p>
-          AI can misread a note or miss a risk. That is why every win is fact-checked against your note, every draft&apos;s facts against
-          your record, and why nothing leaves {APP_NAME} without you. The checks are a careful second read, not legal, compliance or HR
-          advice: read every draft as if you wrote it, because once you post it, you did.
+          AI can misread a note or miss a risk. That is why every win is fact-checked against your note, every draft&apos;s facts
+          against your record, and why nothing leaves {APP_NAME} without you. The checks are a careful second read, not legal,
+          compliance or HR advice: read every draft as if you wrote it, because once you post it, you did.
         </p>
       </InfoSection>
 
       <InfoSection id="never" title="What never happens">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <ul>
           {NEVER.map((item) => (
-            <li key={item} className="card flex items-start gap-3 !pl-5 p-5 before:!hidden">
-              <Ban aria-hidden className="mt-1 size-5 shrink-0 text-danger" />
-              <span>{item}</span>
-            </li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </InfoSection>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BadgePercent, CalendarCheck, Check, CreditCard, RefreshCcw } from "lucide-react";
+import { BadgePercent, CalendarCheck, Check, CreditCard, RefreshCcw } from "lucide-react";
 import { AsideCard, InfoPage, InfoSection, JsonLd } from "@/components/public-shell";
 import { PRICES, TRIAL_DAYS, annualMonthsFree, formatUsd } from "@/lib/billing/pricing";
 import { APP_NAME } from "@/lib/config/app";
@@ -28,7 +28,10 @@ const BILLING = [
     q: "When am I charged?",
     a: `Not during the beta. When billing opens, your first ${TRIAL_DAYS} days cost ${formatUsd(PRICES.trial.usd)}; membership starts after that only if you continue. We email you before the first month ends and before every renewal.`,
   },
-  { q: "How do I cancel?", a: "In one step, in Settings. You keep access until the end of the period you paid for, with no fees." },
+  {
+    q: "How do I cancel?",
+    a: "In one step, in Settings. You keep access until the end of the period you paid for, with no fees.",
+  },
   {
     q: "What about tax?",
     a: "Prices are in US dollars and exclude sales tax, VAT or GST, which our payment provider adds where the law requires. You see the final price before you pay.",
@@ -50,9 +53,27 @@ export default function PricingPage() {
     operatingSystem: "Web",
     publisher: { "@id": `${SITE_URL}/#organization` },
     offers: [
-      { "@type": "Offer", name: "Membership, monthly", price: String(PRICES.monthly.usd), priceCurrency: "USD", url: absoluteUrl("/pricing") },
-      { "@type": "Offer", name: "Membership, annual", price: String(PRICES.annual.usd), priceCurrency: "USD", url: absoluteUrl("/pricing") },
-      { "@type": "Offer", name: `First ${TRIAL_DAYS} days`, price: String(PRICES.trial.usd), priceCurrency: "USD", url: absoluteUrl("/pricing") },
+      {
+        "@type": "Offer",
+        name: "Membership, monthly",
+        price: String(PRICES.monthly.usd),
+        priceCurrency: "USD",
+        url: absoluteUrl("/pricing"),
+      },
+      {
+        "@type": "Offer",
+        name: "Membership, annual",
+        price: String(PRICES.annual.usd),
+        priceCurrency: "USD",
+        url: absoluteUrl("/pricing"),
+      },
+      {
+        "@type": "Offer",
+        name: `First ${TRIAL_DAYS} days`,
+        price: String(PRICES.trial.usd),
+        priceCurrency: "USD",
+        url: absoluteUrl("/pricing"),
+      },
     ],
   };
 
@@ -83,41 +104,38 @@ export default function PricingPage() {
         </p>
       }
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div data-reveal className="card flex flex-col gap-3 p-7">
-          <p className="eyebrow">Your first month</p>
-          <p className="flex items-baseline gap-2">
-            <span className="font-heading text-[52px] leading-none tracking-[-0.05em]">{formatUsd(PRICES.trial.usd)}</span>
-            <span className="text-muted">for {TRIAL_DAYS} days</span>
-          </p>
-          <p className="text-muted">Everything in membership, with a third of the monthly allowance.</p>
-        </div>
-        <div data-reveal className="site-dark glow-border flex flex-col gap-3 rounded-[1.4rem] p-7">
-          <div className="flex items-center justify-between gap-3">
-            <p className="eyebrow">Membership</p>
-            <span className="rounded-full bg-brass-soft px-2.5 py-0.5 text-[12px] font-semibold text-brass">Free in beta</span>
+      <div className="flex flex-col gap-6 rounded-2xl border border-border p-7 md:p-10">
+        <p className="t-title">{APP_NAME} membership</p>
+        <dl className="grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
+          <div className="flex flex-col gap-1">
+            <dt className="text-[16px] font-medium text-muted">Your first {TRIAL_DAYS} days</dt>
+            <dd className="t-h2">{formatUsd(PRICES.trial.usd)}</dd>
+            <dd className="text-[16px] text-muted">Everything in membership, with a third of the monthly allowance.</dd>
           </div>
-          <p className="flex items-baseline gap-2">
-            <span className="font-heading text-[52px] leading-none tracking-[-0.05em]">{formatUsd(PRICES.monthly.usd)}</span>
-            <span className="text-muted">a month</span>
-          </p>
-          <p className="text-muted">
-            or {formatUsd(PRICES.annual.usd)} a year, {annualMonthsFree() === 1 ? "one month" : `${annualMonthsFree()} months`} free
-          </p>
+          <div className="flex flex-col gap-1">
+            <dt className="text-[16px] font-medium text-muted">Then</dt>
+            <dd className="t-h2">
+              {formatUsd(PRICES.monthly.usd)} <span className="t-body text-muted">a month</span>
+            </dd>
+            <dd className="text-[16px] text-muted">
+              or {formatUsd(PRICES.annual.usd)} a year, {annualMonthsFree() === 1 ? "one month" : `${annualMonthsFree()} months`}{" "}
+              free
+            </dd>
+          </div>
+        </dl>
+        <div className="flex flex-col gap-3 border-t border-border pt-6">
+          <Link href="/login" className="btn btn-primary self-start max-sm:w-full">
+            Join the free beta
+          </Link>
+          <p className="t-caption">Free during the private beta. Prices in US dollars, plus local tax shown at checkout.</p>
         </div>
       </div>
-      <Link href="/login" className="btn btn-gold btn-lg self-start">
-        Join the free beta
-        <ArrowRight aria-hidden />
-      </Link>
 
       <InfoSection title="Everything included">
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <ul className="!list-none !pl-0">
           {INCLUDED.map((item) => (
-            <li key={item} className="card flex items-start gap-3 p-4 !pl-4 before:!hidden">
-              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-success-soft">
-                <Check aria-hidden className="size-3.5 text-success" />
-              </span>
+            <li key={item} className="flex items-start gap-3">
+              <Check aria-hidden className="mt-[5px] size-4 shrink-0" strokeWidth={2.25} />
               {item}
             </li>
           ))}
@@ -125,11 +143,11 @@ export default function PricingPage() {
       </InfoSection>
 
       <InfoSection title="Billing, plainly">
-        <dl className="grid gap-3 sm:grid-cols-2">
+        <dl className="border-t border-border">
           {BILLING.map((b) => (
-            <div key={b.q} className="card flex flex-col gap-1.5 p-5">
-              <dt className="font-heading text-[17px] tracking-[-0.02em] text-foreground">{b.q}</dt>
-              <dd className="text-[15.5px] leading-relaxed">{b.a}</dd>
+            <div key={b.q} className="border-b border-border py-5">
+              <dt className="font-semibold">{b.q}</dt>
+              <dd className="mt-1 text-muted">{b.a}</dd>
             </div>
           ))}
         </dl>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Briefcase, ScanSearch, ShieldCheck } from "lucide-react";
+import { Briefcase, ShieldCheck } from "lucide-react";
 import { AsideCard, InfoPage, InfoSection, JsonLd } from "@/components/public-shell";
 import { APP_NAME } from "@/lib/config/app";
 import { ABOUT_POSTING, ABOUT_WINWALL, faqPageJsonLd, type Faq } from "@/lib/content/site-faq";
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 
 function FaqList({ items }: { items: Faq[] }) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="border-t border-border">
       {items.map((item) => (
-        <div key={item.id} id={item.id} className="card flex scroll-mt-24 flex-col gap-2 p-6">
-          <h3 className="font-heading text-[19px] tracking-[-0.02em] text-foreground">{item.q}</h3>
-          <p className="text-[16px] leading-relaxed">{item.a}</p>
+        <div key={item.id} id={item.id} className="!mt-0 flex scroll-mt-28 flex-col gap-2 border-b border-border py-6">
+          <h3 className="t-title">{item.q}</h3>
+          <p className="text-muted">{item.a}</p>
         </div>
       ))}
     </div>
@@ -35,12 +35,11 @@ export default function FaqPage() {
         <AsideCard
           title="On this page"
           items={[
-            { icon: Briefcase, text: <a href="#posting" className="hover:text-brass">Posting on LinkedIn while employed</a> },
-            { icon: ShieldCheck, text: <a href="#winwall" className="hover:text-brass">About {APP_NAME}</a> },
+            { icon: Briefcase, text: <a href="#posting" className="text-link">Posting on LinkedIn while employed</a> },
+            { icon: ShieldCheck, text: <a href="#winwall" className="text-link">About {APP_NAME}</a> },
           ]}
           action={
-            <Link href="/check" className="btn btn-gold w-full">
-              <ScanSearch aria-hidden />
+            <Link href="/check" className="btn btn-secondary w-full">
               Check a post free
             </Link>
           }

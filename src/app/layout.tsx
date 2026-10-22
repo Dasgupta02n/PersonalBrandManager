@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { APP_NAME } from "@/lib/config/app";
 import { SITE_DESCRIPTION, SITE_URL } from "@/lib/config/site";
+import { schibsted } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,14 +17,14 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf8f3" },
-    { media: "(prefers-color-scheme: dark)", color: "#141311" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1115" },
   ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" className="h-full antialiased">
+    <html lang="en-GB" className={`${schibsted.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
