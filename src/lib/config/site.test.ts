@@ -33,7 +33,7 @@ describe("public site", () => {
     expect(list).toHaveLength(1);
     expect(list[0].userAgent).toBe("*");
     expect(list[0].allow).toBe("/");
-    for (const path of ["/today", "/wins", "/drafts", "/account", "/auth/", "/api/"]) expect(PRIVATE_PATHS).toContain(path);
+    for (const path of ["/today", "/wins", "/drafts", "/network", "/account", "/auth/", "/api/"]) expect(PRIVATE_PATHS).toContain(path);
     for (const page of PUBLIC_PAGES) {
       expect(PRIVATE_PATHS.some((p) => page.path === p || page.path.startsWith(p))).toBe(false);
     }

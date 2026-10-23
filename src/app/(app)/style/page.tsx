@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Lock, X } from "lucide-react";
+import { ArrowLeft, Lock } from "lucide-react";
 import { IconSubmitButton, SubmitButton } from "@/components/client";
 import { EmptyState, PageHeader, Panel, SectionHeader, buttonClass } from "@/components/ui";
 import { requireUser } from "@/lib/data/session";
@@ -22,7 +22,7 @@ function RemoveButton({ noteKey, label }: { noteKey: string; label: string }) {
       <input type="hidden" name="key" value={noteKey} />
       <IconSubmitButton
         label={`Remove: ${label}`}
-        icon={X}
+        icon="x"
         className="-my-2 -mr-2 flex size-11 shrink-0 items-center justify-center rounded-lg text-muted hover:bg-surface-2 hover:text-foreground"
       />
     </form>

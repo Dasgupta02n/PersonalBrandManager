@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FileText, MessageSquareText, Sun, Trophy, type LucideIcon } from "lucide-react";
+import { FileText, MessageSquareText, Sun, Trophy, Users, type LucideIcon } from "lucide-react";
 import { cx } from "./ui";
 
 interface NavItem {
@@ -15,6 +15,7 @@ const NAV: NavItem[] = [
   { href: "/today", label: "Today", icon: Sun },
   { href: "/drafts", label: "Drafts", icon: FileText },
   { href: "/engage", label: "Comment", icon: MessageSquareText },
+  { href: "/network", label: "Network", icon: Users },
   { href: "/wins", label: "Wins", icon: Trophy },
 ];
 
@@ -61,7 +62,7 @@ export function DesktopNav({ draftCount }: { draftCount: number }) {
   );
 }
 
-/** Thumb-reach tab bar on phones: four visible destinations beat a hidden menu. */
+/** Thumb-reach tab bar on phones: five visible destinations beat a hidden menu. */
 export function MobileTabBar({ draftCount }: { draftCount: number }) {
   const { pathname, isActive } = useActive();
   if (isPushedScreen(pathname)) return null;
@@ -70,7 +71,7 @@ export function MobileTabBar({ draftCount }: { draftCount: number }) {
       aria-label="Main"
       className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-background pb-[env(safe-area-inset-bottom)] md:hidden print:hidden"
     >
-      <ul className="mx-auto grid h-14 max-w-md grid-cols-4">
+      <ul className="mx-auto grid h-14 max-w-md grid-cols-5">
         {NAV.map(({ href, label, icon: Icon }) => {
           const active = isActive(href);
           return (
@@ -79,7 +80,7 @@ export function MobileTabBar({ draftCount }: { draftCount: number }) {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={cx(
-                  "flex h-14 flex-col items-center justify-center gap-0.5 text-[13px] transition-colors duration-150",
+                  "flex h-14 flex-col items-center justify-center gap-0.5 text-[12px] transition-colors duration-150",
                   active ? "font-semibold text-foreground" : "font-medium text-muted",
                 )}
               >

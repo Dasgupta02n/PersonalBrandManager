@@ -22,7 +22,7 @@ export default async function WeekPage() {
   const today = localParts(new Date(), profile.timezone).date;
   const since = addDays(weekStart(today), -7 * (WEEKS - 1));
 
-  const [entries, wins, posts, opportunities, ready] = await Promise.all([
+  const [entries, wins, posts, opportunities, ready, conversations] = await Promise.all([
     db.from("journal_entries").select("entry_date").eq("user_id", user.id).gte("entry_date", since),
     db.from("wins").select("occurred_on, kind").eq("user_id", user.id).gte("occurred_on", since),
     db.from("drafts").select("posted_at").eq("user_id", user.id).eq("status", "posted").gte("posted_at", `${since}T00:00:00Z`),
@@ -33,6 +33,12 @@ export default async function WeekPage() {
       .gte("occurred_on", addDays(today, -90))
       .order("occurred_on", { ascending: false }),
     db.from("drafts").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("kind", "post").eq("status", "ready"),
+    db
+      .from("network_interactions")
+      .select("id", { count: "exact", head: true })
+      .eq("user_id", user.id)
+      .in("kind", ["message_sent", "message_received", "call", "meeting", "intro"])
+      .gte("occurred_on", weekStart(today)),
   ]);
 
   const opportunityRows = opportunities.data ?? [];
@@ -49,6 +55,7 @@ export default async function WeekPage() {
     { label: "Workdays logged", value: `${week.workdaysLogged} of ${week.workdays}` },
     { label: "Wins logged", value: week.wins, brass: week.wins > 0 },
     { label: "Posts published", value: week.posts },
+    { label: "Network conversations", value: conversations.count ?? 0 },
   ];
 
   return (
@@ -58,7 +65,7 @@ export default async function WeekPage() {
 
       <dl className="grid grid-cols-2 gap-3">
         {tiles.map((tile, i) => (
-          <Panel key={tile.label} className={i === 0 ? "col-span-2" : undefined}>
+          <Panel key={tile.label} className={i === 0 || i === tiles.length - 1 ? "col-span-2" : undefined}>
             <dt className="text-[13px] font-medium text-muted">{tile.label}</dt>
             <dd className={`mt-1 font-display text-display-m font-medium tabular-nums ${tile.brass ? "text-brass" : ""}`}>{tile.value}</dd>
           </Panel>

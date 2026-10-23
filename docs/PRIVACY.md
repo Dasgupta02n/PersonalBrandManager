@@ -15,8 +15,9 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 | Notes and wins | Our PostgreSQL, Mumbai | The user | Until deleted |
 | Style notebook (style notes, edit counts, single removed words) | Our PostgreSQL, Mumbai | The user | Until cleared or the account is deleted |
 | Drafts, opportunities, profile suggestions | Our PostgreSQL, Mumbai | The user | Until deleted |
+| Network: setup answers, contacts the user adds (name, role, organisation, optional email and profile link, notes), conversation log, next steps, roles, AI suggestions of companies and job titles | Our PostgreSQL, Mumbai | The user (row-level security; interactions and roles can only point at the same user's contacts) | Until deleted; cascades with the account |
 | AI usage (task, model, tokens, cost; no content) | Our PostgreSQL, Mumbai | Server code only | Kept without the user id after deletion |
-| Text sent to AI | OpenRouter → Google Vertex AI | Processed only | Zero data retention |
+| Text sent to AI (never a contact's name: messages use a placeholder that is filled in on our server) | OpenRouter → Google Vertex AI | Processed only | Zero data retention |
 | App logs | Hostinger VPS, Mumbai | Operators | Never log note or draft content |
 | Database backups (everything above), encrypted with our passphrase (AES-256) | The VPS, Mumbai; Google Drive | Operators with the passphrase; Google sees only encrypted files | 14 days on the server, 30 days on Google Drive |
 | Weekly snapshots of the whole VPS (not encrypted by us) | Hostinger backup servers, most likely Kuala Lumpur, Malaysia | Hostinger, operators | Hostinger's retention (to confirm) |
@@ -38,6 +39,16 @@ Only three ways, all consistent with "we never use what you write to train AI mo
 
 Bump `PRIVACY_NOTICE_VERSION` when the notice changes materially; everyone is asked to agree
 again on their next visit.
+
+## People in a user's network
+
+Contacts are third parties' personal data that a user types in to manage their own professional
+relationships. We act for the user: nothing is shared, enriched from other sources, or used to
+contact anyone, and nothing is sent to the people themselves. The AI never receives a contact's
+name. The search firm directory (`src/lib/network/firms-data.ts`) holds firm-level facts from each
+firm's own website and no personal data. If a person asks about data a user holds on them, we pass
+the request to that user and help where the law requires. Terms section 7 asks users to add only
+people they have a genuine professional reason to contact, and never bought or scraped lists.
 
 ## Rights requests
 

@@ -4,16 +4,21 @@ Working name. The product name is set in one place (`APP_NAME`) so it can change
 
 ## 1. Summary
 
-A pre-post check and a private record of real work, for employed professionals who know they
-should be visible on LinkedIn but rarely post. The user spends about a minute a day noting what
+A private career tool for senior employed professionals who want the next role to find them and
+can't be seen looking. Three parts: a private record of real work, a pre-post check for LinkedIn,
+and a private network of the search firms and people who bring the next role. For the first two: The user spends about a minute a day noting what
 moved forward at work. Every draft is checked for what their employer, clients and peers will see
 before they see it; drafts, comment starters, profile and CV updates and appraisal summaries are
 built only from the record. The drafting is the easy part; the check and the record are what we
 sell, and the record is worth renewing for even in weeks the user doesn't post.
 
-**Promise:** Nothing you'll regret posting.
+The network (section 5.11) turns that visibility into relationships: the executive search firms
+that place people like the user, the roles worth knowing at competitors and companies they would
+join, every conversation and follow-up, and messages the user sends themselves.
 
-**Tagline:** Be known for the work you already do.
+**Promise:** Ready for your next role, without looking like you're looking.
+
+**Tagline:** Be known for your work. Be found for your next role.
 
 **Platform focus:** LinkedIn only. Other networks are out of scope for the beta.
 
@@ -57,6 +62,10 @@ From the persona research (`docs/research/`), each persona with its correction:
 - **The Independent Expert** (e.g. fractional CMO, Dubai). Referred clients check them before
   they call; LinkedIn's job is to confirm, not to broadcast.
 
+Also for anyone in these personas who is "not looking, just staying ready", open to a move in the
+next year, or looking now but quietly: senior roles mostly come through search firms and people
+who already know the work.
+
 Not for: active job seekers who want volume, creators chasing reach, early-career users, and
 anyone wanting automation.
 
@@ -69,7 +78,9 @@ anyone wanting automation.
    reaches the product only when the user shares it (pasted text, screenshot, uploaded export).
 3. **Real facts only.** Drafts may use only facts from the user's wins, profile and CV. Never
    invent or inflate a number, title, client, date or result.
-4. **Discreet.** Nothing may signal that the user is looking for a job.
+4. **Discreet.** Nothing public may signal that the user is looking for a job. The network is
+   private; messages to search consultants may say, in confidence, that the user is open to the
+   right role, and messages to anyone else are checked for job-hunt signals.
 5. **Confidential.** Checks keep employer-sensitive details (named clients, internal figures,
    unannounced plans, no-go topics) out of public drafts, automatically. Other people's names
    are kept out of the stored record by default. Checks are a careful second read, never
@@ -181,9 +192,11 @@ page suggests a personal email.
 
 ### 5.9 Plans, account and privacy
 
-- Pricing: one global price (see `docs/PRICING.md`). Membership $29 a month or $319 a year;
-  first month $9.50 for 30 days. Sized to fund the multi-pass quality pipeline. Each plan has a monthly AI allowance that keeps input cost at or
-  below 30% of revenue; a calm note appears only from 80% used. No credit counters.
+- Pricing: one global price (see `docs/PRICING.md`). Membership $30 a month or $330 a year;
+  first month $10 for 30 days. After payment fees and an income tax reserve, each price splits
+  into three equal parts: cost, performance marketing and profit. Each plan has a monthly AI
+  allowance that keeps cost within its part; a calm note appears only from 80% used. No credit
+  counters.
 - Plans live in a table users can read but not change. Billing (Paddle) comes later; the private
   beta is free.
 - Consent to the privacy notice at setup (and once for existing accounts), with version and date.
@@ -194,7 +207,31 @@ page suggests a personal email.
 
 Native mobile apps (beta is an installable PWA), team/company accounts, networks other than
 LinkedIn, newsletters, carousel/video posts, one-tap publishing via the LinkedIn API (only after
-Community Management API approval), job-search add-on.
+Community Management API approval), job boards and applications, contact-data enrichment.
+
+### 5.11 Network
+
+- **Setup questions** (one page): the role wanted next, level, functions, sectors, countries and
+  cities, current company (kept out of suggestions), competitors, companies they would join,
+  timeline (staying ready, open in the next year, looking now quietly) and what they can offer.
+  Saving builds the first suggestions.
+- **Search firms:** a directory of executive search and senior recruitment firms with offices in
+  India, the UAE, the UK, Singapore or the US, firm-level facts only, each checked on the firm's
+  own website (95 firms at launch). Matched to the answers by plain rules, with reasons ("Office in
+  the UAE · Financial services practice · CXO searches"). Also public at `/search-firms`.
+- **People to know:** AI suggests, for each company the user named and up to four more it is
+  confident about, 2–3 job titles worth knowing and why. Never names. A LinkedIn people search
+  opens in the user's own browser; the user adds the person by hand.
+- **People:** contacts with kind (search firm, competitor, company they'd join, peer, other),
+  stage (to contact, contacted, in conversation, warm, gone quiet), notes, next step and date, a
+  conversation log, and roles through them. Due next steps also show on Today; the weekly
+  scorecard counts network conversations.
+- **Messages:** purpose (introduce, reconnect, ask for a conversation, follow up, thank, share
+  an update) and channel (LinkedIn or email), written from the record and checked. The contact's
+  name never reaches the AI. Copy, open LinkedIn or the user's email, then "I've sent it" logs it
+  and sets a follow-up a week out.
+- **Roles:** a private pipeline (heard about, exploring, interviewing, offer, closed).
+- Never: scraping, contact enrichment, bought lists, sending anything, or paid placement for firms.
 
 ## 6. Key user journeys
 

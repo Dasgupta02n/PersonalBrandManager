@@ -6,14 +6,15 @@ import { CONTACT } from "@/lib/config/site";
 
 export const metadata: Metadata = {
   title: "Security: how we protect your notes",
-  description: `Exactly how ${APP_NAME} protects your work notes: stored in Mumbai, India, zero-retention AI, no passwords, encrypted backups, and what we don't have yet.`,
+  description: `Exactly how ${APP_NAME} protects your work notes and your network: stored in Mumbai, India, zero-retention AI, no passwords, encrypted backups, and what we don't have yet.`,
   alternates: { canonical: "/security" },
 };
 
 const WHERE: { what: string; where: string; who: string; howLong: string }[] = [
   { what: "Your notes, wins, drafts and settings", where: "Our server, Mumbai, India", who: "Only you", howLong: "Until you delete them" },
+  { what: "Your network: people you add, conversations, roles", where: "Our server, Mumbai, India", who: "Only you; never shared or enriched", howLong: "Until you delete them" },
   { what: "Your account (email address only)", where: "Our server, Mumbai", who: "Used only to sign you in", howLong: "Until you delete your account" },
-  { what: "Text sent for drafting or checks", where: "OpenRouter, then Google Vertex AI", who: "Processed, not kept", howLong: "Zero data retention" },
+  { what: "Text sent for drafting, checks or messages (never contacts' names)", where: "OpenRouter, then Google Vertex AI", who: "Processed, not kept", howLong: "Zero data retention" },
   { what: "Backups", where: "Our server and Google Drive", who: "Encrypted; only we hold the key", howLong: "14 days on the server, 30 on Drive" },
   { what: "Weekly server snapshots", where: "Hostinger, Malaysia", who: "Our host, for disaster recovery", howLong: "Hostinger's schedule" },
   { what: "Card details (after the beta)", where: "Paddle", who: "Paddle only", howLong: "They never reach us" },
@@ -24,7 +25,7 @@ export default function SecurityPage() {
     <InfoPage
       path="/security"
       title={`Security at ${APP_NAME}`}
-      updated="2026-10-22"
+      updated="2026-10-23"
       aside={
         <AsideCard
           title="At a glance"
@@ -112,7 +113,8 @@ export default function SecurityPage() {
             AI.
           </li>
           <li>The free post check runs entirely in your browser and sends nothing to us.</li>
-          <li>{APP_NAME} never logs in to LinkedIn, has no browser extension and automates nothing.</li>
+          <li>{APP_NAME} never logs in to LinkedIn, has no browser extension and automates nothing. It never sends email or messages for you.</li>
+          <li>Each person in your network can only be read by your account; a contact can never be linked to another user&apos;s records.</li>
           <li>Our logs never contain your notes or drafts. Usage records keep only the task, model and cost.</li>
         </ul>
       </InfoSection>

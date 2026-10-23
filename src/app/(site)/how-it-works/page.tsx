@@ -6,7 +6,7 @@ import { APP_NAME } from "@/lib/config/app";
 
 export const metadata: Metadata = {
   title: "How it works and how we use AI",
-  description: `How ${APP_NAME} turns a one-line daily note into a private work record and checked LinkedIn drafts: which steps use AI, which models, what is sent, and what never happens.`,
+  description: `How ${APP_NAME} turns a one-line daily note into a private work record, checked LinkedIn drafts and a private network of search firms and people at competitors: which steps use AI, what is sent, and what never happens.`,
   alternates: { canonical: "/how-it-works" },
 };
 
@@ -36,13 +36,19 @@ const STEPS: { title: string; body: string; ai: string }[] = [
     body: "Edit anything, ask for it shorter or more modest, or discard it. To post, you copy it, open LinkedIn yourself and paste.",
     ai: `Nothing is posted, sent or shared by ${APP_NAME}. It has no access to LinkedIn.`,
   },
+  {
+    title: "6. You build the network that brings the next role",
+    body: `A few questions (the role you'd want next, your sectors, where you'd work, your competitors) shape your first suggestions: the executive search firms that fit you, from a directory checked against each firm's own website, and the roles worth knowing at your competitors and the companies you'd join. You add the people you know or find, log each conversation, and set a next step; Today tells you when one is due.`,
+    ai: "Firm matches use plain rules, not AI. AI suggests which companies and job titles are worth knowing, never people's names, and writes messages from your record for you to send. Each message is checked for anything confidential and, unless it's to a search consultant, for anything that reads as a job hunt. Your contacts' names are never sent to the AI.",
+  },
 ];
 
 const NEVER = [
   `${APP_NAME} never logs in to, reads, scrapes or automates your LinkedIn account. There is no browser extension.`,
-  "It never posts, comments, likes or messages for you.",
+  "It never posts, comments, likes, connects or messages for you, on LinkedIn or by email.",
+  "It never looks people up, guesses who works where, or buys contact data. People in your network are the ones you add.",
   "It never invents achievements, numbers or quotes.",
-  "It never adds labels, tags or links to what you post.",
+  "It never adds labels, tags or links to what you post. No search firm pays to be listed or ranked.",
 ];
 
 export default function HowItWorksPage() {
@@ -50,12 +56,12 @@ export default function HowItWorksPage() {
     <InfoPage
       path="/how-it-works"
       title={`How ${APP_NAME} works, and how it uses AI`}
-      updated="2026-10-22"
+      updated="2026-10-23"
       aside={
         <AsideCard
           title="At a glance"
           items={[
-            { icon: Hand, text: "You approve everything; nothing goes out without you" },
+            { icon: Hand, text: "You approve and send everything; nothing goes out without you" },
             { icon: ShieldCheck, text: "Every draft's facts are checked against your record" },
             { icon: LockKeyhole, text: "Claude models with zero data retention" },
             { icon: Unplug, text: "No access to LinkedIn, no browser extension" },
@@ -65,8 +71,9 @@ export default function HowItWorksPage() {
       intro={
         <p>
           You write one line a day about your work. {APP_NAME} keeps it as a private, dated record and, only when you ask, turns
-          your wins into LinkedIn drafts that are checked for confidential details, boastful phrasing and job-hunt signals. AI
-          helps at each step; you approve everything, and you post it yourself.
+          your wins into LinkedIn drafts that are checked for confidential details, boastful phrasing and job-hunt signals. Alongside
+          it, you build a private network of the search firms and people who bring the next role. AI helps at each step; you
+          approve everything, and you post and send it yourself.
         </p>
       }
     >
@@ -94,10 +101,12 @@ export default function HowItWorksPage() {
             zero data retention: your text is processed to answer and not kept.
           </li>
           <li>
-            Only what a step needs is sent: the note being read, or the wins and settings behind a draft. Your email is never
-            sent.
+            Only what a step needs is sent: the note being read, the wins and settings behind a draft, or your network answers
+            and a contact&apos;s role and notes for a message. Your email and your contacts&apos; names are never sent.
           </li>
-          <li>Your notes, wins, drafts and style notebook are never used to train any AI model, ours or anyone else&apos;s.</li>
+          <li>
+            Your notes, wins, drafts, network and style notebook are never used to train any AI model, ours or anyone else&apos;s.
+          </li>
           <li>
             The free post check on this site uses rules only, runs in your browser and sends nothing anywhere.{" "}
             <Link href="/check" className="link">

@@ -56,7 +56,12 @@ evals/                 Quality bar: synthetic test sets, single-prompt baselines
 | `cv_versions` | Generated CV files (storage path), version number, change summary |
 | `reach_snapshots` | Reach numbers read from screenshots (or API later) |
 | `scorecards` | Weekly scorecard snapshots |
-| `watch_list` | People the user wants to engage with |
+| `watch_list` | People the user wants to engage with (not used yet; the network replaces it) |
+| `network_goals` | The Network setup answers: role wanted next, functions, sectors, level, countries and cities, current company, competitors, companies they'd join, timeline, what they can offer |
+| `network_contacts` | People (or, until named, a firm or a suggested role at a company) with kind, stage, notes, next step and last contact. A trigger keeps interactions and roles pointing at the same user's contacts |
+| `network_interactions` | The conversation log per contact: message sent or received, call, meeting, introduction, note |
+| `network_roles` | Roles the user hears about, the contact they came through, and their stage |
+| `network_suggestions` | The latest AI suggestions of companies and job titles (never names), kept so pages don't call the model |
 | `ai_usage` | Model, host, tokens and cost of every AI call, per user (service role only) |
 
 ## AI tasks
@@ -81,6 +86,8 @@ Override a function's model with `AI_MODEL_<TASK>` (an OpenRouter id, for exampl
 | `how_it_reads` | live | Claude Opus 5.5 | high | Verdict (confident / boastful / too modest / generic), sounds like the user, per-reader notes, lines to change |
 | `revise_draft` | live | Claude Opus 5.5 | medium | Shorter, more modest, or stronger first line |
 | `comment_starters` | live | Claude Opus 5.5 | medium | 2–3 approaches: opening line and what to add |
+| `network_map` | live | Claude Opus 5.5 | medium | Companies the user named plus up to 4 the model is confident about, each with 2–3 job titles worth knowing and why; 2–3 lines of approach. Never people's names |
+| `outreach_message` | live | Claude Opus 5.5 | medium | A private LinkedIn message or email (subject, body, a note) for the user to send; the contact's name is a placeholder filled in afterwards |
 | `draft_reply` | planned | Claude Opus 5.5 | medium | Reply options for comments on the user's posts |
 | `read_post_screenshot` | planned | Claude Opus 5.5 | low | Post text and author from a screenshot |
 | `import_profile` | planned | Claude Opus 5.5 | medium | Positions, skills, past posts from a LinkedIn PDF or export |
@@ -117,10 +124,24 @@ Draft pipeline (`draftPost` in `src/lib/ai/tasks.ts`): draft → review → how 
    problems are stored with status `draft` and never shown as ready to post. Edits mark the
    AI review as stale until re-checked.
 
+## Network
+
+`src/lib/network/` and `src/app/(app)/network/`. Search firms come from a static directory
+(`firms-data.ts`: firm-level facts from each firm's own website, with the source page and the date
+checked) and are matched to the user's answers by plain rules (`matchFirms`: office in their
+countries, then sector, function, level and, for CXO and board roles, retained search). AI suggests
+companies and job titles (`network_map`) and writes messages (`outreach_message`); both use the
+plan's allowance. Messages are checked by `checkMessage`: the deterministic post checks, except that
+naming your own employer is allowed (unless the rule is "never") and job-hunt phrases are allowed to
+search consultants but flagged to anyone else. Nothing is fetched from LinkedIn: suggested people
+and firms come with a LinkedIn people-search link the user opens in their own browser, and the user
+adds people by hand. Nothing is sent: the user copies a message, sends it, then logs it.
+
 ## Plans and allowance
 
-One global price (`src/lib/billing/pricing.ts`, explained in `docs/PRICING.md`): 30% input cost,
-30% marketing, 30% profit after income tax. Each plan's monthly AI allowance is derived from it.
+One global price (`src/lib/billing/pricing.ts`, explained in `docs/PRICING.md`): $30 a month.
+After payment fees and an income tax reserve, each price splits into three equal parts: cost,
+performance marketing and profit. Each plan's monthly AI allowance is derived from the cost part.
 `requireAllowance` runs before every AI action and sums the real cost of the period's calls from
 `ai_usage` (OpenRouter's reported cost, or tokens × list price). When the allowance is used, the
 note is still saved and the AI step is skipped with a calm message.
@@ -184,4 +205,5 @@ Tokens, type, layout and copy rules are in `docs/DESIGN.md`; tokens live in
   (read-only for `subscriptions`, nothing for `ai_usage`), the service role reaches everything, and
   `anon` reaches nothing. New tables start with no access; each migration grants its own tables.
 - Every server action and route handler verifies the session before touching data.
-- No LinkedIn credentials, cookies or automation anywhere in the system.
+- No LinkedIn credentials, cookies or automation anywhere in the system. No contact enrichment,
+  scraping or bought data; the network holds only what users type in.

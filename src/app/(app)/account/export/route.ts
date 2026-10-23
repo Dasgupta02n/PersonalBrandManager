@@ -17,6 +17,11 @@ const USER_TABLES = [
   "reach_snapshots",
   "scorecards",
   "watch_list",
+  "network_goals",
+  "network_contacts",
+  "network_interactions",
+  "network_roles",
+  "network_suggestions",
 ] as const;
 
 /** Everything the user has stored, as one JSON file (DPDP and GDPR access and portability). */

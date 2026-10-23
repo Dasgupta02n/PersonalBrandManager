@@ -11,10 +11,12 @@ export const metadata: Metadata = {
 };
 
 const WONT = [
-  { title: "Post for you", body: "We have no access to LinkedIn and never will. You approve and post everything." },
+  { title: "Post or message for you", body: "We have no access to LinkedIn or your email and never will. You approve, post and send everything." },
+  { title: "Look people up", body: "No scraping, no bought contact lists, no guessing who works where. Your network is the people you add." },
   { title: "Invent facts", body: "Drafts use only what you logged, and every specific fact is checked against your record." },
   { title: "Sell or train on your words", body: "Never sold, never used to train AI. You can export or delete everything." },
   { title: "Chase followers", body: "No growth hacks, follower targets or streaks. Quality over frequency." },
+  { title: "Take money from search firms", body: "No firm pays to be listed, ranked or introduced to you. The directory serves you, not them." },
 ];
 
 export default function AboutPage() {
@@ -40,11 +42,12 @@ export default function AboutPage() {
     <InfoPage
       path="/about"
       title={`About ${APP_NAME}`}
-      updated="2026-10-22"
+      updated="2026-10-23"
       intro={
         <p>
-          {APP_NAME} is a private record of your work and a careful second reader for LinkedIn. It&apos;s built for experienced
-          professionals who would rather say nothing than say the wrong thing. It is made by {operatorLine()}, and is in private beta.
+          {APP_NAME} helps senior professionals get ready for the next role without looking as if they&apos;re looking: a private
+          record of their work, a careful second reader for LinkedIn, and a private network of the search firms and people who bring
+          the next role. It is made by {operatorLine()}, and is in private beta.
         </p>
       }
       aside={
@@ -71,6 +74,11 @@ export default function AboutPage() {
           {APP_NAME} makes the careful thing the easy thing. Note one line a day and your record builds itself. When you want to share
           something, every draft comes from your real work and is checked before you see it. You decide what, if anything, goes out.
         </p>
+        <p>
+          The same people rarely look for their next role in public, and shouldn&apos;t have to. Senior roles mostly come through
+          search firms and people who already know your work. So {APP_NAME} also helps you find the firms that place people like you,
+          know who matters at your competitors, and keep those relationships warm, privately and in your own words.
+        </p>
       </InfoSection>
 
       <InfoSection title="What we won't do">
@@ -83,8 +91,8 @@ export default function AboutPage() {
           ))}
         </div>
         <p>
-          <strong className="text-foreground">How we make money:</strong> you pay us; nobody else does. No ads, no data sales, no
-          employer plans.
+          <strong className="text-foreground">How we make money:</strong> you pay us; no one else does. No ads, no data sales, no
+          employer plans, no fees from search firms.
         </p>
       </InfoSection>
 

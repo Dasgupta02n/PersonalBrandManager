@@ -92,9 +92,33 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
 - The harness reuses earlier outputs and gradings, caps every run at the account's credit and
   stops on the first credit refusal.
 
+## Milestone 2 — network and next-role positioning (done, 2026-10-23)
+
+- **Network tab** (`/network`): setup questions (role wanted next, level, functions, sectors,
+  countries and cities, current company, competitors, companies the user would join, timeline,
+  what they can offer), then the first suggestions: search firms matched by plain rules from a
+  directory of 95 firms checked on their own websites (`src/lib/network/firms-data.ts`, research in
+  `/home/user/research_notes/Search firm directory data/`), and AI suggestions of companies and job
+  titles worth knowing, never names (`network_map`). LinkedIn people searches open only in the
+  user's own browser.
+- **People** with stages, a conversation log, next steps (due ones also show on Today), roles
+  through each contact, and messages written from the record (`outreach_message`), checked for
+  confidential details and, except to search consultants, job-hunt phrases. The contact's name
+  never goes to the AI. "I've sent it" logs the message and sets a follow-up a week out.
+- **Roles** pipeline (heard about, exploring, interviewing, offer, closed). The weekly scorecard
+  counts network conversations.
+- Migration `0002_network.sql`: five user tables with `own_rows` RLS and grants, and a trigger so
+  interactions and roles can only point at the same user's contacts.
+- **Positioning:** "Ready for your next role, without looking like you're looking." The public
+  site, share image, FAQ, terms (section 7) and privacy notice (version 2026-10-23, so existing
+  users consent again) cover the network. New public page: `/search-firms`.
+- **Price:** $30 a month, $330 a year, $10 for the first 30 days. After payment fees and an
+  income tax reserve, each price splits into three equal parts: cost, performance marketing and
+  profit (`docs/PRICING.md`).
+
 ## Public site
 
-Home, how it works, pricing, FAQ, security, privacy, terms, refunds, cookies, accessibility,
+Home, how it works, the search firm directory, pricing, FAQ, security, privacy, terms, refunds, cookies, accessibility,
 about, contact (with the grievance officer) and an HTML site map, plus `robots.txt`,
 `sitemap.xml`, `llms.txt` and `/.well-known/security.txt`. Every public page is server-rendered;
 facts, prices and the page list come from `src/lib/config/site.ts` and
@@ -136,11 +160,15 @@ are stored outside India (most likely Malaysia) and not encrypted by us. Open:
 4. CV documents (DOCX/PDF) and versions; weekly profile prompt
 5. Scorecard: profile strength, reach from screenshot
 6. Billing (Paddle), renewal emails with the year in wins, admin console, monitoring
-7. Desktop browser extension for "draft comment"
+7. Network: re-check the firm directory each quarter (and the ~20 firms whose sites couldn't be
+   read), add more regional firms, and measure suggestion and message quality in `evals/`
 
 ## Known limitations
 
 - Re-saving settings replaces topic pillars, which unlinks existing wins from their pillar.
+- The firm directory is a snapshot (checked 2026-10-23). Some large recruiters list countries
+  without city offices; empty sectors or functions mean "not stated on the site".
+- `network_map` and `outreach_message` have no eval sets or baselines yet.
 - "Sounds like you" stays unknown until the user adds sample posts (voice profile comes later).
 - Voice capture uses the browser's speech recognition where available (Chrome, Edge, Safari).
 - One small VPS runs the app, the database and two other sites: fine for the beta; move the

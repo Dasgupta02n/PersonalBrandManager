@@ -27,6 +27,8 @@ const CONFLICT_KEYS: Record<string, string[]> = {
   voice_profiles: ["user_id"],
   confidentiality_rules: ["user_id"],
   subscriptions: ["user_id"],
+  network_goals: ["user_id"],
+  network_suggestions: ["user_id"],
 };
 
 const IDENTIFIER = /^[a-z_][a-z0-9_]*$/;

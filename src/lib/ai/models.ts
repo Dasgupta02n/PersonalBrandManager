@@ -28,6 +28,9 @@ export const TASK_SETTINGS = {
   comment_starters: { model: OPUS, effort: "medium", live: true },
   draft_reply: { model: OPUS, effort: "medium", live: false },
   read_post_screenshot: { model: OPUS, effort: "low", live: false },
+  // Network
+  network_map: { model: OPUS, effort: "medium", live: true },
+  outreach_message: { model: OPUS, effort: "medium", live: true },
   // Onboarding imports
   import_profile: { model: OPUS, effort: "medium", live: false },
   import_cv: { model: OPUS, effort: "medium", live: false },

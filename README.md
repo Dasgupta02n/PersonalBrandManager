@@ -1,10 +1,12 @@
 # Winwall
 
-**Nothing you'll regret posting.** A pre-post check and a private record of real work for
-employed professionals on LinkedIn. Note what moved forward in a minute a day. Every draft is
+**Ready for your next role, without looking like you're looking.** A private career tool for
+senior employed professionals. Note what moved forward in a minute a day. Every LinkedIn draft is
 checked for what your employer, clients and peers will see before you see it. Posts, comment
 starters, profile and CV updates and appraisal summaries are built only from your record. The
-user approves everything; the product never posts, comments or edits LinkedIn on its own.
+Network finds the executive search firms that place people like you and the roles worth knowing at
+your competitors, and keeps every conversation and follow-up in one private place. The user
+approves and sends everything; the product never posts, messages or touches LinkedIn on its own.
 
 - Product requirements: [docs/PRD.md](docs/PRD.md)
 - Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)

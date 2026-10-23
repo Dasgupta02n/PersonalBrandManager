@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Lightbulb, Lock, X } from "lucide-react";
+import { ChevronRight, Lightbulb, Lock, X } from "lucide-react";
 import { SubmitButton } from "@/components/client";
 import { Badge, EmptyState, Notice, Panel, SectionHeader, cx } from "@/components/ui";
 import { loadAllowance } from "@/lib/billing/allowance";
@@ -28,7 +28,7 @@ export default async function TodayPage() {
   const today = now.date;
   const monthStart = `${today.slice(0, 8)}01`;
 
-  const [entries, todaysWins, monthWins, ideas, recentWins, allowance, ctx] = await Promise.all([
+  const [entries, todaysWins, monthWins, ideas, recentWins, allowance, ctx, networkDue] = await Promise.all([
     db
       .from("journal_entries")
       .select("id, entry_date, follow_up_question, created_at")
@@ -53,6 +53,7 @@ export default async function TodayPage() {
     db.from("wins").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("occurred_on", addDays(today, -30)),
     loadAllowance(user.id),
     loadUserContext(db, user.id),
+    db.from("network_contacts").select("id, name, next_step").eq("user_id", user.id).lte("next_step_on", today).order("next_step_on").limit(3),
   ]);
 
   const entryRows = entries.data ?? [];
@@ -109,6 +110,23 @@ export default async function TodayPage() {
       <Panel>
         <CaptureForm prompt="What moved forward today?" comeback={missed !== null && missed >= 3} masksNames={ctx.rules.maskNames} />
       </Panel>
+
+      {(networkDue.data?.length ?? 0) > 0 && (
+        <Link
+          href={networkDue.data?.length === 1 ? `/network/contacts/${networkDue.data[0].id}` : "/network"}
+          className="flex items-center justify-between gap-3 rounded-xl border border-border px-4 py-3 transition-colors duration-150 hover:bg-band"
+        >
+          <span className="min-w-0">
+            <span className="block text-[13px] font-semibold tracking-[0.06em] text-muted uppercase">Network</span>
+            <span className="block truncate text-[15px]">
+              {networkDue.data?.length === 1
+                ? `${networkDue.data[0].name}: ${networkDue.data[0].next_step ?? "next step due"}`
+                : `${networkDue.data?.length} next steps due with people in your network`}
+            </span>
+          </span>
+          <ChevronRight aria-hidden className="size-5 shrink-0 text-subtle" />
+        </Link>
+      )}
 
       {followUp?.follow_up_question && (
         <Panel tone="outline" className="flex flex-col gap-1">

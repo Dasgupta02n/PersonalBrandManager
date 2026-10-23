@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowRight, CircleCheck, Copy, ExternalLink, Mic, OctagonAlert, TriangleAlert } from "lucide-react";
+import { ArrowRight, Check, CircleCheck, Copy, ExternalLink, Mic, OctagonAlert, Plus, Search, TriangleAlert } from "lucide-react";
 import { cx } from "../ui";
 
 // Product pictures for the public site: crops of Winwall's own screens, rebuilt in HTML with the
@@ -177,7 +177,7 @@ export function DataFlow() {
     <figure className="flex flex-col gap-4">
       <div className="flex flex-col items-stretch gap-2 md:flex-row md:items-center">
         <div className={box}>
-          <p className="font-semibold">Your note</p>
+          <p className="font-semibold">Your note or contact</p>
           <p className="text-[14px] text-muted">Stored on our server in Mumbai</p>
         </div>
         {arrow}
@@ -193,8 +193,133 @@ export function DataFlow() {
       </div>
       <p className="flex items-center gap-3 text-[15px] text-muted">
         <span aria-hidden className="h-px w-10 shrink-0 border-t border-dashed border-border-strong" />
-        LinkedIn: nothing is sent, read or posted. You copy the post yourself.
+        LinkedIn and email: nothing is sent, read or posted for you. Contacts&apos; names never go to the AI.
       </p>
     </figure>
+  );
+}
+
+/** The hero picture: the Network overview, with what's due, the firms that fit and a role worth knowing. */
+export function NetworkScreen() {
+  const row = "flex items-start gap-3 border-b border-border py-3 last:border-0";
+  const label = "text-[13px] font-semibold tracking-[0.06em] text-subtle uppercase";
+  return (
+    <figure className="flex min-w-0 flex-col gap-3">
+      <Stage>
+        <div className="screen flex flex-col gap-5 p-5 md:p-6">
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-[17px] font-semibold">Your network</p>
+            <p className="rounded-full border border-border px-2.5 py-0.5 text-[13px] font-medium text-muted">Private to you</p>
+          </div>
+          <div>
+            <p className={label}>Next steps this week</p>
+            <ul className="mt-1">
+              <li className={row}>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[15px] font-semibold">Ravi Kapoor</p>
+                  <p className="text-[14.5px] leading-snug text-muted">Send the note on SME lending I promised</p>
+                </div>
+                <span className="text-[13px] font-medium text-muted">Today</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className={label}>Search firms for you</p>
+            <ul className="mt-1">
+              <li className={row}>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[15px] font-semibold">Harbour Search Partners</p>
+                  <p className="text-[14px] leading-snug text-muted">Office in the UAE · Financial services practice · CXO searches</p>
+                </div>
+                <Check aria-hidden className="mt-0.5 size-[17px] shrink-0 text-success" strokeWidth={2.25} />
+              </li>
+              <li className={row}>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[15px] font-semibold">Kestrel &amp; Grant</p>
+                  <p className="text-[14px] leading-snug text-muted">Offices in the UK and Singapore · Covers risk roles</p>
+                </div>
+                <Plus aria-hidden className="mt-0.5 size-[17px] shrink-0 text-muted" />
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className={label}>Worth knowing at Eastbank</p>
+            <ul className="mt-1">
+              <li className={row}>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[15px] font-semibold">Chief Risk Officer</p>
+                  <p className="text-[14px] leading-snug text-muted">The role you&apos;d report to. You find the person; we never name anyone.</p>
+                </div>
+                <Search aria-hidden className="mt-0.5 size-[17px] shrink-0 text-muted" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Stage>
+      <figcaption className="t-caption max-w-[34rem]">
+        An example Network screen with fictional names. Real firms come from a directory checked against each firm&apos;s own website.
+      </figcaption>
+    </figure>
+  );
+}
+
+/** A contact: the conversation so far, and a message written from the record, checked, for the user to send. */
+export function ContactScreen() {
+  return (
+    <Stage>
+      <div className="screen flex flex-col gap-4 p-5 md:p-6">
+        <div>
+          <p className="text-[13px] font-medium text-subtle">Search firm · In conversation</p>
+          <p className="mt-0.5 text-[19px] font-semibold">Ravi Kapoor</p>
+          <p className="text-[14.5px] text-muted">Partner, financial services at Harbour Search Partners</p>
+        </div>
+        <ul className="flex flex-col border-y border-border text-[14.5px]">
+          <li className="flex gap-3 border-b border-border py-2.5">
+            <span className="tnum w-12 shrink-0 text-[13px] text-subtle">14 Oct</span>
+            <span className="leading-snug">Call. Running a regional CRO search; asked for my view of SME lending.</span>
+          </li>
+          <li className="flex gap-3 py-2.5">
+            <span className="tnum w-12 shrink-0 text-[13px] text-subtle">2 Sep</span>
+            <span className="leading-snug">Met at a credit risk round table in Dubai.</span>
+          </li>
+        </ul>
+        <div className="rounded-lg border border-border-strong px-3.5 py-3 text-[14.5px] leading-[1.6]">
+          Hi Ravi, thank you for Tuesday. As promised, a short note on what we learned rebuilding SME credit scoring this year: test
+          the riskiest segment first, and bring the analytics team in from day one…
+        </div>
+        <ul className="flex flex-col gap-2 text-[14px] leading-snug">
+          <StatusLine status="clear">Nothing confidential, and the figures follow your rules.</StatusLine>
+        </ul>
+        <div className="flex flex-wrap gap-2">
+          <span className="flex items-center gap-1.5 rounded-md bg-ink px-3 py-1.5 text-[13.5px] font-medium text-ink-foreground">
+            <Copy aria-hidden className="size-3.5" /> Copy message
+          </span>
+          <span className="flex items-center rounded-md border border-border-soft px-3 py-1.5 text-[13.5px] font-medium">I&apos;ve sent it</span>
+        </div>
+      </div>
+    </Stage>
+  );
+}
+
+/** Step 3: the follow-ups due this week. */
+export function FollowUpScreen() {
+  return (
+    <Stage className="!p-4 md:!p-5">
+      <div className="screen flex flex-col p-4">
+        <p className="text-[13.5px] font-medium text-subtle">Next steps this week</p>
+        {[
+          ["Ravi Kapoor", "Send the note I promised", "Today"],
+          ["Head of Credit, Eastbank", "Find them and add their name", "Thu"],
+        ].map(([who, what, when]) => (
+          <div key={who} className="flex items-start gap-3 border-b border-border py-2.5 last:border-0">
+            <div className="min-w-0 flex-1">
+              <p className="text-[14.5px] font-semibold">{who}</p>
+              <p className="text-[13.5px] leading-snug text-muted">{what}</p>
+            </div>
+            <span className="text-[13px] font-medium text-muted">{when}</span>
+          </div>
+        ))}
+      </div>
+    </Stage>
   );
 }

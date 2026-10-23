@@ -77,15 +77,19 @@ Everything a visitor sees before signing in lives in `src/app/(site)` (home, pro
 pages, the free check, sign-in), styled by `src/app/(site)/site.css` on the shared tokens.
 
 - **Frame:** a solid white 72px header (60px and not sticky on phones) that gains a hairline once
-  the page scrolls; five links, "Sign in", and one 40px ink button; a full-height white menu sheet
+  the page scrolls; six links, "Sign in", and one 40px ink button; a full-height white menu sheet
   on phones with a worded "Menu" button. A light footer on `band`.
-- **Home, in order:** hero (promise left, a checked-draft screen right; top of the next section
-  visible above the fold), four promises in plain lines, the five worries as question-and-answer
-  rows, the real three steps with screen crops, the live check preloaded with a sample draft, the
+- **Home, in order:** hero (promise left, the Network screen right; top of the next section
+  visible above the fold), four promises in plain lines, the network section (four annotated
+  points and a contact screen), the five worries as question-and-answer rows, the real three steps
+  with screen crops (note, post, follow-ups), the live check preloaded with a sample draft, the
   record with three annotated points, a hairline comparison table, who makes it and how it's
   tested (figures as sentences with their caveats), where your data lives (line diagram and list),
   one plan card, FAQ accordion, closing call to action. The ink button repeats after the steps,
   at pricing and at the end; on phones a slim sticky bar shows it once the hero button has gone.
+- **Search firm directory** (`/search-firms`): the firms grouped by country in a two-column
+  hairline list, jump buttons per country, how the list is made, and a sticky panel that leads to
+  the beta. Firm names link out with `nofollow`; no people are listed.
 - **Inner pages:** a white title block (breadcrumb, h1, lead, last reviewed), then a 45rem reading
   column with an optional sticky "at a glance" panel; hairline lists and tables, no cards.
 - **Pictures:** crops of Winwall's own screens rebuilt in HTML with the app's tokens
@@ -117,6 +121,11 @@ pages, the free check, sign-in), styled by `src/app/(site)/site.css` on the shar
 | Draft | Copy post | Verdict (safe / how it reads / sounds like you) above the draft; safer-version suggestion; preview with "…see more" marker; revisions; "How it reads" by reader; sticky Copy → Open LinkedIn → Mark as posted |
 | Drafts | Open a draft | Segmented Ready / Needs a look / Posted; rows show the first line and the rest |
 | Comment | Get starters | Paste a post; 2–3 approaches with an opening line and what to add; "Write it myself" |
+| Network | Answer the questions (first visit) | Tabs: Overview, People, Search firms, Roles. Overview: People / Talking / Roles in play, next steps this week, the five best-fit firms with reasons, people to know by company (titles only, a LinkedIn search that opens in the user's browser, Add) |
+| Network setup | Save and see my suggestions | One page in four groups; choices as hairline chips; current company prefilled from the employer rule |
+| Contact | Write it for me | Kind and stage badges; next step with Done; message writer (purpose, LinkedIn or email) with checks, Copy, Open LinkedIn or email, "I've sent it"; conversation log; roles through them; details; remove |
+| Search firms | Show firms | Filters (country, sector, function, name); rows with kind, countries and reasons; LinkedIn search for consultants; Add |
+| Roles | Add a role | Grouped by stage; stage changes in place; links to the contact it came through |
 | Wins ("Your record") | Log today's first win (empty) | Tabs: Wins, This week, Profile & CV, Export. Grouped by month; filter by kind; praise in ink blue; copy as a list |
 | This week | Log it | Opportunities first (ink blue when there are any), workdays logged "x of y", wins, posts; last four weeks; one calm next-week suggestion |
 | Profile & CV | Suggest updates | Optional pasted current text; each suggestion checked like a post, with reason, where to paste it, Copy and "I've updated it" |
@@ -125,7 +134,7 @@ pages, the free check, sign-in), styled by `src/app/(site)/site.css` on the shar
 | How you write | Add a note | The style notebook: voice summary, notes with their source, words you remove (removable chips), "Learn from my latest writing", clear what was learned |
 | Plan, data and privacy | Download everything | Plan and a usage bar in words ("Plenty left"), never credits; delete account behind a typed confirmation |
 | Free post check (public) | Check my post | Runs in the browser; results by tier; what the full check adds |
-| Landing | Join the beta | Checked-draft screen; the five worries; the live check on a sample draft; comparison with a general AI assistant and growth tools; one global price (see "Public site") |
+| Landing | Join the beta | Network screen in the hero; the network section with a contact screen; the five worries; the live check on a sample draft; comparison with a general AI assistant and growth tools; one global price (see "Public site") |
 
 ## Copy
 

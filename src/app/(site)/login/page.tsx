@@ -9,9 +9,9 @@ import { LoginForm } from "./login-form";
 export const metadata: Metadata = { title: "Sign in", robots: { index: false } };
 
 const reassurances = [
-  "Nothing is posted without you",
+  "Nothing is posted or sent without you",
   "We never log in to or read your LinkedIn",
-  "Your notes stay private, and they're yours",
+  "Your notes and your network stay private, and they're yours",
 ];
 
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
@@ -50,7 +50,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
             <LoginForm next={next} />
           </div>
           <p className="t-caption">
-            We only ask for your email. We never post or act on LinkedIn for you. See the{" "}
+            We only ask for your email. We never post, message or act on LinkedIn for you. See the{" "}
             <Link href="/privacy" className="link">
               privacy notice
             </Link>

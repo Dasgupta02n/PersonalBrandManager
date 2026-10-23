@@ -170,3 +170,32 @@ export const CommentStartersSchema = z.object({
   ),
 });
 export type CommentStarters = z.infer<typeof CommentStartersSchema>;
+
+export const NetworkMapSchema = z.object({
+  companies: z.array(
+    z.object({
+      name: z.string().describe("The company's usual name."),
+      relation: z
+        .enum(["competitor", "target", "adjacent"])
+        .describe("competitor or target: a company the user named; adjacent: one you suggest."),
+      why: z.string().describe("One plain sentence: why this company matters for the user's next move."),
+      people: z
+        .array(
+          z.object({
+            title: z.string().describe("A job title as the company would write it. Never a person's name."),
+            why: z.string().describe("One short line: what someone in this role could tell or do for the user."),
+          }),
+        )
+        .describe("2–3 roles worth knowing there."),
+    }),
+  ),
+  approach: z.array(z.string()).describe("2–3 short lines of advice on building these relationships discreetly."),
+});
+export type NetworkMapOutput = z.infer<typeof NetworkMapSchema>;
+
+export const OutreachSchema = z.object({
+  subject: z.string().nullable().describe("A short, plain email subject; null for a LinkedIn message."),
+  body: z.string().describe("The whole message, opening with {first_name} where the name goes."),
+  note: z.string().describe("One short line for the user: why this approach, or what only they can add."),
+});
+export type OutreachOutput = z.infer<typeof OutreachSchema>;

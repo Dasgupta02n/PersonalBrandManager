@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { SESSION_COOKIE, sessionCookieOptions } from "@/lib/auth/cookie";
 
 /** Routes that require a signed-in user. */
-const PROTECTED_PREFIXES = ["/today", "/wins", "/drafts", "/engage", "/onboarding", "/account", "/consent", "/style"];
+const PROTECTED_PREFIXES = ["/today", "/wins", "/drafts", "/engage", "/network", "/onboarding", "/account", "/consent", "/style"];
 
 /**
  * Sends visitors without a session cookie from app pages to sign-in, and keeps an active

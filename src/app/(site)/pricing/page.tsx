@@ -17,6 +17,8 @@ export const metadata: Metadata = {
 const INCLUDED = [
   "A one-minute daily note that builds your private record",
   "Checked LinkedIn drafts and comment starters, in your voice",
+  "Your network: search firms matched to you, roles worth knowing at competitors, conversations and follow-ups",
+  "Messages written from your record and checked, for you to send yourself",
   "How it reads to peers, leadership and clients",
   "Profile and CV suggestions, appraisal exports, a weekly look back",
   "Regulated mode for finance and similar roles",
@@ -38,7 +40,7 @@ const BILLING = [
   },
   {
     q: "Is there a limit?",
-    a: "A fair-use allowance that covers daily logging and an active month of drafting. You'll only hear about it if you get close.",
+    a: "A fair-use allowance that covers daily logging, an active month of drafting and your network messages. You'll only hear about it if you get close.",
   },
 ];
 
@@ -81,7 +83,7 @@ export default function PricingPage() {
     <InfoPage
       path="/pricing"
       title="Pricing"
-      updated="2026-10-22"
+      updated="2026-10-23"
       aside={
         <AsideCard
           title="Good to know"

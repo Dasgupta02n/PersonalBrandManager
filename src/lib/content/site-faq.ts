@@ -1,6 +1,7 @@
 import { PRICES, TRIAL_DAYS, formatUsd } from "@/lib/billing/pricing";
 import { APP_NAME } from "@/lib/config/app";
 import { operatorLine } from "@/lib/config/site";
+import { FIRMS } from "@/lib/network/firms";
 
 // Questions answered on the public site, written answer-first in the reader's own words so a
 // person (or an AI assistant quoting the page) gets the answer in the first sentence.
@@ -33,6 +34,26 @@ export const ABOUT_WINWALL: Faq[] = [
     a: "It is stored on our own server in Mumbai, India, and sent to the AI model only to draft or check, with zero data retention. It is never sold and never used to train AI. You can download or delete everything at any time.",
   },
   {
+    id: "next-role",
+    q: `How does ${APP_NAME} help me find my next role?`,
+    a: `Quietly. You answer a few questions and get the executive search firms that place people like you, and the roles worth knowing at your competitors and the companies you'd join. You keep every conversation and next step in one private place, and get messages written from your record that you send yourself. Your posts, meanwhile, keep your work visible without looking like a job hunt.`,
+  },
+  {
+    id: "firms",
+    q: "Where does the list of search firms come from?",
+    a: `From each firm's own website. The directory lists ${FIRMS.length} executive search and senior recruitment firms with offices in India, the UAE, the UK, Singapore or the US, with the markets, sectors and levels each one says it covers. No firm pays to be listed or ranked, and we list firms, never their people.`,
+  },
+  {
+    id: "contacts",
+    q: `Does ${APP_NAME} find people or their contact details?`,
+    a: `No. ${APP_NAME} suggests job titles worth knowing, never names, and never looks anyone up, scrapes LinkedIn or buys contact data. You find people yourself, for example with a LinkedIn search that opens in your own browser, and add them by hand.`,
+  },
+  {
+    id: "headhunters-private",
+    q: "Will anyone know I'm talking to headhunters?",
+    a: `Not through ${APP_NAME}. Your network is private to you: nothing is shared, nothing is sent from your accounts and nothing appears on LinkedIn. Messages to people at competitors are checked for anything that reads as a job hunt, because messages get forwarded.`,
+  },
+  {
     id: "regulated",
     q: "Can I use it in a regulated job, like banking?",
     a: "Yes. Regulated mode adds stricter checks for finance and similar roles. It is a careful second read, not compliance approval: your firm's rules still apply.",
@@ -40,7 +61,7 @@ export const ABOUT_WINWALL: Faq[] = [
   {
     id: "often",
     q: "Do I have to post often?",
-    a: "No. Many people use it only as a private record for appraisals and CV updates. There are no streaks and no posting targets.",
+    a: "No. Many people use it only as a private record for appraisals and CV updates, and to keep their network warm. There are no streaks and no posting targets.",
   },
   {
     id: "price",
@@ -104,6 +125,16 @@ export const ABOUT_POSTING: Faq[] = [
     a: "LinkedIn's User Agreement does not allow bots or browser extensions that scrape, post, message or engage on your behalf, and accounts using them can be restricted. Writing a draft elsewhere and posting it yourself is not automation.",
   },
   {
+    id: "approach-headhunter",
+    q: "How do I approach an executive search firm?",
+    a: "Find the consultant who covers your function and sector, not the firm's general inbox. Keep the first message short: your scope (function, sector, level, markets), one or two concrete results, and an offer to be useful for their searches. Search firms work for the companies that hire them, so a good relationship matters more than a CV sent cold.",
+  },
+  {
+    id: "network-competitors",
+    q: "Is it OK to network with people at competitors?",
+    a: "Yes, and most senior people do: industry events, shared topics and former colleagues all cross company lines. Keep it about the work, never share anything confidential, and don't ask for a job. A conversation between peers is the start; roles tend to follow trust.",
+  },
+  {
     id: "4-1-1",
     q: "What is the 4-1-1 rule on LinkedIn?",
     a: "A content habit, not a LinkedIn rule: for every six posts, share four useful pieces from others, one update of your own and one direct ask. For employed professionals, one thoughtful post about real work matters more than any ratio.",
@@ -115,7 +146,7 @@ export const ABOUT_POSTING: Faq[] = [
   },
 ];
 
-export const HOME_FAQ_IDS = ["employer", "restrict", "ai-visible", "data", "regulated", "often", "who"];
+export const HOME_FAQ_IDS = ["employer", "next-role", "contacts", "headhunters-private", "restrict", "ai-visible", "data", "who"];
 
 export function faqPageJsonLd(items: Faq[]) {
   return {

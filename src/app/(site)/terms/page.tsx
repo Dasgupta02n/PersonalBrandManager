@@ -17,11 +17,11 @@ export default function TermsPage() {
     <InfoPage
       path="/terms"
       title="Terms of service"
-      updated="2026-10-22"
+      updated="2026-10-23"
       intro={
         <ul className="flex list-disc flex-col gap-2 pl-5 marker:text-subtle">
           <li>Your notes and drafts are yours. We use them only to run the service for you.</li>
-          <li>You decide what to post. Our checks are a careful second read, not legal or compliance advice.</li>
+          <li>You decide what to post and send. Our checks are a careful second read, not legal or compliance advice.</li>
           <li>The service is free during the private beta. Paid plans will be sold by Paddle as our merchant of record.</li>
           <li>Cancel any time; you keep access until the end of the period you paid for.</li>
         </ul>
@@ -42,7 +42,9 @@ export default function TermsPage() {
       <InfoSection title="2. The service">
         <p>
           {APP_NAME} keeps a private record of your work, drafts LinkedIn posts and profile text from it, and checks drafts before you
-          use them. It never accesses your LinkedIn account and never posts for you. You must be 18 or over to use it.
+          use them. It also helps you keep a private network: a directory of search firms, suggestions of roles worth knowing,
+          your contacts, conversations and follow-ups, and messages for you to send. It never accesses your LinkedIn account or
+          email, and never posts or sends anything for you. You must be 18 or over to use it.
         </p>
       </InfoSection>
 
@@ -76,14 +78,25 @@ export default function TermsPage() {
         </p>
       </InfoSection>
 
-      <InfoSection title="7. Fair use">
+      <InfoSection title="7. People in your network">
         <p>
-          Each plan includes a fair-use allowance that covers daily logging and an active month of drafting. Don&apos;t use {APP_NAME} to
+          Add only people you have a genuine professional reason to contact, and only what you need to keep track of the
+          relationship. Don&apos;t upload bought or scraped contact lists, and don&apos;t use {APP_NAME} for bulk or unsolicited
+          outreach. You are responsible for the messages you send and for following the privacy and anti-spam rules that apply to you.
+          The search firm directory lists public, firm-level facts; inclusion is not an endorsement, and we can&apos;t promise any firm
+          will reply or place you.
+        </p>
+      </InfoSection>
+
+      <InfoSection title="8. Fair use">
+        <p>
+          Each plan includes a fair-use allowance that covers daily logging, an active month of drafting and your network messages.
+          Don&apos;t use {APP_NAME} to
           break the law, to harass or impersonate anyone, to probe or overload our systems, or to resell the service.
         </p>
       </InfoSection>
 
-      <InfoSection title="8. Ending the service">
+      <InfoSection title="9. Ending the service">
         <p>
           You can delete your account at any time in Settings, which deletes your data as described in our{" "}
           <Link href="/privacy" className="link">
@@ -93,14 +106,14 @@ export default function TermsPage() {
         </p>
       </InfoSection>
 
-      <InfoSection title="9. Liability">
+      <InfoSection title="10. Liability">
         <p>
           We work hard to keep {APP_NAME} accurate, available and secure, but during the beta it is provided as it is. Nothing in these
           terms limits rights you have under the consumer law where you live.
         </p>
       </InfoSection>
 
-      <InfoSection title="10. Law and changes">
+      <InfoSection title="11. Law and changes">
         <p>
           These terms are governed by the laws of India, without removing the protection of the law where you live. If we change them in
           a way that matters, we&apos;ll tell you in advance.
@@ -108,6 +121,7 @@ export default function TermsPage() {
       </InfoSection>
 
       <InfoSection id="changes" title="What changed">
+        <p>23 October 2026: added the network (section 7) and the new price.</p>
         <p>22 October 2026: first version.</p>
       </InfoSection>
     </InfoPage>

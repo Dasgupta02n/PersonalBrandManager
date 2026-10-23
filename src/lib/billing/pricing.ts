@@ -1,48 +1,61 @@
 // One global price, in US dollars, the same in every country. Prices exclude sales tax, VAT and
 // GST, which the merchant of record adds at checkout where the law requires it.
 //
-// Every price is split the same way:
-//   30% input cost (payment fees, AI, hosting, database, email, domain)
-//   30% performance marketing
-//   30% profit after income tax
-//   the income tax on that profit (about 10% of the price)
-// Input cost is a ceiling: each plan's monthly AI allowance is what is left of the input share
-// after payment fees and platform costs, so a member who uses the whole allowance still leaves
-// the other shares intact. Members who use less leave more profit.
+// Every price is split the same way. Payment fees come off first and income tax on the profit is
+// set aside; what is left is divided into three equal parts:
+//   cost (AI, hosting, database, email, domain)
+//   performance marketing
+//   profit after income tax
+// Cost is a ceiling: each plan's monthly AI allowance is what is left of the cost part after
+// platform costs, so a member who uses the whole allowance still leaves the other parts intact.
+// Members who use less leave more profit.
 
 export const CURRENCY = "USD";
 
-export const SPLIT = { marketing: 0.3, profitAfterTax: 0.3 } as const;
+/** Cost, marketing and profit after tax: three equal parts of what payment fees and tax leave. */
+export const EQUAL_PARTS = ["cost", "marketing", "profitAfterTax"] as const;
 
-/** India, domestic company taxed under section 115BAA: 22% plus a 10% surcharge and 4% cess. */
-export const INCOME_TAX_RATE = 0.22 * 1.1 * 1.04;
+/**
+ * Income tax set aside on profit: a sole proprietor at the top slab of India's new regime, 30%
+ * plus 4% cess (surcharge starts above ₹50 lakh of income). A reserve, not advice; deductible
+ * costs and marketing are already outside the profit it applies to.
+ */
+export const INCOME_TAX_RATE = 0.3 * 1.04;
 
 /** Merchant of record (Paddle): 5% plus $0.50 per charge. It collects and files sales tax. */
 export const PAYMENT_FEE = { rate: 0.05, fixedUsd: 0.5 } as const;
 
 /**
  * Hosting, database, email and domain per paying user per month: about $60 a month of fixed
- * costs (VPS $10, Supabase Pro $25, email $20, domain $1, other $4) shared by 200 paying users,
- * plus about $0.01 of reminder emails each. Below about 200 payers fixed costs take a larger share.
+ * costs (VPS $10, a larger VPS or database server $25, email $20, domain $1, other $4) shared by
+ * 200 paying users, plus about $0.01 of reminder emails each. Below about 200 payers fixed costs
+ * take a larger share.
  */
 export const PLATFORM_COST_PER_USER_MONTH = 0.31;
 
-/** Share of revenue left for input costs once marketing and after-tax profit are set aside. */
-export const INPUT_SHARE = 1 - SPLIT.marketing - SPLIT.profitAfterTax / (1 - INCOME_TAX_RATE);
+/**
+ * Each part's share of what is left after payment fees. Profit before tax is part ÷ (1 − tax), so
+ * the parts and the tax add up to the whole: part × (2 + 1 ÷ (1 − tax)) = 1.
+ */
+export const PART_SHARE = 1 / (2 + 1 / (1 - INCOME_TAX_RATE));
 
 export type BillingOption = "monthly" | "annual" | "trial";
 
 // Sized for the multi-pass quality pipeline (several drafts and a grader, specialist checkers),
 // which costs about PLANNED_ENGAGED_MONTH_USD a month with caching and overnight batch.
 export const PRICES: Record<BillingOption, { usd: number; months: number }> = {
-  monthly: { usd: 29, months: 1 },
-  annual: { usd: 319, months: 12 },
-  // About a third (33%) of the monthly price for the first 30 days, with a third of the input cost.
-  trial: { usd: 9.5, months: 1 },
+  monthly: { usd: 30, months: 1 },
+  // Eleven months' price: one month free.
+  annual: { usd: 330, months: 12 },
+  // A third of the monthly price for the first 30 days.
+  trial: { usd: 10, months: 1 },
 };
 
-/** Estimated AI cost of an engaged month once the quality pipeline is built (docs/PRICING.md). */
-export const PLANNED_ENGAGED_MONTH_USD = 6.1;
+/**
+ * Estimated AI cost of an engaged month once the quality pipeline is built, with the network's
+ * suggestions and messages (docs/PRICING.md).
+ */
+export const PLANNED_ENGAGED_MONTH_USD = 6.65;
 
 /** Months free when paying yearly, against twelve monthly payments. */
 export function annualMonthsFree(): number {
@@ -59,7 +72,8 @@ export interface Breakdown {
   paymentFees: number;
   platform: number;
   ai: number;
-  inputCost: number;
+  /** Platform and AI: the cost part. */
+  cost: number;
   marketing: number;
   incomeTax: number;
   profit: number;
@@ -70,15 +84,20 @@ const feesPerMonth = (option: BillingOption) =>
   (PRICES[option].usd * PAYMENT_FEE.rate + PAYMENT_FEE.fixedUsd) / PRICES[option].months;
 const floorCents = (usd: number) => Math.floor(usd * 100 + 1e-9) / 100;
 
-/** AI spend a billing option can fund each month while input cost stays within its share. */
+/** One equal part for a billing option, per month: what payment fees and tax leave, divided by three. */
+export function part(option: BillingOption): number {
+  return PART_SHARE * (perMonth(option) - feesPerMonth(option));
+}
+
+/** AI spend a billing option can fund each month while cost stays within its part. */
 export function aiBudget(option: BillingOption): number {
-  return INPUT_SHARE * perMonth(option) - feesPerMonth(option) - PLATFORM_COST_PER_USER_MONTH;
+  return part(option) - PLATFORM_COST_PER_USER_MONTH;
 }
 
 /**
  * Monthly AI allowance per plan, in US dollars of actual model cost. Members get what the
- * annual price can fund (the lower of monthly and annual), so input cost stays within its share
- * on every billing option. Beta users get the member allowance.
+ * annual price can fund (the lower of monthly and annual), so cost stays within its part on
+ * every billing option. Beta users get the member allowance.
  */
 export const AI_ALLOWANCE_USD: Record<PlanKind, number> = (() => {
   const member = floorCents(Math.min(aiBudget("monthly"), aiBudget("annual")));
@@ -90,11 +109,11 @@ export function breakdown(option: BillingOption, ai: number = AI_ALLOWANCE_USD[o
   const revenue = perMonth(option);
   const paymentFees = feesPerMonth(option);
   const platform = PLATFORM_COST_PER_USER_MONTH;
-  const inputCost = paymentFees + platform + ai;
-  const marketing = SPLIT.marketing * revenue;
-  const preTax = revenue - inputCost - marketing;
+  const cost = platform + ai;
+  const marketing = part(option);
+  const preTax = revenue - paymentFees - cost - marketing;
   const incomeTax = Math.max(preTax, 0) * INCOME_TAX_RATE;
-  return { revenue, paymentFees, platform, ai, inputCost, marketing, incomeTax, profit: preTax - incomeTax };
+  return { revenue, paymentFees, platform, ai, cost, marketing, incomeTax, profit: preTax - incomeTax };
 }
 
 // ---------------------------------------------------------------------------
@@ -136,6 +155,8 @@ const CALL_TOKENS = {
   comment_starters: [2650, 500],
   profile_suggestions: [4750, 1500],
   voice_profile: [4500, 500],
+  network_map: [2600, 1400],
+  outreach_message: [3600, 450],
 } as const;
 
 /** Headroom for longer notes, larger records and higher-effort answers. */
@@ -152,6 +173,8 @@ const ACTION_CALLS = {
   commentStarters: ["comment_starters"],
   profileRefresh: ["profile_suggestions"],
   styleRefresh: ["voice_profile"],
+  networkMap: ["network_map"],
+  outreach: ["outreach_message"],
 } as const satisfies Record<string, readonly (keyof typeof CALL_TOKENS)[]>;
 
 export type Action = keyof typeof ACTION_CALLS;
@@ -174,16 +197,19 @@ export const ENGAGED_MONTH: Record<Action, number> = {
   commentStarters: 10,
   profileRefresh: 4,
   styleRefresh: 2,
+  networkMap: 2,
+  outreach: 12,
 };
 
 export function monthCost(usage: Partial<Record<Action, number>>): number {
   return Object.entries(usage).reduce((sum, [action, count]) => sum + actionCost(action as Action) * (count ?? 0), 0);
 }
 
-/** The lowest monthly price whose input share covers an engaged month. */
+/** The lowest monthly price whose cost part covers an engaged month. */
 export function monthlyPriceFloor(): number {
-  const cost = monthCost(ENGAGED_MONTH) + PLATFORM_COST_PER_USER_MONTH + PAYMENT_FEE.fixedUsd;
-  return cost / (INPUT_SHARE - PAYMENT_FEE.rate);
+  // part = PART_SHARE × (price × (1 − fee rate) − fixed fee) must cover AI and platform.
+  const cost = monthCost(ENGAGED_MONTH) + PLATFORM_COST_PER_USER_MONTH;
+  return (cost / PART_SHARE + PAYMENT_FEE.fixedUsd) / (1 - PAYMENT_FEE.rate);
 }
 
 /** About how many checked drafts an amount of AI spend pays for, if it went only on drafts. */

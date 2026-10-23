@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function SiteMapPage() {
   return (
-    <InfoPage path="/site-map" title="Site map" updated="2026-10-22" intro={<p>Every public page on this site, in one place.</p>}>
+    <InfoPage path="/site-map" title="Site map" updated="2026-10-23" intro={<p>Every public page on this site, in one place.</p>}>
       {(["Product", "Trust", "Company"] as const).map((group) => (
         <InfoSection key={group} title={group}>
           <ul className="!list-none !pl-0 grid border-t border-border sm:grid-cols-2 sm:gap-x-10">

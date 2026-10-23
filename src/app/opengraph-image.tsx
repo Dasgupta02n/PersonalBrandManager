@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { APP_NAME, APP_PROMISE } from "@/lib/config/app";
 
-export const alt = `${APP_NAME}: a private record of your work, and LinkedIn posts you won't regret`;
+export const alt = `${APP_NAME}: ready for your next role, without looking like you're looking`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -24,7 +24,7 @@ export default function OpengraphImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        padding: "72px 80px",
+        padding: "64px 80px 56px",
         color: "#111419",
         background: "#ffffff",
       }}
@@ -59,16 +59,16 @@ export default function OpengraphImage() {
         </div>
         <div style={{ fontSize: 40, fontWeight: 600, letterSpacing: -1 }}>{APP_NAME}</div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-        <div style={{ fontSize: 88, letterSpacing: -3, lineHeight: 1.04, maxWidth: 900 }}>{APP_PROMISE}</div>
-        <div style={{ fontSize: 30, color: "#51555f", maxWidth: 940, lineHeight: 1.4 }}>
-          A private record of your work, and LinkedIn drafts checked for client names, unannounced numbers, boastful phrasing and
-          job-hunt signals.
+      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+        <div style={{ fontSize: 64, letterSpacing: -2, lineHeight: 1.08, maxWidth: 960 }}>{APP_PROMISE}</div>
+        <div style={{ fontSize: 26, color: "#51555f", maxWidth: 940, lineHeight: 1.4 }}>
+          A private record of your work, LinkedIn posts checked before anyone at work sees them, and a quiet network of the search
+          firms and people who bring the next role.
         </div>
       </div>
       <div style={{ display: "flex", borderTop: "2px solid #e4e6eb", paddingTop: 24, fontSize: 24, color: "#51555f", gap: 36 }}>
         <span>Never touches your LinkedIn</span>
-        <span>You approve everything</span>
+        <span>You send and post everything</span>
         <span>Free during the beta</span>
       </div>
     </div>,

@@ -12,6 +12,7 @@ import { cx } from "./ui";
 
 const NAV = [
   { href: "/how-it-works", label: "How it works" },
+  { href: "/search-firms", label: "Search firms" },
   { href: "/check", label: "Free post check" },
   { href: "/pricing", label: "Pricing" },
   { href: "/security", label: "Security" },
@@ -86,7 +87,8 @@ export function PublicFooter() {
         <div className="flex max-w-xs flex-col gap-4">
           <Wordmark />
           <p className="text-[16px] leading-relaxed text-muted">
-            A private record of your work, and LinkedIn posts you won&apos;t regret. Nothing is ever posted for you.
+            A private record of your work, posts you won&apos;t regret, and the people who bring the next role. Nothing is ever
+            sent or posted for you.
           </p>
         </div>
         {groups.map(({ group, pages }) => (
@@ -314,7 +316,7 @@ export function ClosingCta({ title, body }: { title: ReactNode; body?: ReactNode
             Check a post free
           </Link>
         </div>
-        <p className="t-caption">Free during the beta. No card. Nothing is ever posted for you.</p>
+        <p className="t-caption">Free during the beta. No card. Nothing is ever sent or posted for you.</p>
       </div>
     </section>
   );

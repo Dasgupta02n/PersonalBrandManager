@@ -5,7 +5,7 @@ import { OPERATOR } from "@/lib/config/site";
 
 export const metadata: Metadata = {
   title: "Privacy notice",
-  description: `How ${APP_NAME} handles your notes: stored in Mumbai, never sold, never used to train AI, deletable at any time.`,
+  description: `How ${APP_NAME} handles your notes and the people in your network: stored in Mumbai, never sold or shared, never used to train AI, deletable at any time.`,
   alternates: { canonical: "/privacy" },
 };
 
@@ -53,9 +53,10 @@ export default function PrivacyPage() {
 
       <Section title="What we never do">
         <ul>
-          <li>Log in to, read or automate your LinkedIn account, or post anything for you.</li>
-          <li>Sell, rent or share what you write.</li>
-          <li>Use your notes, wins, drafts or style notebook to train AI models, ours or anyone else&apos;s.</li>
+          <li>Log in to, read or automate your LinkedIn account, or post or send anything for you.</li>
+          <li>Sell, rent or share what you write, or the people you add to your network.</li>
+          <li>Look people up, scrape profiles, buy contact data, or add to your contacts from any other source.</li>
+          <li>Use your notes, wins, drafts, network or style notebook to train AI models, ours or anyone else&apos;s.</li>
           <li>Show you ads or track you across other sites.</li>
         </ul>
       </Section>
@@ -72,6 +73,12 @@ export default function PrivacyPage() {
         <p>
           <strong>Your record:</strong> the notes you write, the wins drawn from them, drafts, opportunities you log and profile
           suggestions. To suggest posts, keep your record and prepare your profile, CV and appraisal summaries.
+        </p>
+        <p>
+          <strong>Your network:</strong> your answers about the role you&apos;d want next (function, sectors, level, countries,
+          competitors and companies you&apos;d join), the people and firms you add, what you note about them, your conversation log,
+          next steps and the roles you track. To suggest search firms and roles worth knowing, remind you of follow-ups and write
+          messages for you to send.
         </p>
         <p>
           <strong>Your style notebook:</strong> short notes about how you write (&ldquo;says &lsquo;we&rsquo; for team
@@ -92,6 +99,23 @@ export default function PrivacyPage() {
           Your notes may mention colleagues and clients. With &ldquo;Keep other people&apos;s names out of my record&rdquo; on (the
           default), names are replaced by roles before a note is saved, and terms on your never-mention list are never stored in
           notes.
+        </p>
+      </Section>
+
+      <Section title="People in your network">
+        <p>
+          The people you add are typed in by you: a name, their role and organisation, and anything you choose to note, such as an
+          email address or a profile link. We keep it only so you can manage your own professional relationships. It is never shared,
+          never combined with data from other sources, and never used to contact anyone; {APP_NAME} sends nothing to them.
+        </p>
+        <p>
+          When you ask for a message, the AI sees the person&apos;s role, organisation and your notes, with their name replaced by a
+          placeholder. Their name is filled in afterwards, on our server. Please add only people you have a genuine professional
+          reason to contact, and only what you need. If someone asks us about data a user holds about them, we pass the request to
+          that user, who controls it, and help where the law requires.
+        </p>
+        <p>
+          The search firm directory holds firm-level facts from each firm&apos;s own website, and no personal data.
         </p>
       </Section>
 
@@ -166,6 +190,10 @@ export default function PrivacyPage() {
         <p>
           {APP_NAME} is for professionals aged 18 and over. If this notice changes in a way that matters, we&apos;ll ask you to agree
           again before you continue.
+        </p>
+        <p>
+          23 October 2026: added your network (the people and firms you add, your conversations and roles) and how we handle data
+          about the people in it.
         </p>
         <p>
           22 October 2026: added who runs {APP_NAME} and how to reach our grievance officer. No change to how we use your data.

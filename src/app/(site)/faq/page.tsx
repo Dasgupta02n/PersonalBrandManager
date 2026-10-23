@@ -30,7 +30,7 @@ export default function FaqPage() {
     <InfoPage
       path="/faq"
       title="Questions and answers"
-      updated="2026-10-22"
+      updated="2026-10-23"
       aside={
         <AsideCard
           title="On this page"

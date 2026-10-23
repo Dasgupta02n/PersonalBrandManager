@@ -3,51 +3,50 @@ import {
   AI_ALLOWANCE_USD,
   ENGAGED_MONTH,
   INCOME_TAX_RATE,
-  INPUT_SHARE,
+  PART_SHARE,
   PLANNED_ENGAGED_MONTH_USD,
   PRICES,
-  SPLIT,
   aiBudget,
   breakdown,
   estimateCallCost,
   monthCost,
   monthlyPriceFloor,
+  part,
   type BillingOption,
 } from "./pricing";
 
 const OPTIONS: BillingOption[] = ["monthly", "annual", "trial"];
 
 describe("price split", () => {
-  it("leaves 30% for input once marketing and after-tax profit are set aside", () => {
-    expect(INCOME_TAX_RATE).toBeCloseTo(0.25168, 5);
-    expect(INPUT_SHARE).toBeCloseTo(0.2991, 4);
-    // Input, marketing, pre-tax profit add up to the whole price.
-    const preTax = 1 - INPUT_SHARE - SPLIT.marketing;
-    expect(preTax * (1 - INCOME_TAX_RATE)).toBeCloseTo(SPLIT.profitAfterTax, 6);
+  it("divides what fees and tax leave into three equal parts", () => {
+    expect(INCOME_TAX_RATE).toBeCloseTo(0.312, 6);
+    // Cost, marketing and profit after tax are one part each; profit before tax carries the tax.
+    expect(PART_SHARE * 2 + PART_SHARE / (1 - INCOME_TAX_RATE)).toBeCloseTo(1, 9);
   });
 
   it.each(OPTIONS)("keeps the split on the %s option, at the full allowance", (option) => {
     const b = breakdown(option);
-    expect(b.inputCost / b.revenue).toBeLessThanOrEqual(INPUT_SHARE + 1e-6);
-    expect(b.marketing / b.revenue).toBeCloseTo(0.3, 6);
-    expect(b.profit / b.revenue).toBeGreaterThanOrEqual(0.3 - 1e-3);
-    expect(b.inputCost + b.marketing + b.incomeTax + b.profit).toBeCloseTo(b.revenue, 6);
+    const afterFees = b.revenue - b.paymentFees;
+    expect(b.cost).toBeLessThanOrEqual(part(option) + 1e-6);
+    expect(b.marketing / afterFees).toBeCloseTo(PART_SHARE, 6);
+    expect(b.profit).toBeGreaterThanOrEqual(part(option) - 1e-6);
+    expect(b.paymentFees + b.cost + b.marketing + b.incomeTax + b.profit).toBeCloseTo(b.revenue, 6);
   });
 
   it("charges the same price everywhere: one currency, one price per option", () => {
-    expect(PRICES.monthly.usd).toBe(29);
-    expect(PRICES.annual.usd).toBe(319);
+    expect(PRICES.monthly.usd).toBe(30);
+    expect(PRICES.annual.usd).toBe(330);
+    expect(PRICES.trial.usd).toBe(10);
   });
 });
 
 describe("trial", () => {
-  it("costs 33% of the monthly price", () => {
-    expect(Math.round((PRICES.trial.usd / PRICES.monthly.usd) * 100)).toBe(33);
+  it("costs a third of the monthly price", () => {
+    expect(PRICES.trial.usd * 3).toBe(PRICES.monthly.usd);
   });
 
-  it("uses 33% of a member's input cost", () => {
-    const member = breakdown("monthly", aiBudget("monthly"));
-    expect(Math.round((breakdown("trial").inputCost / member.inputCost) * 100)).toBe(33);
+  it("funds less AI than a member's month", () => {
+    expect(aiBudget("trial")).toBeLessThan(aiBudget("monthly"));
   });
 });
 
@@ -58,7 +57,9 @@ describe("allowance", () => {
     expect(AI_ALLOWANCE_USD.trial).toBeLessThan(AI_ALLOWANCE_USD.member);
   });
 
-  it("covers an engaged member's month on the pinned Opus model", () => {
+  it("covers an engaged member's month, network included, on the pinned Opus model", () => {
+    expect(ENGAGED_MONTH.networkMap).toBeGreaterThan(0);
+    expect(ENGAGED_MONTH.outreach).toBeGreaterThan(0);
     expect(monthCost(ENGAGED_MONTH)).toBeLessThanOrEqual(AI_ALLOWANCE_USD.member);
     expect(PRICES.monthly.usd).toBeGreaterThanOrEqual(monthlyPriceFloor());
   });

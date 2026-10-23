@@ -3,7 +3,7 @@ import { AI_TASKS, OPUS, PROVIDER_PREFERENCES, TASK_SETTINGS, effortForTask, mod
 
 describe("TASK_SETTINGS", () => {
   it("pins every function, live or planned, to a Claude model on OpenRouter", () => {
-    expect(AI_TASKS.length).toBe(19);
+    expect(AI_TASKS.length).toBe(21);
     for (const task of AI_TASKS) {
       expect(modelForTask(task, {})).toMatch(/^anthropic\/claude-[a-z]+-\d+(\.\d+)?$/);
     }
@@ -22,6 +22,8 @@ describe("TASK_SETTINGS", () => {
       "how_it_reads",
       "revise_draft",
       "comment_starters",
+      "network_map",
+      "outreach_message",
       "voice_profile",
       "profile_suggestions",
     ]);
