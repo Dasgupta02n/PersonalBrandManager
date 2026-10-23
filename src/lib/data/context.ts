@@ -74,7 +74,7 @@ function voiceFrom(row: { summary: string; sample_posts: string[]; notes: unknow
 
 /** Everything the AI needs to write in the user's voice and respect their settings. */
 export async function loadUserContext(db: Db, userId: string): Promise<UserContext> {
-  const [profile, pillars, voice, rules] = await Promise.all([
+  const [profile, pillars, voice, rules, people] = await Promise.all([
     loadProfile(db, userId),
     db.from("pillars").select("id, name, description").eq("user_id", userId).order("position"),
     db.from("voice_profiles").select("summary, sample_posts, notes, muted, edit_stats").eq("user_id", userId).maybeSingle(),
@@ -83,6 +83,7 @@ export async function loadUserContext(db: Db, userId: string): Promise<UserConte
       .select("employer_name, employer_policy, never_mention, number_policy, no_go_topics, regulated, mask_names")
       .eq("user_id", userId)
       .maybeSingle(),
+    db.from("network_contacts").select("name").eq("user_id", userId).eq("unnamed", false).limit(1000),
   ]);
 
   for (const result of [pillars, voice, rules]) {
@@ -108,6 +109,7 @@ export async function loadUserContext(db: Db, userId: string): Promise<UserConte
           maskNames: rules.data.mask_names ?? true,
         }
       : DEFAULT_RULES,
+    knownPeople: (people.data ?? []).map((p) => p.name as string),
   };
 }
 

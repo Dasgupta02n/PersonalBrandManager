@@ -31,7 +31,7 @@ export const ABOUT_WINWALL: Faq[] = [
   {
     id: "data",
     q: "What happens to what I write?",
-    a: "It is stored on our own server in Mumbai, India, and sent to the AI model only to draft or check, with zero data retention. It is never sold and never used to train AI. You can download or delete everything at any time.",
+    a: "It is stored on our own server in Mumbai, India. Before any text goes to the AI model to draft or check, people's names and your never-mention terms are replaced with placeholders on our server, and the AI host keeps nothing. It is never sold and never used to train AI. You can download or delete everything at any time.",
   },
   {
     id: "next-role",

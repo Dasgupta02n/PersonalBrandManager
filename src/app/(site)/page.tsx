@@ -142,7 +142,7 @@ const DATA = [
   },
   {
     what: "AI drafting and checks",
-    where: "Claude, via OpenRouter and Google Vertex AI, with zero data retention. Never used for training.",
+    where: "Claude, via OpenRouter and Google Vertex AI, with zero data retention. Names are removed on our server first.",
   },
   { what: "Backups", where: "Encrypted with AES-256 every night; kept 14 days on our server and 30 days on Google Drive." },
   {

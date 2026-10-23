@@ -52,7 +52,7 @@ export const FACTS: { label: string; value: string }[] = [
   { label: "Who it's for", value: "Managers, directors and senior specialists in employment, in India, the UAE, the UK, Singapore and the US" },
   { label: "Price", value: PRICE_LINE },
   { label: "Run by", value: operatorLine().replace(/^an/, "An") },
-  { label: "Your data", value: "Stored on our own server in Mumbai, India. Never sold, never used to train AI." },
+  { label: "Your data", value: "Stored on our own server in Mumbai, India. People's names are removed on that server before any text reaches the AI. Never sold, never used to train AI." },
   { label: "Network", value: `Executive search firms matched to your answers from a directory of ${FIRMS.length} firms checked on their own websites, roles worth knowing at your competitors, and a private log of every conversation and follow-up.` },
   { label: "LinkedIn", value: "Never accessed or automated. You copy a draft and post it yourself, and you send every message yourself." },
 ];

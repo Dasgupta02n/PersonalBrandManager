@@ -83,7 +83,8 @@ anyone wanting automation.
    right role, and messages to anyone else are checked for job-hunt signals.
 5. **Confidential.** Checks keep employer-sensitive details (named clients, internal figures,
    unannounced plans, no-go topics) out of public drafts, automatically. Other people's names
-   are kept out of the stored record by default. Checks are a careful second read, never
+   are kept out of the stored record by default, and people's names and never-mention terms are
+   replaced with placeholders on our own server before any text reaches an AI model. Checks are a careful second read, never
    presented as legal or compliance clearance.
 6. **The user's data is theirs.** Never sold or shared, never used to train AI models;
    exportable and deletable at any time, with consent recorded. The product learns in three

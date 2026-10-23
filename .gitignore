@@ -43,3 +43,7 @@ next-env.d.ts
 
 # quality-bar runs (synthetic data; commit chosen reports to evals/reports/)
 /evals/out/
+
+# privacy service: dependencies and models are installed inside its image
+/privacy/node_modules
+/privacy/models

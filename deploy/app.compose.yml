@@ -8,6 +8,8 @@
 #            no internet access.
 #   migrate  runs on every deploy: applies new migrations and sets the app login's password.
 #   app      the Next.js server. Starts after migrate succeeds.
+#   privacy  finds people's names (so they never reach an AI company) and embeds text for search,
+#            with two small open models. Private network only, no internet, capped at 1 GB.
 #   backup   encrypted nightly backups to the server and to Google Drive.
 #
 # Project environment (Docker Manager), none of it needed to start:
@@ -95,15 +97,33 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
       MAIL_FROM: ${MAIL_FROM:-}
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      # Every AI call fails closed if this service can't be reached: nothing is sent unmasked.
+      PRIVACY_URL: http://privacy:8080
     volumes:
       - secrets:/pbm-secrets:ro
     depends_on:
       migrate:
         condition: service_completed_successfully
+      privacy:
+        condition: service_healthy
     expose:
       - "3000"
     networks:
       - web
+      - data
+
+  privacy:
+    image: ghcr.io/dasgupta02n/winwall-privacy:latest
+    container_name: pbm-privacy
+    restart: unless-stopped
+    mem_limit: 1g
+    cpus: 1.5
+    read_only: true
+    tmpfs:
+      - /tmp
+    expose:
+      - "8080"
+    networks:
       - data
 
   backup:

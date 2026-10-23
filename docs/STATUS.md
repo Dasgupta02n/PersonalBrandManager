@@ -116,6 +116,18 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
   income tax reserve, each price splits into three equal parts: cost, performance marketing and
   profit (`docs/PRICING.md`).
 
+## Milestone 2b — names never reach the AI; search by meaning (done, 2026-10-23)
+
+- **Privacy service** (`privacy/`, image `winwall-privacy`): two open models on our own server,
+  BERT-NER for names (MIT) and bge-small for search (MIT), baked into the image; private network,
+  no internet, read-only, non-root, 1 GB cap (about 0.4 GB used). VPS upgraded to KVM 2.
+- **Every AI call** swaps people's names and private terms for placeholders first and restores
+  names in what the user sees (`src/lib/privacy`); it fails closed if the service is down. Names
+  caught: 47 of 48 on a held-out set of fictional notes, 69 of 69 on the tuning set.
+- **Record search** on Wins (meaning and words), **best evidence** for each open role, and the
+  most relevant wins for network messages. Migration `0003_record_search.sql` adds `wins.embedding`.
+- Privacy notice, security page, how it works, FAQ and the data diagram say so (2026-10-23).
+
 ## Public site
 
 Home, how it works, the search firm directory, pricing, FAQ, security, privacy, terms, refunds, cookies, accessibility,
@@ -169,6 +181,10 @@ are stored outside India (most likely Malaysia) and not encrypted by us. Open:
 - The firm directory is a snapshot (checked 2026-10-23). Some large recruiters list countries
   without city offices; empty sectors or functions mean "not stated on the site".
 - `network_map` and `outreach_message` have no eval sets or baselines yet.
+- Name finding misses some names (about 2% on the held-out set), especially names that are also
+  everyday words ("Madison", "Joy"); the AI prompt is the second line of defence. Search by
+  meaning on bge-small is coarse: it orders results well but sometimes returns nothing for broad
+  queries such as "stakeholder management".
 - "Sounds like you" stays unknown until the user adds sample posts (voice profile comes later).
 - Voice capture uses the browser's speech recognition where available (Chrome, Edge, Safari).
 - One small VPS runs the app, the database and two other sites: fine for the beta; move the

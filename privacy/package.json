@@ -1,0 +1,14 @@
+{
+  "name": "winwall-privacy",
+  "private": true,
+  "type": "module",
+  "description": "Finds people's names and embeds text for search, on our own server.",
+  "scripts": {
+    "start": "node server.mjs",
+    "download": "node download.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "@huggingface/transformers": "3.8.1"
+  }
+}

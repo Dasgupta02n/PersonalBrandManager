@@ -3,6 +3,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import type { z } from "zod";
 import { requireEnv } from "@/lib/config/env";
+import { protectPrompt } from "@/lib/privacy/detect";
+import type { PrivacyHints } from "@/lib/privacy/pseudonymise";
 import { type AiTask, type Effort, PROVIDER_PREFERENCES, effortForTask, modelForTask } from "./models";
 
 /** OpenRouter's Anthropic-compatible API; the SDK appends `/v1/messages`. */
@@ -57,16 +59,29 @@ function getClient(): Anthropic {
 /**
  * Runs one AI task and returns output validated against `schema`.
  * Stable instructions go in `system`; per-user data goes in `prompt`.
+ *
+ * People's names and private terms are swapped for placeholders on our own server before the
+ * prompt leaves it (src/lib/privacy), and names are put back in the answer. If the private name
+ * check can't run, this throws and nothing is sent.
  */
 export async function runStructured<Schema extends z.ZodType>(params: {
   task: AiTask;
   system: string;
   prompt: string;
   schema: Schema;
+  privacy?: PrivacyHints;
   maxTokens?: number;
   onUsage?: UsageRecorder;
 }): Promise<z.infer<Schema>> {
-  return runWithModel({ ...params, model: modelForTask(params.task), effort: effortForTask(params.task) });
+  const guarded = await protectPrompt(params.system, params.prompt, params.privacy);
+  const result = await runWithModel({
+    ...params,
+    system: guarded.system,
+    prompt: guarded.prompt,
+    model: modelForTask(params.task),
+    effort: effortForTask(params.task),
+  });
+  return guarded.reveal(result);
 }
 
 /**

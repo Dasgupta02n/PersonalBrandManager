@@ -57,6 +57,7 @@ export default function PrivacyPage() {
           <li>Sell, rent or share what you write, or the people you add to your network.</li>
           <li>Look people up, scrape profiles, buy contact data, or add to your contacts from any other source.</li>
           <li>Use your notes, wins, drafts, network or style notebook to train AI models, ours or anyone else&apos;s.</li>
+          <li>Send people&apos;s names, or your never-mention terms, to an AI company.</li>
           <li>Show you ads or track you across other sites.</li>
         </ul>
       </Section>
@@ -84,6 +85,11 @@ export default function PrivacyPage() {
           <strong>Your style notebook:</strong> short notes about how you write (&ldquo;says &lsquo;we&rsquo; for team
           results&rdquo;, &ldquo;no emojis&rdquo;), learned from your sample posts and from the changes you make before posting.
           Style only, never what your posts say. Used only for your drafts; see, change or clear it in Settings → How you write.
+        </p>
+        <p>
+          <strong>Search index:</strong> for each win, a list of numbers that describes what it is about, made by a model on our
+          own server. It lets you search your record by meaning and matches your best evidence to a role. Kept with your wins and
+          deleted with them.
         </p>
         <p>
           <strong>Usage records:</strong> which AI step ran, its token count and cost. No content. To keep each plan within its
@@ -121,8 +127,16 @@ export default function PrivacyPage() {
 
       <Section title="Where your data is, and who helps us">
         <p>
-          Your data is stored on our own server in Mumbai, India, with encrypted nightly backups. To read a note or write a draft, the text is sent to an AI model host under
-          zero-data-retention terms: it is processed and not kept. That host may be outside your country.
+          Your data is stored on our own server in Mumbai, India, with encrypted nightly backups. To read a note or write a draft, the
+          text is sent to an AI model host under zero-data-retention terms: it is processed and not kept. That host may be outside
+          your country.
+        </p>
+        <p>
+          Before anything is sent, a model we run on our own server replaces people&apos;s names, including yours and the people
+          in your network, and your never-mention terms with placeholders such as &ldquo;[Person 1]&rdquo;. Names are put back only
+          in what you see; never-mention terms are not put back at all. If that check can&apos;t run, nothing is sent. No model is
+          perfect: in our tests on names it had not seen before, it caught 47 of 48, and the AI is also told to refer to people by
+          role and never to guess a name.
         </p>
         <div className="overflow-x-auto">
           <table className="table-site min-w-[30rem]">
@@ -193,7 +207,8 @@ export default function PrivacyPage() {
         </p>
         <p>
           23 October 2026: added your network (the people and firms you add, your conversations and roles) and how we handle data
-          about the people in it.
+          about the people in it; names and never-mention terms are now removed on our server before anything reaches the AI; and
+          a search index of your wins, made on our server.
         </p>
         <p>
           22 October 2026: added who runs {APP_NAME} and how to reach our grievance officer. No change to how we use your data.

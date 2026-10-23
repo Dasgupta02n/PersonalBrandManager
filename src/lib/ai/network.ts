@@ -20,6 +20,7 @@ import {
   type NetworkKind,
   type OutreachPurpose,
 } from "@/lib/network/taxonomy";
+import { privacyHints } from "@/lib/privacy/hints";
 import { runStructured, type UsageRecorder } from "./client";
 import { NETWORK_MAP_SYSTEM, OUTREACH_SYSTEM, formatUserContext, formatWins } from "./prompts";
 import { NetworkMapSchema, OutreachSchema } from "./schemas";
@@ -78,6 +79,7 @@ export async function suggestNetwork(input: {
     system: NETWORK_MAP_SYSTEM,
     schema: NetworkMapSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatGoals(input.goals)}
 
 Their role today: ${input.ctx.headline ?? "(not set)"}
@@ -156,6 +158,8 @@ export async function draftOutreach(input: {
     system: OUTREACH_SYSTEM,
     schema: OutreachSchema,
     onUsage: input.onUsage,
+    // The contact is already a placeholder ({first_name}); their name is also kept out here.
+    privacy: privacyHints({ ...input.ctx, knownPeople: [...(input.ctx.knownPeople ?? []), ...(personName ? [personName] : [])] }),
     prompt: `${formatUserContext(ctx)}
 
 ${input.goals ? formatGoals(input.goals) : "The user hasn't answered the network questions."}

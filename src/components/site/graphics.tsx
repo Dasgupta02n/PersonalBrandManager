@@ -181,19 +181,24 @@ export function DataFlow() {
           <p className="text-[14px] text-muted">Stored on our server in Mumbai</p>
         </div>
         {arrow}
+        <div className={box}>
+          <p className="font-semibold">Names removed</p>
+          <p className="text-[14px] text-muted">On our server, by our own model</p>
+        </div>
+        {arrow}
         <div className={cx(box, "border-accent")}>
           <p className="font-semibold">The AI model</p>
-          <p className="text-[14px] text-muted">Zero data retention; never trained on</p>
+          <p className="text-[14px] text-muted">Sees placeholders; keeps nothing</p>
         </div>
         {arrow}
         <div className={box}>
           <p className="font-semibold">Your draft</p>
-          <p className="text-[14px] text-muted">Checked, then shown only to you</p>
+          <p className="text-[14px] text-muted">Names back, checked, shown only to you</p>
         </div>
       </div>
       <p className="flex items-center gap-3 text-[15px] text-muted">
         <span aria-hidden className="h-px w-10 shrink-0 border-t border-dashed border-border-strong" />
-        LinkedIn and email: nothing is sent, read or posted for you. Contacts&apos; names never go to the AI.
+        LinkedIn and email: nothing is sent, read or posted for you.
       </p>
     </figure>
   );

@@ -47,6 +47,7 @@ const NEVER = [
   `${APP_NAME} never logs in to, reads, scrapes or automates your LinkedIn account. There is no browser extension.`,
   "It never posts, comments, likes, connects or messages for you, on LinkedIn or by email.",
   "It never looks people up, guesses who works where, or buys contact data. People in your network are the ones you add.",
+  "It never sends people's names or your never-mention terms to an AI company.",
   "It never invents achievements, numbers or quotes.",
   "It never adds labels, tags or links to what you post. No search firm pays to be listed or ranked.",
 ];
@@ -99,6 +100,12 @@ export default function HowItWorksPage() {
           <li>
             We use Anthropic&apos;s Claude models, reached through OpenRouter and run on Google Vertex AI. Both are used only with
             zero data retention: your text is processed to answer and not kept.
+          </li>
+          <li>
+            Before anything is sent, an open model we run on our own server replaces people&apos;s names, including yours and the
+            people in your network, and your never-mention terms with placeholders. Names come back only in what you see. In our
+            tests on names it had not seen before, it caught 47 of 48; the AI is also told never to guess a name. If the check
+            can&apos;t run, nothing is sent.
           </li>
           <li>
             Only what a step needs is sent: the note being read, the wins and settings behind a draft, or your network answers

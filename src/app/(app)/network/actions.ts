@@ -8,6 +8,7 @@ import { draftOutreach, suggestNetwork } from "@/lib/ai/network";
 import { requireAllowance } from "@/lib/billing/allowance";
 import { WIN_COLUMNS, loadUserContext, toWin, type WinRow } from "@/lib/data/context";
 import { CONTACT_COLUMNS, loadGoals, type ContactRow } from "@/lib/data/network";
+import { bestEvidence } from "@/lib/data/search";
 import { requireUser } from "@/lib/data/session";
 import { usageRecorderFor } from "@/lib/data/usage";
 import type { Db } from "@/lib/db/query";
@@ -449,6 +450,14 @@ export async function draftMessage(_prev: MessageState, form: FormData): Promise
         .order("occurred_on", { ascending: false })
         .limit(6),
     ]);
+    // The wins most relevant to this person and purpose, found on our own server; recent ones if none match.
+    const [relevant] = await bestEvidence(
+      db,
+      user.id,
+      [[contact.title, contact.organisation, contact.notes, goals?.targetRoles.join(", "), purpose.data].filter(Boolean).join(". ")],
+      8,
+    );
+    const chosen = relevant.length >= 3 ? relevant.map((r) => toWin(r.win as unknown as WinRow)) : wins;
     const draft = await draftOutreach({
       contact: {
         kind: contact.kind,
@@ -464,7 +473,7 @@ export async function draftMessage(_prev: MessageState, form: FormData): Promise
       purpose: purpose.data,
       channel: channel.data,
       goals,
-      wins,
+      wins: chosen,
       ctx,
       onUsage: usageRecorderFor(user.id),
     });

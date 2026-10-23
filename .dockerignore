@@ -10,3 +10,5 @@ docs
 deploy
 supabase
 README.md
+privacy/node_modules
+privacy/models

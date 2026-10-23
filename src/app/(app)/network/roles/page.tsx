@@ -4,6 +4,7 @@ import { BriefcaseBusiness, ChevronDown } from "lucide-react";
 import { IconSubmitButton } from "@/components/client";
 import { NetworkNav } from "@/components/network-nav";
 import { EmptyState, PageHeader, SectionHeader, cx } from "@/components/ui";
+import { bestEvidence } from "@/lib/data/search";
 import { requireUser } from "@/lib/data/session";
 import { ROLE_STAGE_LABEL, ROLE_STAGES, type RoleStage } from "@/lib/network/taxonomy";
 import { deleteRole, updateRoleStage } from "../actions";
@@ -30,6 +31,11 @@ export default async function RolesPage() {
   ]);
   const roles = (rolesResult.data ?? []) as RoleRow[];
   const names = new Map((contactsResult.data ?? []).map((c) => [c.id as string, c.name as string]));
+  // For each open role, the wins from the record that best support it.
+  const open = roles.filter((r) => r.stage !== "closed");
+  const evidence = new Map(
+    (await bestEvidence(db, user.id, open.map((r) => [r.title, r.organisation, r.notes].filter(Boolean).join(". ")))).map((found, i) => [open[i].id, found]),
+  );
   const groups = ROLE_STAGES.map((stage) => ({ stage, roles: roles.filter((r) => r.stage === stage) })).filter((g) => g.roles.length);
 
   return (
@@ -69,6 +75,22 @@ export default async function RolesPage() {
                       )}
                     </p>
                     {r.notes && <p className="mt-1 text-sm leading-snug">{r.notes}</p>}
+                    {(evidence.get(r.id)?.length ?? 0) > 0 && (
+                      <details className="group mt-2">
+                        <summary className="flex min-h-10 w-fit cursor-pointer list-none items-center gap-1 text-sm font-medium text-accent [&::-webkit-details-marker]:hidden">
+                          Your best evidence for it
+                          <ChevronDown aria-hidden className="size-4 transition-transform group-open:rotate-180" />
+                        </summary>
+                        <ul className="mt-1 flex flex-col gap-2 border-l-2 border-border pl-3">
+                          {evidence.get(r.id)!.map(({ win }) => (
+                            <li key={win.id} className="text-sm leading-snug">
+                              {win.summary}
+                              {win.metric ? <span className="text-muted"> · {win.metric}</span> : null}
+                            </li>
+                          ))}
+                        </ul>
+                      </details>
+                    )}
                   </div>
                   <div className="flex items-center gap-1">
                     <StageSelect id={r.id} stage={r.stage} action={updateRoleStage} />

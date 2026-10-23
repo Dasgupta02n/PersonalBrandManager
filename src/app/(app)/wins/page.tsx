@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Lock, Trash2, Trophy } from "lucide-react";
+import { Lock, Search, Trash2, Trophy } from "lucide-react";
 import { CopyButton } from "@/components/client";
 import { RecordNav } from "@/components/record-nav";
 import { Badge, EmptyState, PageHeader, buttonClass, cx } from "@/components/ui";
 import { WIN_KIND_LABEL } from "@/lib/content/labels";
+import { searchRecord } from "@/lib/data/search";
 import { requireUser } from "@/lib/data/session";
 import { WIN_KINDS, type WinKind } from "@/lib/domain/types";
 import { localParts } from "@/lib/schedule/time";
@@ -30,8 +31,11 @@ const formatMonth = (date: string) =>
 
 export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
   const { db, user, profile } = await requireUser();
-  const requested = (await searchParams).kind;
+  const params = await searchParams;
+  const requested = params.kind;
   const kind = WIN_KINDS.includes(requested as WinKind) ? (requested as WinKind) : null;
+  const q = typeof params.q === "string" ? params.q.trim().slice(0, 200) : "";
+  if (q) return <SearchResults db={db} userId={user.id} query={q} />;
 
   let query = db
     .from("wins")
@@ -71,6 +75,8 @@ export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
         title="Your record"
         description="Everything you've logged. Posts, your profile, your CV and your appraisal summary are built only from this."
       />
+
+      <SearchBox />
 
       <nav aria-label="Filter by type" className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 pr-8 [mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]">
         {[null, ...WIN_KINDS].map((k) => {
@@ -149,6 +155,72 @@ export default async function WinsPage({ searchParams }: PageProps<"/wins">) {
             </section>
           ))}
         </>
+      )}
+    </>
+  );
+}
+
+function SearchBox({ query = "" }: { query?: string }) {
+  return (
+    <form method="get" action="/wins" role="search" className="flex gap-2">
+      <label htmlFor="q" className="sr-only">
+        Search your record
+      </label>
+      <div className="relative min-w-0 flex-1">
+        <Search aria-hidden className="pointer-events-none absolute top-1/2 left-3.5 size-[18px] -translate-y-1/2 text-subtle" />
+        <input
+          id="q"
+          name="q"
+          type="search"
+          defaultValue={query}
+          maxLength={200}
+          placeholder="Search your record: “stakeholder management”, “cost savings”"
+          className="block min-h-12 w-full rounded-lg border border-border-strong bg-field py-3 pr-3.5 pl-10 text-base placeholder:text-subtle focus:border-accent focus:outline-2 focus:outline-offset-2 focus:outline-accent"
+        />
+      </div>
+      <button type="submit" className={buttonClass("secondary")}>
+        Search
+      </button>
+    </form>
+  );
+}
+
+async function SearchResults({ db, userId, query }: { db: Parameters<typeof searchRecord>[0]; userId: string; query: string }) {
+  const { results, byMeaning } = await searchRecord(db, userId, query);
+  return (
+    <>
+      <RecordNav active="/wins" />
+      <PageHeader title="Your record" description={`Wins that match “${query}”.`} />
+      <SearchBox query={query} />
+      <p className="-mt-4 text-[13px] leading-snug text-subtle">
+        {byMeaning
+          ? "Matched by meaning as well as words, by a model on our own server. Your search never leaves it."
+          : "Matched by words."}{" "}
+        <Link href="/wins" className="font-medium text-accent underline underline-offset-4">
+          Back to all wins
+        </Link>
+      </p>
+      {results.length ? (
+        <ul className="flex flex-col divide-y divide-border border-y border-border">
+          {results.map(({ win }) => (
+            <li key={win.id} className="flex gap-3 py-3.5">
+              <p className="w-20 shrink-0 pt-0.5 text-[13px] text-muted tabular-nums">{formatDay(win.occurred_on).replace(/^\w+ /, "")}</p>
+              <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+                <p className="text-[15px] leading-relaxed">{win.summary}</p>
+                {win.impact && <p className="text-sm leading-relaxed text-muted">{win.impact}</p>}
+                <div className="flex flex-wrap gap-1.5">
+                  <Badge tone={win.kind === "praise" ? "brass" : "neutral"}>{WIN_KIND_LABEL[win.kind as WinKind]}</Badge>
+                  {win.metric && <Badge>{win.metric}</Badge>}
+                  {win.confidential && <Badge icon={Lock}>Confidential</Badge>}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <EmptyState icon={Search} title="Nothing matched">
+          Try fewer or different words, such as a skill, a result or a kind of work.
+        </EmptyState>
       )}
     </>
   );

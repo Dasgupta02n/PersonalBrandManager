@@ -62,6 +62,8 @@ export interface UserContext {
   pillars: Pillar[];
   voice: VoiceProfile;
   rules: ConfidentialityRules;
+  /** Names of the people in the user's network: always kept away from the AI model. */
+  knownPeople?: string[];
 }
 
 export const DEFAULT_RULES: ConfidentialityRules = {

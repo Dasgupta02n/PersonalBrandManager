@@ -8,7 +8,8 @@
 | Auth | Our own (`src/lib/auth`) | Email only: a 6-digit code and a link in one email, no password, sent through Hostinger SMTP from hello@c7xai.in. Codes, links and session tokens are stored only as HMAC hashes; sessions are an httpOnly cookie, 180 days, extended with use. |
 | Database | PostgreSQL 17 on our VPS, with row-level security | The app's login has no privileges; each query switches to `pbm_user` (RLS `user_id = app_user_id()`) or `pbm_service` (trusted server code). Nightly encrypted backups to the server and Google Drive. |
 | File storage | A private volume on the VPS | Not built yet: CV versions, uploaded exports, screenshots. |
-| AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. |
+| AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. Prompts carry placeholders, never people's names. |
+| Privacy service | `privacy/` (Node 22, transformers.js, ONNX), image `winwall-privacy` | On our VPS, private network, no internet: BERT-NER finds people's names before any AI call; bge-small embeds wins for search. |
 | Scheduling | `/api/cron/tick` every 15 minutes (a cron job on the VPS) | Finds users whose local prompt time falls in the window; enqueues work. |
 | Messaging | WhatsApp Business Platform (Meta Cloud API), email (inbound + outbound), web push | Channel adapters behind one interface. |
 | Payments | Paddle as merchant of record | Not built yet. Plans and allowances are; see `docs/PRICING.md`. |
@@ -63,6 +64,9 @@ evals/                 Quality bar: synthetic test sets, single-prompt baselines
 | `network_roles` | Roles the user hears about, the contact they came through, and their stage |
 | `network_suggestions` | The latest AI suggestions of companies and job titles (never names), kept so pages don't call the model |
 | `ai_usage` | Model, host, tokens and cost of every AI call, per user (service role only) |
+
+`wins.embedding` (`real[]`, 384 numbers) and `wins.embedding_model` hold each win's search vector
+(migration `0003_record_search.sql`); a trigger clears them when the win's text changes.
 
 ## AI tasks
 
@@ -123,6 +127,27 @@ Draft pipeline (`draftPost` in `src/lib/ai/tasks.ts`): draft → review → how 
    visible note, 3 is a quiet suggestion (`src/lib/content/verdict.ts`). Drafts with tier-1
    problems are stored with status `draft` and never shown as ready to post. Edits mark the
    AI review as stale until re-checked.
+
+## Names and search on our own server
+
+Every AI call goes through `runStructured`, which calls `protectPrompt` (`src/lib/privacy/detect.ts`):
+
+1. The prompt is split into lines; lines not seen before are sent to the privacy service's `/ner`
+   (BERT-NER, word pieces widened to whole words, a second pass for all-lowercase notes). Results
+   are cached in memory by a hash of the line, so a draft's six calls read the shared context once.
+2. The name lists (`names.ts`) add common given names and surnames from the five markets.
+3. `protect` (`pseudonymise.ts`) replaces the user's name, their contacts, found names and later
+   mentions of any part of them with `[Person N]`, and never-mention terms (plus an employer the
+   user won't name) with `[Private N]`. The system prompt gains a rule to keep placeholders intact.
+4. The parsed answer goes through `restoreDeep`: names come back, or "a colleague" when names must
+   stay out of the record (`extract_wins`, `verify_wins` with "keep names out", `voice_profile`);
+   private terms become "[private]".
+
+If `PRIVACY_URL` is set and the service fails, `PrivacyUnavailableError` stops the call. Search:
+`loadSearchableWins` (`src/lib/data/search.ts`) embeds wins missing a vector (or made by another
+model) through `/embed` and stores them in `wins.embedding`; `rankWins` (`src/lib/search/rank.ts`)
+scores by meaning, needing a margin above the user's median, plus shared words, and falls back to
+words alone. Used by record search, best evidence per role and the wins chosen for messages.
 
 ## Network
 

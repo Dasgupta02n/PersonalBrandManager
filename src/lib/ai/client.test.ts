@@ -93,3 +93,54 @@ describe("runStructured", () => {
     await expect(run()).rejects.toEqual(new AiOutputError("The AI response did not match the expected format."));
   });
 });
+
+describe("runStructured keeps names away from the model", () => {
+  beforeEach(() => {
+    fetchMock.mockReset();
+    delete process.env.PRIVACY_URL;
+  });
+
+  const sent = (call: number) => JSON.parse(String(fetchMock.mock.calls[call][1]?.body));
+
+  it("swaps known people and private terms for placeholders, and puts names back in the answer", async () => {
+    fetchMock.mockResolvedValueOnce(
+      openRouterResponse({ content: [{ type: "text", text: JSON.stringify({ answer: "Thank [Person 1] for the [Private 1] work." }) }] }),
+    );
+    const result = await runStructured({
+      task: "draft_post",
+      system: "Rules",
+      prompt: "Ravi Kapoor led Project Falcon; Ravi was great.",
+      schema,
+      privacy: { knownPeople: ["Ravi Kapoor"], privateTerms: ["Project Falcon"] },
+    });
+    const body = sent(0);
+    expect(body.messages[0].content).toBe("[Person 1] led [Private 1]; [Person 1] was great.");
+    expect(JSON.stringify(body)).not.toContain("Ravi");
+    expect(JSON.stringify(body)).not.toContain("Falcon");
+    expect(body.system[0].text).toContain("[Person 1]");
+    expect(result).toEqual({ answer: "Thank Ravi Kapoor for the [private] work." });
+  });
+
+  it("asks our own name model first, and masks what it finds", async () => {
+    process.env.PRIVACY_URL = "http://privacy:8080";
+    fetchMock.mockImplementation(async (url, init) => {
+      if (String(url).startsWith("http://privacy:8080/ner")) {
+        const { texts } = JSON.parse(String(init?.body)) as { texts: string[] };
+        return new Response(JSON.stringify({ spans: texts.map((t) => (t.includes("Ngozi") ? [[t.indexOf("Ngozi"), t.indexOf("Ngozi") + "Ngozi Adebayo".length]] : [])) }));
+      }
+      return openRouterResponse();
+    });
+    await runStructured({ task: "draft_post", system: "Rules", prompt: "Ngozi Adebayo signed off.", schema });
+    const [modelCall] = fetchMock.mock.calls.filter(([url]) => String(url).includes("openrouter"));
+    expect(JSON.parse(String(modelCall[1]?.body)).messages[0].content).toBe("[Person 1] signed off.");
+  });
+
+  it("sends nothing to the model when the name check is unavailable", async () => {
+    process.env.PRIVACY_URL = "http://privacy:8080";
+    fetchMock.mockImplementation(async (url) => (String(url).startsWith("http://privacy") ? new Response("down", { status: 503 }) : openRouterResponse()));
+    await expect(runStructured({ task: "draft_post", system: "Rules", prompt: "Some brand new note text.", schema })).rejects.toThrow(
+      "The private name check isn't available.",
+    );
+    expect(fetchMock.mock.calls.some(([url]) => String(url).includes("openrouter"))).toBe(false);
+  });
+});

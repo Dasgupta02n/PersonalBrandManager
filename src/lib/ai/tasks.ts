@@ -1,6 +1,8 @@
 import "server-only";
 import type { PostFormat, UserContext, Win, WinKind } from "@/lib/domain/types";
 import { checkText, findTerm, type GuardrailIssue } from "@/lib/guardrails/check";
+import { privacyHints } from "@/lib/privacy/hints";
+import type { PrivacyHints } from "@/lib/privacy/pseudonymise";
 import { runStructured, type UsageRecorder } from "./client";
 import { QUALITY_STEPS, type QualitySteps } from "./models";
 import {
@@ -70,6 +72,7 @@ Keep names out: in summaries, impact and the follow-up question, refer to people
     system: EXTRACT_WINS_SYSTEM,
     schema: ExtractedWinsSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx, { restorePeople: !input.ctx.rules.maskNames }),
     prompt: `${formatUserContext(input.ctx)}
 
 Today's note from the user:
@@ -85,6 +88,7 @@ ${input.text}
       system: VERIFY_WINS_SYSTEM,
       schema: VerifiedWinsSchema,
       onUsage: input.onUsage,
+      privacy: privacyHints(input.ctx, { restorePeople: !input.ctx.rules.maskNames }),
       prompt: `${describeRules(input.ctx.rules)}${input.ctx.rules.maskNames ? "\nKeep names out: people other than the user by their role, never-mention terms generically." : ""}
 
 The note:
@@ -148,6 +152,7 @@ export async function generatePostIdeas(input: {
     system: verify ? POST_IDEAS_SHARP_SYSTEM : POST_IDEAS_SYSTEM,
     schema: PostIdeasSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatUserContext(input.ctx)}
 
 ${formatWins(input.wins)}
@@ -162,6 +167,7 @@ Suggest ${count} post ideas, each in a different format where possible.${avoid}`
       system: VERIFY_IDEAS_SYSTEM,
       schema: VerifiedIdeasSchema,
       onUsage: input.onUsage,
+      privacy: privacyHints(input.ctx),
       prompt: `${describeRules(input.ctx.rules)}
 
 ${formatWins(input.wins)}
@@ -255,6 +261,7 @@ export async function reviewDraft(input: {
     system: CHECK_DRAFT_SYSTEM,
     schema: DraftCheckSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatUserContext(input.ctx)}
 
 Facts the draft may use:
@@ -302,6 +309,7 @@ export async function readAsAudience(input: { body: string; ctx: UserContext; on
     system: HOW_IT_READS_SYSTEM,
     schema: HowItReadsSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatUserContext(input.ctx)}
 
 Post:
@@ -372,11 +380,12 @@ Suggested first line: ${input.idea.hook}`;
         system: DRAFT_POST_SYSTEM,
         schema: PostDraftSchema,
         onUsage: input.onUsage,
+        privacy: privacyHints(input.ctx),
         prompt: emphasis ? `${brief}\n\n${emphasis}` : brief,
       }),
     ),
   );
-  const draft = drafts.length > 1 ? drafts[(await chooseDraft({ brief, drafts: drafts.map((d) => d.body), onUsage: input.onUsage })) - 1] : drafts[0];
+  const draft = drafts.length > 1 ? drafts[(await chooseDraft({ brief, drafts: drafts.map((d) => d.body), privacy: privacyHints(input.ctx), onUsage: input.onUsage })) - 1] : drafts[0];
 
   const reviewed = await reviewPost({ body: draft.body.trim(), facts: sourceWins, ctx: input.ctx, onUsage: input.onUsage });
   return {
@@ -388,12 +397,13 @@ Suggested first line: ${input.idea.hook}`;
 }
 
 /** The editor's choice among several drafts, as a 1-based number. Falls back to the first draft. */
-async function chooseDraft(input: { brief: string; drafts: string[]; onUsage?: UsageRecorder }): Promise<number> {
+async function chooseDraft(input: { brief: string; drafts: string[]; privacy: PrivacyHints; onUsage?: UsageRecorder }): Promise<number> {
   const choice = await runStructured({
     task: "select_draft",
     system: SELECT_DRAFT_SYSTEM,
     schema: DraftChoiceSchema,
     onUsage: input.onUsage,
+    privacy: input.privacy,
     prompt: `${input.brief}
 
 <drafts>
@@ -421,6 +431,7 @@ export async function revisePost(input: {
     system: REVISE_POST_SYSTEM,
     schema: RevisionSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatUserContext(input.ctx)}
 
 ${formatWins(input.facts)}
@@ -453,6 +464,7 @@ export async function commentStarters(input: {
     system: COMMENT_STARTERS_SYSTEM,
     schema: CommentStartersSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatUserContext(input.ctx)}
 
 <post>
@@ -498,6 +510,7 @@ export async function suggestProfile(input: {
     system: PROFILE_SUGGESTIONS_SYSTEM,
     schema: ProfileSuggestionsSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints(input.ctx),
     prompt: `${formatUserContext(input.ctx)}
 
 ${formatWins(input.wins)}
@@ -540,6 +553,7 @@ export async function learnVoice(input: {
     system: VOICE_PROFILE_SYSTEM,
     schema: VoiceProfileSchema,
     onUsage: input.onUsage,
+    privacy: privacyHints({ rules: input.rules }, { restorePeople: false }),
     prompt: `<user_data>
 ${samples.length ? samples.join("\n\n") : "No sample posts."}
 

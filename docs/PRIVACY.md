@@ -17,7 +17,9 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 | Drafts, opportunities, profile suggestions | Our PostgreSQL, Mumbai | The user | Until deleted |
 | Network: setup answers, contacts the user adds (name, role, organisation, optional email and profile link, notes), conversation log, next steps, roles, AI suggestions of companies and job titles | Our PostgreSQL, Mumbai | The user (row-level security; interactions and roles can only point at the same user's contacts) | Until deleted; cascades with the account |
 | AI usage (task, model, tokens, cost; no content) | Our PostgreSQL, Mumbai | Server code only | Kept without the user id after deletion |
-| Text sent to AI (never a contact's name: messages use a placeholder that is filled in on our server) | OpenRouter → Google Vertex AI | Processed only | Zero data retention |
+| Text sent to AI, with people's names (the user's own, their contacts', and any the name model or lists find) and never-mention terms replaced by placeholders first | OpenRouter → Google Vertex AI | Processed only | Zero data retention |
+| Text read by the privacy service (name finding, search embeddings) | `pbm-privacy` on our VPS, Mumbai; private network, no internet | Nobody: not logged or stored (line hashes and spans cached in the app's memory only) | Only while processing |
+| Search index (a 384-number vector per win, `wins.embedding`) | Our PostgreSQL, Mumbai | The user | Deleted with the win; recomputed when a win changes |
 | App logs | Hostinger VPS, Mumbai | Operators | Never log note or draft content |
 | Database backups (everything above), encrypted with our passphrase (AES-256) | The VPS, Mumbai; Google Drive | Operators with the passphrase; Google sees only encrypted files | 14 days on the server, 30 days on Google Drive |
 | Weekly snapshots of the whole VPS (not encrypted by us) | Hostinger backup servers, most likely Kuala Lumpur, Malaysia | Hostinger, operators | Hostinger's retention (to confirm) |
@@ -39,6 +41,18 @@ Only three ways, all consistent with "we never use what you write to train AI mo
 
 Bump `PRIVACY_NOTICE_VERSION` when the notice changes materially; everyone is asked to agree
 again on their next visit.
+
+## Names and the AI
+
+`runStructured` (`src/lib/ai/client.ts`) passes every prompt through `protectPrompt`
+(`src/lib/privacy/detect.ts`) before it leaves the server: the user's own name, their contacts,
+names found by the BERT-NER model in `pbm-privacy` and by the name lists (`src/lib/privacy/names.ts`)
+become `[Person N]`; never-mention terms and an employer the user won't name become `[Private N]`.
+Names are put back only in what the user sees (or become "a colleague" when "keep names out" is
+on); private terms never come back. If `PRIVACY_URL` is set and the service fails, the AI call
+throws and nothing is sent. Measured on fictional notes (2026-10-23): 69 of 69 names on the tuning
+set and 47 of 48 on a held-out set; 3 of 20 name-free notes had a word wrongly masked. Misses are
+possible, so the AI prompt also says to refer to people by role and never to guess a name.
 
 ## People in a user's network
 

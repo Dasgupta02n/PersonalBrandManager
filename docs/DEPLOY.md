@@ -10,7 +10,8 @@ Internet ──HTTPS──> edge-caddy (project "edge", ports 80/443)
 Project "pbm" (deploy/app.compose.yml):
   pbm-secrets  runs first: creates the internal passwords on the server, once (volume "secrets")
   pbm-app ──> pbm-db (PostgreSQL 17, private "data" network: no published port, no internet)
-          ──> OpenRouter (Claude models), smtp.hostinger.com (sign-in emails)
+          ──> pbm-privacy (our own name-finding and search models, private network, no internet)
+          ──> OpenRouter (Claude models, sees placeholders instead of names), smtp.hostinger.com
   pbm-migrate  runs once per deploy: applies db/migrations, sets the app login's password
   pbm-backup   nightly encrypted pg_dump: 14 days on the server, 30 days on Google Drive
 ```
@@ -18,7 +19,8 @@ Project "pbm" (deploy/app.compose.yml):
 Everything runs on our own server; the only outside services are OpenRouter (AI), Hostinger's
 mail servers (sign-in emails) and Google Drive (encrypted backup copies).
 
-- VPS: Hostinger KVM 1 (id 1835400), Ubuntu 24.04 with Docker, Mumbai. 1 vCPU, 4 GB RAM, 50 GB.
+- VPS: Hostinger KVM 2 (id 1835400; upgraded from KVM 1 on 2026-10-23 for the privacy service),
+  Ubuntu 24.04 with Docker, Mumbai. 2 vCPU, 8 GB RAM, 100 GB.
 - DNS: `c7xai.in` and `www.c7xai.in` A records point to the VPS (187.127.156.152). Caddy obtains
   HTTPS certificates automatically. `www` redirects to the apex. SPF, DKIM and DMARC cover
   Hostinger mail.
@@ -87,8 +89,9 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
 ## Releasing
 
 Push to `main` → CI runs the checks (including the database tests against a throwaway
-PostgreSQL) and publishes both images → update project `pbm` in Docker Manager (pulls `latest`,
-runs migrations, recreates the containers). Roll back by pinning the images to a previous commit
+PostgreSQL) and publishes three images (`winwall`, `winwall-backup`, `winwall-privacy`) → update
+project `pbm` in Docker Manager (pulls `latest`, runs migrations, recreates the containers). The
+one-time `docker login ghcr.io` covers the new private package too. Roll back by pinning the images to a previous commit
 SHA tag; migrations only ever add, so an older app runs on a newer schema.
 
 Database changes: add `db/migrations/NNNN_name.sql` (next number). Every user-owned table needs
@@ -123,12 +126,16 @@ DATABASE_ADMIN_URL=postgres://postgres@127.0.0.1:5432/pbm PBM_APP_PASSWORD=local
 ```
 
 Set `DATABASE_URL=postgres://pbm_app:local-password-16chars@127.0.0.1:5432/pbm` and an
-`AUTH_SECRET` in `.env.local`. Without `SMTP_PASSWORD`, sign-in codes are printed in the server
+`AUTH_SECRET` in `.env.local`. For name removal and search by meaning, run the privacy service
+(`cd privacy && npm install && npm run download && PORT=8080 npm start`) and set
+`PRIVACY_URL=http://localhost:8080`. Without `SMTP_PASSWORD`, sign-in codes are printed in the server
 log. Database tests run when `TEST_DATABASE_URL` is set (same form as `DATABASE_URL`).
 
 ## Checks after a deploy
 
 - `https://c7xai.in/api/health` returns `{"status":"ok"}`
+- `docker ps` shows `pbm-privacy` as healthy (it loads its models in about 10 seconds), and
+  `docker stats pbm-privacy` stays well under its 1 GB cap (about 0.4 GB)
 - Sign in with a real address: the email arrives from hello@c7xai.in, and both the code and the
   link work
 - `docker logs pbm-backup` shows a backup written (and copied to Google Drive once set up)
