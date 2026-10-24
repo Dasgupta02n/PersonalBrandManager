@@ -1,7 +1,7 @@
 # Docker Compose project "edge" on the Hostinger VPS: the shared HTTPS front door.
 # The "hanumat" service is copied unchanged from the live project (hanumat.life).
 # Changes for this product: the "web" network (shared with the "pbm" project) and the
-# winwall.app site block in the Caddyfile. c7xai.in, the first address, redirects to it.
+# winwall.app site block in the Caddyfile.
 
 services:
   hanumat:
@@ -36,7 +36,7 @@ services:
           reverse_proxy pbm-app:3000
         }
 
-        www.winwall.app, c7xai.in, www.c7xai.in {
+        www.winwall.app {
           redir https://winwall.app{uri} permanent
         }
         EOF

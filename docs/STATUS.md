@@ -4,7 +4,7 @@
 
 - Product spec, architecture, schema with row-level security (verified: signup trigger, per-user isolation)
 - Sign-in: email only. One email holds a one-time code (type it on any device) and a link that works in
-  any browser (`/auth/confirm`); no password and no social sign-in. Sent from hello@c7xai.in.
+  any browser (`/auth/confirm`); no password and no social sign-in. Sent from hello@winwall.app.
 - Onboarding: name, role, topic pillars, audience, confidentiality rules, voice samples, prompt time
 - Today: log a win → AI extracts structured wins, fact-checked against the note (+ optional
   follow-up question) → 3 post ideas when the user asks
@@ -167,15 +167,14 @@ repo). Open:
 - Founder name, city, legal name and a business address in `OPERATOR` (needed for the grievance
   officer, terms and Paddle before payments open)
 - Verify the site in Google Search Console and Bing Webmaster Tools; submit the sitemap
-- Move to winwall.app (bought 2026-10-24): `SITE_URL`, contact emails, security.txt, the sign-in
-  sender and 301 redirects from c7xai.in are ready on branch `winwall-app-domain`; merge and
-  deploy once the domain registration, DNS and mailbox work (`docs/DEPLOY.md`, "Moving to
-  winwall.app")
+- winwall.app (bought 2026-10-24): the site address, contact emails, security.txt and the sign-in
+  sender are set in the code; deploy once the domain registration, DNS and mailbox work
+  (`docs/DEPLOY.md`, "Moving to winwall.app")
 - Guides and free tools from the keyword map (year-end review content first)
 
 ## Needed to run end to end
 
-See `docs/DEPLOY.md`. Live at https://c7xai.in since 2026-10-21 as **Winwall**, all on our own
+See `docs/DEPLOY.md`. Running since 2026-10-21 as **Winwall** (https://winwall.app), all on our own
 VPS: PostgreSQL 17, our own email sign-in and sessions, internal passwords created on the server,
 and nightly encrypted backups (backup and restore tested). Supabase is no longer used (the old
 project is kept for now, by decision). Hostinger's weekly VPS snapshots stay on, by decision; they

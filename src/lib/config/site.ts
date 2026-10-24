@@ -5,7 +5,7 @@ import { APP_NAME, APP_PROMISE } from "./app";
 // Public facts about Winwall and who runs it. Every public page, the structured data and llms.txt
 // read from here, so a person and an AI assistant see the same answer everywhere.
 
-/** The canonical site address. c7xai.in, the first address, redirects here. */
+/** The canonical site address. */
 export const SITE_URL = "https://winwall.app";
 
 /** One-sentence definition used in metadata, structured data and the facts block. */

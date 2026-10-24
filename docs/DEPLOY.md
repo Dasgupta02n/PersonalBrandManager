@@ -6,7 +6,7 @@
 Internet ──HTTPS──> edge-caddy (project "edge", ports 80/443)
                       ├── hanumat.life ──> hanumat (nginx, unchanged)
                       ├── winwall.app  ──> pbm-app:3000 (project "pbm", network "web")
-                      └── c7xai.in, www.* ──> 301 to https://winwall.app
+                      └── www.winwall.app ──> 301 to https://winwall.app
 
 Project "pbm" (deploy/app.compose.yml):
   pbm-secrets  runs first: creates the internal passwords on the server, once (volume "secrets")
@@ -22,10 +22,9 @@ mail servers (sign-in emails) and Google Drive (encrypted backup copies).
 
 - VPS: Hostinger KVM 2 (id 1835400; upgraded from KVM 1 on 2026-10-23 for the privacy service),
   Ubuntu 24.04 with Docker, Mumbai. 2 vCPU, 8 GB RAM, 100 GB.
-- DNS: `winwall.app` and `www.winwall.app` A records point to the VPS (187.127.156.152), as do
-  `c7xai.in` and `www.c7xai.in`, the first address. Caddy obtains HTTPS certificates
-  automatically; everything but `winwall.app` redirects there, keeping the path. SPF, DKIM and
-  DMARC cover Hostinger mail on both domains. Sign-in emails come from hello@winwall.app.
+- DNS: `winwall.app` and `www.winwall.app` A records point to the VPS (187.127.156.152). Caddy
+  obtains HTTPS certificates automatically; `www` redirects to the apex, keeping the path. SPF,
+  DKIM and DMARC cover Hostinger mail. Sign-in emails come from hello@winwall.app.
 - Images are built by GitHub Actions on every push to `main` and published to
   `ghcr.io/dasgupta02n/winwall` and `ghcr.io/dasgupta02n/winwall-backup` (`latest` and the commit
   SHA). The repository and both packages are private (from 2026-10-21), so the VPS pulls with a
@@ -55,12 +54,11 @@ The site and sign-in emails move together; deploying before the DNS works would 
 3. **Mailbox:** `hello@winwall.app`, with `privacy@winwall.app` as an alias delivering to it.
 4. **Wait until `winwall.app` resolves** to the VPS (`dig +short winwall.app`).
 5. **Edge project:** paste `deploy/edge.compose.yml` in hPanel → Docker Manager → `edge` and
-   redeploy. Caddy gets the winwall.app certificate on the first request and starts redirecting
-   c7xai.in. (The API rejects this file; see step 1 of One-time setup.)
+   redeploy. Caddy gets the winwall.app certificates on the first request. (The API rejects this
+   file; see step 1 of One-time setup.)
 6. **App project:** set `SMTP_PASSWORD` to the new mailbox's password (and `APP_URL` to
    `https://winwall.app` if it was set), then redeploy `pbm` with the image built from `main`.
-7. Run the checks below. People signed in on c7xai.in sign in once more (cookies belong to a
-   domain); links in sign-in emails already sent still work through the redirect.
+7. Run the checks below.
 
 ## Database access model
 
@@ -73,7 +71,7 @@ deletion). A query that forgets to switch gets nothing. See `db/migrations/0001_
 ## One-time setup
 
 1. **Edge project:** done on 2026-10-11 from commit `bd10d4b` (adds the `web` network and the
-   c7xai.in site). Hostinger's API rejects `deploy/edge.compose.yml` sent inline (403, most likely
+   product's site block). Hostinger's API rejects `deploy/edge.compose.yml` sent inline (403, most likely
    because of the shell commands in the `hanumat` service), and raw GitHub URLs no longer work now
    that the repository is private, so paste it in hPanel → Docker Manager. Any recreate of the `hanumat` container
    re-downloads about 3 GB of site archives: hanumat.life returned 502 for about 7 minutes.
@@ -164,7 +162,7 @@ log. Database tests run when `TEST_DATABASE_URL` is set (same form as `DATABASE_
 
 ## Checks after a deploy
 
-- `https://winwall.app/api/health` returns `{"status":"ok"}`, and `https://c7xai.in/pricing`
+- `https://winwall.app/api/health` returns `{"status":"ok"}`, and `https://www.winwall.app/pricing`
   redirects to `https://winwall.app/pricing`
 - `docker ps` shows `pbm-privacy` as healthy (it loads its models in about 10 seconds), and
   `docker stats pbm-privacy` stays well under its 1 GB cap (about 0.3 GB)
