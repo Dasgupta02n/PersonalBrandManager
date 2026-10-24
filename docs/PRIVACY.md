@@ -50,8 +50,8 @@ names found by the BERT-NER model in `pbm-privacy` and by the name lists (`src/l
 become `[Person N]`; never-mention terms and an employer the user won't name become `[Private N]`.
 Names are put back only in what the user sees (or become "a colleague" when "keep names out" is
 on); private terms never come back. If `PRIVACY_URL` is set and the service fails, the AI call
-throws and nothing is sent. Measured on fictional notes (2026-10-23): 69 of 69 names on the tuning
-set and 47 of 48 on a held-out set; 3 of 20 name-free notes had a word wrongly masked. Misses are
+throws and nothing is sent. Measured on fictional notes (re-checked 2026-10-24): 69 of 69 names on the
+tuning set and 47 of 48 on a held-out set; 2 of 20 name-free notes had a word wrongly masked. Misses are
 possible, so the AI prompt also says to refer to people by role and never to guess a name.
 
 ## People in a user's network
