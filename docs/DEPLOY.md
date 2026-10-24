@@ -135,7 +135,7 @@ log. Database tests run when `TEST_DATABASE_URL` is set (same form as `DATABASE_
 
 - `https://c7xai.in/api/health` returns `{"status":"ok"}`
 - `docker ps` shows `pbm-privacy` as healthy (it loads its models in about 10 seconds), and
-  `docker stats pbm-privacy` stays well under its 1 GB cap (about 0.4 GB)
+  `docker stats pbm-privacy` stays well under its 1 GB cap (about 0.3 GB)
 - Sign in with a real address: the email arrives from hello@c7xai.in, and both the code and the
   link work
 - `docker logs pbm-backup` shows a backup written (and copied to Google Drive once set up)

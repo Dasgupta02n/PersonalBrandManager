@@ -9,6 +9,6 @@
   },
   "engines": { "node": ">=22" },
   "dependencies": {
-    "@huggingface/transformers": "3.8.1"
+    "@huggingface/transformers": "4.3.1"
   }
 }

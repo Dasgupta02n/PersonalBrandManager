@@ -141,6 +141,16 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
   It now ships its own types, so `@types/nodemailer` is gone. zod 4.6.5 → 4.6.7, fixing memory
   exhaustion on oversized collections (GHSA-mrhx-c7xc-m3w5). Sign-in checked end to end against
   a local SMTP server. `npm audit` reports no vulnerabilities.
+- 2026-10-24: privacy service on transformers.js 3.8.1 → 4.3.1, which brings sharp 0.35.5 and
+  clears its three high advisories in bundled image libraries (GHSA-f88m-g3jw-g9cj,
+  GHSA-rgj7-g3m4-5g8c, GHSA-wq5f-xc86-pv6w; the service never handles images). Same model files, byte for byte. Name
+  finding is unchanged on every test note: 69 of 69 names (tuning), 47 of 48 (held out, missing
+  "Madison"), with the same 2 false alarms in 20 name-free notes. Search vectors shift slightly
+  with the new ONNX runtime (cosine 0.993 or more against the old ones; same top result on every
+  test query). No vectors are stored in production yet; if a runtime upgrade ever lands after
+  wins have been embedded, change the embedding tag so they are redone. ONNX runtime files moved
+  to `napi-v6`, so the Dockerfile trims that folder. The image loads faster and uses about 0.3 GB
+  instead of 0.4 GB. `npm audit` in `privacy/` reports no vulnerabilities.
 
 ## Public site
 
