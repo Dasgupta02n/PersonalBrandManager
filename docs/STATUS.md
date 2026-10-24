@@ -133,8 +133,14 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
 - 2026-10-24: Next.js 16.4.0 → 16.4.3 (and eslint-config-next), fixing three advisories: remote
   code execution in the image optimiser with SVG (GHSA-2464-fhr4-w9xw), remote code execution in
   `use cache` functions (GHSA-673q-mjm6-r5xr) and a Server Actions denial of service
-  (GHSA-p3m5-59mp-jv5r). Still open from `npm audit`: nodemailer (high; fix is a major version)
-  and zod (high; patch available).
+  (GHSA-p3m5-59mp-jv5r).
+- 2026-10-24: nodemailer 7.0.13 → 10.2.1, fixing 17 advisories, among them SMTP command and
+  header injection (GHSA-c7w3-x93f-qmm8, GHSA-vvjj-xcjg-gr5g, GHSA-268h-hp4c-crq3), recipient
+  domain bypasses and address-parser denial of service. Its breaking changes don't touch our use
+  (renamed error codes, certificate checks on remote attachments, Node 20+; we run Node 22).
+  It now ships its own types, so `@types/nodemailer` is gone. zod 4.6.5 → 4.6.7, fixing memory
+  exhaustion on oversized collections (GHSA-mrhx-c7xc-m3w5). Sign-in checked end to end against
+  a local SMTP server. `npm audit` reports no vulnerabilities.
 
 ## Public site
 
