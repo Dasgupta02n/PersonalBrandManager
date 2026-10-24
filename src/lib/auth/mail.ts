@@ -3,7 +3,7 @@ import nodemailer, { type Transporter } from "nodemailer";
 import { APP_NAME } from "@/lib/config/app";
 import { serverEnv } from "@/lib/config/env";
 
-// Sign-in emails go out through our own mailbox (hello@c7xai.in on Hostinger) over SMTP.
+// Sign-in emails go out through our own mailbox (hello@winwall.app on Hostinger) over SMTP.
 
 const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 

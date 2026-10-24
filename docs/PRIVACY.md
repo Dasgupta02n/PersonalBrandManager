@@ -2,7 +2,7 @@
 
 The public notice is `src/app/(site)/privacy/page.tsx` (version in `PRIVACY_NOTICE_VERSION`). Before
 launch it needs the legal entity's name and address, a legal review, and a working
-`privacy@c7xai.in` address (`PRIVACY_EMAIL`), an alias that delivers to the hello@c7xai.in mailbox.
+`privacy@winwall.app` address (`PRIVACY_EMAIL`), an alias that delivers to the hello@winwall.app mailbox.
 
 ## Data map
 
@@ -10,7 +10,7 @@ launch it needs the legal entity's name and address, a legal review, and a worki
 |---|---|---|---|
 | Account (email address only; sign-in by one-time code or link, no password) | Our PostgreSQL on the VPS, Mumbai | Server code only | Until account deletion |
 | Sign-in codes and sessions (keyed hashes only, plus a keyed hash of the IP address for rate limits) | Our PostgreSQL, Mumbai | Server code only | Codes: expire in 15 minutes, deleted after a day. Sessions: until sign-out, 180 days unused, or deletion |
-| Sign-in emails (address, one-time code and link) | Sent from hello@c7xai.in through Hostinger's mail servers | The recipient | Codes and links expire in 15 minutes |
+| Sign-in emails (address, one-time code and link) | Sent from hello@winwall.app through Hostinger's mail servers | The recipient | Codes and links expire in 15 minutes |
 | Settings, rules, topics, voice samples | Our PostgreSQL, Mumbai | The user (row-level security) | Until changed or deleted |
 | Notes and wins | Our PostgreSQL, Mumbai | The user | Until deleted |
 | Style notebook (style notes, edit counts, single removed words) | Our PostgreSQL, Mumbai | The user | Until cleared or the account is deleted |

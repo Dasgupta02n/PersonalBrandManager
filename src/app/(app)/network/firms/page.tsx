@@ -4,6 +4,7 @@ import { ArrowUpRight, Check, Search } from "lucide-react";
 import { IconSubmitButton } from "@/components/client";
 import { NetworkNav } from "@/components/network-nav";
 import { Label, PageHeader, Select, buttonClass } from "@/components/ui";
+import { CONTACT } from "@/lib/config/site";
 import { loadGoals } from "@/lib/data/network";
 import { requireUser } from "@/lib/data/session";
 import { FIRMS, filterFirms, matchFirms } from "@/lib/network/firms";
@@ -164,7 +165,7 @@ export default async function FirmsPage({ searchParams }: PageProps<"/network/fi
       </ul>
       <p className="text-[13px] leading-snug text-subtle">
         We list firms, never their people. The search icon opens LinkedIn in your own browser so you can find the consultant who covers your area.
-        Spotted something out of date? Write to hello@c7xai.in.
+        Spotted something out of date? Write to {CONTACT.hello}.
       </p>
     </>
   );

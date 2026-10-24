@@ -5,7 +5,7 @@
 | Layer | Choice | Notes |
 |---|---|---|
 | Web app | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4 | Mobile-first, installable PWA. `proxy.ts` replaces `middleware.ts` in Next 16. Cache Components is off: app pages are per-user and rendered on request. |
-| Auth | Our own (`src/lib/auth`) | Email only: a 6-digit code and a link in one email, no password, sent through Hostinger SMTP from hello@c7xai.in. Codes, links and session tokens are stored only as HMAC hashes; sessions are an httpOnly cookie, 180 days, extended with use. |
+| Auth | Our own (`src/lib/auth`) | Email only: a 6-digit code and a link in one email, no password, sent through Hostinger SMTP from hello@winwall.app. Codes, links and session tokens are stored only as HMAC hashes; sessions are an httpOnly cookie, 180 days, extended with use. |
 | Database | PostgreSQL 17 on our VPS, with row-level security | The app's login has no privileges; each query switches to `pbm_user` (RLS `user_id = app_user_id()`) or `pbm_service` (trusted server code). Nightly encrypted backups to the server and Google Drive. |
 | File storage | A private volume on the VPS | Not built yet: CV versions, uploaded exports, screenshots. |
 | AI | Claude models via OpenRouter (Anthropic-compatible API, `@anthropic-ai/sdk`) | One pinned model per function, structured outputs, zero-data-retention hosts only. Prompts carry placeholders, never people's names. |

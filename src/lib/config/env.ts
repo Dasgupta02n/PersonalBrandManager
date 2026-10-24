@@ -10,7 +10,7 @@ const serverEnvSchema = z.object({
   /** Sign-in emails. Without SMTP_PASSWORD, development prints the code to the server log. */
   SMTP_HOST: z.string().min(1).default("smtp.hostinger.com"),
   SMTP_PORT: z.coerce.number().int().positive().default(465),
-  SMTP_USER: z.string().min(1).default("hello@c7xai.in"),
+  SMTP_USER: z.string().min(1).default("hello@winwall.app"),
   SMTP_PASSWORD: z.string().min(1).optional(),
   /** Sender shown in the inbox; defaults to the product name and SMTP_USER. */
   MAIL_FROM: z.string().min(1).optional(),

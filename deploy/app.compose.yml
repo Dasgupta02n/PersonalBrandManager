@@ -1,6 +1,6 @@
 # Docker Compose project "pbm" on the Hostinger VPS (Docker Manager).
 # The shared "web" network is created by the "edge" project (deploy/edge.compose.yml),
-# whose Caddy server terminates HTTPS for c7xai.in and forwards to the app container.
+# whose Caddy server terminates HTTPS for winwall.app and forwards to the app container.
 #
 #   secrets  runs first: creates the internal passwords (database, sessions, cron) on the server,
 #            once, in the "secrets" volume. Nobody types or sees them.
@@ -13,8 +13,8 @@
 #   backup   encrypted nightly backups to the server and to Google Drive.
 #
 # Project environment (Docker Manager), none of it needed to start:
-#   APP_URL             https://c7xai.in
-#   SMTP_PASSWORD       the hello@c7xai.in mailbox password (sign-in emails)
+#   APP_URL             https://winwall.app
+#   SMTP_PASSWORD       the hello@winwall.app mailbox password (sign-in emails)
 #   OPENROUTER_API_KEY  AI features
 #   BACKUP_PASSPHRASE   encrypts backups; keep a copy in a password manager
 #   MAIL_FROM, BACKUP_DRIVE_FOLDER  optional
@@ -93,7 +93,7 @@ services:
         CRON_SECRET="$$(cat /pbm-secrets/cron_secret)";
         exec node server.js
     environment:
-      APP_URL: ${APP_URL:-https://c7xai.in}
+      APP_URL: ${APP_URL:-https://winwall.app}
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
       MAIL_FROM: ${MAIL_FROM:-}
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}

@@ -167,7 +167,10 @@ repo). Open:
 - Founder name, city, legal name and a business address in `OPERATOR` (needed for the grievance
   officer, terms and Paddle before payments open)
 - Verify the site in Google Search Console and Bing Webmaster Tools; submit the sitemap
-- Move `SITE_URL`, contact emails and security.txt to winwall.app with 301 redirects from c7xai.in
+- Move to winwall.app (bought 2026-10-24): `SITE_URL`, contact emails, security.txt, the sign-in
+  sender and 301 redirects from c7xai.in are ready on branch `winwall-app-domain`; merge and
+  deploy once the domain registration, DNS and mailbox work (`docs/DEPLOY.md`, "Moving to
+  winwall.app")
 - Guides and free tools from the keyword map (year-end review content first)
 
 ## Needed to run end to end
@@ -180,9 +183,10 @@ are stored outside India (most likely Malaysia) and not encrypted by us. Open:
 - In Docker Manager, project `pbm`: `SMTP_PASSWORD` (until then nobody can sign in),
   `OPENROUTER_API_KEY` and `BACKUP_PASSPHRASE`
 - Google Drive for backups (rclone, `drive.file` scope)
-- A product domain (winwall.app is free; winwall.in needs identity verification at Hostinger)
-- Privacy notice: legal entity name and address, and legal review. (`privacy@c7xai.in` is an alias
-  delivering to hello@c7xai.in.)
+- winwall.app: finish the registration, DNS records and the hello@winwall.app mailbox (with the
+  privacy@ alias); then the move above
+- Privacy notice: legal entity name and address, and legal review. (`privacy@winwall.app` will be an
+  alias delivering to hello@winwall.app.)
 
 ## Next milestones
 

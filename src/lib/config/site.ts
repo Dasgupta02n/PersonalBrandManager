@@ -5,17 +5,17 @@ import { APP_NAME, APP_PROMISE } from "./app";
 // Public facts about Winwall and who runs it. Every public page, the structured data and llms.txt
 // read from here, so a person and an AI assistant see the same answer everywhere.
 
-/** The canonical site address. Change it here when the site moves to winwall.app. */
-export const SITE_URL = "https://c7xai.in";
+/** The canonical site address. c7xai.in, the first address, redirects here. */
+export const SITE_URL = "https://winwall.app";
 
 /** One-sentence definition used in metadata, structured data and the facts block. */
 export const SITE_DESCRIPTION =
   "A private career tool for senior professionals: a record of your work wins, LinkedIn drafts checked for confidential details and job-hunt signals before you post them yourself, and a private network of the executive search firms and people at competitors who bring the next role.";
 
 export const CONTACT = {
-  hello: "hello@c7xai.in",
-  privacy: "privacy@c7xai.in",
-  security: "hello@c7xai.in",
+  hello: "hello@winwall.app",
+  privacy: "privacy@winwall.app",
+  security: "hello@winwall.app",
 } as const;
 
 /**

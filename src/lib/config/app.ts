@@ -14,7 +14,7 @@ export const APP_TAGLINE = "Be known for your work. Be found for your next role.
 export const PRIVACY_NOTICE_VERSION = "2026-10-23";
 
 /** Where privacy requests and grievances go (DPDP grievance contact, GDPR requests). */
-export const PRIVACY_EMAIL = "privacy@c7xai.in";
+export const PRIVACY_EMAIL = "privacy@winwall.app";
 
 /** Default post length range in words (user-adjustable later). */
 export const POST_WORDS = { min: 120, max: 220 } as const;
