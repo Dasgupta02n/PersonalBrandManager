@@ -128,6 +128,14 @@ every feature is `evals/reports/2026-10-20-holistic.md`.
   most relevant wins for network messages. Migration `0003_record_search.sql` adds `wins.embedding`.
 - Privacy notice, security page, how it works, FAQ and the data diagram say so (2026-10-23).
 
+## Maintenance
+
+- 2026-10-24: Next.js 16.4.0 → 16.4.3 (and eslint-config-next), fixing three advisories: remote
+  code execution in the image optimiser with SVG (GHSA-2464-fhr4-w9xw), remote code execution in
+  `use cache` functions (GHSA-673q-mjm6-r5xr) and a Server Actions denial of service
+  (GHSA-p3m5-59mp-jv5r). Still open from `npm audit`: nodemailer (high; fix is a major version)
+  and zod (high; patch available).
+
 ## Public site
 
 Home, how it works, the search firm directory, pricing, FAQ, security, privacy, terms, refunds, cookies, accessibility,
