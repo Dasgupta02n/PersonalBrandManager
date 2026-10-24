@@ -167,14 +167,14 @@ repo). Open:
 - Founder name, city, legal name and a business address in `OPERATOR` (needed for the grievance
   officer, terms and Paddle before payments open)
 - Verify the site in Google Search Console and Bing Webmaster Tools; submit the sitemap
-- winwall.app (bought 2026-10-24): the site address, contact emails, security.txt and the sign-in
-  sender are set in the code; deploy once the domain registration, DNS and mailbox work
-  (`docs/DEPLOY.md`, "Moving to winwall.app")
+- winwall.app (bought 2026-10-24): registered and resolving to the VPS; DNS set 2026-10-24
+  (A, MX, SPF, DKIM, DMARC, autodiscover; `www` is a CNAME to the apex). The code on `main` uses it.
+  Left: the mailbox and the edge and app redeploys below (`docs/DEPLOY.md`, "Moving to winwall.app")
 - Guides and free tools from the keyword map (year-end review content first)
 
 ## Needed to run end to end
 
-See `docs/DEPLOY.md`. Running since 2026-10-21 as **Winwall** (https://winwall.app), all on our own
+See `docs/DEPLOY.md`. Running since 2026-10-21 as **Winwall** (moving to https://winwall.app), all on our own
 VPS: PostgreSQL 17, our own email sign-in and sessions, internal passwords created on the server,
 and nightly encrypted backups (backup and restore tested). Supabase is no longer used (the old
 project is kept for now, by decision). Hostinger's weekly VPS snapshots stay on, by decision; they
@@ -182,8 +182,12 @@ are stored outside India (most likely Malaysia) and not encrypted by us. Open:
 - In Docker Manager, project `pbm`: `SMTP_PASSWORD` (until then nobody can sign in),
   `OPENROUTER_API_KEY` and `BACKUP_PASSPHRASE`
 - Google Drive for backups (rclone, `drive.file` scope)
-- winwall.app: finish the registration, DNS records and the hello@winwall.app mailbox (with the
-  privacy@ alias); then the move above
+- winwall.app mailbox: attach the Business Email order to winwall.app and create
+  hello@winwall.app in hPanel (the API needs a password to create it); then the privacy@ alias
+- Edge project: paste `deploy/edge.compose.yml` in hPanel (the API can only replace the whole
+  project, which would recreate hanumat). Until then the live site stays on the old Caddy config.
+- App project: paste `deploy/app.compose.yml` in hPanel, keeping the environment. The live project
+  predates `pbm-privacy` and migrations 0002 and 0003; the redeploy adds both
 - Privacy notice: legal entity name and address, and legal review. (`privacy@winwall.app` will be an
   alias delivering to hello@winwall.app.)
 
